@@ -1,11 +1,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import HeadingThree from './HeadingThree'
+import DisplayThree from './DisplayThree'
 import React from 'react';
 import Input from './Input';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
+import BodyTwo from './BodyTwo';
+import SubTitleFourCaps from './SubTitileFourCaps';
+import BodyOne from './BodyOne';
 
 interface PartnerType{
     name: string,
@@ -75,15 +78,15 @@ const partners:Array<PartnerType> = [
 const Footer: React.FC = () => {
     return (
         <footer>
-            <section className="container mx-auto lg:flex justify-between items-center py-[120px] px-3">
+            <section className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center py-[120px] px-3">
                 {/* Left Section */}
-                <div className="lg:w-1/2 space-y-4">
-                    <HeadingThree content={"Ready to transform Your Business?"}/>
-                    <p className="py-[30px] text-[#404040]">Experience the power of seamless content management. Try it free or book a demo today!</p>
+                <div className="space-y-4">
+                    <DisplayThree content={"Ready to transform Your Business?"}/>
+                    <BodyTwo content={"Experience the power of seamless content management. Try it free or book a demo today!"} className={"text-[#404040]"}/>
                     <SecondaryButton content="Contact Sales"/>
                 </div>
                 {/* Right Section - Form */}
-                <div className="lg:w-1/2 mt-[50px] p-9 lg:p-12 bg-gray-50 rounded-xl shadow-lg round-[14px] border border-gray-300">
+                <div className="mt-[50px] p-9 lg:p-12 bg-gray-50 rounded-xl shadow-lg round-[14px] border border-gray-300">
                     <form className="space-y-4 lg:space-y-8">
                         <div>
                             <Input type="text" placeholder="Full Name" />
@@ -101,8 +104,8 @@ const Footer: React.FC = () => {
 
             <section className='py-[100px] bg-[#F5F7FA] px-3'>
                 <div className='container mx-auto'>
-                    <HeadingThree content="BILDIT CMS provides SDK and API integrations" className="text-center"/>
-                    <p className="py-[49px] uppercase text-[#595959] text-center font[16px] lg:font-[24px] secondary-font">with top e-commerce platforms:</p>
+                    <DisplayThree content="BILDIT CMS provides SDK and API integrations" className="text-center"/>
+                    <SubTitleFourCaps content='with top e-commerce platforms:'/>
                     <div className='flex justify-center'>
                         <div className='text-center grid  2xl:flex 2xl:item-center grid-cols-2 lg:grid-cols-3 gap-8'>
                             {
@@ -122,8 +125,8 @@ const Footer: React.FC = () => {
             </section>
             <div className='footer px-3'>
                 <section className="container mx-auto py-[62px]">
-                    <HeadingThree content="Sign up for valuable insights" className='text-center'/>
-                    <p className="py-[50px] text-[#595959] text-center text-[16px] lg:text-[24px] leading-[32px]">Don't worry we won't spam you, we send a insights for how to improve your mobile app</p>
+                    <DisplayThree content="Sign up for valuable insights" className='text-center'/>
+                    <BodyOne content={"Don't worry we won't spam you, we send a insights for how to improve your mobile app"}/>
                     <div className='flex justify-center items-center'>
                         <div>
                             <input

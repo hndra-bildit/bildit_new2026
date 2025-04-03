@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import localFont from 'next/font/local'
 
 import "./globals.css";
-
+import "swiper/css";
+import "swiper/css/navigation";
 
 const mainFont = localFont({
   src:'../public/fonts/Uncut-Sans/Webfonts/UncutSans-Regular.woff2',

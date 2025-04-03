@@ -6,7 +6,7 @@ interface Props{
 
 const SubTitleThree: React.FC<Props> = ({ content, className }) =>{
     return (
-        <p className={`text-[32px] font-500 text-[#595959] mt-[20px] ${className}`}>{content}</p>
+        <p className={`text-[32px] font-500 text-[#595959] ${className}`}>{content}</p>
     )
 }
 

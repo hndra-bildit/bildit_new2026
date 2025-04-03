@@ -7,6 +7,9 @@ import BelkResultsImage from "./components/BelkResultImage";
 import IntroVideo from "./components/IntroVideo";
 import HomeSelectGroups from "./components/HomeSelectGroups";
 import SubTitleThree from "./components/SubTitleThree";
+import SubTitleFiveCaps from "./components/SubTitleFiveCaps";
+import BodyTwo from "./components/BodyTwo";
+import DisplayOne from "./components/DisplayOne";
 
 
 
@@ -62,9 +65,9 @@ export default function Home() {
       <section className="">
         <div className="container mx-auto mt-[180px] py-[80px] grid grid-cols-2 gap-[40px]">
           <div>
-            <p className="text-[#ED1E79] text-[20px] font-500 secondary-font leading-[100%] upper-case">Why BILDIT</p>
+            <SubTitleFiveCaps content={"Why BILDIT"}/>
             <HeadingTwo content={"Build Anything You Want."} />
-            <p className="pt-[30px] text-[32px] leading-[100%] font-500 text-[#595959]">No coding experience required. Without IT.</p>
+            <SubTitleThree content={"No coding experience required. Without IT."} className={"mt-[30px]"}/>
           </div>
           <div className="mt-[52px] space-y-[14px]">
             <p className="leading-[26px] text-[18px] text-[#595959] font-400">BILDIT CMS was designed for e-commerce marketing teams striving to deliver highly personalized, targeted campaigns across web and mobile channels. It was born from the frustration of dealing with limited solutions that made creating engaging, effective campaigns unnecessarily slow or generic. Waiting weeks to launch on mobile or settling for cookie-cutter tools shouldn’t hold back your growth.</p>
@@ -79,9 +82,9 @@ export default function Home() {
 
       <section className="pt-[212px] bg-[#F5F7FA]">
         <div className="container mx-auto">
-          <p className="text-[#ED1E79] text-[20px] font-500 secondary-font leading-[100%] uppercase text-center">BILDIT CMS overview</p>
+          <SubTitleFiveCaps content={"BILDIT CMS overview"} className={"text-center"}/>
           <HeadingTwo content={"Deliver seamless cross-channel content that boosts revenue."} className={"text-center"}/>
-          <p className="pt-[30px] text-[32px] leading-[100%] font-500 text-[#595959] text-center">Launch more, launch faster. On BILDIT CMS, you can line up your next campaign in hours, not weeks.</p>
+          <SubTitleThree content={"Launch more, launch faster. On BILDIT CMS, you can line up your next campaign in hours, not weeks."} className={"text-center mt-[20px]"}/>
           <div className="flex justify-between flex-wrap pb-[122px]">
             {
               cardgroup.map((item, key) => {
@@ -113,9 +116,9 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <p className="text-[#ED1E79] text-[20px] font-500 secondary-font leading-[100%] uppercase">Easy cross-channel content management</p>
-            <HeadingTwo content="Build and manage content for web and mobile. In a single CMS."/>
-            <p className="py-[30px] text-[32px] leading-[100%] font-500 text-[#595959]">Create, edit and store your content. Automatically update and archive campaigns. Simplify your review process.</p>
+            <SubTitleFiveCaps content={"Easy cross-channel content management"}/>
+            <HeadingTwo content="Build and manage content for web and mobile. In a single CMS." className={"mt-[10px]"}/>
+            <BodyTwo content={"Create, edit and store your content. Automatically update and archive campaigns. Simplify your review process."}/>
             <PrimaryButton content="Explore Admin Features"/>
 
           </div>
@@ -125,9 +128,9 @@ export default function Home() {
       <section className="sixteen-section py-[90px]">
         <div className="container mx-auto flex justify-between items-center">
           <div className="max-w-[892px]">
-            <p className="text-[#ED1E79] text-[20px] font-500 secondary-font leading-[100%] uppercase">One backend. One unified solution.</p>
-            <h1 className="text-[74px] secondary-font text-white font-extrabold leading-[100%]">Effortlessly create sophisticated content for web and mobile</h1>
-            <p className="py-[30px] text-[20px] font-500 text-[#D3D6DB]">One CMS platform. Endless possibilities to create stunning images, banners, recommendations, animations and customized display configurations.</p>
+            <SubTitleFiveCaps content={"One backend. One unified solution."}/>
+            <DisplayOne content={"Effortlessly create sophisticated content for web and mobile"} className={"text-white"}/>
+            <BodyTwo content={"One CMS platform. Endless possibilities to create stunning images, banners, recommendations, animations and customized display configurations."} className={"text-[#D3D6DB]"}/>
           </div>
           <div>
             <Image src="/images/Img_Home_LastSection.png" alt="Img_Home_LastSection.png" width={471} height={461} />
