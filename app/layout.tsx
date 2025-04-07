@@ -28,9 +28,9 @@ export default function RootLayout({
         className={`${mainFont.className} antialiased`}
       >
         <Header/>
-          <div className="px-3 md:px-0">
-            {children}
-          </div>
+        <div className="px-3 md:px-0">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

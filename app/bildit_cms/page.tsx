@@ -6,12 +6,11 @@ import SubTitleFiveCaps from "../components/SubTitleFiveCaps";
 import DisplayOne from "../components/DisplayOne";
 import BodyTwo from "../components/BodyTwo";
 import CardFour from "../components/CardFour";
-import CardFive, { CardFiveSubItemType } from "../components/CardFive";
+import CardFive from "../components/CardFive";
 import { CardFiveItemType } from "../components/CardFive";
 import SubTitleFive from "../components/SubTitleFive";
 import BodyFour from "../components/BodyFour";
 import SecondaryButton from "../components/SecondaryButton";
-import { CardSixItemType } from "../components/CardSix";
 
 const retailers = [
     { src:"/images/Belk_logo.svg", alt: "Belk_logo.svg", width:162, height:69 },
