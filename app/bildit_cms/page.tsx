@@ -8,6 +8,7 @@ import BodyTwo from "../components/BodyTwo";
 import CardFour from "../components/CardFour";
 import CardFive from "../components/CardFive";
 import { CardFiveItemType } from "../components/CardFive";
+import CardSix, { CardSixItemType } from "../components/CardSix";
 import SubTitleFive from "../components/SubTitleFive";
 import BodyFour from "../components/BodyFour";
 import SecondaryButton from "../components/SecondaryButton";
@@ -18,8 +19,8 @@ const retailers = [
 ]
 
 const CardFourItems = [
-    { src:"/images/Image(5).png", alt: "Image(5).png", width:556, height:556 },
-    { src:"/images/Image(6).png", alt: "Image(6).png", width:556, height:556 }
+    { src:"/images/Image(5).png", alt: "Image(5).png", width:557, height:557 },
+    { src:"/images/Image(6).png", alt: "Image(6).png", width:557, height:557 }
 ]
 
 const CardFiveItemsOne :Array<CardFiveItemType>= [
@@ -105,15 +106,47 @@ const CardFiveItemsThree :Array<CardFiveItemType>= [
     }
 ]
 
-// const CardSixItems:Array<CardSixItemType>=[
-
-// ]
+const CardSixItems:Array<CardSixItemType>=[
+    { 
+        head: "Native mobile checkout kit", 
+        title: "Get higher point-of-sale conversions", 
+        subitems:[
+            "Seamlessly move customers from shopping to checkout",
+            "Enable one-tap checkout and payment to decrease cart abandonment rates",
+            "Encourage repeat purchases with {{*****}}"
+        ]
+    },{ 
+        head: "Out-of-the-box mobile app kit", 
+        title: "Build faster with customizable app components", 
+        subitems:[
+            "Customize the app to fit your brand and provide custom brand experiences",
+            "Add secure point-of-sales pages and native checkout to reduce abandoned cart rates",
+            "Easily add products to pre-built detail pages"
+        ]
+    },{ 
+        head: "Out-of-the-box web storefront kit", 
+        title: "Deploy platform-agnostic,  .       pre-built pages", 
+        subitems:[
+            "Get immediate SEO improvements with out-of-the box SEO optimization",
+            "Use pre-built pages and components to enhance customer experience",
+            "Own the web code and customize as you grow"
+        ]
+    },{ 
+        head: "Custom app build", 
+        title: "Launch a fully customized mobile app", 
+        subitems:[
+            "Customize app snippets to bring your mobile app build ideas to life",
+            "Get priority access to support and request new features as you increase app adoption",
+            "Own and reuse plug-and-play elements"
+        ]
+    },
+]
 // const SectionItems:Array<Array<CardFiveItemType>> = [CardFiveItemsOne,CardFiveItemsTwo,CardFiveItemsThree];
 
 export default function BilditCMS(){
     return (
         <>
-            <section className="px-3 pt-[160px] pb-[260px] bg-[url('/images/store_front_BG.png')] bg-cover bg-center">
+            <section className="px-3 pt-[160px] pb-[260px] bg-[url('/images/BG_CMS.png')] bg-cover bg-center">
                 <div className="container mx-auto grid lg:grid-cols-2">
                     <div>
                         <HeadingOne
@@ -155,48 +188,49 @@ export default function BilditCMS(){
 
             <section>
                 <div className="container mx-auto mt-[200px]">
-                    <div className="flex justify-between gap-[60px] py-[100px]">
-                        <div>
+                    <div className="flex justify-between items-center gap-[60px] py-[100px]">
+                        <div className="w-[70%]">
                             <SubTitleFiveCaps content="Single CMS Platform"/>
                             <DisplayOne content="Using  Code-As-Content  Snippets."/>
                             <SubTitleThree content="To craft relevant, personalized, and targeted campaigns across channels." className="my-[30px]"/>
                             <BodyTwo content="Single e-commerce CMS platform for all of your content. Without higher deployment costs or having to hire new team members"/>
                         </div>
-                        <div>
+                        <div className="w-[30%]">
                             <CardFour item={CardFourItems[0]} />
                         </div>
                     </div>
 
-                    <div className="flex flex-row-reverse justify-between gap-[60px] py-[100px]">
-                        <div className="flex items-center">
-                            <div>
-                                <SubTitleFiveCaps content="MakE Life Easier"/>
-                                <DisplayOne content="No coding background? No problem! "/>
-                                <SubTitleThree content="Anyone can build content with ease." className="my-[30px]"/>
-                                <BodyTwo content="Stop missing out on higher retention, upsell and AOV increase opportunities. Build out sophisticated campaigns. Set up display and segmentation rules. Run A/B tests and continue improving your campaigns."/>
-                            </div>
+                    <div className="flex flex-row-reverse justify-between items-center gap-[60px] py-[100px]">
+                        <div className="w-[70%]">
+                            <SubTitleFiveCaps content="MakE Life Easier"/>
+                            <DisplayOne content="No coding background?"/>
+                            <DisplayOne content="No problem! "/>
+                            <SubTitleThree content="Anyone can build content with ease." className="my-[30px]"/>
+                            <BodyTwo content="Stop missing out on higher retention, upsell and AOV increase opportunities. Build out sophisticated campaigns. Set up display and segmentation rules. Run A/B tests and continue improving your campaigns."/>
                         </div>
-                        <div>
-                            <CardFour item={CardFourItems[1]} />
+                        <div className="w-[30%]">
+                            <CardFour item={CardFourItems[0]} />
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="container mx-auto py-[100px]">
-                <SubTitleFiveCaps content="Streamlined content editing and maintenance"/>
-                <DisplayOne content="Scale campaigns across all your channels. Without drowning in admin tasks."/>
-                <div className="pt-[50px] lg:flex space-x-[40px]">
-                    <div className="flex-1">
-                        <BodyTwo content="Having too many pre-launch tasks across different content databases for each channel is slowing down your marketing team. In BILDIT CMS, this is no longer an issue." className="mt-0"/>
-                        <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
-                    </div>
-                    <div className="flex-2">
-                    {
-                        CardFiveItemsOne.map((item, key) => {
-                            return ( <CardFive item={item} key={key} /> )
-                        })
-                    }
+            <section className="bg-[url('/images/Vector245.png')]  bg-[30%] bg-left bg-no-repeat">
+                <div className="container mx-auto py-[100px]">
+                    <SubTitleFiveCaps content="Streamlined content editing and maintenance"/>
+                    <DisplayOne content="Scale campaigns across all your channels. Without drowning in admin tasks."/>
+                    <div className="pt-[50px] lg:flex space-x-[40px]">
+                        <div className="flex-1">
+                            <BodyTwo content="Having too many pre-launch tasks across different content databases for each channel is slowing down your marketing team. In BILDIT CMS, this is no longer an issue." className="mt-0"/>
+                            <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
+                        </div>
+                        <div className="flex-2">
+                        {
+                            CardFiveItemsOne.map((item, key) => {
+                                return ( <CardFive item={item} key={key} /> )
+                            })
+                        }
+                        </div>
                     </div>
                 </div>
             </section>
@@ -219,20 +253,22 @@ export default function BilditCMS(){
                 </div>
             </section>
                     
-            <section className="container mx-auto py-[100px]">
-                <SubTitleFiveCaps content="Advanced content management and personalization"/>
-                <DisplayOne content="Fully realize your mobile app potential, without additional development costs"/>
-                <div className="pt-[50px] lg:flex space-x-[40px]">
-                    <div className="flex-1">
-                        <BodyTwo content="Go beyond baseline app features and increase AOV and customer LTV with deep link targeting, personalization and seamless e-commerce platform integrations" className="mt-0"/>
-                        <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
-                    </div>
-                    <div className="flex-2">
-                    {
-                        CardFiveItemsThree.map((item, key) => {
-                            return ( <CardFive item={item} key={key} /> )
-                        })
-                    }
+            <section className="bg-[url('/images/Vector246.png')]  bg-[30%] bg-right bg-no-repeat">
+                <div className="container mx-auto py-[100px]">
+                    <SubTitleFiveCaps content="Advanced content management and personalization"/>
+                    <DisplayOne content="Fully realize your mobile app potential, without additional development costs"/>
+                    <div className="pt-[50px] lg:flex space-x-[40px]">
+                        <div className="flex-1">
+                            <BodyTwo content="Go beyond baseline app features and increase AOV and customer LTV with deep link targeting, personalization and seamless e-commerce platform integrations" className="mt-0"/>
+                            <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
+                        </div>
+                        <div className="flex-2">
+                        {
+                            CardFiveItemsThree.map((item, key) => {
+                                return ( <CardFive item={item} key={key} /> )
+                            })
+                        }
+                        </div>
                     </div>
                 </div>
             </section>
@@ -257,10 +293,21 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="cointainer mx-auto">
-                <SubTitleFiveCaps content="BILDIT add-on products and services" className="text-center"/>
-                <DisplayOne content="If you need it, we can BILDIT. Or have built it already." className="text-center"/>
-                <SubTitleThree content="Enhance your customer's checkout experience, refresh your web storefront or get a brand-new custom app" className="text-center mt-[50px]"/>
+            <section className="bg-[#FAFAFA]">
+                <div className="container mx-auto py-[180px]">
+                    <SubTitleFiveCaps content="BILDIT add-on products and services" className="text-center"/>
+                    <DisplayOne content="If you need it, we can BILDIT" className="text-center"/>
+                    <DisplayOne content="Or have built it already." className="text-center"/>
+                    <SubTitleThree content="Enhance your customer's checkout experience," className="text-center mt-[50px]"/>
+                    <SubTitleThree content="refresh your web storefront or get a brand-new custom app" className="text-center"/>
+                    <div className="flex justify-center flex-wrap gap-[40px]">
+                    {
+                        CardSixItems.map((item, key) => {
+                            return ( <CardSix item={item} key={key}/>)
+                        })
+                    }
+                    </div>
+                </div>
             </section>
 
         </>

@@ -105,24 +105,7 @@ export default function Home() {
       </section>
 
       <section className="py-[100px] fifth-section">
-        <div className="flex space-x-[20px] justify-center">
           <HomeSelectGroups/>
-        </div>
-
-        <div className="container mx-auto flex items-center grid grid-cols-2 py-[100px]">
-          <div>
-            <div>
-              <Image src="/images/computer_group.png" alt="computer_group.png" width={0} height={0} className="w-full h-auto" unoptimized/>
-            </div>
-          </div>
-          <div>
-            <SubTitleFiveCaps content={"Easy cross-channel content management"}/>
-            <HeadingTwo content="Build and manage content for web and mobile. In a single CMS." className={"mt-[10px]"}/>
-            <BodyTwo content={"Create, edit and store your content. Automatically update and archive campaigns. Simplify your review process."}/>
-            <PrimaryButton content="Explore Admin Features"/>
-
-          </div>
-        </div>
       </section>
 
       <section className="sixteen-section py-[90px]">
