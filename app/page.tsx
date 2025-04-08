@@ -26,7 +26,7 @@ const belkResults:Array<{ src:string, alt:string }>= [
 export default function Home() {
   return (
     <>
-      <section className="store-front pt-[160px]">
+      <section className="pt-[160px] bg-[url('/images/Hero.png')] bg-cover bg-center">
         <div className="container mx-auto">
           <HeadingOne
             sub1={"Modern"}
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-[100px] fifth-bg-[url('/images/fifthSection.png')] bg-cover bg-center">
+      <section className="py-[100px] bg-[url('/images/fifthSection.png')] bg-cover bg-center">
           <HomeSelectGroups/>
       </section>
 
