@@ -146,7 +146,7 @@ const CardSixItems:Array<CardSixItemType>=[
 export default function BilditCMS(){
     return (
         <>
-            <section className="px-3 pt-[160px] pb-[260px] bg-[url('/images/BG_CMS.png')] bg-cover bg-center">
+            <section className="px-[16px] lg:px-0 pt-[160px] pb-[260px] bg-[url('/images/BG_CMS.png')] bg-cover bg-center">
                 <div className="container mx-auto grid lg:grid-cols-2">
                     <div>
                         <HeadingOne
@@ -186,7 +186,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section>
+            <section className="px-[16px] lg:px-0">
                 <div className="container mx-auto mt-[200px]">
                     <div className="flex justify-between items-center gap-[60px] py-[100px]">
                         <div className="w-[70%]">
@@ -215,7 +215,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[url('/images/Vector245.png')]  bg-[30%] bg-left bg-no-repeat">
+            <section className="bg-[url('/images/Vector245.png')]  bg-[30%] bg-left bg-no-repeat px-[16px] lg:px-0">
                 <div className="container mx-auto py-[100px]">
                     <SubTitleFiveCaps content="Streamlined content editing and maintenance"/>
                     <DisplayOne content="Scale campaigns across all your channels. Without drowning in admin tasks."/>
@@ -235,7 +235,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="container mx-auto py-[100px]">
+            <section className="container mx-auto py-[100px] px-[16px] lg:px-0">
                 <SubTitleFiveCaps content="Complete control over content design and build"/>
                 <DisplayOne content="Launch in hours, improve targeting, boost e-commerce revenue"/>
                 <div className="pt-[50px] lg:flex space-x-[40px]">
@@ -253,7 +253,7 @@ export default function BilditCMS(){
                 </div>
             </section>
                     
-            <section className="bg-[url('/images/Vector246.png')]  bg-[30%] bg-right bg-no-repeat">
+            <section className="bg-[url('/images/Vector246.png')] bg-[30%] bg-right bg-no-repeat px-[16px] lg:px-0">
                 <div className="container mx-auto py-[100px]">
                     <SubTitleFiveCaps content="Advanced content management and personalization"/>
                     <DisplayOne content="Fully realize your mobile app potential, without additional development costs"/>
@@ -273,7 +273,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[#252340]">
+            <section className="bg-[#252340] px-[16px] lg:px-0">
                 <div className="container mx-auto flex py-[81px]">
                     <div className="flex-2">
                         <Image src="/images/Img_ProductPage_last.png" alt="Img_ProductPage_last.png" width={544} height={643}/>
@@ -293,7 +293,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[#FAFAFA]">
+            <section className="bg-[#FAFAFA] px-[16px] lg:px-0">
                 <div className="container mx-auto py-[180px]">
                     <SubTitleFiveCaps content="BILDIT add-on products and services" className="text-center"/>
                     <DisplayOne content="If you need it, we can BILDIT" className="text-center"/>

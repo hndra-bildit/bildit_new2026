@@ -78,9 +78,9 @@ const partners:Array<PartnerType> = [
 const Footer: React.FC = () => {
     return (
         <footer>
-            <section className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center py-[120px] px-3">
+            <section className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center py-[120px] px-[16px] lg:px-0">
                 {/* Left Section */}
-                <div className="space-y-4">
+                <div className="space-y-4 text-center lg:text-left">
                     <DisplayThree content={"Ready to transform Your Business?"}/>
                     <BodyTwo content={"Experience the power of seamless content management. Try it free or book a demo today!"} className={"text-[#404040]"}/>
                     <SecondaryButton content="Contact Sales"/>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
                 </div>
             </section>
 
-            <section className='py-[100px] bg-[#F5F7FA] px-3'>
+            <section className="py-[100px] bg-[#F5F7FA] px-[16px] lg:px-0">
                 <div className='container mx-auto'>
                     <DisplayThree content="BILDIT CMS provides SDK and API integrations" className="text-center"/>
                     <SubTitleFourCaps content='with top e-commerce platforms:'/>
@@ -123,25 +123,27 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
             </section>
-            <div className='footer px-3'>
-                <section className="container mx-auto py-[62px]">
-                    <DisplayThree content="Sign up for valuable insights" className='text-center'/>
-                    <BodyOne content={"Don't worry we won't spam you, we send a insights for how to improve your mobile app"}/>
-                    <div className='flex justify-center items-center'>
-                        <div>
-                            <input
-                            type="email"
-                            placeholder="Email"
-                            className="w-240px lg:w-[490px] px-[20px] py-[9px] border border-[#697B8C rounded-[3px] focus:outline-none focus:border-blue-500 text-[18px]"
-                            />
+            <section className="lg:bg-[url('/images/bg-footer.png')] pb-[100px] bg-cover bg-center">
+                <div className="bg-[url('/images/shadeBlurr-Subscribe.png')] bg-cover bg-center lg:bg-none">
+                    <div className="container mx-auto py-[62px]">
+                        <DisplayThree content="Sign up for valuable insights" className='text-center'/>
+                        <BodyOne content={"Don't worry we won't spam you, we send a insights for how to improve your mobile app"} className="my-[50px] text-center"/>
+                        <div className='flex justify-center items-center'>
+                            <div>
+                                <input
+                                type="email"
+                                placeholder="Email"
+                                className="w-240px lg:w-[490px] px-[20px] py-[9px] border border-[#697B8C rounded-[3px] focus:outline-none focus:border-blue-500 text-[18px]"
+                                />
+                            </div>
+                            <div className='pl-[20px]'>
+                                <PrimaryButton content= "Subscribe"/>
+                            </div>
                         </div>
-                        <div className='pl-[20px]'>
-                            <PrimaryButton content= "Subscribe"/>
-                        </div>
+                        <hr className="my-[21px] lg:my-[50px] border-gray-300" />
                     </div>
-                    <hr className="my-[21px] lg:my-[50px] border-gray-300" />
-                </section>
-                <section className="">
+                </div>
+                <div className="bg-center px-[16px] lg:px-0 lg:bg-none">
                     <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-[14px] lg:text-[18px] text-[#595959] text-center lg:text-left">
                         {/* Logo & Contact */}
                         <div className='text-center'>
@@ -223,8 +225,8 @@ const Footer: React.FC = () => {
                             }
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </footer>
     )
 }

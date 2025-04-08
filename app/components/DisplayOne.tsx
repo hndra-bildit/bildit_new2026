@@ -6,7 +6,7 @@ interface Props{
 }
 const DisplayOne: React.FC<Props> = ({ content, className }) => {
     return (
-        <h2 className={`text-[54px] lg:text-[74px] text-black secondary-font font-extrabold leading-[100%] ${className}`}>{content}</h2>
+        <h2 className={`text-[32px] lg:text-[74px] text-black secondary-font font-extrabold leading-[100%] ${className}`}>{content}</h2>
     )
 }
 

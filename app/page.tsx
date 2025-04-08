@@ -104,11 +104,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-[100px] fifth-section">
+      <section className="py-[100px] fifth-bg-[url('/images/fifthSection.png')] bg-cover bg-center">
           <HomeSelectGroups/>
       </section>
 
-      <section className="sixteen-section py-[90px]">
+      <section className="sixteen-section py-[90px] fifth-bg-[url('/images/sixteen_bg.png')] bg-cover bg-center">
         <div className="container mx-auto flex justify-between items-center">
           <div className="max-w-[892px]">
             <SubTitleFiveCaps content={"One backend. One unified solution."}/>

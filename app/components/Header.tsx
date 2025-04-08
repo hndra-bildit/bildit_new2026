@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 
   return (
-    <header className="absolute w-full left-0 top-0 flex">
+    <header className="absolute w-full left-0 top-0 flex bg-transparent">
       <div className="flex w-full justify-between items-center py-[40px] px-2 xl:p-[40px]">
         <div className="flex">
           {/* Logo */}

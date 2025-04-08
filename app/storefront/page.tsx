@@ -45,8 +45,8 @@ const RealWorldCardItems:Array<CardItemsType> = [
 
 export default function StoreFront() {
     return (
-        <>
-            <section className="pt-[160px] text-center bg-[url('/images/store_front_BG.png')] bg-cover bg-center">
+        <div>
+            <section className="pt-[160px] text-center bg-[url('/images/store_front_BG.png')] bg-cover bg-center px-[16px] lg:px-0">
                 <HeadingOne
                     sub1={"BILDIT"}
                     sub2={"Storefront"}
@@ -62,7 +62,7 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="container mx-auto mt-[210px] mb-[200px] text-center">
+            <section className="container mx-auto mt-[210px] mb-[200px] text-center px-[16px] lg:px-0">
                 <SubTitleFiveCaps content={"Key Benefits"} className={"text-center"}/>
                 <div className="max-w-[928px] inline-block">
                     <DisplayOne content={"Revolutionizing E-commerce Management: The Perks"} className={"text-[#171717] text-center mt-[10px]"}/>
@@ -76,7 +76,7 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="container mx-auto">
+            <section className="container mx-auto px-[16px] lg:px-0">
                 <DisplayOne content={"Why Mobile App is important?"} className="text-center"/>
                 <SubTitleThree content={"33% of daily waking hours spent in mobile app."} className={"mt-20px text-center"}/>
                 <div className="flex flex-wrap justify-around pt-[80px]">
@@ -90,7 +90,7 @@ export default function StoreFront() {
                     <PrimaryButton content={"Calculate ROI"}/>
                 </div>
             </section>
-            <section className="bg-[url('/images/Vector245.png')] bg-auto bg-left-top bg-no-repeat">
+            <section className="bg-[url('/images/Vector245.png')] bg-auto bg-left-top bg-no-repeat px-[16px] lg:px-0">
                 <div className="container mx-auto py-[200px]">
                     <SubTitleFiveCaps content={"App and Website"}/>
                     <DisplayOne content={"Unlock the Full Potential of Your Storefront"} className={"max-w-[1000px]"}/>
@@ -110,7 +110,7 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="bg-[url('/images/Vector246.png')] bg-auto bg-right-bottom bg-no-repeat">
+            <section className="bg-[url('/images/Vector246.png')] bg-auto bg-right-bottom bg-no-repeat px-[16px] lg:px-0">
                 <div className="container mx-auto py-[200px]">
                     <SubTitleFiveCaps content={"Real-World Examples"}/>
                     <DisplayOne content={"Transforming E-commerce Operations"} className={"max-w-[879px]"}/>
@@ -124,17 +124,17 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="bg-[url('/images/Frame19409.png')]   bg-cover bg-center py-[100px]">
+            <section className="bg-[url('/images/Frame19409.png')] bg-cover bg-center py-[100px] px-[16px] lg:px-0">
                 <div className="container mx-auto">
                     <DisplayThree content={"Success Stories"}/>
                     <BodyTwo content={"What our clients have to say after using BILDIT"} className={"mt-[30px]"}/>
                     <SwiperCarousel/>
                 </div>
             </section>
-            <section className="bg-[url('/images/Frame298.png')] bg-cover bg-center py-[100px]">
+            <section className="bg-[url('/images/Frame298.png')] bg-cover bg-center py-[100px] px-[16px] lg:px-0">
                 <div className="container mx-auto">
                     <SubTitleFiveCaps content="Technical Details for Experts"/>
-                    <DisplayOne content="BILDIT: A Platform Empowering Developers, Solution Integrators, and Marketers" className={"text-[white] max-w-[1410px]"}/>
+                    <DisplayOne content="BILDIT: A Platform Empowering Developers, Solution Integrators, and Marketers" className={"text-white max-w-[1410px]"}/>
                     <div className="grid grid-cols-2 pt-[91px]">
                         <div>
                             <p className="text-[#D3D6DB] font-[34px] text-24px leading-[34px]">BILDIT understands that the entire team plays a role in the success of your app.  Your marketing team must be able to give the customer what they want.  Your system integrator must be able to start fast.  Your engineering team needs flexibility.  Ultimately you must give the customer a premium, high performing experience that converts.  It takes the whole team!</p>
@@ -146,6 +146,6 @@ export default function StoreFront() {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
