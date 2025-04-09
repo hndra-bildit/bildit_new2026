@@ -6,7 +6,7 @@ interface Props{
 
 const SubTitleFour: React.FC<Props> = ({ content, className }) =>{
     return (
-        <p className={`text-[24px] font-500 text-[#171717] leading-[100%] secondary-font ${className}`}>{content}</p>
+        <p className={`text-2xl font-500 text-black-one leading-[100%] font-gt-walsheim ${className}`}>{content}</p>
     )
 }
 

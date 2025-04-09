@@ -1,28 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-uncut-sans: "Uncut Sans";
+  --font-gt-walsheim:"GT Walsheim Trial"
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme{
+  --font-uncut-sans: var(--font-uncut-sans);
+  --font-gt-walsheim: var(--font-gt-walsheim);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --color-black-one: rgba(23, 23, 23, 1); /* #171717 black1 or dark*/
+  --color-pink-main: rgba(237, 30, 121, 1); /* #ED1E79 Ping Main */
+  --color-light-gray: rgba(245, 247, 250, 1); /* #171717 Light Gray*/
+  --color-grey: rgba(89, 89, 89, 1); /* #595959 Grey*/
 }
 
 /* Uncut Sans Regular */
