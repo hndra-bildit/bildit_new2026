@@ -74,7 +74,7 @@ export default function Pricing(){
     return(
         <>
             <section className="pt-[160px] px-4 lg:px-0">
-                <Image src={BG_Pricing} className="hidden lg:show absolute z-[-1] top-0 left-0" alt="BG_Pricing.png" style={{ width: '100%', height: 'auto'}}/>
+                <Image src={BG_Pricing} className="hidden lg:block absolute z-[-1] top-0 left-0" alt="BG_Pricing.png" style={{ width: '100%', height: 'auto'}}/>
                 <Image src={BG_Pricing_Mobile} className="lg:hidden absolute z-[-1] top-0 left-0" alt="BG_Pricing_Mobile.png" style={{ width: '100%', height: 'auto'}}/>
                 <HeadingOne 
                     sub1="Launch"
