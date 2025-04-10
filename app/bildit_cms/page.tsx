@@ -293,7 +293,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[#FAFAFA] px-4 lg:px-0">
+            <section className="bg-lighter-gray px-4 lg:px-0">
                 <div className="container mx-auto py-[180px]">
                     <SubTitleFiveCaps content="BILDIT add-on products and services" className="text-center"/>
                     <DisplayOne content="If you need it, we can BILDIT" className="text-center"/>
