@@ -50,9 +50,9 @@ export default function Home() {
         </div>
 
       </section>
-      <section className="py-[100px] bg-[#F5F7FA]">
+      <section className="py-[100px] bg-lighter-gray">
         <HeadingTwo content={"Belk's Results"} className={"text-center"}/>
-        <p className="text-[32px] font-600 leading-[40px] text-grey text-center">After Switching to BILDIT CMS and App</p>
+        <p className="text-3xl font-600 leading-[40px] text-grey text-center">After Switching to BILDIT CMS and App</p>
         <div className="container mx-auto flex justify-between">
         {
           belkResults.map((item, key) => (
@@ -76,25 +76,25 @@ export default function Home() {
         </div>
         <div className="flex justify-center relative">
           <IntroVideo src={"/images/Screenshot 2023-09-06 at 19.17 1.png"}/>
-          <div className="h-1/2 w-full bg-[#F5F7FA] absolute bottom-0 left-0 z-[-1]"></div>
+          <div className="h-1/2 w-full bg-lighter-gray absolute bottom-0 left-0 z-[-1]"></div>
         </div>
       </section>
 
-      <section className="pt-[212px] bg-[#F5F7FA]">
+      <section className="pt-[212px] bg-lighter-gray">
         <div className="container mx-auto">
           <SubTitleFiveCaps content={"BILDIT CMS overview"} className={"text-center"}/>
           <HeadingTwo content={"Deliver seamless cross-channel content that boosts revenue."} className={"text-center"}/>
-          <SubTitleThree content={"Launch more, launch faster. On BILDIT CMS, you can line up your next campaign in hours, not weeks."} className={"text-center mt-[20px]"}/>
+          <SubTitleThree content={"Launch more, launch faster. On BILDIT CMS, you can line up your next campaign in hours, not weeks."} className={"text-center mt-5"}/>
           <div className="flex justify-between flex-wrap pb-[122px]">
             {
               cardgroup.map((item, key) => {
                 return (
-                  <div className="max-w-[440px] pt-[50px]" key={key}>
-                    <div className="flex justify-center py-[77] border border-[#DBDBDB] rounded-[14px] bg-[#F5F7FA] shadow-[0px_5px_10px_0px_rgba(0,0,0,0.1)]">
+                  <div className="max-w-[440px] pt-12" key={key}>
+                    <div className="flex justify-center py-[77] border border-[#DBDBDB] rounded-[14px] bg-lighter-gray shadow-[0px_5px_10px_0px_rgba(0,0,0,0.1)]">
                       <Image src={`/images/${item.src}`} alt={item.alt} width={216} height={266} />
                     </div>
                     <div>
-                      <p className="mt-12 text-[34px] font-bold text-center font-gt-walsheim leading-[100%]">{item.title}</p>
+                      <p className="mt-12 text-4xl font-bold text-center font-gt-walsheim leading-[100%]">{item.title}</p>
                     </div>
                   </div>
                 )

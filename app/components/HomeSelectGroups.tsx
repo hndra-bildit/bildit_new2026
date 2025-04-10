@@ -79,7 +79,7 @@ const HomeSelectGroups: React.FC = () => {
                 {
                     GroupItems.map((item, key) => {
                         return (
-                        <button key={key} onClick={()=>handleChange(item.name)} className={`font-gt-walsheim hover:bg-black-one hover:text-white transition duration-500 text-2xl w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? "bg-black-one text-white":"bg-[#F5F7FA] text-[#404040]"}`}>
+                        <button key={key} onClick={()=>handleChange(item.name)} className={`font-gt-walsheim hover:bg-black-one hover:text-white transition duration-500 text-2xl w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? "bg-black-one text-white":"bg-lighter-gray text-[#404040]"}`}>
                             <div className="text-center flex justify-center">
                                 <Image src={`/images/${type === item.name ? item.active_url:item.unactive_url}`} alt={item.active_url} width={34} height={34}/>
                             </div>

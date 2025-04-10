@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                     <SecondaryButton content="Contact Sales"/>
                 </div>
                 {/* Right Section - Form */}
-                <div className="mt-[50px] p-9 lg:p-12 bg-gray-50 rounded-xl shadow-lg round-[14px] border border-gray-300">
+                <div className="mt-12 p-9 lg:p-12 bg-gray-50 rounded-xl shadow-lg round-[14px] border border-gray-300">
                     <form className="space-y-4 lg:space-y-8">
                         <div>
                             <Input type="text" placeholder="Full Name" />
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
                         <div>
                             <Input type="email" placeholder="Email" />
                         </div>
-                        <div className='md:flex items-center justify-end mt-[32px] lg:mt-[50px] text-right'>
+                        <div className='md:flex items-center justify-end mt-8 lg:mt-12 text-right'>
                             <p className="text-sm text-black font-gt-walsheim tracking-wide font-[14px] mr-[25px] text-left">*No credit card required</p>
                             <PrimaryButton content='Start Your Free Trial' className='mx-right' />
                         </div>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-[100px] bg-[#F5F7FA] px-4 lg:px-0">
+            <section className="py-[100px] bg-lighter-gray px-4 lg:px-0">
                 <div className='container mx-auto'>
                     <DisplayThree content="BILDIT CMS provides SDK and API integrations" className="text-center"/>
                     <SubTitleFourCaps content='with top e-commerce platforms:'/>
@@ -133,25 +133,25 @@ const Footer: React.FC = () => {
                                 <input
                                 type="email"
                                 placeholder="Email"
-                                className="w-240px lg:w-[490px] px-[20px] py-[9px] border border-[#697B8C rounded-[3px] focus:outline-none focus:border-blue-500 text-[18px]"
+                                className="w-240px lg:w-[490px] px-5 py-2border border-[#697B8C rounded-[3px] focus:outline-none focus:border-blue-500 text-[18px]"
                                 />
                             </div>
-                            <div className='pl-[20px]'>
+                            <div className='pl-5'>
                                 <PrimaryButton content= "Subscribe"/>
                             </div>
                         </div>
-                        <hr className="my-[21px] lg:my-[50px] border-gray-300" />
+                        <hr className="my-5 lg:my-12 border-gray-300" />
                     </div>
                 </div>
-                <div className="bg-center px-[16px] lg:px-0 lg:bg-none">
+                <div className="bg-center px-4 lg:px-0 lg:bg-none">
                     <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-[14px] lg:text-[18px] text-grey text-center lg:text-left">
                         {/* Logo & Contact */}
                         <div className='text-center'>
                             <div className="w-[127px] h-[37px] lg:w-[187px] lg:h-[54px] relative inline-block" >
                                 <Image src="/images/bildit_horiz.svg" layout="fill" objectFit="cover" className='inline-block' alt="BILDIT Logo"/>
                             </div>
-                            <div className="space-y-[0px] lg:space-y-[20px]">
-                                <div className="mt-4 mt-[39px]">
+                            <div className="space-y-0 lg:space-y-5">
+                                <div className="mt-4 mt-10">
                                     <Image className='inline-block' src="/images/markunread_mailbox.svg" alt="company contact email" width={24} height={24} />
                                     <span className='ml-4'>hello@bildit.co</span>
                                 </div>
@@ -163,7 +163,7 @@ const Footer: React.FC = () => {
                                 <p className='font-normal leading-[26px] tracking-[0%]'>Charlotte NC 28277</p>
                             </div>
 
-                            <div className='space-x-6 pt-[39px]'>
+                            <div className='space-x-6 pt-10'>
                                 {
                                     sociallink.map((item,key) => {
                                         return (
@@ -178,7 +178,7 @@ const Footer: React.FC = () => {
 
                         {/* Links */}
                         <div>
-                            <ul className="space-y-[3px] lg:space-y-[30px]">
+                            <ul className="space-y-1 lg:space-y-7">
                                 {
                                     linkgroup1.map((item, key) => {
                                         return ( 
@@ -189,7 +189,7 @@ const Footer: React.FC = () => {
                             </ul>
                         </div>
                         <div>
-                            <ul className="space-y-[3px] lg:space-y-[30px]">
+                            <ul className="space-y-1 lg:space-y-7">
                                 {
                                     linkgroup2.map((item, key) => {
                                         return ( 
@@ -201,7 +201,7 @@ const Footer: React.FC = () => {
                         </div>
 
                         <div>
-                            <ul className="space-y-[3px] lg:space-y-[30px]">
+                            <ul className="space-y-1 lg:space-y-7">
                                 {
                                     linkgroup3.map((item, key) => {
                                         return ( 
@@ -213,7 +213,7 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="container mx-auto md:flex justify-between text-center text-[12px] lg-text-[16px] text-gray-500 py-[30px]">
+                    <div className="container mx-auto md:flex justify-between text-center text-[12px] lg-text-base text-gray-500 py-7">
                         <p>Copyright &copy; 2023 BILDIT, INC. All Rights Reserved</p>
                         <div className="flex justify-center gap-4 mt-2">
                             {

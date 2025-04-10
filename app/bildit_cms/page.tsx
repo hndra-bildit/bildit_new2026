@@ -167,10 +167,10 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[#F5F7FA] py-[55px]">
+            <section className="bg-lighter-gray py-[55px]">
                 <div className="container mx-auto">
-                    <h5 className="font-400 text-[21px] md:text-[27px] lg:text-[34px] leading-[100%] tracking-[-0.23px] text-grey text-center">Some of the retailers growing their revenue with BILDIT content management system</h5>
-                    <div className="mt-[50px] flex flex-wrap items-center justify-center">
+                    <h5 className="font-400 text-xl md:text-3xl lg:text-4xl leading-[100%] tracking-[-0.23px] text-grey text-center">Some of the retailers growing their revenue with BILDIT content management system</h5>
+                    <div className="mt-12 flex flex-wrap items-center justify-center">
                         {
                             retailers.map((item, key) => {
                                 return(
@@ -186,13 +186,13 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="px-[16px] lg:px-0">
+            <section className="px-4 lg:px-0">
                 <div className="container mx-auto mt-[200px]">
                     <div className="flex justify-between items-center gap-[60px] py-[100px]">
                         <div className="w-[70%]">
                             <SubTitleFiveCaps content="Single CMS Platform"/>
                             <DisplayOne content="Using  Code-As-Content  Snippets."/>
-                            <SubTitleThree content="To craft relevant, personalized, and targeted campaigns across channels." className="my-[30px]"/>
+                            <SubTitleThree content="To craft relevant, personalized, and targeted campaigns across channels." className="my-7"/>
                             <BodyTwo content="Single e-commerce CMS platform for all of your content. Without higher deployment costs or having to hire new team members"/>
                         </div>
                         <div className="w-[30%]">
@@ -205,7 +205,7 @@ export default function BilditCMS(){
                             <SubTitleFiveCaps content="MakE Life Easier"/>
                             <DisplayOne content="No coding background?"/>
                             <DisplayOne content="No problem! "/>
-                            <SubTitleThree content="Anyone can build content with ease." className="my-[30px]"/>
+                            <SubTitleThree content="Anyone can build content with ease." className="my-7"/>
                             <BodyTwo content="Stop missing out on higher retention, upsell and AOV increase opportunities. Build out sophisticated campaigns. Set up display and segmentation rules. Run A/B tests and continue improving your campaigns."/>
                         </div>
                         <div className="w-[30%]">
@@ -215,14 +215,14 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[url('/images/Vector245.png')]  bg-[30%] bg-left bg-no-repeat px-[16px] lg:px-0">
+            <section className="bg-[url('/images/Vector245.png')]  bg-[30%] bg-left bg-no-repeat px-4 lg:px-0">
                 <div className="container mx-auto py-[100px]">
                     <SubTitleFiveCaps content="Streamlined content editing and maintenance"/>
                     <DisplayOne content="Scale campaigns across all your channels. Without drowning in admin tasks."/>
-                    <div className="pt-[50px] lg:flex space-x-[40px]">
+                    <div className="pt-12 lg:flex space-x-10">
                         <div className="flex-1">
                             <BodyTwo content="Having too many pre-launch tasks across different content databases for each channel is slowing down your marketing team. In BILDIT CMS, this is no longer an issue." className="mt-0"/>
-                            <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
+                            <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-12"/>
                         </div>
                         <div className="flex-2">
                         {
@@ -235,13 +235,13 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="container mx-auto py-[100px] px-[16px] lg:px-0">
+            <section className="container mx-auto py-[100px] px-4 lg:px-0">
                 <SubTitleFiveCaps content="Complete control over content design and build"/>
                 <DisplayOne content="Launch in hours, improve targeting, boost e-commerce revenue"/>
-                <div className="pt-[50px] lg:flex space-x-[40px]">
+                <div className="pt-12 lg:flex space-x-10">
                     <div className="flex-1">
                         <BodyTwo content="In BILDIT content management system, your marketing team can build out all digital campaigns with code-as-content snippets included in your subscription. No wait time, no additional costs." className="mt-0"/>
-                        <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
+                        <PrimaryButton content="Get A Demo" className="mt-8 md:mt-0 lg:mt-[80px] mb-12"/>
                     </div>
                     <div className="flex-2">
                     {
@@ -253,14 +253,14 @@ export default function BilditCMS(){
                 </div>
             </section>
                     
-            <section className="bg-[url('/images/Vector246.png')] bg-[30%] bg-right bg-no-repeat px-[16px] lg:px-0">
+            <section className="bg-[url('/images/Vector246.png')] bg-[30%] bg-right bg-no-repeat px-4 lg:px-0">
                 <div className="container mx-auto py-[100px]">
                     <SubTitleFiveCaps content="Advanced content management and personalization"/>
                     <DisplayOne content="Fully realize your mobile app potential, without additional development costs"/>
-                    <div className="pt-[50px] lg:flex space-x-[40px]">
+                    <div className="pt-12 lg:flex space-x-10">
                         <div className="flex-1">
                             <BodyTwo content="Go beyond baseline app features and increase AOV and customer LTV with deep link targeting, personalization and seamless e-commerce platform integrations" className="mt-0"/>
-                            <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-[50px]"/>
+                            <PrimaryButton content="Get A Demo" className="mt-[32px] md:mt-0 lg:mt-[80px] mb-12"/>
                         </div>
                         <div className="flex-2">
                         {
@@ -273,7 +273,7 @@ export default function BilditCMS(){
                 </div>
             </section>
 
-            <section className="bg-[#252340] px-[16px] lg:px-0">
+            <section className="bg-[#252340] px-4 lg:px-0">
                 <div className="container mx-auto flex py-[81px]">
                     <div className="flex-2">
                         <Image src="/images/Img_ProductPage_last.png" alt="Img_ProductPage_last.png" width={544} height={643}/>
@@ -285,7 +285,7 @@ export default function BilditCMS(){
                         </div>
                         <div className="mt-2">
                             <BodyTwo content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo sapien habitasse sapien ornare diam in at malesuada. Mauris, sed eget gravida sit blandit. Arcu dolor lacus hac enim, aliquet pretium in. Sit non cursus eu sagittis. Pretium et ac risus amet. Posuere sagittis quam tellus, nisl amet rhoncus, ullamcorper. " className="!text-light-gray"/>
-                            <SubTitleFive content="John Doe" className="mt-[18px] lg:mt-8"/>
+                            <SubTitleFive content="John Doe" className="mt-4 lg:mt-8"/>
                             <BodyFour content="CEO BELK"/>
                             <SecondaryButton content="Case Study" className="mt-[80px] font-gt-walsheim"/>
                         </div>

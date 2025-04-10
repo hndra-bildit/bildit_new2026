@@ -13,7 +13,7 @@ const CardOne: React.FC<Props> = ({ item }) => {
 
     return (
         <div className="w-[320px] mt-12 mx-5">
-            <div className="bg-[#F5F7FA] border-light-gray rounded-[14px] flex items-center justify-center py-[103px]">
+            <div className="bg-lighter-gray border-light-gray rounded-[14px] flex items-center justify-center py-[103px]">
                 <Image src={item.src} alt={item.alt} width={168} height={168}/>
             </div>
             <div className="text-center">
