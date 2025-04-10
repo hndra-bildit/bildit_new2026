@@ -11,11 +11,11 @@ interface Props{
 }
 const CardThree: React.FC<Props> = ({ item }) => {
     return (
-        <div className="h-[476px] p-[40px] flex items-center text-[#595959] shadow-lg radius-[14px] mx-[20px] bg-white">
+        <div className="h-[476px] p-10 flex items-center text-grey shadow-lg radius-[14px] mx-5 bg-white">
             <div>
-                <BodyTwo content={item.content} className={"text-[#171717!important]"}/>
-                <p className="text-[20px] leading-[100%] font-500 secondary-font mt-[50px]">{item.name}</p>
-                <p className="mt-[10px]">{item.company}</p>
+                <BodyTwo content={item.content} className={"!text-black-one"}/>
+                <p className="text-xl leading-[100%] font-medium font-gt-walsheim mt-[50px]">{item.name}</p>
+                <p className="mt-2">{item.company}</p>
             </div>
         </div>
     )

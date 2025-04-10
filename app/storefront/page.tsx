@@ -14,7 +14,7 @@ import SwiperCarousel from "../components/SwiperCarousel";
 import SecondaryButton from "../components/SecondaryButton";
 import Image from 'next/image';
 
-
+// to-do: should come from CMS
 const IconItems:Array<IconItemsType> =[
     { src: "/images/Group 19390.svg" , alt: "Group 19390.svg", content: "Repeat Purchases"},
     { src: "/images/Group 19391.svg" , alt: "Group 19391.svg", content: "Increase in AOV"},
@@ -46,14 +46,14 @@ const RealWorldCardItems:Array<CardItemsType> = [
 export default function StoreFront() {
     return (
         <div>
-            <section className="pt-[160px] text-center bg-[url('/images/store_front_BG.png')] bg-cover bg-center px-[16px] lg:px-0">
+            <section className="pt-[160px] text-center bg-[url('/images/store_front_BG.png')] bg-cover bg-center px-4 lg:px-0">
                 <HeadingOne
                     sub1={"BILDIT"}
                     sub2={"Storefront"}
                     className1={"text-center"}
                     className2={"bg-gradient-to-r from-pink-300 via-pink-500 to-purple-400 text-transparent bg-clip-text"}
                 />
-                <SubTitleThree content={"Stop building, start launching—we’ve done the work for you!"} className={"text-center"}/>
+                <SubTitleThree content={"Stop building, start launching—we`ve done the work for you!"} className={"text-center"}/>
                 <div className="mt-[80px] text-center">
                     <PrimaryButton content="Get Started"/>
                 </div>
@@ -62,10 +62,10 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="container mx-auto mt-[210px] mb-[200px] text-center px-[16px] lg:px-0">
+            <section className="container mx-auto mt-[210px] mb-[200px] text-center px-4 lg:px-0">
                 <SubTitleFiveCaps content={"Key Benefits"} className={"text-center"}/>
                 <div className="max-w-[928px] inline-block">
-                    <DisplayOne content={"Revolutionizing E-commerce Management: The Perks"} className={"text-[#171717] text-center mt-[10px]"}/>
+                    <DisplayOne content={"Revolutionizing E-commerce Management: The Perks"} className={"text-black-one text-center mt-[10px]"}/>
                 </div>
                 <div className="flex justify-center flex-wrap">
                     {
@@ -76,9 +76,9 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="container mx-auto px-[16px] lg:px-0">
+            <section className="container mx-auto px-4 lg:px-0">
                 <DisplayOne content={"Why Mobile App is important?"} className="text-center"/>
-                <SubTitleThree content={"33% of daily waking hours spent in mobile app."} className={"mt-20px text-center"}/>
+                <SubTitleThree content={"33% of daily waking hours spent in mobile app."} className={"mt-5 text-center"}/>
                 <div className="flex flex-wrap justify-around pt-[80px]">
                     {
                         IconItems.map((item,key) => {
@@ -94,12 +94,12 @@ export default function StoreFront() {
                 <div className="container mx-auto py-[200px]">
                     <SubTitleFiveCaps content={"App and Website"}/>
                     <DisplayOne content={"Unlock the Full Potential of Your Storefront"} className={"max-w-[1000px]"}/>
-                    <div className="mt-[50px]">
+                    <div className="mt-12">
                         <div className="lg:grid grid-cols-2 space-x-[60px]">
                             <CardTwo item={UnLockCardItems[0]} />
                             <CardTwo item={UnLockCardItems[1]} />
                         </div>
-                        <div className="xl:grid grid-cols-3 space-x-[40px] mt-[40px]">
+                        <div className="xl:grid grid-cols-3 space-x-10 mt-10">
                             {
                                     [1,2,3].map((_, idx) => {
                                         return ( <CardTwo item={UnLockCardItems[Number(idx) + 2]} key={idx} /> )
@@ -110,34 +110,34 @@ export default function StoreFront() {
                 </div>
             </section>
 
-            <section className="bg-[url('/images/Vector246.png')] bg-auto bg-right-bottom bg-no-repeat px-[16px] lg:px-0">
+            <section className="bg-[url('/images/Vector246.png')] bg-auto bg-right-bottom bg-no-repeat px-4 lg:px-0">
                 <div className="container mx-auto py-[200px]">
                     <SubTitleFiveCaps content={"Real-World Examples"}/>
                     <DisplayOne content={"Transforming E-commerce Operations"} className={"max-w-[879px]"}/>
-                    <div className="grid grid-cols-2 gap-[40px] mt-[50px]">
+                    <div className="grid grid-cols-2 gap-10 mt-12">
                         {
                             RealWorldCardItems.map((item,key) => {
-                                return( <CardTwo item={item} className={"mb-[30px]"} key={key}/> )
+                                return( <CardTwo item={item} className={"mb-8"} key={key}/> )
                             })
                         }
                     </div>
                 </div>
             </section>
 
-            <section className="bg-[url('/images/Frame19409.png')] bg-cover bg-center py-[100px] px-[16px] lg:px-0">
+            <section className="bg-[url('/images/Frame19409.png')] bg-cover bg-center py-[100px] px-4 lg:px-0">
                 <div className="container mx-auto">
                     <DisplayThree content={"Success Stories"}/>
                     <BodyTwo content={"What our clients have to say after using BILDIT"} className={"mt-[30px]"}/>
                     <SwiperCarousel/>
                 </div>
             </section>
-            <section className="bg-[url('/images/Frame298.png')] bg-cover bg-center py-[100px] px-[16px] lg:px-0">
+            <section className="bg-[url('/images/Frame298.png')] bg-cover bg-center py-[100px] px-4 lg:px-0">
                 <div className="container mx-auto">
                     <SubTitleFiveCaps content="Technical Details for Experts"/>
                     <DisplayOne content="BILDIT: A Platform Empowering Developers, Solution Integrators, and Marketers" className={"text-white max-w-[1410px]"}/>
                     <div className="grid grid-cols-2 pt-[91px]">
                         <div>
-                            <p className="text-[#D3D6DB] font-[34px] text-24px leading-[34px]">BILDIT understands that the entire team plays a role in the success of your app.  Your marketing team must be able to give the customer what they want.  Your system integrator must be able to start fast.  Your engineering team needs flexibility.  Ultimately you must give the customer a premium, high performing experience that converts.  It takes the whole team!</p>
+                            <p className="text-light-gray  text-2xl leading-[34px]">BILDIT understands that the entire team plays a role in the success of your app.  Your marketing team must be able to give the customer what they want.  Your system integrator must be able to start fast.  Your engineering team needs flexibility.  Ultimately you must give the customer a premium, high performing experience that converts.  It takes the whole team!</p>
                             <SecondaryButton content="Developer Docs" className={"mt-[80px]"}/>
                         </div>
                         <div>

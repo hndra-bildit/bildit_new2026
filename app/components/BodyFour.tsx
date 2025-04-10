@@ -6,7 +6,7 @@ interface Props{
 }
 const BodyFour: React.FC<Props> = ({ content, className }) => {
     return (
-        <p className={`my-[50px] text-[#D3D6DB] font-400 text-[14px] lg:text-[16px] leading-[24px] secondary-font ${className}`}>{content}</p>
+        <p className={`my-12 text-light-gray font-normal text-[14px] lg:text-[16px] leading-[24px] font-gt-walsheim ${className}`}>{content}</p>
     )
 }
 

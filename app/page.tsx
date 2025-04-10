@@ -33,17 +33,17 @@ export default function Home() {
             sub2={"CMS"}
             sub3={"Unified Storefront"}
             className1={""}
-            className2={"bg-gradient-to-r from-[#ED1E79] to-[#3B1EED] bg-clip-text text-transparent"}
+            className2={"bg-gradient-to-r from-pink-main to-[#3B1EED] bg-clip-text text-transparent"}
           />
-          <div className="grid grid-cols-2 gap-[24px]">
+          <div className="grid grid-cols-2 gap-6">
             <div>
               <SubTitleThree content={"Empowering Marketers with Cross-Channel Control"}/>
-              <div className="flex space-x-[30px] mt-[80px]">
+              <div className="flex space-x-7 mt-[80px]">
                 <SecondaryButton content="Learn More"/>
                 <PrimaryButton content="Watch Demo" />
               </div>
             </div>
-            <div className="pt-[24px]">
+            <div className="pt-6">
               <Image alt="BILDIT CMS" src="/images/HeroImage.png" width={900} height={900}/>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function Home() {
       </section>
       <section className="py-[100px] bg-[#F5F7FA]">
         <HeadingTwo content={"Belk's Results"} className={"text-center"}/>
-        <p className="text-[32px] font-600 leading-[40px] text-[#595959] text-center">After Switching to BILDIT CMS and App</p>
+        <p className="text-[32px] font-600 leading-[40px] text-grey text-center">After Switching to BILDIT CMS and App</p>
         <div className="container mx-auto flex justify-between">
         {
           belkResults.map((item, key) => (
@@ -63,15 +63,15 @@ export default function Home() {
       </section>
 
       <section className="">
-        <div className="container mx-auto mt-[180px] py-[80px] grid grid-cols-2 gap-[40px]">
+        <div className="container mx-auto mt-[180px] py-[80px] grid grid-cols-2 gap-10">
           <div>
             <SubTitleFiveCaps content={"Why BILDIT"}/>
             <HeadingTwo content={"Build Anything You Want."} />
-            <SubTitleThree content={"No coding experience required. Without IT."} className={"mt-[30px]"}/>
+            <SubTitleThree content={"No coding experience required. Without IT."} className={"mt-7"}/>
           </div>
-          <div className="mt-[52px] space-y-[14px]">
-            <p className="leading-[26px] text-[18px] text-[#595959] font-400">BILDIT CMS was designed for e-commerce marketing teams striving to deliver highly personalized, targeted campaigns across web and mobile channels. It was born from the frustration of dealing with limited solutions that made creating engaging, effective campaigns unnecessarily slow or generic. Waiting weeks to launch on mobile or settling for cookie-cutter tools shouldn’t hold back your growth.</p>
-            <p className="leading-[26px] text-[18px] text-[#595959] font-400">That’s why we built BILDIT CMS - to give you the freedom to launch anything you want, exactly how and when you want, on both web and mobile platforms..</p>
+          <div className="mt-12 space-y-3">
+            <p className="leading-[26px] text-[18px] text-grey font-normal">BILDIT CMS was designed for e-commerce marketing teams striving to deliver highly personalized, targeted campaigns across web and mobile channels. It was born from the frustration of dealing with limited solutions that made creating engaging, effective campaigns unnecessarily slow or generic. Waiting weeks to launch on mobile or settling for cookie-cutter tools shouldn’t hold back your growth.</p>
+            <p className="leading-[26px] text-[18px] text-grey font-normal">That’s why we built BILDIT CMS - to give you the freedom to launch anything you want, exactly how and when you want, on both web and mobile platforms..</p>
           </div>
         </div>
         <div className="flex justify-center relative">
@@ -94,7 +94,7 @@ export default function Home() {
                       <Image src={`/images/${item.src}`} alt={item.alt} width={216} height={266} />
                     </div>
                     <div>
-                      <p className="mt-[50px] text-[34px] font-700 text-center secondary-font leading-[100%]">{item.title}</p>
+                      <p className="mt-12 text-[34px] font-bold text-center gt-walsheim leading-[100%]">{item.title}</p>
                     </div>
                   </div>
                 )
@@ -113,7 +113,7 @@ export default function Home() {
           <div className="max-w-[892px]">
             <SubTitleFiveCaps content={"One backend. One unified solution."}/>
             <DisplayOne content={"Effortlessly create sophisticated content for web and mobile"} className={"text-white"}/>
-            <BodyTwo content={"One CMS platform. Endless possibilities to create stunning images, banners, recommendations, animations and customized display configurations."} className={"text-[#D3D6DB]"}/>
+            <BodyTwo content={"One CMS platform. Endless possibilities to create stunning images, banners, recommendations, animations and customized display configurations."} className={"!text-light-gray"}/>
           </div>
           <div>
             <Image src="/images/Img_Home_LastSection.png" alt="Img_Home_LastSection.png" width={471} height={461} />

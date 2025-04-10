@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className="bg-center px-[16px] lg:px-0 lg:bg-none">
-                    <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-[14px] lg:text-[18px] text-[#595959] text-center lg:text-left">
+                    <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-[14px] lg:text-[18px] text-grey text-center lg:text-left">
                         {/* Logo & Contact */}
                         <div className='text-center'>
                             <div className="w-[127px] h-[37px] lg:w-[187px] lg:h-[54px] relative inline-block" >
@@ -153,11 +153,11 @@ const Footer: React.FC = () => {
                             <div className="space-y-[0px] lg:space-y-[20px]">
                                 <div className="mt-4 mt-[39px]">
                                     <Image className='inline-block' src="/images/markunread_mailbox.svg" alt="company contact email" width={24} height={24} />
-                                    <span className='ml-[15px]'>hello@bildit.co</span>
+                                    <span className='ml-4'>hello@bildit.co</span>
                                 </div>
-                                <div className="mt-4 mt-[20px]">
+                                <div className="mt-4 mt-5">
                                     <Image className='inline-block' src="/images/call.svg" alt="company contact phone" width={24} height={24} />
-                                    <span className='ml-[15px]'>(888) 245-8277</span>
+                                    <span className='ml-4'>(888) 245-8277</span>
                                 </div>
                                 <p className='font-normal leading-[26px] tracking-[0%]'>3540 Torringdon Way Suite 200</p>
                                 <p className='font-normal leading-[26px] tracking-[0%]'>Charlotte NC 28277</p>

@@ -16,14 +16,14 @@ interface Props{
 }
 const CardFive: React.FC<Props> = ({ item }) => {
     return (
-        <div className='bg-[#F5F7FA] borde border-[#D3D6DB] rounded-[14px] p-[24px] lg:p-[40px] text-[#595959] mb-[40px]'>
-            <h3 className='font-[700] text-[26px] xl:text-[32px] leading-[100%] secondary-font'>{item.title}</h3>
+        <div className='bg-[#F5F7FA] borde border-light-gray rounded-[14px] p-6 lg:p-10 text-grey mb-10'>
+            <h3 className='font-bold text-2xl xl:text-3xl leading-[100%] font-gt-walsheim'>{item.title}</h3>
             {
                 item.subitems.map((subitem,idx) => {
                     return (
-                        <div className='flex mt-[18px] lg:mt-[30px]' key={idx}>
-                            <div className='text-white rounded-full p-1 mr-[9px] lg:mr-[20px]'>{<Image src={`/images/${subitem.status?"Check_circle_solid.svg":"carbon_close-filled.svg"}`} width={34} height={34} alt="close"/> }</div>
-                            <p className='font-400 text-[24px] leading-[36px]'>{subitem.content}</p>
+                        <div className='flex mt-[18px] lg:mt-7' key={idx}>
+                            <div className='text-white rounded-full p-1 mr-2 lg:mr-5'>{<Image src={`/images/${subitem.status?"Check_circle_solid.svg":"carbon_close-filled.svg"}`} width={34} height={34} alt="close"/> }</div>
+                            <p className='font-normal text-2xl leading-[36px]'>{subitem.content}</p>
                         </div>
                     )
                 })

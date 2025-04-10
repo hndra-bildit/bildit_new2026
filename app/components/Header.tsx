@@ -11,14 +11,14 @@ const Header: React.FC = () => {
 
   return (
     <header className="absolute w-full left-0 top-0 flex bg-transparent">
-      <div className="flex w-full justify-between items-center py-[40px] px-2 xl:p-[40px]">
+      <div className="flex w-full justify-between items-center py-10 px-2 xl:p-10">
         <div className="flex">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold">
             <Image alt="BILDIT Logo" src="./images/logo.svg" width={134} height={30}/>
           </Link>
           {/* Desktop Navigation */}
-          <nav className="lg:pl-[24px] xl:pl-[50px] hidden lg:flex space-x-6 text-gray-700">
+          <nav className="lg:pl-6 xl:pl-[50px] hidden lg:flex space-x-6 text-gray-700">
             {["Products", "Partners", "Resources"].map((item) => (
               <div
                 key={item}
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
                 onMouseEnter={() => setDropdownOpen(item)}
                 onMouseLeave={() => setDropdownOpen(null)}
               >
-                <button className="text-[#404040] flex items-center font-[600]">
+                <button className="text-[#404040] flex items-center font-semibold">
                   {item} <FiChevronDown className="ml-1" />
                 </button>
                 {/* Dropdown */}
@@ -46,12 +46,12 @@ const Header: React.FC = () => {
         </div>
           <div className="hidden lg:flex space-x-4 items-center">
             <div>
-              <button className="transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-[30px] xl:py-2 rounded-full text-white bg-[#171717] cursor-pointer shadow-[0_0_0_1px_#171717] hover:bg-gray-200 hover:text-black hover:text-[#171717]">
+              <button className="transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-black-one cursor-pointer shadow-[0_0_0_1px_#171717] hover:bg-gray-200 hover:text-black hover:text-black-one">
                 Contact Sales
               </button>
             </div>
             <div>
-              <button className="transition-all duration-500 border-[2px] border-gray-500 px-4 py-2 xl:px-[30px] xl:py-2 rounded-full text-black bg-white cursor-pointer hover:bg-[#171717] hover:text-white">
+              <button className="transition-all duration-500 border-[2px] border-gray-500 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-black bg-white cursor-pointer hover:bg-black-one hover:text-white">
                 Start Free Trial
               </button>
             </div>
@@ -86,12 +86,12 @@ const Header: React.FC = () => {
           {/* Mobile Buttons */}
           <div className="flex  space-y-3 justify-center">
             <div className="px-1">
-              <button className="border border-black px-[30] py-1 rounded-full text-black hover:bg-gray-200 cursor-pointer">
+              <button className="border border-black px-7 py-1 rounded-full text-black hover:bg-gray-200 cursor-pointer">
                 Contact Sales
               </button>
             </div>
             <div className="px-1">
-              <button className="border border-black px-[30] py-1 rounded-full text-black bg-white hover:bg-gray-100 cursor-pointer">
+              <button className="border border-black px-7 py-1 rounded-full text-black bg-white hover:bg-gray-100 cursor-pointer">
                 Start Free Trial
               </button>
             </div>

@@ -4,8 +4,10 @@ import HeadingOne from "../components/HeadingOne";
 import SubTitleThree from "../components/SubTitleThree";
 import SectionCard, { SectionCardType } from "../components/SectionCard";
 import HeadingTwo from "../components/HeadingTwo";
-
-
+import BG_CommerceSuite from '../../public/images/BG_CommerceSuite.png'
+import BG_CommerceSuite_Mobile from '../../public/images/BG_CommerceSuite_Mobile.png'
+import BG_Left_Circle from '../../public/images/BG_Left_Circle.png'
+import BG_Right_Circle from '../../public/images/BG_Right_Circle.png'
 // @todo: should come from cms
 const CardItems:Array<SectionCardType> = [
     { 
@@ -43,7 +45,9 @@ const CardItems:Array<SectionCardType> = [
 export default function CommerceSuite(){
     return (
         <div className="text-center lg:text-left">
-            <section className="pt-[175px] bg-[url('/images/BG_CommerceSuite.png')] pb-[100px] bg-cover bg-center px-[16px] lg:px-0">
+            <section className="pt-[175px] lg:pb-[100px] px-[16px] lg:px-0">
+                <Image src={BG_CommerceSuite} className="absolute hidden lg:block top-0 left-0 z-[-1]" alt="BG_CommerceSuite.png" style={{ width: '100%', height: 'auto'}} />
+                <Image src={BG_CommerceSuite_Mobile} className="absolute block lg:hidden top-0 left-0 z-[-1]" alt="BG_CommerceSuite_Mobile.png" style={{ width: '100%', height: 'auto'}} />
                 <div className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center">
                     <div>
                         <HeadingOne
@@ -53,22 +57,26 @@ export default function CommerceSuite(){
                             className2="bg-gradient-to-r from-purple-700 via-pink-500 to-pink-400 bg-clip-text text-transparent" //from-[#3B1EED] via-[#ED1E79] via-[#EB67A1] via-[#ED1E79] to-[#ED1E79] bg-clip-text text-transparent
                         />
                         <SubTitleThree content="Unleash the Power of Commerce Suite with Our CMS" className="mt-[30px]"/>
-                        <BodyOne className="text-[#595959] my-[20px]" content="Say goodbye to the hassle of juggling multiple tools. Our cutting-edge CMS brings everything you need into one seamless platform, designed for modern e-commerce businesses."/>
+                        <BodyOne className="text-grey my-[20px]" content="Say goodbye to the hassle of juggling multiple tools. Our cutting-edge CMS brings everything you need into one seamless platform, designed for modern e-commerce businesses."/>
                     </div>
                     <div className="flex justify-center">
                         <Image src="/images/Hero_Image.png" alt="Hero_Image.png" width={604} height={493}/>
                     </div>
                 </div>
-                <div className="lg:pt-[100px]">
-                    <SectionCard item={CardItems[0]}/>
-                </div>
 
-            </section>
-            <section className="px-[16px] lg:px-0 bg-[url('/images/Vector245.png')] bg-[30%] bg-left bg-bottom bg-no-repeat">
                 {
-                    CardItems.slice(1).map((item, key) => {
+                    CardItems.map((item, key) => {
                         return ( 
-                            <SectionCard item={item} key={key}/> 
+                            <div className="relative" key={key}>
+                                {
+                                    key === 1 && ( <Image src={BG_Right_Circle} className="hidden lg:block absolute bottom-0 right-0 z-[-1]" alt="BG_Right_Circle.png" style={{ width: 'auto', height: 'auto'}} />)
+                                    
+                                }
+                                {
+                                    key === 2 && ( <Image src={BG_Left_Circle} className="hidden lg:block absolute top-50 left-0 z-[-1]" alt="BG_Left_Circle.png" style={{ width: 'auto', height: 'auto'}} />)
+                                }
+                                <SectionCard item={item} key={key}/> 
+                            </div>
                         )
                     })
                 }

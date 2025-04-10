@@ -66,7 +66,7 @@ const HomeSelectGroups: React.FC = () => {
             <HeadingTwo content={item.heading} />
             <BodyTwo content={item.content} />
             <Link href={item.link}>
-            <PrimaryButton content={item.label} className={item.name === 'Control'? "bg-[#ED1E79] shadow-none outline outline-1 outline-[#ED1E79]":''} />
+            <PrimaryButton content={item.label} className={item.name === 'Control'? "bg-pink-main shadow-none outline outline-1 outline-pink-main":''} />
             </Link>
         </div>
         </div>
@@ -79,11 +79,11 @@ const HomeSelectGroups: React.FC = () => {
                 {
                     GroupItems.map((item, key) => {
                         return (
-                        <button key={key} onClick={()=>handleChange(item.name)} className={`secondary-font hover:bg-[#171717!important] hover:text-white transition duration-500 text-[24px] w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? "bg-[#171717] text-white":"bg-[#F5F7FA] text-[#404040]"}`}>
+                        <button key={key} onClick={()=>handleChange(item.name)} className={`font-gt-walsheim hover:bg-black-one hover:text-white transition duration-500 text-2xl w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? "bg-black-one text-white":"bg-[#F5F7FA] text-[#404040]"}`}>
                             <div className="text-center flex justify-center">
                                 <Image src={`/images/${type === item.name ? item.active_url:item.unactive_url}`} alt={item.active_url} width={34} height={34}/>
                             </div>
-                            <span className="text-[24px] font-400">{item.name}</span>
+                            <span className="text-2xl font-normal">{item.name}</span>
                         </button>
                         )
                     })

@@ -169,7 +169,7 @@ export default function BilditCMS(){
 
             <section className="bg-[#F5F7FA] py-[55px]">
                 <div className="container mx-auto">
-                    <h5 className="font-400 text-[21px] md:text-[27px] lg:text-[34px] leading-[100%] tracking-[-0.23px] text-[#595959] text-center">Some of the retailers growing their revenue with BILDIT content management system</h5>
+                    <h5 className="font-400 text-[21px] md:text-[27px] lg:text-[34px] leading-[100%] tracking-[-0.23px] text-grey text-center">Some of the retailers growing their revenue with BILDIT content management system</h5>
                     <div className="mt-[50px] flex flex-wrap items-center justify-center">
                         {
                             retailers.map((item, key) => {
@@ -280,27 +280,27 @@ export default function BilditCMS(){
                     </div>
                     <div className="flex-3 my-[81px]">
                         <DisplayOne content="3x YoY revenue increase over 6 years" className="text-white"/>
-                        <div className="mt-[50px]">
+                        <div className="mt-12">
                             <Image src="/images/mark.svg" alt="mark.svg" width={56} height={40}/>
                         </div>
-                        <div className="mt-[10px]">
-                            <BodyTwo content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo sapien habitasse sapien ornare diam in at malesuada. Mauris, sed eget gravida sit blandit. Arcu dolor lacus hac enim, aliquet pretium in. Sit non cursus eu sagittis. Pretium et ac risus amet. Posuere sagittis quam tellus, nisl amet rhoncus, ullamcorper. " className="text-[#D3D6DB!important]"/>
-                            <SubTitleFive content="John Doe" className="mt-[18px] lg:mt-[30px]"/>
+                        <div className="mt-2">
+                            <BodyTwo content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo sapien habitasse sapien ornare diam in at malesuada. Mauris, sed eget gravida sit blandit. Arcu dolor lacus hac enim, aliquet pretium in. Sit non cursus eu sagittis. Pretium et ac risus amet. Posuere sagittis quam tellus, nisl amet rhoncus, ullamcorper. " className="!text-light-gray"/>
+                            <SubTitleFive content="John Doe" className="mt-[18px] lg:mt-8"/>
                             <BodyFour content="CEO BELK"/>
-                            <SecondaryButton content="Case Study" className="mt-[80px] secondary-font"/>
+                            <SecondaryButton content="Case Study" className="mt-[80px] font-gt-walsheim"/>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="bg-[#FAFAFA] px-[16px] lg:px-0">
+            <section className="bg-[#FAFAFA] px-4 lg:px-0">
                 <div className="container mx-auto py-[180px]">
                     <SubTitleFiveCaps content="BILDIT add-on products and services" className="text-center"/>
                     <DisplayOne content="If you need it, we can BILDIT" className="text-center"/>
                     <DisplayOne content="Or have built it already." className="text-center"/>
-                    <SubTitleThree content="Enhance your customer's checkout experience," className="text-center mt-[50px]"/>
+                    <SubTitleThree content="Enhance your customer's checkout experience," className="text-center mt-12"/>
                     <SubTitleThree content="refresh your web storefront or get a brand-new custom app" className="text-center"/>
-                    <div className="flex justify-center flex-wrap gap-[40px]">
+                    <div className="flex justify-center flex-wrap gap-10">
                     {
                         CardSixItems.map((item, key) => {
                             return ( <CardSix item={item} key={key}/>)
