@@ -1,17 +1,16 @@
-
-
-interface Props{
-    content:string
-    className?:string
+interface Props {
+  content: string
+  className?: string
 }
 
 const PrimaryButton: React.FC<Props> = ({ content, className }) => {
-    return (
-        <button 
-        className = {`transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-[30px] xl:py-2 rounded-full text-white bg-black-one cursor-pointer hover:bg-gray-200 hover:text-black hover:text-black-one text-base outline-2 outline-black-one ${className}`}>
-            {content}
-        </button>
-    )
+  return (
+    <button
+      className={`transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-[30px] xl:py-2 rounded-full text-white bg-black-one cursor-pointer hover:bg-gray-200 hover:text-black hover:text-black-one text-base outline-2 outline-black-one ${className}`}
+    >
+      {content}
+    </button>
+  )
 }
 
-export default PrimaryButton;
+export default PrimaryButton

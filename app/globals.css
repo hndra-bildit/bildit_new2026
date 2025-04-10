@@ -1,11 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --font-uncut-sans: "Uncut Sans";
-  --font-gt-walsheim:"GT Walsheim Trial"
+  --font-uncut-sans: 'Uncut Sans';
+  --font-gt-walsheim: 'GT Walsheim Trial';
 }
 
-@theme{
+@theme {
   --font-uncut-sans: var(--font-uncut-sans);
   --font-gt-walsheim: var(--font-gt-walsheim);
 
@@ -19,8 +19,9 @@
 /* Uncut Sans Regular */
 @font-face {
   font-family: 'Uncut Sans';
-  src: url('/fonts/Uncut-Sans/UncutSans-Regular.woff2') format('woff2'),
-       url('/fonts/Uncut-Sans/UncutSans-Regular.woff') format('woff');
+  src:
+    url('/fonts/Uncut-Sans/UncutSans-Regular.woff2') format('woff2'),
+    url('/fonts/Uncut-Sans/UncutSans-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -28,18 +29,19 @@
 /* Uncut Sans Bold */
 @font-face {
   font-family: 'Uncut Sans';
-  src: url('/fonts/UncutSans-Bold.woff2') format('woff2'),
-       url('/fonts/UncutSans-Bold.woff') format('woff');
+  src:
+    url('/fonts/UncutSans-Bold.woff2') format('woff2'),
+    url('/fonts/UncutSans-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
-
 /* Uncut Sans Italic */
 @font-face {
   font-family: 'Uncut Sans';
-  src: url('/fonts/UncutSans-BoldItalic.woff2') format('woff2'),
-       url('/fonts/UncutSans-BoldItalic.woff') format('woff');
+  src:
+    url('/fonts/UncutSans-BoldItalic.woff2') format('woff2'),
+    url('/fonts/UncutSans-BoldItalic.woff') format('woff');
   font-weight: 800;
   font-style: italic;
 }
@@ -66,4 +68,3 @@
   font-weight: 800; /* Bold */
   font-style: normal;
 }
-

@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi'
 
 const Header: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
 
   return (
     <header className="absolute w-full left-0 top-0 flex bg-transparent">
@@ -15,11 +15,11 @@ const Header: React.FC = () => {
         <div className="flex">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold">
-            <Image alt="BILDIT Logo" src="./images/logo.svg" width={134} height={30}/>
+            <Image alt="BILDIT Logo" src="./images/logo.svg" width={134} height={30} />
           </Link>
           {/* Desktop Navigation */}
           <nav className="lg:pl-6 xl:pl-[50px] hidden lg:flex space-x-6 text-gray-700">
-            {["Products", "Partners", "Resources"].map((item) => (
+            {['Products', 'Partners', 'Resources'].map((item) => (
               <div
                 key={item}
                 className="relative"
@@ -32,30 +32,38 @@ const Header: React.FC = () => {
                 {/* Dropdown */}
                 {dropdownOpen === item && (
                   <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Option 1</Link>
-                    <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Option 2</Link>
+                    <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
+                      Option 1
+                    </Link>
+                    <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
+                      Option 2
+                    </Link>
                   </div>
                 )}
               </div>
             ))}
-            <Link href="/pricing" className="hover:text-black font-[600]">Pricing</Link>
-            <Link href="/our-story" className="hover:text-black font-[600]">Our Story</Link>
+            <Link href="/pricing" className="hover:text-black font-[600]">
+              Pricing
+            </Link>
+            <Link href="/our-story" className="hover:text-black font-[600]">
+              Our Story
+            </Link>
           </nav>
 
           {/* Desktop Buttons */}
         </div>
-          <div className="hidden lg:flex space-x-4 items-center">
-            <div>
-              <button className="transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-black-one cursor-pointer shadow-[0_0_0_1px_#171717] hover:bg-gray-200 hover:text-black hover:text-black-one">
-                Contact Sales
-              </button>
-            </div>
-            <div>
-              <button className="transition-all duration-500 border-[2px] border-gray-500 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-black bg-white cursor-pointer hover:bg-black-one hover:text-white">
-                Start Free Trial
-              </button>
-            </div>
+        <div className="hidden lg:flex space-x-4 items-center">
+          <div>
+            <button className="transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-black-one cursor-pointer shadow-[0_0_0_1px_#171717] hover:bg-gray-200 hover:text-black hover:text-black-one">
+              Contact Sales
+            </button>
           </div>
+          <div>
+            <button className="transition-all duration-500 border-[2px] border-gray-500 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-black bg-white cursor-pointer hover:bg-black-one hover:text-white">
+              Start Free Trial
+            </button>
+          </div>
+        </div>
 
         {/* Mobile Menu Icon */}
         <button className="lg:hidden text-black" onClick={() => setMenuOpen(!menuOpen)}>
@@ -66,18 +74,22 @@ const Header: React.FC = () => {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <nav className="lg:hidden bg-white shadow-md absolute top-16 left-0 w-full p-5 space-y-4 text-gray-700">
-          {["Products", "Partners", "Resources", "Pricing", "Our Story"].map((item) => (
+          {['Products', 'Partners', 'Resources', 'Pricing', 'Our Story'].map((item) => (
             <div key={item} className="border-b-1 border-black">
               <button
                 className="flex items-center w-full hover:text-black cursor-pointer"
                 onClick={() => setDropdownOpen(dropdownOpen === item ? null : item)}
               >
-                {item} {["Products", "Partners", "Resources"].includes(item) && <FiChevronDown className="ml-1" />}
+                {item} {['Products', 'Partners', 'Resources'].includes(item) && <FiChevronDown className="ml-1" />}
               </button>
-              {dropdownOpen === item && ["Products", "Partners", "Resources"].includes(item) && (
+              {dropdownOpen === item && ['Products', 'Partners', 'Resources'].includes(item) && (
                 <div className="ml-4 mt-2 space-y-2">
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Option 1</Link>
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Option 2</Link>
+                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
+                    Option 1
+                  </Link>
+                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
+                    Option 2
+                  </Link>
                 </div>
               )}
             </div>
@@ -99,7 +111,7 @@ const Header: React.FC = () => {
         </nav>
       )}
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
