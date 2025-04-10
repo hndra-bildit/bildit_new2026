@@ -28,7 +28,7 @@ const PriceCard:React.FC<Props> = ({ item }) =>{
     })
     return (
         <div className={`px-8 py-10 mt-5  text-grey max-w-[370px] rounded-[14px] ${item.isPopular? "bg-[rgba(237,30,121,0.1)]":"border border-[#DBDBDB] bg-[#F5F7FA]"}`}>
-            <label className={`bg-gradient-to-r from-[#9103F8] to-[#3B1EED] gt-walsheim text-transparent text-white text-base font-400 leading-[18px] px-[10px] py-[5px] rounded-[40px] ${ !item.isPopular ? "invisible":""}`}>Most Popular</label>
+            <label className={`bg-gradient-to-r from-[#9103F8] to-[#3B1EED] font-gt-walsheim text-transparent text-white text-base font-400 leading-[18px] px-[10px] py-[5px] rounded-[40px] ${ !item.isPopular ? "invisible":""}`}>Most Popular</label>
             <div className="h-[310px]">
                 <HeadingThreeCaps content={item.title} className="mt-10 text-pink-main"/>
                 <BodyThree content={item.content} className="mt-3"/>

@@ -94,7 +94,7 @@ export default function Home() {
                       <Image src={`/images/${item.src}`} alt={item.alt} width={216} height={266} />
                     </div>
                     <div>
-                      <p className="mt-12 text-[34px] font-bold text-center gt-walsheim leading-[100%]">{item.title}</p>
+                      <p className="mt-12 text-[34px] font-bold text-center font-gt-walsheim leading-[100%]">{item.title}</p>
                     </div>
                   </div>
                 )
