@@ -65,7 +65,7 @@ const CMSFeaturesTable: React.FC = () => {
             key={index}
             className={index % 2 === 0 ? "bg-white" : "bg-light-gray"}
         >
-            <td className="py-[19px] px-[10px] text-xl text-black-one secondary-font w-1/3">
+            <td className="py-[19px] px-[10px] text-xl text-black-one font-gt-walsheim w-1/3">
                 <SubTitleFive content={feature.title}/>
             </td>
             <td className="py-[19px] px-[10px]">

@@ -78,7 +78,7 @@ const partners:Array<PartnerType> = [
 const Footer: React.FC = () => {
     return (
         <footer>
-            <section className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center py-[120px] px-[16px] lg:px-0">
+            <section className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center py-[120px] px-4 lg:px-0">
                 {/* Left Section */}
                 <div className="space-y-4 text-center lg:text-left">
                     <DisplayThree content={"Ready to transform Your Business?"}/>
@@ -95,14 +95,14 @@ const Footer: React.FC = () => {
                             <Input type="email" placeholder="Email" />
                         </div>
                         <div className='md:flex items-center justify-end mt-[32px] lg:mt-[50px] text-right'>
-                            <p className="text-sm text-black secondary-font tracking-wide font-[14px] mr-[25px] text-left">*No credit card required</p>
+                            <p className="text-sm text-black font-gt-walsheim tracking-wide font-[14px] mr-[25px] text-left">*No credit card required</p>
                             <PrimaryButton content='Start Your Free Trial' className='mx-right' />
                         </div>
                     </form>
                 </div>
             </section>
 
-            <section className="py-[100px] bg-[#F5F7FA] px-[16px] lg:px-0">
+            <section className="py-[100px] bg-[#F5F7FA] px-4 lg:px-0">
                 <div className='container mx-auto'>
                     <DisplayThree content="BILDIT CMS provides SDK and API integrations" className="text-center"/>
                     <SubTitleFourCaps content='with top e-commerce platforms:'/>

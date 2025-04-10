@@ -4,7 +4,7 @@ interface Props{
 }
 const HeadingThreeCaps: React.FC<Props> = ({ content, className }) => {
     return (
-        <h3 className={`text-[32px] secondary-font leading-[100%] font-bold uppercase ${className}`}>{content}</h3>
+        <h3 className={`text-[32px] font-gt-walsheim leading-[100%] font-bold uppercase ${className}`}>{content}</h3>
     )
 }
 

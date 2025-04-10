@@ -5,7 +5,7 @@ interface Props{
 
 const SubTitleFive: React.FC<Props> = ({ content, className}) => {
     return (
-        <p className={`font-400 text-base lg:text-xl leading-[100%] secondary-font text-black-one ${className}`}>{content}</p>
+        <p className={`font-400 text-base lg:text-xl leading-[100%] font-gt-walsheim text-black-one ${className}`}>{content}</p>
     )
 }
 

@@ -75,7 +75,7 @@ export default function PricingTable() {
               <th className="border-gray-300 px-4 py-2 border-t border-b">Storyblock Enterprise ($2999)</th>
             </tr>
           </thead>
-          <tbody className="text-[14px] lg:text-base text-black-one border-t border-b  secondary-font leading-[24px] font-bold">
+          <tbody className="text-[14px] lg:text-base text-black-one border-t border-b  font-gt-walsheim leading-[24px] font-bold">
             {data.map((row, index) => (
               <tr key={index} className={`border-t border-b ${index % 2 === 0 ? "bg-white" : "bg-[#F2F2F2]"}`}>
                 <td className="border-gray-300 px-4 py-2  border-t border-b py-5">{ renderCell(row.feature) }</td>
