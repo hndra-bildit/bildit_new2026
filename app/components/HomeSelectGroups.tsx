@@ -76,7 +76,7 @@ const HomeSelectGroups: React.FC = () => {
         <Link href={item.link}>
           <PrimaryButton
             content={item.label}
-            className={item.name === 'Control' ? 'bg-pink-main shadow-none outline outline-1 outline-pink-main' : ''}
+            className={item.name === 'Control' ? 'bg-rose shadow-none outline outline-1 outline-rose' : ''}
           />
         </Link>
       </div>

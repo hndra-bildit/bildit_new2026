@@ -59,7 +59,7 @@ const CMSFeaturesTable: React.FC = () => {
             <td className="py-[19px] px-[10px]">
               <BodyTwo content={feature.description} className="!text-black-one !my-0" />
             </td>
-            <td className="p-4 text-pink-main text-right">
+            <td className="p-4 text-rose text-right">
               <FaCheckCircle className="inline-block w-5 h-5 text-pink" />
             </td>
           </tr>

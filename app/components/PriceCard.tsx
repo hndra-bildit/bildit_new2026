@@ -35,7 +35,7 @@ const PriceCard: React.FC<Props> = ({ item }) => {
         Most Popular
       </label>
       <div className="h-[310px]">
-        <HeadingThreeCaps content={item.title} className="mt-10 text-pink-main" />
+        <HeadingThreeCaps content={item.title} className="mt-10 text-rose" />
         <BodyThree content={item.content} className="mt-3" />
         {item.price && (
           <div className="leading-[18px] text-base">
@@ -63,7 +63,7 @@ const PriceCard: React.FC<Props> = ({ item }) => {
       {item.subItems.map((sub, key) => {
         return (
           <div className="flex" key={key}>
-            <FaCheckCircle className="text-pink-main text-xl leading-[100%] mt-2" />
+            <FaCheckCircle className="text-rose text-xl leading-[100%] mt-2" />
             <span className="leading-[36px] ml-2 text-base">{sub}</span>
           </div>
         )

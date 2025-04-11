@@ -31,7 +31,7 @@ export default function Home() {
             sub2={'CMS'}
             sub3={'Unified Storefront'}
             className1={''}
-            className2={'bg-gradient-to-r from-pink-main to-[#3B1EED] bg-clip-text text-transparent'}
+            className2={'bg-gradient-to-r from-rose to-[#3B1EED] bg-clip-text text-transparent'}
           />
           <div className="grid grid-cols-2 gap-6">
             <div>
@@ -117,7 +117,7 @@ export default function Home() {
         <HomeSelectGroups />
       </section>
 
-      <section className="sixteen-section py-[90px] fifth-bg-[url('/images/sixteen_bg.png')] bg-cover bg-center">
+      <section className="py-[100px] bg-[url('/images/sixteen_bg.png')] bg-cover bg-center">
         <div className="container mx-auto flex justify-between items-center">
           <div className="max-w-[892px]">
             <SubTitleFiveCaps content={'One backend. One unified solution.'} />

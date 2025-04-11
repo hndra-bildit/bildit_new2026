@@ -165,7 +165,7 @@ export default function PricingTable() {
           <thead>
             <tr className="font-700 text-[14px] border-t border-b text-white bg-[#404040] text-center">
               <th className="border-gray-300 px-4 py-2 text-left border-t border-b">Feature</th>
-              <th className="border-gray-300 px-4 py-2 bg-light-gray text-pink-main border-t border-b">BILDIT</th>
+              <th className="border-gray-300 px-4 py-2 bg-light-gray text-rose border-t border-b">BILDIT</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Sanity Business ($949)</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Contentstack Grow ($4500)</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Storyblock Enterprise ($2999)</th>
