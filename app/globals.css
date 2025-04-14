@@ -18,7 +18,7 @@
   --text-cms-semi: 12px;
 
   --color-cms-light-gray: #d3d6db; /* #D3D6DB Light Gray*/
-  --color-cms-grey-text: #595959; /* #595959 Grey*/
+  --color-cms-grey: #595959; /* #595959 Grey*/
   --color-cms-gray: #737373; /* #595959 Grey*/
   --color-cms-rose: #ed1e79; /* #ED1E79 Ping Main */
   --color-cms-lighter-gray: #f5f7fa; /* #F5F7FA lighter gray */
@@ -31,6 +31,7 @@
   --color-cms-lighter-grey: #f2f2f2;
   --color-cms-purple: #431782;
   --color-cms-outline: #dbdbdb;
+  --color-cms-purple: #3b1eed;
 }
 
 /* Uncut Sans Regular */
