@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 const SolutionIntegrators: Array<CardSevenItemType> = [
   {
-    src: '/images/tech_partners/Astound_Commerce_Logo.png',
+    src: '/images/others/Astound_Commerce_Logo.png',
     alt: 'Astound_Commerce_Logo',
     width: 293,
     height: 72,
@@ -16,7 +16,7 @@ const SolutionIntegrators: Array<CardSevenItemType> = [
     content: 'We create digital commerce experiences that engage consumers, increase sales & fuel exponential growth.'
   },
   {
-    src: '/images/tech_partners/Wallop_Logo.png',
+    src: '/images/others/Wallop_Logo.png',
     alt: 'Wallop_Logo.png',
     width: 254,
     height: 89,
@@ -25,7 +25,7 @@ const SolutionIntegrators: Array<CardSevenItemType> = [
       'Wallop is an independent creative and digital strategy firm generating growth and impact for hospitality and travel experiences.'
   },
   {
-    src: '/images/tech_partners/Gringteq_Logo.png',
+    src: '/images/others/Gringteq_Logo.png',
     alt: 'Gringteq_Logo.png',
     width: 335,
     height: 58,
@@ -37,7 +37,7 @@ const SolutionIntegrators: Array<CardSevenItemType> = [
 
 const PartnersNetworks: Array<CardSevenItemType> = [
   {
-    src: '/images/tech_partners/FlyBuy_Logo.png',
+    src: '/images/others/FlyBuy_Logo.png',
     alt: 'FlyBuy_Logo.png',
     width: 270,
     height: 73,
@@ -46,7 +46,7 @@ const PartnersNetworks: Array<CardSevenItemType> = [
       'Radius Networks is a location technology company that helps companies conduct location-based transactions with customers.'
   },
   {
-    src: '/images/tech_partners/Brand_Airship_Logo.png',
+    src: '/images/others/Brand_Airship_Logo.png',
     alt: 'Brand_Airship_Logo.png',
     width: 362,
     height: 49,
@@ -54,7 +54,7 @@ const PartnersNetworks: Array<CardSevenItemType> = [
     content: 'Helping brands master Mobile App Experiences (MAX) to engage customers and win their loyalty.'
   },
   {
-    src: '/images/tech_partners/Commerce_Cloud_Logo.png',
+    src: '/images/others/Commerce_Cloud_Logo.png',
     alt: 'Commerce_Cloud_Logo.png',
     width: 260,
     height: 136,
@@ -62,7 +62,7 @@ const PartnersNetworks: Array<CardSevenItemType> = [
     content: 'Commerce Cloud powers commerce everywhere with AI, data, and CRM.'
   },
   {
-    src: '/images/tech_partners/Commerce_Tools_Logo.png',
+    src: '/images/others/Commerce_Tools_Logo.png',
     alt: 'Commerce_Tools_Logo.png',
     width: 338,
     height: 65,
@@ -70,7 +70,7 @@ const PartnersNetworks: Array<CardSevenItemType> = [
     content: 'Powerful E-Commerce Business — Deliver Seamless Customer Experiences Across Channels.'
   },
   {
-    src: '/images/tech_partners/InsightGlobal_Logo.png',
+    src: '/images/others/InsightGlobal_Logo.png',
     alt: 'InsightGlobal_Logo.png',
     width: 339,
     height: 77,
