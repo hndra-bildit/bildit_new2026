@@ -1,3 +1,6 @@
+import BILDIT_CMS_BG from '../../public/images/CMS/BILDIT_CMS_BG.png'
+import BILDIT_Dot_Left_Middle_Effect_BG from '../../public/images/others/BILDIT_Dot_Left_Middle_Effect_BG.png'
+import BILDIT_Dot_Right_Middle_Effect_BG from '../../public/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png'
 import BodyFour from '../components/BodyFour'
 import BodyTwo from '../components/BodyTwo'
 import CardFive from '../components/CardFive'
@@ -14,13 +17,23 @@ import SubTitleThree from '../components/SubTitleThree'
 import Image from 'next/image'
 
 const retailers = [
-  { src: '/images/Belk_logo.svg', alt: 'Belk_logo.svg', width: 162, height: 69 },
-  { src: '/images/Vector.svg', alt: 'Vector.svg', width: 296, height: 85 }
+  { src: '/images/CMS/Belk_logo.svg', alt: 'Belk_Logo.svg', width: 162, height: 69 },
+  { src: '/images/CMS/Hierro.svg', alt: 'Hierro.svg', width: 296, height: 85 }
 ]
 
 const CardFourItems = [
-  { src: '/images/Image(5).png', alt: 'Image(5).png', width: 557, height: 557 },
-  { src: '/images/Image(6).png', alt: 'Image(6).png', width: 557, height: 557 }
+  {
+    src: '/images/CMS/BILDIT_Single_CMS_Platform_Intro.png',
+    alt: 'BILDIT_Single_CMS_Platform_Intro.png',
+    width: 557,
+    height: 557
+  },
+  {
+    src: '/images/CMS/BILDIT_Make_Life_Easier_Intro',
+    alt: 'BILDIT_Make_Life_Easier_Intro.png',
+    width: 557,
+    height: 557
+  }
 ]
 
 const CardFiveItemsOne: Array<CardFiveItemType> = [
@@ -176,7 +189,13 @@ const CardSixItems: Array<CardSixItemType> = [
 export default function BilditCMS() {
   return (
     <>
-      <section className="px-[16px] lg:px-0 pt-[160px] pb-[260px] bg-[url('/images/BG_CMS.png')] bg-cover bg-center">
+      <section className="px-[16px] lg:px-0 pt-[160px] pb-[260px]">
+        <Image
+          src={BILDIT_CMS_BG}
+          alt="BILDIT_CMS_BG.png"
+          className="top-0 left-0 absolute -z-1"
+          style={{ width: '100%', height: 'auto' }}
+        />
         <div className="container mx-auto grid lg:grid-cols-2">
           <div>
             <HeadingOne
@@ -193,8 +212,8 @@ export default function BilditCMS() {
           </div>
           <div className="flex item-center">
             <Image
-              src="/images/Group19407.png"
-              alt="Group19407.png"
+              src="/images/CMS/BILDIT_CMS_Comparision_Intro.png"
+              alt="BILDIT_CMS_Comparision_Intro.png"
               width={0}
               height={0}
               className="w-auto h-auto inline-block"
@@ -204,9 +223,9 @@ export default function BilditCMS() {
         </div>
       </section>
 
-      <section className="bg-lighter-gray py-[55px]">
+      <section className="bg-cms-lighter-gray py-[55px]">
         <div className="container mx-auto">
-          <h5 className="font-400 text-xl md:text-3xl lg:text-4xl leading-[100%] tracking-[-0.23px] text-grey text-center">
+          <h5 className="font-400 text-xl md:text-3xl lg:text-4xl leading-none tracking-[-0.23px] text-cms-grey text-center">
             Some of the retailers growing their revenue with BILDIT content management system
           </h5>
           <div className="mt-12 flex flex-wrap items-center justify-center">
@@ -254,7 +273,13 @@ export default function BilditCMS() {
         </div>
       </section>
 
-      <section className="bg-[url('/images/Vector245.png')]  bg-[30%] bg-left bg-no-repeat px-4 lg:px-0">
+      <section className="relative px-4 lg:px-0">
+        <Image
+          src={BILDIT_Dot_Left_Middle_Effect_BG}
+          alt="BILDIT_Dot_Left_Middle_Effect_BG.png"
+          className="absolute inset-y-0 left-0 -z-1"
+          style={{ width: 'auto', height: 'auto' }}
+        />
         <div className="container mx-auto py-[100px]">
           <SubTitleFiveCaps content="Streamlined content editing and maintenance" />
           <DisplayOne content="Scale campaigns across all your channels. Without drowning in admin tasks." />
@@ -294,7 +319,13 @@ export default function BilditCMS() {
         </div>
       </section>
 
-      <section className="bg-[url('/images/Vector246.png')] bg-[30%] bg-right bg-no-repeat px-4 lg:px-0">
+      <section className="relative px-4 lg:px-0">
+        <Image
+          src={BILDIT_Dot_Right_Middle_Effect_BG}
+          alt="BILDIT_Dot_Right_Middle_Effect_BG.png"
+          className="absolute inset-y-0 right-0 -z-1"
+          style={{ width: 'auto', height: 'auto' }}
+        />
         <div className="container mx-auto py-[100px]">
           <SubTitleFiveCaps content="Advanced content management and personalization" />
           <DisplayOne content="Fully realize your mobile app potential, without additional development costs" />
@@ -318,17 +349,22 @@ export default function BilditCMS() {
       <section className="bg-[#252340] px-4 lg:px-0">
         <div className="container mx-auto flex py-[81px]">
           <div className="flex-2">
-            <Image src="/images/Img_ProductPage_last.png" alt="Img_ProductPage_last.png" width={544} height={643} />
+            <Image
+              src="/images/CMS/BILDIT_Other_Company_benefit_Intro.png"
+              alt="BILDIT_Other_Company_benefit_Intro.png"
+              width={544}
+              height={643}
+            />
           </div>
           <div className="flex-3 my-[81px]">
             <DisplayOne content="3x YoY revenue increase over 6 years" className="text-white" />
             <div className="mt-12">
-              <Image src="/images/mark.svg" alt="mark.svg" width={56} height={40} />
+              <Image src="/images/CMS/mark.svg" alt="mark.svg" width={56} height={40} />
             </div>
             <div className="mt-2">
               <BodyTwo
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo sapien habitasse sapien ornare diam in at malesuada. Mauris, sed eget gravida sit blandit. Arcu dolor lacus hac enim, aliquet pretium in. Sit non cursus eu sagittis. Pretium et ac risus amet. Posuere sagittis quam tellus, nisl amet rhoncus, ullamcorper. "
-                className="!text-light-gray"
+                className="!text-cms-light-gray"
               />
               <SubTitleFive content="John Doe" className="mt-4 lg:mt-8" />
               <BodyFour content="CEO BELK" />
@@ -338,7 +374,7 @@ export default function BilditCMS() {
         </div>
       </section>
 
-      <section className="bg-lighter-gray px-4 lg:px-0">
+      <section className="bg-cms-lighter-gray px-4 lg:px-0">
         <div className="container mx-auto py-[180px]">
           <SubTitleFiveCaps content="BILDIT add-on products and services" className="text-center" />
           <DisplayOne content="If you need it, we can BILDIT" className="text-center" />

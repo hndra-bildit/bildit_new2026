@@ -1,9 +1,9 @@
-import BG_CommerceSuite from '../../public/images/BG_CommerceSuite.png'
-import BG_CommerceSuite_Mobile from '../../public/images/BG_CommerceSuite_Mobile.png'
-import BG_Commerce_Suite_Why_Bildit from '../../public/images/BG_Commerce_Suite_Why_Bildit.png'
-import BG_Commerce_Suite_Why_Bildit_Mobile from '../../public/images/BG_Commerce_Suite_Why_Bildit_Mobile.png'
-import BG_Left_Circle from '../../public/images/BG_Left_Circle.png'
-import BG_Right_Circle from '../../public/images/BG_Right_Circle.png'
+import BILDIT_CommerceSuite_BG from '../../public/images/commerce_suite/BILDIT_CommerceSuite_BG.png'
+import BILDIT_CommerceSuite_Mobile_BG from '../../public/images/commerce_suite/BILDIT_CommerceSuite_Mobile_BG.png'
+import BILDIT_Commerce_Suite_Why_BG from '../../public/images/commerce_suite/BILDIT_Commerce_Suite_Why_BG.png'
+import BILDIT_Commerce_Suite_Why_Bildit_Mobile_BG from '../../public/images/commerce_suite/BILDIT_Commerce_Suite_Why_Bildit_Mobile_BG .png'
+import BILDIT_Dot_Left_Middle_Effect_BG from '../../public/images/others/BILDIT_Dot_Left_Middle_Effect_BG.png'
+import BILDIT_Dot_Right_Middle_Effect_BG from '../../public/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png'
 import BodyOne from '../components/BodyOne'
 import HeadingOne from '../components/HeadingOne'
 import HeadingTwo from '../components/HeadingTwo'
@@ -18,8 +18,8 @@ const CardItems: Array<SectionCardType> = [
     head: 'Integrations That Work Effortlessly',
     content:
       'Connect your CMS with popular platforms, payment gateways, and tools, ensuring a smooth workflow tailored to your needs.',
-    src: 'Group19533.png',
-    alt: 'Group19533.png',
+    src: '/images/commerce_suite/BILDIT_Integration_With_Other_Platforms.png',
+    alt: 'BILDIT_Integration_With_Other_Platforms.png',
     dir: false
   },
   {
@@ -27,8 +27,8 @@ const CardItems: Array<SectionCardType> = [
     head: 'One-Tap Checkout in Your App',
     content:
       "Offer your customers a seamless one-tap checkout solution that's fast, intuitive, and built for conversions-on both mobile apps and websites.",
-    src: 'Group19479.png',
-    alt: 'Group19479.png',
+    src: '/images/commerce_suite/BILDIT_Native_Checkout.png',
+    alt: 'BILDIT_Native_Checkout.png',
     dir: true
   },
   {
@@ -36,8 +36,8 @@ const CardItems: Array<SectionCardType> = [
     head: 'App Clips for Instant Access',
     content:
       'Enable users to engage with your store immediately, without downloading a full app, creating frictionless experiences that boost engagement.',
-    src: 'Group19478.png',
-    alt: 'Group19478.png',
+    src: '/images/commerce_suite/BILDIT_App_Clips.png',
+    alt: 'BILDIT_App_Clips.png',
     dir: false
   },
   {
@@ -45,8 +45,8 @@ const CardItems: Array<SectionCardType> = [
     head: 'Content Management System Made Simple',
     content:
       'Manage your promotions, banners, contents, product listings, and more in one place. Updates sync instantly across both your mobile app and website, delivering a unified brand experience.',
-    src: 'Group19477.png',
-    alt: 'Group19477.png',
+    src: '/images/commerce_suite/BILDIT_CMS_Benefit.png',
+    alt: 'BILDIT_CMS_Benefit.png',
     dir: true
   }
 ]
@@ -56,15 +56,15 @@ export default function CommerceSuite() {
     <div className="text-center lg:text-left">
       <section className="pt-[175px] lg:pb-[100px] px-[16px] lg:px-0">
         <Image
-          src={BG_CommerceSuite}
+          src={BILDIT_CommerceSuite_BG}
           className="absolute hidden lg:block top-0 left-0 z-[-1]"
-          alt="BG_CommerceSuite.png"
+          alt="BILDIT_CommerceSuite_BG.png"
           style={{ width: '100%', height: 'auto' }}
         />
         <Image
-          src={BG_CommerceSuite_Mobile}
+          src={BILDIT_CommerceSuite_Mobile_BG}
           className="absolute block lg:hidden top-0 left-0 z-[-1]"
-          alt="BG_CommerceSuite_Mobile.png"
+          alt="BILDIT_CommerceSuite_Mobile_BG.png"
           style={{ width: '100%', height: 'auto' }}
         />
         <div className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center">
@@ -77,12 +77,17 @@ export default function CommerceSuite() {
             />
             <SubTitleThree content="Unleash the Power of Commerce Suite with Our CMS" className="mt-[30px]" />
             <BodyOne
-              className="text-grey my-[20px]"
+              className="text-cms-grey my-[20px]"
               content="Say goodbye to the hassle of juggling multiple tools. Our cutting-edge CMS brings everything you need into one seamless platform, designed for modern e-commerce businesses."
             />
           </div>
           <div className="flex justify-center">
-            <Image src="/images/Hero_Image.png" alt="Hero_Image.png" width={604} height={493} />
+            <Image
+              src="/images/commerce_suite/BILDIT_CommerceSuite_Intro.png"
+              alt="BILDIT_CommerceSuite_Intro.png"
+              width={604}
+              height={493}
+            />
           </div>
         </div>
 
@@ -91,17 +96,17 @@ export default function CommerceSuite() {
             <div className="relative" key={key}>
               {key === 1 && (
                 <Image
-                  src={BG_Right_Circle}
+                  src={BILDIT_Dot_Right_Middle_Effect_BG}
                   className="hidden lg:block absolute bottom-0 right-0 z-[-1]"
-                  alt="BG_Right_Circle.png"
+                  alt="BILDIT_Dot_Right_Middle_Effect_BG.png"
                   style={{ width: 'auto', height: 'auto' }}
                 />
               )}
               {key === 2 && (
                 <Image
-                  src={BG_Left_Circle}
+                  src={BILDIT_Dot_Left_Middle_Effect_BG}
                   className="hidden lg:block absolute top-50 left-0 z-[-1]"
-                  alt="BG_Left_Circle.png"
+                  alt="BILDIT_Dot_Left_Middle_Effect_BG.png.png"
                   style={{ width: 'auto', height: 'auto' }}
                 />
               )}
@@ -113,22 +118,27 @@ export default function CommerceSuite() {
 
       <section className="mt-[90px] lg:mt-[200px] py-12 lg:py-[100px] bg-center px-4 lg:px-0 relative">
         <Image
-          src={BG_Commerce_Suite_Why_Bildit}
+          src={BILDIT_Commerce_Suite_Why_BG}
           className="hidden lg:block absolute top-0 left-0 z-[-1]"
-          alt="BG_Commerce_Suite_Why_Bildit.png"
+          alt="BILDIT_Commerce_Suite_Why_BG.png"
           style={{ width: '100%', height: '100%' }}
         />
         <Image
-          src={BG_Commerce_Suite_Why_Bildit_Mobile}
+          src={BILDIT_Commerce_Suite_Why_Bildit_Mobile_BG}
           className="block lg:hidden absolute top-0 left-0 z-[-1]"
-          alt="BG_Commerce_Suite_Why_Bildit_Mobile"
+          alt="BILDIT_Commerce_Suite_Why_Bildit_Mobile_BG"
           style={{ width: '100%', height: '100%' }}
         />
         <div className="container mx-auto">
           <HeadingTwo content="Why Choose BILDIT?" className="text-center text-white lg:pt-[40px]" />
           <div className="lg:grid grid-cols-4 justify-center">
             <div className="py-12 lg:py-[100px] order-2 col-span-2 flex justify-center">
-              <Image src="/images/Group19470.png" alt="Group19470.png" width={600} height={575} />
+              <Image
+                src="/images/commerce_suite/BILDIT_Why_Choose_BILDIT.png"
+                alt="BILDIT_Why_Choose_BILDIT.png"
+                width={600}
+                height={575}
+              />
             </div>
             <div className="flex flex-col justify-around items-end order-1col-span-1">
               <p className="font-400 text-[20px] lg:text-[24px] leading-[24px] mt-[44px] lg:leading-[34px] text-white">

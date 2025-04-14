@@ -1,7 +1,7 @@
-import BG_Frequently_Ask_Mobile from '../../public/images/BG-Frequently-Ask-Mobile.png'
-import BG_Frequently_Ask from '../../public/images/BG-Frequently-Ask.png'
-import BG_Pricing from '../../public/images/BG_Pricing.png'
-import BG_Pricing_Mobile from '../../public/images/BG_Pricing_Mobile.png'
+import BILDIT_Frequently_Ask_BG from '../../public/images/pricing/BILDIT_Frequently_Ask_BG.png'
+import BILDIT_Frequently_Ask_Mobile_BG from '../../public/images/pricing/BILDIT_Frequently_Ask_Mobile_BG.png'
+import BILDIT_Pricing_BG from '../../public/images/pricing/BILDIT_Pricing_BG.png'
+import BILDIT_Pricing_Mobile_BG from '../../public/images/pricing/BILDIT_Pricing_Mobile_BG.png'
 import BillingToggle from '../components/BillingToggle'
 import CMSFeaturesTable from '../components/CMSFeatureTable'
 import DisplayTwo from '../components/DisplayTwo'
@@ -73,15 +73,15 @@ export default function Pricing() {
     <>
       <section className="pt-[160px] px-4 lg:px-0">
         <Image
-          src={BG_Pricing}
+          src={BILDIT_Pricing_BG}
           className="hidden lg:block absolute z-[-1] top-0 left-0"
-          alt="BG_Pricing.png"
+          alt="BILDIT_Pricing_BG.png"
           style={{ width: '100%', height: 'auto' }}
         />
         <Image
-          src={BG_Pricing_Mobile}
+          src={BILDIT_Pricing_Mobile_BG}
           className="lg:hidden absolute z-[-1] top-0 left-0"
-          alt="BG_Pricing_Mobile.png"
+          alt="BILDIT_Pricing_Mobile_BG.png"
           style={{ width: '100%', height: 'auto' }}
         />
         <HeadingOne
@@ -106,15 +106,15 @@ export default function Pricing() {
       </section>
       <section className="relative py-[100px] overflow-hidden px-4 lg:px-0">
         <Image
-          src={BG_Frequently_Ask}
+          src={BILDIT_Frequently_Ask_BG}
           className="lg:block hidden  absolute z-[-1] top-0 "
-          alt="BG_Frequently_Ask.png"
+          alt="BILDIT_Frequently_Ask_BG.png"
           style={{ width: '100%', height: '100%' }}
         />
         <Image
-          src={BG_Frequently_Ask_Mobile}
+          src={BILDIT_Frequently_Ask_Mobile_BG}
           className="show lg:hidden absolute z-[-1] top-0 left-0"
-          alt="BG_Frequently_Ask.png"
+          alt="BILDIT_Frequently_Ask_Mobile_BG.png"
           style={{ width: '100%', height: 'auto' }}
         />
         <div className="container mx-auto xl:grid grid-cols-3">

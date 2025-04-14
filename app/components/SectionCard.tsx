@@ -25,7 +25,7 @@ const SectionCard: React.FC<Props> = ({ item }) => {
         <BodyTwo className="mt-[30px]" content={item.content} />
       </div>
       <div className={`flex justify-center ${item.dir === true ? 'order-1' : ''}`}>
-        <Image src={`/images/${item.src}`} alt={item.alt} width={600} height={600} />
+        <Image src={item.src} alt={item.alt} width={600} height={600} />
       </div>
     </div>
   )

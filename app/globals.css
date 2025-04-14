@@ -9,11 +9,28 @@
   --font-uncut-sans: var(--font-uncut-sans);
   --font-gt-walsheim: var(--font-gt-walsheim);
 
-  --color-black-one: rgba(23, 23, 23, 1); /* #171717 black1 or dark*/
-  --color-rose: rgba(237, 30, 121, 1); /* #ED1E79 Ping Main */
-  --color-light-gray: rgba(245, 247, 250, 1); /* #D3D6DB Light Gray*/
-  --color-grey: rgba(89, 89, 89, 1); /* #595959 Grey*/
-  --color-lighter-gray: rgba(245, 247, 250, 1); /* #F5F7FA lighter gray */
+  --text-cms-4xl: 134px;
+  --text-cms-3xl: 54px;
+  --text-cms-2xl: 48px;
+  --text-cms-xl: 32px;
+  --text-cms-base: 18px;
+  --text-cms-basic: 14px;
+  --text-cms-semi: 12px;
+
+  --color-cms-light-gray: #d3d6db; /* #D3D6DB Light Gray*/
+  --color-cms-grey-text: #595959; /* #595959 Grey*/
+  --color-cms-gray: #737373; /* #595959 Grey*/
+  --color-cms-rose: #ed1e79; /* #ED1E79 Ping Main */
+  --color-cms-lighter-gray: #f5f7fa; /* #F5F7FA lighter gray */
+  --color-cms-black-one: #171717; /* #171717 black1 or dark*/
+  --color-cms-black-two: #404040; /* #404040 black2 */
+  --color-cms-black-three: #737373; /* #737373 black3 */
+  --color-cms-cms-grey: #a6a6a6;
+  --color-cms-input-color: #697b8c;
+  --color-cms-light-grey: #d9d9d9;
+  --color-cms-lighter-grey: #f2f2f2;
+  --color-cms-purple: #431782;
+  --color-cms-outline: #dbdbdb;
 }
 
 /* Uncut Sans Regular */
@@ -30,8 +47,8 @@
 @font-face {
   font-family: 'Uncut Sans';
   src:
-    url('/fonts/UncutSans-Bold.woff2') format('woff2'),
-    url('/fonts/UncutSans-Bold.woff') format('woff');
+    url('/fonts/Uncut-Sans/UncutSans-Bold.woff2') format('woff2'),
+    url('/fonts/Uncut-Sans/UncutSans-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
@@ -40,8 +57,8 @@
 @font-face {
   font-family: 'Uncut Sans';
   src:
-    url('/fonts/UncutSans-BoldItalic.woff2') format('woff2'),
-    url('/fonts/UncutSans-BoldItalic.woff') format('woff');
+    url('/fonts/Uncut-Sans/UncutSans-BoldItalic.woff2') format('woff2'),
+    url('/fonts/Uncut-Sans/UncutSans-BoldItalic.woff') format('woff');
   font-weight: 800;
   font-style: italic;
 }

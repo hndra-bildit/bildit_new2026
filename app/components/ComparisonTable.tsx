@@ -160,20 +160,20 @@ export default function PricingTable() {
   return (
     <div className="lg:p-6">
       {/* Table for larger screens */}
-      <div className="hidden md:block overflow-x-auto px-10 py-8 rounded-[14px] border border-light-gray bg-white shadow-[0px_40px_80px_0px_rgba(0,0,0,0.1)]">
-        <table className="w-full border-collapse border-t border-b border-gray-200 text-[14px]">
+      <div className="hidden md:block overflow-x-auto px-10 py-8 rounded-2xl border border-cms-light-gray bg-white shadow-[0px_40px_80px_0px_rgba(0,0,0,0.1)]">
+        <table className="w-full border-collapse border-t border-b border-gray-200 text-cms-basic">
           <thead>
-            <tr className="font-700 text-[14px] border-t border-b text-white bg-[#404040] text-center">
+            <tr className="font-700 text-cms-basic border-t border-b text-white bg-cms-black-two text-center">
               <th className="border-gray-300 px-4 py-2 text-left border-t border-b">Feature</th>
-              <th className="border-gray-300 px-4 py-2 bg-light-gray text-rose border-t border-b">BILDIT</th>
+              <th className="border-gray-300 px-4 py-2 bg-cms-light-gray text-cms-rose border-t border-b">BILDIT</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Sanity Business ($949)</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Contentstack Grow ($4500)</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Storyblock Enterprise ($2999)</th>
             </tr>
           </thead>
-          <tbody className="text-[14px] lg:text-base text-black-one border-t border-b  font-gt-walsheim leading-[24px] font-bold">
+          <tbody className="text-cms-basic lg:text-base text-cms-black-one border-t border-b  font-gt-walsheim leading-snug font-bold">
             {data.map((row, index) => (
-              <tr key={index} className={`border-t border-b ${index % 2 === 0 ? 'bg-white' : 'bg-[#F2F2F2]'}`}>
+              <tr key={index} className={`border-t border-b ${index % 2 === 0 ? 'bg-white' : 'bg-cms-light-gray'}`}>
                 <td className="border-gray-300 px-4 py-2  border-t border-b py-5">{renderCell(row.feature)}</td>
                 <td className="border-gray-300 px-4 py-2  border-t border-b font-semibold py-5">
                   {renderCell(row.bildit)}

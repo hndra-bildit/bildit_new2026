@@ -6,7 +6,7 @@ interface Props {
 const SubTitleFourCaps: React.FC<Props> = ({ content, className }) => {
   return (
     <p
-      className={`py-[49px] uppercase text-grey text-center font-base lg:text-2xl leading-[100%] font-gt-walsheim ${className}`}
+      className={`py-12 uppercase text-cms-grey text-center font-base lg:text-2xl leading-none font-gt-walsheim ${className}`}
     >
       {content}
     </p>
