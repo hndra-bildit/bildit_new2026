@@ -1,12 +1,14 @@
-interface Props{
-    content:string,
-    className?:string
+interface Props {
+  content: string
+  className?: string
 }
 
-const SubTitleFive: React.FC<Props> = ({ content, className}) => {
-    return (
-        <p className={`font-500 text-[16px] lg:text-[20px] leading-[100%] secondary-font text-[#D3D6DB] ${className}`}>{content}</p>
-    )
+const SubTitleFive: React.FC<Props> = ({ content, className }) => {
+  return (
+    <p className={`font-400 text-base lg:text-xl leading-none font-gt-walsheim text-cms-black-one ${className}`}>
+      {content}
+    </p>
+  )
 }
 
-export default SubTitleFive;
+export default SubTitleFive

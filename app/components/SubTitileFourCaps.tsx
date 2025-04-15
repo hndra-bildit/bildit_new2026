@@ -1,13 +1,16 @@
-interface Props{
-    content:string,
-    className?:string
+interface Props {
+  content: string
+  className?: string
 }
 
-const SubTitleFourCaps: React.FC<Props> = ({ content, className}) => {
-    return (
-        <p className={`py-[49px] uppercase text-[#595959] text-center font-[16px] lg:font-[24px] leading-[100%] secondary-font ${className}`}>{content}</p>
-
-    )
+const SubTitleFourCaps: React.FC<Props> = ({ content, className }) => {
+  return (
+    <p
+      className={`py-12 uppercase text-cms-grey text-center font-base lg:text-2xl leading-none font-gt-walsheim ${className}`}
+    >
+      {content}
+    </p>
+  )
 }
 
-export default SubTitleFourCaps;
+export default SubTitleFourCaps

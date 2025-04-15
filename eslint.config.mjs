@@ -1,16 +1,40 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { FlatCompat } from '@eslint/eslintrc'
+import eslintPluginPrettier from 'eslint-plugin-prettier'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+  baseDirectory: __dirname
+})
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
+  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
+  {
+    plugins: {
+      prettier: eslintPluginPrettier
+    },
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {
+          printWidth: 120,
+          semi: false,
+          singleQuote: true,
+          tabWidth: 2,
+          useTabs: false,
+          jsxSingleQuote: false,
+          trailingComma: 'none',
+          importOrder: ['^(react)$', '^antd', '^styled', '<THIRD_PARTY_MODULES>', '^[/]'],
+          arrowParens: 'always',
+          endOfLine: 'lf',
+          plugins: ['@trivago/prettier-plugin-sort-imports']
+        }
+      ]
+    }
+  }
+]
 
-export default eslintConfig;
+export default eslintConfig

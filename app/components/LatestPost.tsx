@@ -1,0 +1,53 @@
+'use client'
+
+import { useState } from 'react'
+import CardNine, { CardNineItemType } from './CardNine'
+
+type Props = {
+  initialItems: CardNineItemType[]
+}
+
+export default function LatestPost({ initialItems }: Props) {
+  const [items, setItems] = useState(initialItems)
+  const [page, setPage] = useState(2)
+  const [hasMore, setHasMore] = useState(true)
+  const [loading, setLoading] = useState(false)
+
+  const handleLoadMore = () => {
+    fetchMore()
+  }
+  const fetchMore = async () => {
+    if (loading || !hasMore) return
+    setLoading(true)
+
+    const res = await fetch(`/api/posts?latest=true&page=${page}&limit=4`)
+
+    const newItems = await res.json()
+    if (newItems.length === 0) setHasMore(false)
+    else {
+      setItems((prev) => [...prev, ...newItems])
+      setPage((prev) => prev + 1)
+    }
+
+    setLoading(false)
+  }
+
+  return (
+    <>
+      <div className="container mx-auto grid md:grid-cols-3 gap-10">
+        {items.map((item, idx) => (
+          <CardNine item={item} cardType="small" key={idx} />
+        ))}
+      </div>
+      {loading && <p>Loading more...</p>}
+      {!loading && hasMore && (
+        <p
+          className="text-cms-grey text-base lg:text-2xl leading-normal text-center my-[100px] cursor-pointer"
+          onClick={() => handleLoadMore()}
+        >
+          Load more...
+        </p>
+      )}
+    </>
+  )
+}
