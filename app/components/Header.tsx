@@ -1,9 +1,154 @@
 'use client'
 
 import { useState } from 'react'
+import DesktopMenu, { DesktopMenuItemType } from './DesktopMenu'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi'
+
+const PageGroups: Array<DesktopMenuItemType> = [
+  {
+    name: 'Products',
+    hasSubMenu: true,
+    className: 'grid grid-cols-2 grid-rows-2',
+    sub_menu: [
+      {
+        menu_type: 'TextListSubMenuType',
+        data: {
+          src: '/images/header/BILDIT_Header_CMS_Icon.png',
+          alt: 'BILDIT_Header_CMS_Icon.png',
+          href: '#',
+          title: 'Content Management System',
+          children: [
+            'Easy to Use for Marketers and IT',
+            'Beautiful and Sophisticated Content Creation',
+            'Perfect for Modern Frontends: PWA, Desktop, Mobile',
+            'Schedule and Preview Content in Realtime'
+          ],
+          className: ' '
+        }
+      },
+      {
+        menu_type: 'ImageTypeSubMenuType',
+        data: {
+          src: '/images/header/BILDIT_Header_Partners_Find_More.png',
+          alt: 'BILDIT_Header_Partners_Find_More.png',
+          href: '#',
+          title: 'BILDIT COMMERCE SUITE',
+          content: 'The unified web and app CMS and Storefront for eCommerce.',
+          tip: 'Find out more',
+          className: 'row-span-2'
+        }
+      },
+      {
+        menu_type: 'TextListSubMenuType',
+        data: {
+          src: '/images/header/BILDIT_Header_StoreFront_Icon.png',
+          alt: 'BILDIT_Header_StoreFront_Icon.png',
+          href: '#',
+          title: 'BILDIT Storefront',
+          children: [
+            'Optimized UI/UX Built In',
+            'One Click Checkout Built In',
+            'Fast and Modern Storefront',
+            'Built for Responsive and PWA',
+            'Built with React for Developers'
+          ],
+          className: ' '
+        }
+      }
+    ]
+  },
+  {
+    name: 'Partners',
+    hasSubMenu: true,
+    className: 'grid grid-cols-2',
+    sub_menu: [
+      {
+        menu_type: 'TextListSubMenuType',
+        data: {
+          src: '/images/header/BILDIT_Header_Technical_Partner_Icon.png',
+          alt: 'BILDIT_Header_Technical_Partner_Icon.png',
+          href: '#',
+          title: 'Technology Partners',
+          children: [
+            'Mobile & eCommerce End to End Sales Partner',
+            'Implement our CMS for your Customers',
+            'Additional Revenue Stream',
+            'Build App Solutions for your Customers'
+          ],
+          className: ' '
+        }
+      },
+      {
+        menu_type: 'TextListSubMenuType',
+        data: {
+          src: '/images/header/BILDIT_Header_Platform_Partner_Icon.png',
+          alt: 'BILDIT_Header_Platform_Partner_Icon.png',
+          href: '#',
+          title: 'Platform Partners',
+          children: [
+            'Salesforce B2B',
+            'Salesforce B2C ',
+            'Adobe Commerce',
+            'Shopify Plus',
+            'SAP Hybris',
+            'commercetools',
+            'BigCommerce'
+          ],
+          className: 'grid-cols-2'
+        }
+      },
+      {
+        menu_type: 'ImageTypeSubMenuType',
+        data: {
+          href: '#',
+          content: 'Become our partners to solve eCommerce problems',
+          tip: 'Become a Partner',
+          className: ' '
+        }
+      },
+      {
+        menu_type: 'ImageTypeSubMenuType',
+        data: {
+          href: '#',
+          content: 'Our platform partners are the best in class.',
+          tip: 'We are Platform Agnostic',
+          className: ' '
+        }
+      }
+    ]
+  },
+  {
+    name: 'Resources',
+    hasSubMenu: true,
+    className: '',
+    sub_menu: [
+      {
+        menu_type: 'ImageTypeSubMenuType',
+        data: {
+          src: '/images/header/BILDIT_Header_Partners_Find_More.png',
+          alt: 'BILDIT_Header_Partners_Find_More.png',
+          href: '#',
+          title: 'BILDIT COMMERCE SUITE',
+          content: 'The unified web and app CMS and Storefront for eCommerce.',
+          tip: 'Find out more',
+          className: 'row-span-2'
+        }
+      }
+    ]
+  },
+  {
+    name: 'Pricing',
+    href: '/pricing',
+    hasSubMenu: false
+  },
+  {
+    name: 'Our Story',
+    href: '/our_story',
+    hasSubMenu: false
+  }
+]
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
@@ -19,35 +164,9 @@ const Header: React.FC = () => {
           </Link>
           {/* Desktop Navigation */}
           <nav className="lg:pl-6 xl:pl-12 hidden lg:flex items-center space-x-6 text-gray-700">
-            {['Products', 'Partners', 'Resources'].map((item) => (
-              <div
-                key={item}
-                className="relative"
-                onMouseEnter={() => setDropdownOpen(item)}
-                onMouseLeave={() => setDropdownOpen(null)}
-              >
-                <button className="text-cms-black-two flex items-center font-semibold">
-                  {item} <FiChevronDown className="ml-1" />
-                </button>
-                {/* Dropdown */}
-                {dropdownOpen === item && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
-                    <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
-                      Option 1
-                    </Link>
-                    <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
-                      Option 2
-                    </Link>
-                  </div>
-                )}
-              </div>
+            {PageGroups.map((item, key) => (
+              <DesktopMenu item={item} key={key} />
             ))}
-            <Link href="/pricing" className="hover:text-black font-[600]">
-              Pricing
-            </Link>
-            <Link href="/our-story" className="hover:text-black font-[600]">
-              Our Story
-            </Link>
           </nav>
 
           {/* Desktop Buttons */}
