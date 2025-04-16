@@ -1,4 +1,3 @@
-import DisplayTwo from '../../components/DisplayTwo'
 import HeadingOne from '../../components/HeadingOne'
 import LatestPost from '../../components/LatestPost'
 import SubTitleFiveCaps from '../../components/SubTitleFiveCaps'
@@ -31,8 +30,7 @@ export default async function BlogMain() {
       />
       <BlogClient />
       <section className="container mx-auto mt-[200px]">
-        <DisplayTwo content="Latest Posts" className="font-uncut-sans font-bold" />
-        <LatestPost initialItems={initialItems} />
+        <LatestPost initialItems={initialItems} load_more={true} />
       </section>
     </div>
   )

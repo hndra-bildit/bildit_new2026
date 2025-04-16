@@ -15,10 +15,10 @@ const Header: React.FC = () => {
         <div className="flex">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold">
-            <Image alt="BILDIT Logo" src="./images/others/BILDIT_Logo.svg" width={134} height={30} />
+            <Image alt="BILDIT Logo" src="/images/others/BILDIT_Logo.svg" width={134} height={30} />
           </Link>
           {/* Desktop Navigation */}
-          <nav className="lg:pl-6 xl:pl-[50px] hidden lg:flex space-x-6 text-gray-700">
+          <nav className="lg:pl-6 xl:pl-12 hidden lg:flex items-center space-x-6 text-gray-700">
             {['Products', 'Partners', 'Resources'].map((item) => (
               <div
                 key={item}
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <nav className="lg:hidden bg-white shadow-md absolute top-16 left-0 w-full p-5 space-y-4 text-gray-700">
+        <nav className="lg:hidden bg-white shadow-md absolute top-22 left-0 w-full px-2 py-5 space-y-4 text-gray-700">
           {['Products', 'Partners', 'Resources', 'Pricing', 'Our Story'].map((item) => (
             <div key={item} className="border-b-1 border-black">
               <button

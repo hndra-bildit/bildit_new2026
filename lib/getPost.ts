@@ -60,12 +60,17 @@ const allPosts: Array<CardNineItemType> = [
 export async function getPostsByCategory(
   category: 'news' | 'insight' | 'ecommerce' | 'business' | 'technology'
 ): Promise<CardNineItemType[]> {
-  await new Promise((res) => setTimeout(res, 300))
+  //   await new Promise((res) => setTimeout(res, 300))
   return allPosts.filter((post) => post.category === category)
 }
 
 export async function getLatestPosts(page: number, limit: number): Promise<CardNineItemType[]> {
-  const start = (page - 1) * limit
-  const end = start + limit
-  return allPosts.slice(start, end) // simulate pagination
+  //   const start = (page - 1) * limit
+  //   const end = start + limit
+
+  return allPosts.slice(0, limit) // simulate pagination
+}
+
+export async function getPost(post_id: string) {
+  return allPosts[Number(post_id) % 5]
 }

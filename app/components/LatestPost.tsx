@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import CardNine, { CardNineItemType } from './CardNine'
+import DisplayTwo from './DisplayTwo'
 
 type Props = {
   initialItems: CardNineItemType[]
+  load_more: boolean
 }
 
-export default function LatestPost({ initialItems }: Props) {
+export default function LatestPost({ initialItems, load_more }: Props) {
   const [items, setItems] = useState(initialItems)
   const [page, setPage] = useState(2)
   const [hasMore, setHasMore] = useState(true)
@@ -34,13 +36,14 @@ export default function LatestPost({ initialItems }: Props) {
 
   return (
     <>
+      <DisplayTwo content="Latest Posts" className="font-uncut-sans font-bold" />
       <div className="container mx-auto grid md:grid-cols-3 gap-10">
         {items.map((item, idx) => (
           <CardNine item={item} cardType="small" key={idx} />
         ))}
       </div>
       {loading && <p>Loading more...</p>}
-      {!loading && hasMore && (
+      {!loading && hasMore && load_more && (
         <p
           className="text-cms-grey text-base lg:text-2xl leading-normal text-center my-[100px] cursor-pointer"
           onClick={() => handleLoadMore()}
