@@ -6,10 +6,10 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const category = searchParams.get('category')
   const latest = searchParams.get('latest')
-  const post_id = searchParams.get('post_id') // If the post_id is number, it should be encrypt to protect data
+  const postId = searchParams.get('postId')
 
-  if (post_id) {
-    const Post = await getPost(post_id)
+  if (postId) {
+    const Post = await getPost(postId)
     return NextResponse.json(Post)
   }
   if (latest === 'true') {
