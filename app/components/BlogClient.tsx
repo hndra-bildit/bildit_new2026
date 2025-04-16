@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { CardNineItemType } from '../components/CardNine'
-import CardNine from '../components/CardNine'
+import { CardNineItemType } from '@/app/components/CardNine'
+import CardNine from '@/app/components/CardNine'
 import cn from 'classnames'
 import { useRouter, useParams } from 'next/navigation'
 
@@ -42,7 +42,7 @@ export default function BlogClient() {
 
   const handleTabClick = (cat: string) => {
     if (cat === currentCategory) return
-    router.replace(`/blog_main/${cat}`)
+    router.replace(`/blogs/${cat}`)
   }
 
   return (

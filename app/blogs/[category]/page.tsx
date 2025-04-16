@@ -1,12 +1,12 @@
+import BlogClient from '../../components/BlogClient'
 import HeadingOne from '../../components/HeadingOne'
 import LatestPost from '../../components/LatestPost'
 import SubTitleFiveCaps from '../../components/SubTitleFiveCaps'
 import SubTitleThree from '../../components/SubTitleThree'
-import BlogClient from './../BlogClient'
 import { getLatestPosts } from '@/lib/getPost'
 import Image from 'next/image'
 
-export default async function BlogMain() {
+export default async function Blogs() {
   const initialItems = await getLatestPosts(1, 3) // Page 1
   return (
     <div className="pt-[160px] px-4">
@@ -29,8 +29,8 @@ export default async function BlogMain() {
         className="text-center mt-8"
       />
       <BlogClient />
-      <section className="container mx-auto mt-[200px]">
-        <LatestPost initialItems={initialItems} load_more={true} />
+      <section className="container mx-auto mt-8 lg:mt-[100px]">
+        <LatestPost initialItems={initialItems} loadMore={true} />
       </section>
     </div>
   )
