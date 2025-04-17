@@ -1,8 +1,8 @@
-import BlogClient from '../../components/BlogClient'
-import HeadingOne from '../../components/HeadingOne'
-import LatestPost from '../../components/LatestPost'
-import SubTitleFiveCaps from '../../components/SubTitleFiveCaps'
-import SubTitleThree from '../../components/SubTitleThree'
+import BlogClient from '@/app/components/BlogClient'
+import HeadingOne from '@/app/components/HeadingOne'
+import LatestPost from '@/app/components/LatestPost'
+import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
+import SubTitleThree from '@/app/components/SubTitleThree'
 import { getLatestPosts } from '@/lib/getPost'
 import Image from 'next/image'
 
