@@ -17,18 +17,18 @@ interface Props {
 
 const TextListSubMenu: React.FC<Props> = ({ item }) => {
   return (
-    <div className="p-3 hover:bg-pink-200/35 p-6 w-full rounded-xl">
+    <div className="p-4 hover:bg-pink-200/35 w-full rounded-xl">
       <Link href={item.href} className="flex items-center">
-        <div className="bg-white p-3 rounded-xl">
+        <div className="bg-white p-1 rounded-xl">
           <Image src={item.src} alt={item.alt} width={36} height={0} className="h-auto" />
         </div>
         <div className="ml-2 text-xl text-neutral-900">{item.title}</div>
       </Link>
-      <div className={`grid ${item.className} gap-5`}>
+      <div className={`grid ${item.className} mt-4 gap-3`}>
         {item.children.length > 0 &&
           item.children.map((list, key) => (
             <div
-              className="relative text-base leading-none mt-2 text-neutral-900 pl-5 before:content-['•'] before:absolute before:left-0 before:top-0 before:text-black"
+              className="relative text-base leading-none text-neutral-900 pl-5 before:content-['•'] before:absolute before:left-0 before:top-0 before:text-black"
               key={key}
             >
               {' '}

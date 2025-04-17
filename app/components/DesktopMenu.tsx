@@ -6,7 +6,7 @@ export interface DesktopMenuItemType {
   name: string
   href?: string
   hasSubMenu: boolean
-  sub_menu?: Array<DesktopSubMenuItemType>
+  subMenu?: Array<DesktopSubMenuItemType>
   className?: string
 }
 interface Props {
@@ -15,10 +15,10 @@ interface Props {
 const DesktopMenu: React.FC<Props> = ({ item }) => {
   return (
     <>
-      {item.hasSubMenu && item.sub_menu ? (
+      {item.hasSubMenu && item.subMenu ? (
         <div className="cursor-pointer group relative group">
           <div className="hidden group-hover:block">
-            <DesktopSubMenu item={item.sub_menu} className={item.className ?? ''} />
+            <DesktopSubMenu item={item.subMenu} className={item.className ?? ''} />
           </div>
           <div className="flex items-center group-hover:text-cms-rose">
             <p className="py-3">{item.name}</p>

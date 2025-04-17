@@ -2,18 +2,20 @@
 
 import { useState } from 'react'
 import DesktopMenu, { DesktopMenuItemType } from './DesktopMenu'
+import MobileMenuItem, { MobileMenuItemType } from './MobileMenuItem'
+import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiX } from 'react-icons/fi'
 
-const PageGroups: Array<DesktopMenuItemType> = [
+const desktopMenuItems: Array<DesktopMenuItemType> = [
   {
     name: 'Products',
     hasSubMenu: true,
-    className: 'grid grid-cols-2 grid-rows-2',
-    sub_menu: [
+    className: 'grid grid-cols-[450px_500px] grid-rows-[auto_auto]',
+    subMenu: [
       {
-        menu_type: 'TextListSubMenuType',
+        menuType: 'TextListSubMenuType',
         data: {
           src: '/images/header/BILDIT_Header_CMS_Icon.png',
           alt: 'BILDIT_Header_CMS_Icon.png',
@@ -29,19 +31,21 @@ const PageGroups: Array<DesktopMenuItemType> = [
         }
       },
       {
-        menu_type: 'ImageTypeSubMenuType',
+        menuType: 'ImageTypeSubMenuType',
         data: {
-          src: '/images/header/BILDIT_Header_Partners_Find_More.png',
-          alt: 'BILDIT_Header_Partners_Find_More.png',
-          href: '#',
-          title: 'BILDIT COMMERCE SUITE',
-          content: 'The unified web and app CMS and Storefront for eCommerce.',
-          tip: 'Find out more',
+          thumbnailImage: {
+            src: '/images/header/BILDIT_Header_Partners_Find_More.png',
+            alt: 'BILDIT_Header_Partners_Find_More.png',
+            href: '#',
+            title: 'BILDIT COMMERCE SUITE',
+            content: 'The unified web and app CMS and Storefront for eCommerce.',
+            tip: 'Find out more'
+          },
           className: 'row-span-2'
         }
       },
       {
-        menu_type: 'TextListSubMenuType',
+        menuType: 'TextListSubMenuType',
         data: {
           src: '/images/header/BILDIT_Header_StoreFront_Icon.png',
           alt: 'BILDIT_Header_StoreFront_Icon.png',
@@ -62,10 +66,10 @@ const PageGroups: Array<DesktopMenuItemType> = [
   {
     name: 'Partners',
     hasSubMenu: true,
-    className: 'grid grid-cols-2',
-    sub_menu: [
+    className: 'grid grid-cols-2 lg:w-[87vw] xl:w-[80vw] 2xl:w-[60vw]',
+    subMenu: [
       {
-        menu_type: 'TextListSubMenuType',
+        menuType: 'TextListSubMenuType',
         data: {
           src: '/images/header/BILDIT_Header_Technical_Partner_Icon.png',
           alt: 'BILDIT_Header_Technical_Partner_Icon.png',
@@ -81,7 +85,7 @@ const PageGroups: Array<DesktopMenuItemType> = [
         }
       },
       {
-        menu_type: 'TextListSubMenuType',
+        menuType: 'TextListSubMenuType',
         data: {
           src: '/images/header/BILDIT_Header_Platform_Partner_Icon.png',
           alt: 'BILDIT_Header_Platform_Partner_Icon.png',
@@ -100,20 +104,24 @@ const PageGroups: Array<DesktopMenuItemType> = [
         }
       },
       {
-        menu_type: 'ImageTypeSubMenuType',
+        menuType: 'ImageTypeSubMenuType',
         data: {
-          href: '#',
-          content: 'Become our partners to solve eCommerce problems',
-          tip: 'Become a Partner',
+          thumbnailImage: {
+            href: '#',
+            content: 'Become our partners to solve eCommerce problems',
+            tip: 'Become a Partner'
+          },
           className: ' '
         }
       },
       {
-        menu_type: 'ImageTypeSubMenuType',
+        menuType: 'ImageTypeSubMenuType',
         data: {
-          href: '#',
-          content: 'Our platform partners are the best in class.',
-          tip: 'We are Platform Agnostic',
+          thumbnailImage: {
+            href: '#',
+            content: 'Our platform partners are the best in class.',
+            tip: 'We are Platform Agnostic'
+          },
           className: ' '
         }
       }
@@ -122,17 +130,56 @@ const PageGroups: Array<DesktopMenuItemType> = [
   {
     name: 'Resources',
     hasSubMenu: true,
-    className: '',
-    sub_menu: [
+    className: ' ',
+    subMenu: [
       {
-        menu_type: 'ImageTypeSubMenuType',
+        menuType: 'ImageTypeSubMenuType',
         data: {
-          src: '/images/header/BILDIT_Header_Partners_Find_More.png',
-          alt: 'BILDIT_Header_Partners_Find_More.png',
-          href: '#',
-          title: 'BILDIT COMMERCE SUITE',
-          content: 'The unified web and app CMS and Storefront for eCommerce.',
-          tip: 'Find out more',
+          thumbnailImage: {
+            src: '/images/header/BILDIT_Header_Partners_Find_More.png',
+            alt: 'BILDIT_Header_Partners_Find_More.png',
+            href: '#',
+            title: 'BILDIT COMMERCE SUITE',
+            content: 'The unified web and app CMS and Storefront for eCommerce.',
+            tip: 'Find out more'
+          },
+          listImage: [
+            {
+              src: '/images/header/BILDIT_Header_Blog_Icon.png',
+              alt: 'BILDIT_Header_Blog_Icon.png',
+              title: 'Blog'
+            },
+            {
+              src: '/images/header/BILDIT_Header_Webinars_Icon.png',
+              alt: 'BILDIT_Header_Webinars_Icon.png',
+              title: 'Webinars'
+            },
+            {
+              src: '/images/header/BILDIT_Header_Webinars_Icon.png',
+              alt: 'BILDIT_Header_Webinars_Icon.png',
+              title: 'Webinars'
+            },
+            {
+              src: '/images/header/BILDIT_Header_Documentation_Icon.png',
+              alt: 'BILDIT_Header_Documentation_Icon.png',
+              title: 'Documentation'
+            },
+            {
+              src: '/images/header/BILDIT_Header_For_IT_Icon.png',
+              alt: 'BILDIT_Header_For_IT_Icon.png',
+              title: 'For IT'
+            },
+            {
+              src: '/images/header/BILDIT_Header_For_Brands_Icon.png',
+              alt: 'BILDIT_Header_For_Brands_Icon.png',
+              title: 'For Brands'
+            },
+            {
+              src: '/images/header/BILDIT_Header_For_Technology_Partners_Icon.png',
+              alt: 'BILDIT_Header_For_Technology_Partners_Icon.png',
+              title: 'For Technology Partners'
+            }
+          ],
           className: 'row-span-2'
         }
       }
@@ -150,26 +197,120 @@ const PageGroups: Array<DesktopMenuItemType> = [
   }
 ]
 
+const mobileMenuItems: Array<MobileMenuItemType> = [
+  {
+    name: 'Products',
+    subMenu: [
+      {
+        src: '/images/header/BILDIT_Header_CMS_Icon.png',
+        alt: 'BILDIT_Header_CMS_Icon.png',
+        name: 'Content Management System',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_StoreFront_Icon.png',
+        alt: 'BILDIT_Header_StoreFront_Icon.png',
+        name: 'BILDIT Storefront',
+        href: '#'
+      }
+    ]
+  },
+  {
+    name: 'Partners',
+    subMenu: [
+      {
+        src: '/images/header/BILDIT_Header_For_Technology_Partners_Icon.png',
+        alt: 'BILDIT_Header_For_Technology_Partners_Icon.png',
+        name: 'Technology Partners',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_Platform_Partner_Icon.png',
+        alt: 'BILDIT_Header_Platform_Partner_Icon.png',
+        name: 'Platform Partners',
+        href: '#'
+      }
+    ]
+  },
+  {
+    name: 'Pricing',
+    href: '#'
+  },
+  {
+    name: 'Resources',
+    subMenu: [
+      {
+        src: '/images/header/BILDIT_Header_Blog_Icon.png',
+        alt: 'BILDIT_Header_Blog_Icon.png',
+        name: 'Blog',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_Webinars_Icon.png',
+        alt: '',
+        name: 'Webinars',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_Documentation_Icon.png',
+        alt: 'BILDIT_Header_Documentation_Icon.png',
+        name: 'Documentation',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_For_IT_Icon.png',
+        alt: 'BILDIT_Header_For_IT_Icon.png',
+        name: 'For IT',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_For_Brands_Icon.png',
+        alt: 'BILDIT_Header_For_Brands_Icon.png',
+        name: 'For Brands',
+        href: '#'
+      },
+      {
+        src: '/images/header/BILDIT_Header_For_Technology_Partners_Icon.png',
+        alt: 'BILDIT_Header_For_Technology_Partners_Icon.png',
+        name: 'For Technology Partners',
+        href: '#'
+      }
+    ]
+  },
+  {
+    name: 'Our Story',
+    href: '#'
+  },
+  {
+    name: 'Contact Sales',
+    href: '#'
+  },
+  {
+    name: 'Start Free Trial',
+    href: '#'
+  }
+]
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
-
   return (
-    <header className="absolute w-full left-0 top-0 flex bg-transparent">
-      <div className="flex w-full justify-between items-center py-10 px-2 xl:p-10">
+    <header
+      className={cn(
+        'absolute w-full left-0 top-0 flex z-10',
+        menuOpen ? 'bg-white lg:bg-transparent' : 'bg-transparent'
+      )}
+    >
+      <div className="flex w-full justify-between items-center py-5 lg:py-10 px-2 xl:p-10">
         <div className="flex">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
+          <Link href="/" className="text-2xl font-bold flex items-center">
             <Image alt="BILDIT Logo" src="/images/others/BILDIT_Logo.svg" width={134} height={30} />
           </Link>
           {/* Desktop Navigation */}
           <nav className="lg:pl-6 xl:pl-12 hidden lg:flex items-center space-x-6 text-gray-700">
-            {PageGroups.map((item, key) => (
+            {desktopMenuItems.map((item, key) => (
               <DesktopMenu item={item} key={key} />
             ))}
           </nav>
-
-          {/* Desktop Buttons */}
         </div>
         <div className="hidden lg:flex space-x-4 items-center">
           <div>
@@ -192,41 +333,14 @@ const Header: React.FC = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <nav className="lg:hidden bg-white shadow-md absolute top-22 left-0 w-full px-2 py-5 space-y-4 text-gray-700">
-          {['Products', 'Partners', 'Resources', 'Pricing', 'Our Story'].map((item) => (
-            <div key={item} className="border-b-1 border-black">
-              <button
-                className="flex items-center w-full hover:text-black cursor-pointer"
-                onClick={() => setDropdownOpen(dropdownOpen === item ? null : item)}
-              >
-                {item} {['Products', 'Partners', 'Resources'].includes(item) && <FiChevronDown className="ml-1" />}
-              </button>
-              {dropdownOpen === item && ['Products', 'Partners', 'Resources'].includes(item) && (
-                <div className="ml-4 mt-2 space-y-2">
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
-                    Option 1
-                  </Link>
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">
-                    Option 2
-                  </Link>
-                </div>
-              )}
-            </div>
-          ))}
-
-          {/* Mobile Buttons */}
-          <div className="flex  space-y-3 justify-center">
-            <div className="px-1">
-              <button className="border border-black px-7 py-1 rounded-full text-black hover:bg-gray-200 cursor-pointer">
-                Contact Sales
-              </button>
-            </div>
-            <div className="px-1">
-              <button className="border border-black px-7 py-1 rounded-full text-black bg-white hover:bg-gray-100 cursor-pointer">
-                Start Free Trial
-              </button>
-            </div>
-          </div>
+        <nav className="lg:hidden bg-white shadow-md absolute top-17 left-0 w-full px-3 py-5">
+          {mobileMenuItems.map((item, key) => {
+            return (
+              <div className="py-3 border-b border-b-gray-200" key={key}>
+                <MobileMenuItem item={item} />
+              </div>
+            )
+          })}
         </nav>
       )}
     </header>
