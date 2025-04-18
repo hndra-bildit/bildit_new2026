@@ -1,7 +1,5 @@
-import BILDIT_Integration_Partners_BG from '../../public/images/integration_partners/BILDIT_Integration_Partners_BG.png'
-import BILDIT_Integration_Partners_Effect from '../../public/images/integration_partners/BILDIT_Integration_Partners_Effect.png'
-import BILDIT_Integration_Partners_Effect_Mobile_BG from '../../public/images/integration_partners/BILDIT_Integration_Partners_Effect_Mobile_BG.png'
-import CardEight, { CardEightType } from '../components/CardEight'
+import HeadingOne from '../components/HeadingOne'
+import CardEight, { CardEightType } from '@/app/components/CardEight'
 import Image from 'next/image'
 
 // @todo: should come from cms
@@ -65,27 +63,36 @@ const IntegrationPartnersItems: Array<CardEightType> = [
 
 export default function IntegrationPartners() {
   return (
-    <div className="container mx-auto pt-[160px]">
+    <div className="container mx-auto pt-20 lg:pt-40">
       <Image
-        src={BILDIT_Integration_Partners_Effect_Mobile_BG}
+        src="/images/integration_partners/BILDIT_Integration_Partners_Effect_Mobile_BG.png"
         alt="BILDIT_Integration_Partners_Effect_Mobile_BG.png"
-        className="sm:hidden top-0 left-0 -z-1 absolute"
-        style={{ width: '100%', height: 'auto' }}
+        className="sm:hidden top-0 left-0 -z-1 absolute w-full h-auto"
+        width={1200}
+        height={0}
       />
-      <h1 className="text-[44px] text-center text-neutral-900 lg:text-[104px] leading-none font-gt-walsheim font-extrabold uppercase">
-        Integrate with the finest tools in the world
-      </h1>
-      <div className="relative mt-[89px] mb-[260px]">
+      <HeadingOne sub1="Integrate with the finest tools in the world" className1="text-center" />
+      <div className="relative mt-10 lg:mt-25 mb-20 lg:mb-60">
         <Image
-          src={BILDIT_Integration_Partners_BG}
+          src="/images/integration_partners/BILDIT_Integration_Partners_BG.png"
           alt="BILDIT_Integration_Partners_BG.png"
-          style={{ width: '100%', height: 'auto' }}
+          className="w-full h-auto hidden lg:block"
+          width={1200}
+          height={0}
         />
         <Image
-          src={BILDIT_Integration_Partners_Effect}
+          src="/images/integration_partners/BILDIT_Integration_Partners_Mobile_BG.png"
+          alt="BILDIT_Integration_Partners_Mobile_BG.png"
+          className="w-full h-auto lg:hidden"
+          width={1200}
+          height={0}
+        />
+        <Image
+          src="/images/integration_partners/BILDIT_Integration_Partners_Effect.png"
           alt="BILDIT_Integration_Partners_Effect.png"
-          className="hidden sm:block top-0 left-0 absolute -z-1"
-          style={{ width: '100%', height: 'auto' }}
+          className="hidden sm:block top-0 left-0 absolute -z-1 w-full h-auto"
+          width={1200}
+          height={0}
         />
       </div>
       <div className="px-4 lg:px-0 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
