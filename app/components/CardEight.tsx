@@ -15,7 +15,7 @@ interface Props {
 const CardEight: React.FC<Props> = ({ item }) => {
   return (
     <div>
-      <div className="flex items-center justify-center h-[191px] px-6 border border-gray-300 bg-cms-lighter-gray rounded-2xl">
+      <div className="flex items-center justify-center h-[191px] px-6 border border-gray-300 bg-gray-100 rounded-2xl">
         <Image src={item.src} alt={item.alt} width={item.width} height={item.height} />
       </div>
       <div className="mt-5 px-12">

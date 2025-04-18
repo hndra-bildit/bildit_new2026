@@ -7,7 +7,7 @@ interface Props {
 }
 const CardTwo: React.FC<Props> = ({ item, className }) => {
   return (
-    <div className="mt-5 p-5 border border-gray-200 rounded-2xl bg-cms-lighter-gray">
+    <div className="mt-5 p-5 border border-gray-200 rounded-2xl bg-gray-100">
       <div className="text-center">
         <Image src={item.src} alt={item.alt} width={0} height={0} className="w-auto h-auto inline-block" unoptimized />
       </div>

@@ -11,8 +11,8 @@ interface Props {
 }
 const CardOne: React.FC<Props> = ({ item }) => {
   return (
-    <div className="w-[320px] mt-12 mx-5">
-      <div className="bg-cms-lighter-gray border-cms-light-gray rounded-2xl flex items-center justify-center py-26">
+    <div className="w-80 mt-12 mx-5">
+      <div className="bg-gray-100 border-cms-light-gray rounded-2xl flex items-center justify-center py-26">
         <Image src={item.src} alt={item.alt} width={168} height={168} />
       </div>
       <div className="text-center">

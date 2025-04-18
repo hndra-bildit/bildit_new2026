@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-[100px] bg-cms-lighter-gray px-4 lg:px-0">
+      <section className="py-[100px] bg-gray-100 px-4 lg:px-0">
         <div className="container mx-auto">
           <DisplayThree content="BILDIT CMS provides SDK and API integrations" className="text-center" />
           <SubTitleFourCaps content="with top e-commerce platforms:" />

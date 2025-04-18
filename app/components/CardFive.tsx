@@ -15,7 +15,7 @@ interface Props {
 }
 const CardFive: React.FC<Props> = ({ item }) => {
   return (
-    <div className="bg-cms-lighter-gray borde border-cms-light-gray rounded-2xl p-6 lg:p-10 text-zinc-600 mb-10">
+    <div className="bg-gray-100 borde border-cms-light-gray rounded-2xl p-6 lg:p-10 text-zinc-600 mb-10">
       <h3 className="font-bold text-2xl xl:text-3xl leading-none font-gt-walsheim">{item.title}</h3>
       {item.subitems.map((subitem, idx) => {
         return (

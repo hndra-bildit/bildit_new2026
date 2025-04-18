@@ -1,17 +1,14 @@
-import BILDIT_Home_BG from '../public/images/home/BILDIT_Home_BG.png'
-import BILDIT_Home_Unified_Solution_BG from '../public/images/home/BILDIT_Home_Unified_Solution_BG.png'
-import BILDIT_Dot_Line_Effect_BG from '../public/images/others/BILDIT_Dot_Line_Effect_BG.png'
-import BelkResultsImage from './components/BelkResultImage'
-import BodyTwo from './components/BodyTwo'
-import DisplayOne from './components/DisplayOne'
-import HeadingOne from './components/HeadingOne'
-import HeadingTwo from './components/HeadingTwo'
-import HomeSelectGroups from './components/HomeSelectGroups'
-import IntroVideo from './components/IntroVideo'
-import PrimaryButton from './components/PrimaryButton'
-import SecondaryButton from './components/SecondaryButton'
-import SubTitleFiveCaps from './components/SubTitleFiveCaps'
-import SubTitleThree from './components/SubTitleThree'
+import BelkResultsImage from '@/app/components/BelkResultImage'
+import BodyTwo from '@/app/components/BodyTwo'
+import DisplayOne from '@/app/components/DisplayOne'
+import HeadingOne from '@/app/components/HeadingOne'
+import HeadingTwo from '@/app/components/HeadingTwo'
+import HomeSelectGroups from '@/app/components/HomeSelectGroups'
+import IntroVideo from '@/app/components/IntroVideo'
+import PrimaryButton from '@/app/components/PrimaryButton'
+import SecondaryButton from '@/app/components/SecondaryButton'
+import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
+import SubTitleThree from '@/app/components/SubTitleThree'
 import Image from 'next/image'
 
 const cardgroup: Array<{ src: string; alt: string; title: string }> = [
@@ -39,25 +36,29 @@ const belkResults: Array<{ src: string; alt: string }> = [
 export default function Home() {
   return (
     <>
-      <section className="pt-[160px] relative">
+      <section className="pt-[160px] relative px-4">
         <Image
-          src={BILDIT_Home_BG}
+          src="/images/home/BILDIT_Home_BG.png"
           alt="BILDIT_Home_BG.png"
-          className="top-0 left-0 absolute -z-1"
-          style={{ width: 'auto', height: 'auto' }}
+          className="top-0 left-0 absolute -z-1 w-full h-full"
+          width={1200}
+          height={0}
         />
         <div className="container mx-auto">
           <HeadingOne
             sub1={'Modern'}
             sub2={'CMS'}
             sub3={'Unified Storefront'}
-            className1={''}
+            className1={'text-center lg:text-left'}
             className2={'bg-gradient-to-r from-cms-rose to-[#3B1EED] bg-clip-text text-transparent'}
           />
-          <div className="grid grid-cols-2 gap-6">
+          <div className="lg:grid grid-cols-2 gap-6">
             <div>
-              <SubTitleThree content={'Empowering Marketers with Cross-Channel Control'} />
-              <div className="flex space-x-7 mt-[80px]">
+              <SubTitleThree
+                content={'Empowering Marketers with Cross-Channel Control'}
+                className="text-center lg:text-left"
+              />
+              <div className="flex justify-center lg:justify-start space-x-7 mt-5 lg:mt-20">
                 <SecondaryButton content="Learn More" />
                 <PrimaryButton content="Watch Demo" />
               </div>
@@ -68,12 +69,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-[100px] bg-cms-lighter-gray">
+      <section className="py-10 lg:py-25 bg-gray-100 relative px-4">
+        <Image
+          src="/images/others/BILDIT_Dot_Line_Effect_BG.png"
+          alt="BILDIT_Dot_Line_Effect_BG.png"
+          width={1000}
+          height={0}
+          className="absolute top-0 left-0 -z-1 w-full h-auto"
+        />
         <HeadingTwo content={"Belk's Results"} className={'text-center'} />
-        <p className="text-3xl font-600 leading-[40px] text-zinc-600 text-center">
-          After Switching to BILDIT CMS and App
-        </p>
-        <div className="container mx-auto flex justify-between">
+        <SubTitleThree content="After Switching to BILDIT CMS and App" className="!text-center" />
+        <div className="container mx-auto flex justify-center lg:justify-between flex-wrap">
           {belkResults.map((item, key) => (
             <BelkResultsImage item={item} key={key} />
           ))}
@@ -81,20 +87,23 @@ export default function Home() {
       </section>
 
       <section className="">
-        <div className="container mx-auto mt-[180px] py-[80px] grid grid-cols-2 gap-10">
+        <div className="container mx-auto mt-0 lg:mt-45 py-10 lg:py-20 lg:grid grid-cols-2 gap-10 px-4">
           <div>
             <SubTitleFiveCaps content={'Why BILDIT'} />
-            <HeadingTwo content={'Build Anything You Want.'} />
-            <SubTitleThree content={'No coding experience required. Without IT.'} className={'mt-7'} />
+            <HeadingTwo content={'Build Anything You Want.'} className="text-center lg:text-left" />
+            <SubTitleThree
+              content={'No coding experience required. Without IT.'}
+              className={'text-center lg:text-left mt-3 lg:mt-7'}
+            />
           </div>
-          <div className="mt-12 space-y-3">
-            <p className="leading-[26px] text-lg text-zinc-600 font-normal">
+          <div className="mt-6 lg:mt-12 space-y-3">
+            <p className="leading-normal text-lg text-zinc-600 font-normal text-center lg:text-left">
               BILDIT CMS was designed for e-commerce marketing teams striving to deliver highly personalized, targeted
               campaigns across web and mobile channels. It was born from the frustration of dealing with limited
               solutions that made creating engaging, effective campaigns unnecessarily slow or generic. Waiting weeks to
               launch on mobile or settling for cookie-cutter tools shouldn’t hold back your growth.
             </p>
-            <p className="leading-[26px] text-lg text-zinc-600 font-normal">
+            <p className="leading-normal text-lg text-zinc-600 font-normal  text-center lg:text-left">
               That’s why we built BILDIT CMS - to give you the freedom to launch anything you want, exactly how and when
               you want, on both web and mobile platforms..
             </p>
@@ -102,13 +111,13 @@ export default function Home() {
         </div>
         <div className="flex justify-center relative">
           <IntroVideo src={'/images/others/BILDIT_Blank.png'} />
-          <div className="h-1/2 w-full bg-cms-lighter-gray absolute bottom-0 left-0 z-[-1]"></div>
+          <div className="h-1/2 w-full bg-gray-100 absolute bottom-0 left-0 z-[-1]"></div>
         </div>
       </section>
 
-      <section className="pt-[212px] bg-cms-lighter-gray">
-        <div className="container mx-auto">
-          <SubTitleFiveCaps content={'BILDIT CMS overview'} className={'text-center'} />
+      <section className="pt-20 lg:pt-50 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <SubTitleFiveCaps content={'BILDIT CMS overview'} className={'!text-center'} />
           <HeadingTwo
             content={'Deliver seamless cross-channel content that boosts revenue.'}
             className={'text-center'}
@@ -117,17 +126,19 @@ export default function Home() {
             content={
               'Launch more, launch faster. On BILDIT CMS, you can line up your next campaign in hours, not weeks.'
             }
-            className={'text-center mt-5'}
+            className={'text-center mt-3 lg:mt-5'}
           />
-          <div className="flex justify-between flex-wrap pb-[122px]">
+          <div className="flex justify-center lg:justify-between flex-wrap pb-30">
             {cardgroup.map((item, key) => {
               return (
-                <div className="max-w-[440px] pt-12" key={key}>
-                  <div className="flex justify-center py-[77] border border-gray-200 rounded-[14px] bg-cms-lighter-gray shadow-[0px_5px_10px_0px_rgba(0,0,0,0.1)]">
+                <div className="max-w-[440px] w-full pt-12" key={key}>
+                  <div className="flex justify-center py-[77] border border-gray-200 rounded-[14px] bg-gray-100 shadow-[0px_5px_10px_0px_rgba(0,0,0,0.1)]">
                     <Image src={item.src} alt={item.alt} width={216} height={266} />
                   </div>
                   <div>
-                    <p className="mt-12 text-4xl font-bold text-center font-gt-walsheim leading-none">{item.title}</p>
+                    <p className="mt-3 lg:mt-12 text-xl lg:text-4xl font-bold text-center font-gt-walsheim leading-none">
+                      {item.title}
+                    </p>
                   </div>
                 </div>
               )
@@ -136,43 +147,60 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-[100px] relative">
+      <section className="py-10 lg:py-25 relative px-4">
         <Image
-          src={BILDIT_Dot_Line_Effect_BG}
+          src="/images/others/BILDIT_Dot_Line_Effect_BG.png"
           alt="BILDIT_Dot_Line_Effect_BG.png"
-          className="top-0 left-0 absolute -z-1"
-          style={{ width: 'auto', left: 'auto' }}
+          width={1200}
+          height={0}
+          className="top-0 left-0 absolute -z-1 w-auto h-auto hidden lg:block"
+        />
+        <Image
+          src="/images/home/BILDIT_Home_Mobile_BG.png"
+          alt="BILDIT_Home_Mobile_BG.png"
+          width={700}
+          height={0}
+          className="lg:hidden top-0 left-0 -z-1 absolute w-full h-auto"
         />
         <HomeSelectGroups />
       </section>
 
-      <section className="py-[100px] relative">
+      <section className="py-25 relative px-4">
         <Image
-          src={BILDIT_Home_Unified_Solution_BG}
+          src="/images/home/BILDIT_Home_Unified_Solution_BG.png"
           alt="BILDIT_Home_Unified_Solution_BG.png"
-          className="top-0 left-0 absolute -z-1"
-          style={{ width: '100%', height: '100%' }}
+          className="top-0 left-0 absolute -z-1 w-full h-full hidden lg:block"
+          width={1200}
+          height={0}
         />
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="max-w-[892px]">
-            <SubTitleFiveCaps content={'One backend. One unified solution.'} />
+        <Image
+          src="/images/home/BILDIT_Home_Unified_Solution_Mobile_BG.png"
+          alt="BILDIT_Home_Unified_Solution_Mobile_BG.png"
+          className="top-0 left-0 absolute -z-1 w-full h-full lg:hidden"
+          width={1200}
+          height={0}
+        />
+        <div className="container mx-auto lg:grid grid-cols-[65%_auto] items-center justify-center">
+          <div className="max-w-4xl">
+            <SubTitleFiveCaps content={'One backend. One unified solution.'} className="text-center lg:text-left" />
             <DisplayOne
               content={'Effortlessly create sophisticated content for web and mobile'}
-              className={'text-white'}
+              className={'text-white mt-4 text-center lg:text-left'}
             />
             <BodyTwo
               content={
                 'One CMS platform. Endless possibilities to create stunning images, banners, recommendations, animations and customized display configurations.'
               }
-              className={'!text-cms-light-gray'}
+              className={'!text-gray-300 mt-8 text-center lg:text-left'}
             />
           </div>
-          <div>
+          <div className="flex justify-center">
             <Image
               src="/images/home/BILDIT_Home_Unified_Solution_Image.png"
               alt="BILDIT_Home_Unified_Solution_Image.png"
               width={471}
-              height={461}
+              height={0}
+              className="w-full h-auto"
             />
           </div>
         </div>
