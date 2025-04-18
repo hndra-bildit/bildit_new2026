@@ -1,10 +1,10 @@
-import BodyOne from '@/app/components/BodyOne'
 import BodyTwo from '@/app/components//BodyTwo'
 import DisplayThree from '@/app/components//DisplayThree'
 import Input from '@/app/components//Input'
 import PrimaryButton from '@/app/components//PrimaryButton'
 import SecondaryButton from '@/app/components//SecondaryButton'
 import SubTitleFourCaps from '@/app/components//SubTitileFourCaps'
+import BodyOne from '@/app/components/BodyOne'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
             />
           </div>
           <div className="block lg:hidden">
-            <Image              
+            <Image
               src="/images/footer/BILDIT_Footer_Rectangle_BG.png"
               className="top-0 left-0 -z-3 absolute w-full h-full"
               alt="BILDIT_Footer_Rectangle_BG.png"

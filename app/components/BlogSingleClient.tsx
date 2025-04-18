@@ -8,22 +8,22 @@ import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { SlSocialLinkedin } from "react-icons/sl";
-import { FaXTwitter } from "react-icons/fa6";
-import { IoIosLink } from "react-icons/io";
+import { FaXTwitter } from 'react-icons/fa6'
+import { IoIosLink } from 'react-icons/io'
+import { SlSocialLinkedin } from 'react-icons/sl'
 
-interface blogType{
-  id:string,
-  createdAt:string,
-  author:string,
-  data:Array<{title:string, content:string}>
+interface blogType {
+  id: string
+  createdAt: string
+  author: string
+  data: Array<{ title: string; content: string }>
 }
 // to-do: should come from cms
-const blog:blogType= {
-  id:"1",
-  createdAt:"January 22, 2025",
-  author:"Matt Hudson",
-  data:[
+const blog: blogType = {
+  id: '1',
+  createdAt: 'January 22, 2025',
+  author: 'Matt Hudson',
+  data: [
     {
       title: 'Introduction',
       content:
@@ -85,25 +85,37 @@ const BlogSingleClient = () => {
           </div>
           <div className="order-1 mt-12">
             <h6 className="text-neutral-500 text-base font-normal leading-none hidden lg:block ">Table of contents</h6>
-            <div className='hidden lg:block '>
+            <div className="hidden lg:block ">
               {blog.data.map((item, key) => (
                 <p className="text-zinc-600 text-base mt-2" key={key}>
                   <Link href={`#content_${key}`}>{item.title}</Link>
                 </p>
               ))}
             </div>
-            <hr className='hidden lg:block my-6 border-gray-300' />
-            
+            <hr className="hidden lg:block my-6 border-gray-300" />
+
             <div>
-              <p className='text-zinc-600 text-base mt-2'>Published</p>
-              <p className='text-zinc-600 text-base mt-2'>{blog.createdAt}</p>
+              <p className="text-zinc-600 text-base mt-2">Published</p>
+              <p className="text-zinc-600 text-base mt-2">{blog.createdAt}</p>
             </div>
-            <hr className='hidden lg:block my-6 border-gray-300' />
-            <div className='flex space-x-5'>
-              <p className='text-zinc-600 text-base mt-2'>Share article</p>
-              <div className='text-zinc-600 text-base mt-2'><Link href="#"><SlSocialLinkedin /></Link></div>
-              <div className='text-zinc-600 text-base mt-2'><Link href="#"><FaXTwitter /></Link></div>
-              <div className='text-zinc-600 text-base mt-2'><Link href="#"><IoIosLink /></Link></div>
+            <hr className="hidden lg:block my-6 border-gray-300" />
+            <div className="flex space-x-5">
+              <p className="text-zinc-600 text-base mt-2">Share article</p>
+              <div className="text-zinc-600 text-base mt-2">
+                <Link href="#">
+                  <SlSocialLinkedin />
+                </Link>
+              </div>
+              <div className="text-zinc-600 text-base mt-2">
+                <Link href="#">
+                  <FaXTwitter />
+                </Link>
+              </div>
+              <div className="text-zinc-600 text-base mt-2">
+                <Link href="#">
+                  <IoIosLink />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
