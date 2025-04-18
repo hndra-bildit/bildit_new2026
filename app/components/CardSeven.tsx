@@ -14,7 +14,7 @@ interface Props {
 }
 const CardSeven: React.FC<Props> = ({ item }) => {
   return (
-    <div className="border border-cms-light-gray rounded-2xl overflow-hidden">
+    <div className="border border-gray-300 rounded-2xl overflow-hidden">
       <div className="bg-gray-100 flex justify-center items-center h-60">
         <Image src={item.src} alt={item.alt} width={item.width} height={item.height} />
       </div>

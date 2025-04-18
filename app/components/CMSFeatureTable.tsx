@@ -52,7 +52,7 @@ const CMSFeaturesTable: React.FC = () => {
     <table className="w-full border-collapse rounded-lg overflow-hidden shadow-md">
       <tbody>
         {features.map((feature, index) => (
-          <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-cms-light-gray'}>
+          <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-300'}>
             <td className="py-5 px-2 text-xl text-neutral-900 font-gt-walsheim w-1/3">
               <SubTitleFive content={feature.title} />
             </td>

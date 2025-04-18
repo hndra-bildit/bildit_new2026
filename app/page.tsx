@@ -36,7 +36,7 @@ const belkResults: Array<{ src: string; alt: string }> = [
 export default function Home() {
   return (
     <>
-      <section className="pt-[160px] relative px-4">
+      <section className="pt-20 lg:pt-40 relative px-4">
         <Image
           src="/images/home/BILDIT_Home_BG.png"
           alt="BILDIT_Home_BG.png"

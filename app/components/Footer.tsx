@@ -82,7 +82,7 @@ const partners: Array<PartnerType> = [
 const Footer: React.FC = () => {
   return (
     <footer>
-      <section className="container mx-auto lg:grid grid-cols-2 gap-[60px] items-center py-[120px] px-4 lg:px-0">
+      <section className="container mx-auto lg:grid grid-cols-2 gap-15 items-center py-10 lg:py-30 px-4 lg:px-0">
         {/* Left Section */}
         <div className="space-y-4 text-center lg:text-left">
           <DisplayThree content={'Ready to transform Your Business?'} />

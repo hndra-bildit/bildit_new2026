@@ -264,7 +264,7 @@ export default function StoreFront() {
           />
           <div className="grid lg:grid-cols-2 pt-4 lg:pt-12">
             <div className="text-center lg:text-left">
-              <p className="text-cms-light-gray text-base lg:text-2xl leading-normal">
+              <p className="text-gray-300 text-base lg:text-2xl leading-normal">
                 BILDIT understands that the entire team plays a role in the success of your app. Your marketing team
                 must be able to give the customer what they want. Your system integrator must be able to start fast.
                 Your engineering team needs flexibility. Ultimately you must give the customer a premium, high
