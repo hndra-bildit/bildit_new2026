@@ -27,10 +27,10 @@ const PriceCard: React.FC<Props> = ({ item }) => {
   })
   return (
     <div
-      className={`px-8 py-10 mt-5  text-zinc-600 max-w-93 rounded-[14px] ${item.isPopular ? 'bg-[rgba(237,30,121,0.1)]' : 'border border-gray-200 bg-gray-100'}`}
+      className={`px-8 py-10 mt-5  text-zinc-600 max-w-93 rounded-xl ${item.isPopular ? 'bg-pink-600/10' : 'border border-gray-200 bg-gray-100'}`}
     >
       <label
-        className={`bg-gradient-to-r from-[#9103F8] to-[#3B1EED] font-gt-walsheim text-transparent text-white text-base font-400 leading-base px-2 py-1 rounded-4xl ${!item.isPopular ? 'invisible' : ''}`}
+        className={`bg-gradient-to-r from-purple-700 to-violet-700 font-gt-walsheim text-transparent text-white text-base font-400 leading-base px-2 py-1 rounded-4xl ${!item.isPopular ? 'invisible' : ''}`}
       >
         Most Popular
       </label>
@@ -56,14 +56,14 @@ const PriceCard: React.FC<Props> = ({ item }) => {
       </div>
       <div className="mt-5 text-center">
         <Link href="#">
-          <PrimaryButton content="Start Free Trial" />
+          <PrimaryButton content="Start Free Trial" className="w-full" />
         </Link>
       </div>
       <p className="font-normal text-base leading-none mt-7 ">This is include:</p>
       {item.subItems.map((sub, key) => {
         return (
-          <div className="flex" key={key}>
-            <FaCheckCircle className="text-cms-rose text-xl leading-none mt-2" />
+          <div className="flex items-center mt-1" key={key}>
+            <FaCheckCircle className="text-cms-rose text-base leading-none " />
             <span className="leading-normal ml-2 text-base">{sub}</span>
           </div>
         )
