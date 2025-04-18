@@ -1,8 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { CardNineItemType } from '../components/CardNine'
-import CardNine from '../components/CardNine'
+import { CardNineItemType } from '@/app/components/CardNine'
+import CardNine from '@/app/components/CardNine'
+import cn from 'classnames'
 import { useRouter, useParams } from 'next/navigation'
 
 const LinkGroups: Array<{ name: string; param: string }> = [
@@ -41,15 +42,18 @@ export default function BlogClient() {
 
   const handleTabClick = (cat: string) => {
     if (cat === currentCategory) return
-    router.replace(`/blog_main/${cat}`)
+    router.replace(`/blogs/${cat}`)
   }
 
   return (
     <div>
-      <div className="flex space-x-8 justify-center mt-12">
+      <div className="flex space-x-2 lg:space-x-8 justify-center mt-12">
         {LinkGroups.map((item, key) => (
           <div
-            className="text-base lg:text-2xl font-bold leading-normal text-black cursor-pointer"
+            className={cn(
+              'text-cms-basic lg:text-2xl font-bold leading-normal cursor-pointer hover:text-cms-rose',
+              currentCategory === item.param ? 'text-cms-rose' : 'text-black'
+            )}
             key={key}
             onClick={() => handleTabClick(item.param)}
           >

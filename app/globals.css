@@ -4,6 +4,9 @@
   --font-uncut-sans: 'Uncut Sans';
   --font-gt-walsheim: 'GT Walsheim Trial';
 }
+/* #171717 neutral-900 */
+/* #595959 zinc-600  */
+/* #737373 neutral-500 */
 
 @theme {
   --font-uncut-sans: var(--font-uncut-sans);

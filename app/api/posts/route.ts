@@ -1,12 +1,17 @@
 // app/api/posts/route.ts
-import { getLatestPosts, getPostsByCategory } from '@/lib/getPost'
+import { getLatestPosts, getPost, getPostsByCategory } from '@/lib/getPost'
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const category = searchParams.get('category')
   const latest = searchParams.get('latest')
+  const postId = searchParams.get('postId')
 
+  if (postId) {
+    const Post = await getPost(postId)
+    return NextResponse.json(Post)
+  }
   if (latest === 'true') {
     // 🆕 Return latest posts
     const page = parseInt(searchParams.get('page') || '1')
