@@ -12,7 +12,7 @@ const BillingToggle: React.FC = () => {
         <button
           onClick={() => setBillingCycle('monthly')}
           className={`px-8 py-1 rounded-full transition-all duration-200 cursor-pointer ${
-            billingCycle === 'monthly' ? 'bg-cms-black-one text-white' : 'text-gray-500 hover:text-cms-black-one'
+            billingCycle === 'monthly' ? 'bg-neutral-900 text-white' : 'text-gray-500 hover:text-neutral-900'
           }`}
         >
           <TextBtnL content="Monthly" />
@@ -20,7 +20,7 @@ const BillingToggle: React.FC = () => {
         <button
           onClick={() => setBillingCycle('yearly')}
           className={`px-8 py-2rounded-full transition-all duration-200 cursor-pointer ${
-            billingCycle === 'yearly' ? 'bg-cms-black-one text-white' : 'text-gray-500 hover:text-cms-black-one'
+            billingCycle === 'yearly' ? 'bg-neutral-900 text-white' : 'text-gray-500 hover:text-neutral-900'
           }`}
         >
           <TextBtnL content="Yearly" />

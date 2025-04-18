@@ -10,7 +10,7 @@ const Input: React.FC<Props> = ({ type, placeholder, className }) => {
     <input
       type={type}
       placeholder={placeholder}
-      className={`w-full p-2 lg:p-5 border border-cms-input-color rounded-[3px] focus:outline-none focus:border-blue-500 text-cms-basic lg:text-xl ${className}`}
+      className={`w-full p-2 lg:p-5 border border-blue-600 rounded-[3px] focus:outline-none focus:border-blue-500 text-sm lg:text-xl ${className}`}
     />
   )
 }

@@ -87,13 +87,13 @@ export default function TechPartners() {
         <div className="container mx-auto px-4 lg:px-0">
           <div className="lg:w-[576px] xl:w-[746px] lg:[100px] xl:mt-[198px] text-center lg:text-left">
             <h1 className="text-[64px] md:text-[96px] lg:text-[102px] xl:text-[134px] leading-none font-gt-walsheim font-extrabold">
-              <span className="bg-gradient-to-r from-cms-rose via-cms-rose to-cms-purple text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-cms-rose via-cms-rose to-purple-700 text-transparent bg-clip-text">
                 Tech
               </span>
-              <span className="text-cms-black-one`"> Partners</span>
+              <span className="text-neutral-900`"> Partners</span>
             </h1>
             <HeadingTwo content="Enable eCommerce in Mobile Apps." className="font-normal mt-5 hidden lg:block" />
-            <SubTitleFour content="Enable eCommerce in Mobile Apps." className="lg:hidden text-cms-grey" />
+            <SubTitleFour content="Enable eCommerce in Mobile Apps." className="lg:hidden text-zinc-600" />
           </div>
         </div>
         <Image

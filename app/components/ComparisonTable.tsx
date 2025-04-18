@@ -161,9 +161,9 @@ export default function PricingTable() {
     <div className="lg:p-6">
       {/* Table for larger screens */}
       <div className="hidden md:block overflow-x-auto px-10 py-8 rounded-2xl border border-cms-light-gray bg-white shadow-[0px_40px_80px_0px_rgba(0,0,0,0.1)]">
-        <table className="w-full border-collapse border-t border-b border-gray-200 text-cms-basic">
+        <table className="w-full border-collapse border-t border-b border-gray-200 text-sm">
           <thead>
-            <tr className="font-700 text-cms-basic border-t border-b text-white bg-cms-black-two text-center">
+            <tr className="font-700 text-sm border-t border-b text-white bg-neutral-700 text-center">
               <th className="border-gray-300 px-4 py-2 text-left border-t border-b">Feature</th>
               <th className="border-gray-300 px-4 py-2 bg-cms-light-gray text-cms-rose border-t border-b">BILDIT</th>
               <th className="border-gray-300 px-4 py-2 border-t border-b">Sanity Business ($949)</th>
@@ -171,7 +171,7 @@ export default function PricingTable() {
               <th className="border-gray-300 px-4 py-2 border-t border-b">Storyblock Enterprise ($2999)</th>
             </tr>
           </thead>
-          <tbody className="text-cms-basic lg:text-base text-cms-black-one border-t border-b  font-gt-walsheim leading-snug font-bold">
+          <tbody className="text-sm lg:text-base text-neutral-900 border-t border-b  font-gt-walsheim leading-snug font-bold">
             {data.map((row, index) => (
               <tr key={index} className={`border-t border-b ${index % 2 === 0 ? 'bg-white' : 'bg-cms-light-gray'}`}>
                 <td className="border-gray-300 px-4 py-2  border-t border-b py-5">{renderCell(row.feature)}</td>

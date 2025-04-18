@@ -225,7 +225,7 @@ export default function BilditCMS() {
 
       <section className="bg-cms-lighter-gray py-[55px]">
         <div className="container mx-auto">
-          <h5 className="font-400 text-xl md:text-3xl lg:text-4xl leading-none tracking-[-0.23px] text-cms-grey text-center">
+          <h5 className="font-400 text-xl md:text-3xl lg:text-4xl leading-none tracking-[-0.23px] text-zinc-600 text-center">
             Some of the retailers growing their revenue with BILDIT content management system
           </h5>
           <div className="mt-12 flex flex-wrap items-center justify-center">

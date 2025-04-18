@@ -314,12 +314,12 @@ const Header: React.FC = () => {
         </div>
         <div className="hidden lg:flex space-x-4 items-center">
           <div>
-            <button className="transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-cms-black-one cursor-pointer shadow-[0_0_0_1px_#171717] hover:bg-gray-200 hover:text-black hover:text-cms-black-one">
+            <button className="transition-all duration-500 border-[2px] border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-neutral-900 cursor-pointer shadow-[0_0_0_1px_#171717] hover:bg-gray-200 hover:text-black hover:text-neutral-900">
               Contact Sales
             </button>
           </div>
           <div>
-            <button className="transition-all duration-500 border-[2px] border-gray-500 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-black bg-white cursor-pointer hover:bg-cms-black-one hover:text-white">
+            <button className="transition-all duration-500 border-[2px] border-gray-500 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-black bg-white cursor-pointer hover:bg-neutral-900 hover:text-white">
               Start Free Trial
             </button>
           </div>

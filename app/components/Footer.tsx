@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
           <DisplayThree content={'Ready to transform Your Business?'} />
           <BodyTwo
             content={'Experience the power of seamless content management. Try it free or book a demo today!'}
-            className={'text-cms-black-two'}
+            className={'text-neutral-700'}
           />
           <SecondaryButton content="Contact Sales" />
         </div>
@@ -144,18 +144,18 @@ const Footer: React.FC = () => {
             alt="BILDIT_Footer_Background_Mobile_BG.png"
             style={{ width: '100%', height: '100%' }}
           />
-          <div className="container mx-auto py-[62px]">
+          <div className="container mx-auto py-12">
             <DisplayThree content="Sign up for valuable insights" className="text-center" />
             <BodyOne
               content={"Don't worry we won't spam you, we send a insights for how to improve your mobile app"}
-              className="my-12 text-center"
+              className="my-12 !text-center"
             />
             <div className="lg:flex justify-center items-center">
               <div>
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full bg-white lg:w-240px lg:w-[490px] px-5 py-2 border border-cms-input-color rounded-[3px] focus:outline-none focus:border-blue-500 text-cms-base"
+                  className="w-full bg-white lg:w-240px lg:w-[490px] px-5 py-2 border border-blue-600 rounded-[3px] focus:outline-none focus:border-blue-500 text-lg"
                 />
               </div>
               <div className="lg:pl-5 mt-5 lg:mt-0">
@@ -206,16 +206,16 @@ const Footer: React.FC = () => {
               style={{ width: '100%', height: '50%' }}
             />
           </div>
-          <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-cms-basic lg:text-cms-base text-cms-grey text-center lg:text-left">
+          <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm lg:text-lg text-zinc-600 text-center lg:text-left">
             {/* Logo & Contact */}
             <div className="text-center">
-              <div className="w-[127px] h-[37px] lg:w-[187px] lg:h-[54px] relative inline-block">
+              <div className="pt-4 lg:pt-0">
                 <Image
                   src="/images/others/BILDIT_Logo.svg"
-                  layout="fill"
-                  objectFit="cover"
                   className="inline-block"
                   alt="BILDIT Logo"
+                  width={127}
+                  height={37}
                 />
               </div>
               <div className="space-y-0 lg:space-y-5">

@@ -5,7 +5,7 @@ interface Props {
 const HeadingTwo: React.FC<Props> = ({ content, className }) => {
   return (
     <h2
-      className={`text-4xl md:text-[48px] lg:text-[74px]  text-cms-black-one mt-[10px] font-gt-walsheim leading-none font-extrabold ${className}`}
+      className={`text-4xl md:text-5xl lg:text-7xl  text-neutral-900 mt-[10px] font-gt-walsheim leading-none font-extrabold ${className}`}
     >
       {content}
     </h2>

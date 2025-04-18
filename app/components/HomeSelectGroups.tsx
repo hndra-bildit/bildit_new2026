@@ -95,7 +95,7 @@ const HomeSelectGroups: React.FC = () => {
               <button
                 key={key}
                 onClick={() => handleChange(item.name)}
-                className={`font-gt-walsheim hover:bg-cms-black-one hover:text-white transition duration-500 text-2xl w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? 'bg-cms-black-one text-white' : 'bg-cms-lighter-gray text-cms-black-two'}`}
+                className={`font-gt-walsheim hover:bg-neutral-900 hover:text-white transition duration-500 text-2xl w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? 'bg-neutral-900 text-white' : 'bg-cms-lighter-gray text-neutral-700'}`}
               >
                 <div className="text-center flex justify-center">
                   <Image

@@ -37,8 +37,8 @@ const CardNine: React.FC<Props> = ({ item, cardType }) => {
         <Image src={item.src} alt={item.alt} width={900} height={900} className="w-full h-auto" />
       </div>
       <div className="mt-2 ">
-        <label className="font-gt-walsheim text-cms-purple text-base">
-          {item.category} <span className="text-cms-grey">{item.updatedAt}</span>
+        <label className="font-gt-walsheim text-purple-700 text-base">
+          {item.category} <span className="text-zinc-600">{item.updatedAt}</span>
         </label>
       </div>
       <div className="mt-2">
@@ -53,9 +53,7 @@ const CardNine: React.FC<Props> = ({ item, cardType }) => {
         <p
           className={cn(
             'mt-5 font-gt-walsheim line-clamp-3 overflow-hidden text-ellipsis',
-            cardType === 'big' && windowWidth && windowWidth > 768
-              ? 'text-2xl leading-none'
-              : 'text-cms-base leading-none'
+            cardType === 'big' && windowWidth && windowWidth > 768 ? 'text-2xl leading-none' : 'text-lg leading-none'
           )}
         >
           {item.content}

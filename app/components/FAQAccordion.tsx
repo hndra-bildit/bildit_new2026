@@ -23,10 +23,7 @@ const FAQAccordion: React.FC = () => {
     <div className="w-full mx-auto px-4 bg-white">
       {questions.map((question, index) => (
         <div key={index} className="border-b border-gray-200 py-[30px] cursor-pointer">
-          <div
-            className="flex items-center justify-between text-cms-black-one font-medium"
-            onClick={() => toggle(index)}
-          >
+          <div className="flex items-center justify-between text-neutral-900 font-medium" onClick={() => toggle(index)}>
             <SubTitleFour content={`${index + 1}. ${question}`} />
             {openIndex === index ? (
               <Minus className="w-5 h-5 text-gray-500" />

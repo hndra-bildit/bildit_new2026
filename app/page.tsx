@@ -70,7 +70,7 @@ export default function Home() {
       </section>
       <section className="py-[100px] bg-cms-lighter-gray">
         <HeadingTwo content={"Belk's Results"} className={'text-center'} />
-        <p className="text-3xl font-600 leading-[40px] text-cms-grey text-center">
+        <p className="text-3xl font-600 leading-[40px] text-zinc-600 text-center">
           After Switching to BILDIT CMS and App
         </p>
         <div className="container mx-auto flex justify-between">
@@ -88,13 +88,13 @@ export default function Home() {
             <SubTitleThree content={'No coding experience required. Without IT.'} className={'mt-7'} />
           </div>
           <div className="mt-12 space-y-3">
-            <p className="leading-[26px] text-cms-base text-cms-grey font-normal">
+            <p className="leading-[26px] text-lg text-zinc-600 font-normal">
               BILDIT CMS was designed for e-commerce marketing teams striving to deliver highly personalized, targeted
               campaigns across web and mobile channels. It was born from the frustration of dealing with limited
               solutions that made creating engaging, effective campaigns unnecessarily slow or generic. Waiting weeks to
               launch on mobile or settling for cookie-cutter tools shouldn’t hold back your growth.
             </p>
-            <p className="leading-[26px] text-cms-base text-cms-grey font-normal">
+            <p className="leading-[26px] text-lg text-zinc-600 font-normal">
               That’s why we built BILDIT CMS - to give you the freedom to launch anything you want, exactly how and when
               you want, on both web and mobile platforms..
             </p>
@@ -123,7 +123,7 @@ export default function Home() {
             {cardgroup.map((item, key) => {
               return (
                 <div className="max-w-[440px] pt-12" key={key}>
-                  <div className="flex justify-center py-[77] border border-cms-outline rounded-[14px] bg-cms-lighter-gray shadow-[0px_5px_10px_0px_rgba(0,0,0,0.1)]">
+                  <div className="flex justify-center py-[77] border border-gray-200 rounded-[14px] bg-cms-lighter-gray shadow-[0px_5px_10px_0px_rgba(0,0,0,0.1)]">
                     <Image src={item.src} alt={item.alt} width={216} height={266} />
                   </div>
                   <div>

@@ -1,22 +1,22 @@
-import BILDIT_Dot_Left_Middle_Effect_BG from '../../public/images/others/BILDIT_Dot_Left_Middle_Effect_BG.png'
-import BILDIT_Dot_Line_Effect_BG from '../../public/images/others/BILDIT_Dot_Line_Effect_BG.png'
-import BILDIT_Dot_Right_Middle_Effect_BG from '../../public/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png'
-import BILDIT_Store_Front_BG from '../../public/images/store_front/BILDIT_Store_Front_BG.png'
-import BILDIT_Store_Front_Technical_Detail_BG from '../../public/images/store_front/BILDIT_Store_Front_Technical_Detail_BG.png'
-import BenefitIcon, { IconItemsType } from '../components/BenefitIcon'
-import BodyTwo from '../components/BodyTwo'
-import CardOne from '../components/CardOne'
-import { CardItemsType } from '../components/CardOne'
-import CardTwo from '../components/CardTwo'
-import DisplayOne from '../components/DisplayOne'
-import DisplayThree from '../components/DisplayThree'
-import HeadingOne from '../components/HeadingOne'
-import IntroVideo from '../components/IntroVideo'
-import PrimaryButton from '../components/PrimaryButton'
-import SecondaryButton from '../components/SecondaryButton'
-import SubTitleFiveCaps from '../components/SubTitleFiveCaps'
-import SubTitleThree from '../components/SubTitleThree'
-import SwiperCarousel from '../components/SwiperCarousel'
+import BenefitIcon, { IconItemsType } from '@/app/components/BenefitIcon'
+import BodyTwo from '@/app/components/BodyTwo'
+import CardOne from '@/app/components/CardOne'
+import { CardItemsType } from '@/app/components/CardOne'
+import CardTwo from '@/app/components/CardTwo'
+import DisplayOne from '@/app/components/DisplayOne'
+import DisplayThree from '@/app/components/DisplayThree'
+import HeadingOne from '@/app/components/HeadingOne'
+import IntroVideo from '@/app/components/IntroVideo'
+import PrimaryButton from '@/app/components/PrimaryButton'
+import SecondaryButton from '@/app/components/SecondaryButton'
+import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
+import SubTitleThree from '@/app/components/SubTitleThree'
+import SwiperCarousel from '@/app/components/SwiperCarousel'
+import BILDIT_Dot_Left_Middle_Effect_BG from '@/public/images/others/BILDIT_Dot_Left_Middle_Effect_BG.png'
+import BILDIT_Dot_Line_Effect_BG from '@/public/images/others/BILDIT_Dot_Line_Effect_BG.png'
+import BILDIT_Dot_Right_Middle_Effect_BG from '@/public/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png'
+import BILDIT_Store_Front_BG from '@/public/images/store_front/BILDIT_Store_Front_BG.png'
+import BILDIT_Store_Front_Technical_Detail_BG from '@/public/images/store_front/BILDIT_Store_Front_Technical_Detail_BG.png'
 import Image from 'next/image'
 
 // to-do: should come from CMS
@@ -134,7 +134,7 @@ const RealWorldCardItems: Array<CardItemsType> = [
 export default function StoreFront() {
   return (
     <div>
-      <section className="pt-[160px] text-center px-4 lg:px-0">
+      <section className="pt-20 md:pt-30 lg:pt-35 xl:pt-40 text-center px-4 lg:px-0">
         <Image
           src={BILDIT_Store_Front_BG}
           alt="BILDIT_Store_Front_BG.png"
@@ -151,21 +151,23 @@ export default function StoreFront() {
           content={'Stop building, start launching—we`ve done the work for you!'}
           className={'text-center'}
         />
-        <div className="mt-[80px] text-center">
+        <div className="mt-5 md:mt-7 lg:mt-12 text-center">
           <PrimaryButton content="Get Started" />
         </div>
-        <div className="mt-[73px] flex justify-center">
+        <div className="mt-5 md:mt-7 lg:mt-12 flex justify-center">
           <IntroVideo src={'/images/others/BILDIT_Blank.png'} />
         </div>
       </section>
 
-      <section className="container mx-auto mt-[210px] mb-[200px] text-center px-4 lg:px-0">
-        <SubTitleFiveCaps content={'Key Benefits'} className={'text-center'} />
-        <div className="max-w-[928px] inline-block">
-          <DisplayOne
-            content={'Revolutionizing E-commerce Management: The Perks'}
-            className={'text-cms-black-one text-center mt-[10px]'}
-          />
+      <section className="container mx-auto mt-20 md:mt-30 xl:mt-50 px-4 lg:px-0">
+        <SubTitleFiveCaps content={'Key Benefits'} className="!text-center" />
+        <div className="flex justify-center text-center">
+          <div className="max-w-[928px] inline-block">
+            <DisplayOne
+              content={'Revolutionizing E-commerce Management: The Perks'}
+              className={'text-neutral-900 mt-3 !text-center'}
+            />
+          </div>
         </div>
         <div className="flex justify-center flex-wrap">
           {CardItems.map((item, key) => {
@@ -174,19 +176,19 @@ export default function StoreFront() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 lg:px-0">
-        <DisplayOne content={'Why Mobile App is important?'} className="text-center" />
+      <section className="container mx-auto px-4 lg:px-0 mt-20 mt-30 xl:mt-50">
+        <DisplayOne content={'Why Mobile App is important?'} className="!text-center" />
         <SubTitleThree content={'33% of daily waking hours spent in mobile app.'} className={'mt-5 text-center'} />
-        <div className="flex flex-wrap justify-around pt-[80px]">
+        <div className="flex flex-wrap justify-around">
           {IconItems.map((item, key) => {
             return <BenefitIcon item={item} key={key} />
           })}
         </div>
-        <div className="text-center my-[160px]">
+        {/* <div className="text-center my-40">
           <PrimaryButton content={'Calculate ROI'} />
-        </div>
+        </div> */}
       </section>
-      <section className="py-[200px]  relative px-4 lg:px-0">
+      <section className="mt-30 xl:mt-50 relative px-4 lg:px-0">
         <Image
           src={BILDIT_Dot_Left_Middle_Effect_BG}
           alt="BILDIT_Dot_Left_Middle_Effect_BG.png"
@@ -194,14 +196,14 @@ export default function StoreFront() {
           style={{ width: 'auto', height: 'auto' }}
         />
         <div className="container mx-auto">
-          <SubTitleFiveCaps content={'App and Website'} />
-          <DisplayOne content={'Unlock the Full Potential of Your Storefront'} className={'max-w-[1000px]'} />
+          <SubTitleFiveCaps content={'App and Website'} className="!text-center" />
+          <DisplayOne content={'Unlock the Full Potential of Your Storefront'} className="!text-center" />
           <div className="mt-12">
-            <div className="lg:grid grid-cols-2 space-x-[60px]">
+            <div className="lg:grid grid-cols-2 lg:space-x-15">
               <CardTwo item={UnLockCardItems[0]} />
               <CardTwo item={UnLockCardItems[1]} />
             </div>
-            <div className="xl:grid grid-cols-3 space-x-10 mt-10">
+            <div className="xl:grid grid-cols-3 xl:space-x-10 lg:mt-10">
               {[1, 2, 3].map((_, idx) => {
                 return <CardTwo item={UnLockCardItems[Number(idx) + 2]} key={idx} />
               })}
@@ -210,17 +212,20 @@ export default function StoreFront() {
         </div>
       </section>
 
-      <section className="relative px-4 lg:px-0">
+      <section className="relative px-4">
         <Image
           src={BILDIT_Dot_Right_Middle_Effect_BG}
           alt="BILDIT_Dot_Right_Middle_Effect_BG.png"
           className="absolute bottom-0 right-0 right-0 -z-1"
           style={{ width: 'auto', height: 'auto' }}
         />
-        <div className="container mx-auto py-[200px]">
+        <div className="container mx-auto mt-30 xl:mt-50">
           <SubTitleFiveCaps content={'Real-World Examples'} />
-          <DisplayOne content={'Transforming E-commerce Operations'} className={'max-w-[879px]'} />
-          <div className="grid grid-cols-2 gap-10 mt-12">
+          <DisplayOne
+            content={'Transforming E-commerce Operations'}
+            className={'text-center lg:text-left xl:max-w-[879px]'}
+          />
+          <div className="lg:grid grid-cols-2 gap-10 mt-6 ">
             {RealWorldCardItems.map((item, key) => {
               return <CardTwo item={item} className={'mb-8'} key={key} />
             })}
@@ -228,20 +233,23 @@ export default function StoreFront() {
         </div>
       </section>
 
-      <section className="relative  py-[100px] px-4 lg:px-0">
+      <section className="relative mt-20 mt-30 xl:mt-50 pb-10 lg:pb-30">
         <Image
           src={BILDIT_Dot_Line_Effect_BG}
           alt="BILDIT_Dot_Line_Effect_BG.png"
           className="top-0 left-0 absolute -z-1"
           style={{ width: 'auto', height: '100%' }}
         />
-        <div className="container mx-auto">
-          <DisplayThree content={'Success Stories'} />
-          <BodyTwo content={'What our clients have to say after using BILDIT'} className={'mt-[30px]'} />
+        <div className="container mx-auto px-4">
+          <DisplayThree content={'Success Stories'} className="text-center lg:text-left" />
+          <BodyTwo
+            content={'What our clients have to say after using BILDIT'}
+            className={'text-center lg:text-left my-3 lg:my-7'}
+          />
           <SwiperCarousel />
         </div>
       </section>
-      <section className="relative py-[100px] px-4 lg:px-0">
+      <section className="relative pt-20 xl:pt-50 px-4 lg:px-0">
         <Image
           src={BILDIT_Store_Front_Technical_Detail_BG}
           alt="BILDIT_Store_Front_Technical_Detail_BG.png"
@@ -254,17 +262,17 @@ export default function StoreFront() {
             content="BILDIT: A Platform Empowering Developers, Solution Integrators, and Marketers"
             className={'text-white max-w-[1410px]'}
           />
-          <div className="grid grid-cols-2 pt-[91px]">
-            <div>
-              <p className="text-cms-light-gray  text-2xl leading-[34px]">
+          <div className="grid lg:grid-cols-2 pt-4 lg:pt-12">
+            <div className="text-center lg:text-left">
+              <p className="text-cms-light-gray text-base lg:text-2xl leading-normal">
                 BILDIT understands that the entire team plays a role in the success of your app. Your marketing team
                 must be able to give the customer what they want. Your system integrator must be able to start fast.
                 Your engineering team needs flexibility. Ultimately you must give the customer a premium, high
                 performing experience that converts. It takes the whole team!
               </p>
-              <SecondaryButton content="Developer Docs" className={'mt-[80px]'} />
+              <SecondaryButton content="Developer Docs" className={'mt-10 lg:mt-20 lg:mb-20'} />
             </div>
-            <div>
+            <div className="flex lg:block item-center">
               <Image
                 src="/images/store_front/BILDIT_Code Editor_BG.png"
                 alt="BILDIT_Code Editor_BG.png"

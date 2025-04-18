@@ -4,7 +4,7 @@ interface Props {
 }
 
 const SubTitleFour: React.FC<Props> = ({ content, className }) => {
-  return <p className={`text-2xl font-500 text-cms-black-one leading-none font-gt-walsheim ${className}`}>{content}</p>
+  return <p className={`text-2xl font-500 text-neutral-900 leading-none font-gt-walsheim ${className}`}>{content}</p>
 }
 
 export default SubTitleFour

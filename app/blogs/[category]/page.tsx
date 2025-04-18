@@ -21,8 +21,8 @@ export default async function Blogs() {
       <HeadingOne
         sub1="Writing from Our"
         sub2="Team"
-        className1="text-cms-black-one text-center xl:!text-[124px]"
-        className2="bg-gradient-to-r from-cms-rose to-cms-purple bg-clip-text text-transparent"
+        className1="text-neutral-900 text-center xl:!text-[124px]"
+        className2="bg-gradient-to-r from-cms-rose to-purple-700 bg-clip-text text-transparent"
       />
       <SubTitleThree
         content="The latest industry news, e-commerce, technologies, and businesses"

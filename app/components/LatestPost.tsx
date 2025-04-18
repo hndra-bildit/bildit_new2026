@@ -45,7 +45,7 @@ export default function LatestPost({ initialItems, loadMore }: Props) {
       {loading && <p>Loading more...</p>}
       {!loading && hasMore && loadMore && (
         <p
-          className="text-cms-grey text-base lg:text-2xl leading-normal text-center my-12 cursor-pointer"
+          className="text-zinc-600 text-base lg:text-2xl leading-normal text-center my-12 cursor-pointer"
           onClick={() => handleLoadMore()}
         >
           Load more...

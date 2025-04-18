@@ -20,7 +20,7 @@ const CardSeven: React.FC<Props> = ({ item }) => {
       </div>
       <div className="px-6 py-7">
         <h4 className="text-2xl font-bold leading-normal font-gt-walsheim text-black">{item.title}</h4>
-        <p className="mt-3 text-cms-base leading-normal text-black">{item.content}</p>
+        <p className="mt-3 text-lg leading-normal text-black">{item.content}</p>
       </div>
     </div>
   )

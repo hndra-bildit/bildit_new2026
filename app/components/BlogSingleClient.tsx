@@ -61,7 +61,7 @@ const BlogSingleClient = () => {
     post && (
       <div>
         <SubTitleFiveCaps content={post.category} className="text-center md:text-left" />
-        <DisplayOne content={post.title} className="text-cms-black-one text-center lg:text-left" />
+        <DisplayOne content={post.title} className="text-neutral-900 text-center lg:text-left" />
         <BodyOne content="By Matt Hudson • January 22, 2025 • 5 mins read" className="my-3" />
         <Image src={post.src} alt={post.alt} width={1200} height={1200} className="w-full h-auto" />
         <div className="md:flex gap-10">

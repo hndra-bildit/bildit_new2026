@@ -14,9 +14,9 @@ interface Props {
 
 const CardSix: React.FC<Props> = ({ item }) => {
   return (
-    <div className="bg-cms-lighter-gray border border-cms-outline rounded-2xl px-6 py-10 text-cms-grey mt-3 w-[320px]">
+    <div className="bg-cms-lighter-gray border border-gray-200 rounded-2xl px-6 py-10 text-zinc-600 mt-3 w-[320px]">
       <SubTitleFour content={item.head} />
-      <BodyTwo content={item.title} className="mt-3 !text-cms-black-one" />
+      <BodyTwo content={item.title} className="mt-3 !text-neutral-900" />
       {item.subitems.map((content, idx) => {
         return (
           <div className="flex mt-4 lg:mt-7" key={idx}>

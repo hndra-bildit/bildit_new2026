@@ -72,7 +72,7 @@ export default function IntegrationPartners() {
         className="sm:hidden top-0 left-0 -z-1 absolute"
         style={{ width: '100%', height: 'auto' }}
       />
-      <h1 className="text-[44px] text-center text-cms-black-one lg:text-[104px] leading-none font-gt-walsheim font-extrabold uppercase">
+      <h1 className="text-[44px] text-center text-neutral-900 lg:text-[104px] leading-none font-gt-walsheim font-extrabold uppercase">
         Integrate with the finest tools in the world
       </h1>
       <div className="relative mt-[89px] mb-[260px]">

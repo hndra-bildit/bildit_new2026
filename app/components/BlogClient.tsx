@@ -51,7 +51,7 @@ export default function BlogClient() {
         {LinkGroups.map((item, key) => (
           <div
             className={cn(
-              'text-cms-basic lg:text-2xl font-bold leading-normal cursor-pointer hover:text-cms-rose',
+              'text-sm lg:text-2xl font-bold leading-normal cursor-pointer hover:text-cms-rose',
               currentCategory === item.param ? 'text-cms-rose' : 'text-black'
             )}
             key={key}

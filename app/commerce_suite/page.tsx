@@ -77,7 +77,7 @@ export default function CommerceSuite() {
             />
             <SubTitleThree content="Unleash the Power of Commerce Suite with Our CMS" className="mt-[30px]" />
             <BodyOne
-              className="text-cms-grey my-[20px]"
+              className="text-zinc-600 my-[20px]"
               content="Say goodbye to the hassle of juggling multiple tools. Our cutting-edge CMS brings everything you need into one seamless platform, designed for modern e-commerce businesses."
             />
           </div>

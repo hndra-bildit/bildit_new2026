@@ -27,7 +27,7 @@ const PriceCard: React.FC<Props> = ({ item }) => {
   })
   return (
     <div
-      className={`px-8 py-10 mt-5  text-cms-grey max-w-[370px] rounded-[14px] ${item.isPopular ? 'bg-[rgba(237,30,121,0.1)]' : 'border border-cms-outline bg-cms-lighter-gray'}`}
+      className={`px-8 py-10 mt-5  text-zinc-600 max-w-[370px] rounded-[14px] ${item.isPopular ? 'bg-[rgba(237,30,121,0.1)]' : 'border border-gray-200 bg-cms-lighter-gray'}`}
     >
       <label
         className={`bg-gradient-to-r from-[#9103F8] to-[#3B1EED] font-gt-walsheim text-transparent text-white text-base font-400 leading-[18px] px-2 py-1 rounded-[40px] ${!item.isPopular ? 'invisible' : ''}`}
@@ -41,7 +41,7 @@ const PriceCard: React.FC<Props> = ({ item }) => {
           <div className="leading-[18px] text-base">
             <div className="pt-7">Starting at</div>
             <div className="flex items-center">
-              <HeadingThree content={`US${Currency.format(item.price)}`} className="mt-1 text-cms-black-one" />
+              <HeadingThree content={`US${Currency.format(item.price)}`} className="mt-1 text-neutral-900" />
               <div className="font-normal text-[12px] leading-none w-[36px] ml-1">per month</div>
             </div>
             <div className="mt-1 w-[216px]">Billed monthly based on usage</div>
