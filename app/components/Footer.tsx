@@ -1,15 +1,10 @@
-import BILDIT_Footer_Background_Mobile_BG from '../../public/images/footer/BILDIT_Footer_Background_Mobile_BG.png'
-import BILDIT_Footer_Rectangle_BG from '../../public/images/footer/BILDIT_Footer_Rectangle_BG.png'
-import BILDIT_Footer_ShadeBlurr_Subscribe_BG from '../../public/images/footer/BILDIT_Footer_ShadeBlurr_Subscribe_BG.png'
-import BILDIT_Footer_ShadeBlurr_Subscribe_Circle from '../../public/images/footer/BILDIT_Footer_ShadeBlurr_Subscribe_Circle.png'
-import BILDIT_Footer_SubscribeLines_BG from '../../public/images/footer/BILDIT_Footer_SubscribeLines_BG.png'
-import BodyOne from './BodyOne'
-import BodyTwo from './BodyTwo'
-import DisplayThree from './DisplayThree'
-import Input from './Input'
-import PrimaryButton from './PrimaryButton'
-import SecondaryButton from './SecondaryButton'
-import SubTitleFourCaps from './SubTitileFourCaps'
+import BodyOne from '@/app/components/BodyOne'
+import BodyTwo from '@/app/components//BodyTwo'
+import DisplayThree from '@/app/components//DisplayThree'
+import Input from '@/app/components//Input'
+import PrimaryButton from '@/app/components//PrimaryButton'
+import SecondaryButton from '@/app/components//SecondaryButton'
+import SubTitleFourCaps from '@/app/components//SubTitileFourCaps'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -82,7 +77,7 @@ const partners: Array<PartnerType> = [
 const Footer: React.FC = () => {
   return (
     <footer>
-      <section className="container mx-auto lg:grid grid-cols-2 gap-15 items-center py-10 lg:py-30 px-4 lg:px-0">
+      <section className="container mx-auto lg:grid grid-cols-2 gap-15 items-center py-20 lg:py-30 px-4">
         {/* Left Section */}
         <div className="space-y-4 text-center lg:text-left">
           <DisplayThree content={'Ready to transform Your Business?'} />
@@ -93,7 +88,7 @@ const Footer: React.FC = () => {
           <SecondaryButton content="Contact Sales" />
         </div>
         {/* Right Section - Form */}
-        <div className="mt-12 p-9 lg:p-12 bg-gray-50 rounded-xl shadow-lg round-[14px] border border-gray-300">
+        <div className="mt-12 p-9 lg:p-12 bg-gray-50 rounded-xl shadow-lg round-xl border border-gray-300">
           <form className="space-y-4 lg:space-y-8">
             <div>
               <Input type="text" placeholder="Full Name" />
@@ -111,7 +106,7 @@ const Footer: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-[100px] bg-gray-100 px-4 lg:px-0">
+      <section className="py-25 bg-gray-100 px-4">
         <div className="container mx-auto">
           <DisplayThree content="BILDIT CMS provides SDK and API integrations" className="text-center" />
           <SubTitleFourCaps content="with top e-commerce platforms:" />
@@ -130,19 +125,21 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="pb-[100px] relative">
+      <section className="pb-25 relative">
         <Image
-          src={BILDIT_Footer_ShadeBlurr_Subscribe_BG}
-          className="hidden lg:block top-0 right-0 z-[-1] absolute"
+          src="/images/footer/BILDIT_Footer_ShadeBlurr_Subscribe_BG.png"
+          className="hidden lg:block top-0 right-0 -z-1 absolute w-auto h-auto"
           alt="BILDIT_Footer_ShadeBlurr_Subscribe_BG.png"
-          style={{ width: 'auto', height: 'auto' }}
+          width={1200}
+          height={0}
         />
         <div className="overflow-hidden relative px-4 lg:px-0">
           <Image
-            src={BILDIT_Footer_Background_Mobile_BG}
-            className="block lg:hidden top-0 left-0 z-[-1] absolute"
+            src="/images/footer/BILDIT_Footer_Background_Mobile_BG.png"
+            className="block lg:hidden top-0 left-0 -z-1 absolute w-full h-full"
             alt="BILDIT_Footer_Background_Mobile_BG.png"
-            style={{ width: '100%', height: '100%' }}
+            width={1200}
+            height={0}
           />
           <div className="container mx-auto py-12">
             <DisplayThree content="Sign up for valuable insights" className="text-center" />
@@ -155,7 +152,7 @@ const Footer: React.FC = () => {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full bg-white lg:w-240px lg:w-[490px] px-5 py-2 border border-blue-600 rounded-[3px] focus:outline-none focus:border-blue-500 text-lg"
+                  className="w-full bg-white lg:w-3xs lg:w-lg px-5 py-2 border border-gray-600 rounded-sm focus:outline-none focus:border-blue-500 text-lg"
                 />
               </div>
               <div className="lg:pl-5 mt-5 lg:mt-0">
@@ -168,42 +165,48 @@ const Footer: React.FC = () => {
         <div className="px-4 lg:px-0 relative">
           <div className="hidden lg:block">
             <Image
-              src={BILDIT_Footer_Rectangle_BG}
-              className="top-0 left-0 -z-3 absolute"
+              src="/images/footer/BILDIT_Footer_Rectangle_BG.png"
+              className="top-0 left-0 -z-3 absolute w-full h-full"
               alt="BILDIT_Footer_Rectangle_BG.png"
-              style={{ width: '100%', height: '100%' }}
+              width={1200}
+              height={0}
             />
             <Image
-              src={BILDIT_Footer_ShadeBlurr_Subscribe_Circle}
-              className="bottom-0 left-0 -z-2 absolute"
+              src="/images/footer/BILDIT_Footer_ShadeBlurr_Subscribe_Circle.png"
+              className="bottom-0 left-0 -z-2 absolute w-auto h-auto"
               alt="BILDIT_Footer_ShadeBlurr_Subscribe_Circle.png"
-              style={{ width: 'auto', height: 'auto' }}
+              width={1200}
+              height={0}
             />
             <Image
-              src={BILDIT_Footer_SubscribeLines_BG}
-              className="bottom-40 right-0 -z-1 absolute"
+              src="/images/footer/BILDIT_Footer_SubscribeLines_BG.png"
+              className="bottom-40 right-0 -z-1 absolute w-auto h-auto"
               alt="BILDIT_Footer_SubscribeLines_BG.png"
-              style={{ width: 'auto', height: 'auto' }}
+              width={1200}
+              height={0}
             />
           </div>
           <div className="block lg:hidden">
-            <Image
-              src={BILDIT_Footer_Rectangle_BG}
-              className="top-0 left-0 -z-3 absolute"
+            <Image              
+              src="/images/footer/BILDIT_Footer_Rectangle_BG.png"
+              className="top-0 left-0 -z-3 absolute w-full h-full"
               alt="BILDIT_Footer_Rectangle_BG.png"
-              style={{ width: '100%', height: '100%' }}
+              width={1200}
+              height={0}
             />
             <Image
-              src={BILDIT_Footer_Background_Mobile_BG}
-              className="top-0 left-0 -z-3 absolute"
+              src="/images/footer/BILDIT_Footer_Background_Mobile_BG.png"
+              className="top-0 left-0 -z-3 absolute w-full h-1/2"
               alt="BILDIT_Footer_Background_Mobile_BG.png"
-              style={{ width: '100%', height: '50%' }}
+              width={1200}
+              height={0}
             />
             <Image
-              src={BILDIT_Footer_Background_Mobile_BG}
-              className="bottom-0 left-0 -z-3 absolute"
+              src="/images/footer/BILDIT_Footer_Background_Mobile_BG.png"
+              className="bottom-0 left-0 -z-3 absolute w-full h-1/2"
               alt="BILDIT_Footer_Background_Mobile_BG.png"
-              style={{ width: '100%', height: '50%' }}
+              width={1200}
+              height={0}
             />
           </div>
           <div className="container mx-auto lg:py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm lg:text-lg text-zinc-600 text-center lg:text-left">

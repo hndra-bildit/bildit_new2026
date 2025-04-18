@@ -42,7 +42,7 @@ export default function BlogClient() {
 
   const handleTabClick = (cat: string) => {
     if (cat === currentCategory) return
-    router.replace(`/blogs/${cat}`)
+    router.replace(`/blog/category/${cat}`)
   }
 
   return (
