@@ -19,18 +19,18 @@ const linkgroup1: Array<{ name: string; href: string }> = [
   { name: 'About Us', href: '#' },
   { name: 'Contact Us', href: '#' },
   { name: 'Meet the Team', href: '#' },
-  { name: 'Blog', href: '#' },
+  { name: 'Blog', href: '/bog/category' },
   { name: 'Careers', href: '#' },
   { name: 'Partners', href: '#' },
   { name: 'ROI Calculator', href: '#' },
-  { name: 'Pricing', href: '#' },
+  { name: 'Pricing', href: '/pricing' },
   { name: 'Case Study', href: '#' }
 ]
 const linkgroup2: Array<{ name: string; href: string }> = [
   { name: 'Reference App', href: '#' },
   { name: 'Native Checkout', href: '#' },
   { name: 'App Clip SDK', href: '#' },
-  { name: 'CMS', href: '#' },
+  { name: 'CMS', href: '/bildit_cms' },
   { name: 'Mobile Checkout Index', href: '#' },
   { name: 'Integrations', href: '#' },
   { name: 'React Native SDKs', href: '#' },

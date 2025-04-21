@@ -7,6 +7,7 @@ interface listImageType {
   src: string
   alt: string
   title: string
+  href: string
 }
 interface thumbnailImageType {
   src?: string
@@ -32,10 +33,10 @@ const ImageTypeSubMenu: React.FC<Props> = ({ item }) => {
         {item.listImage &&
           item.listImage.map((itm, idx) => {
             return (
-              <div className="flex items-center" key={idx}>
+              <Link className="flex items-center" key={idx} href={itm.href}>
                 <Image src={itm.src} alt={itm.alt} width={44} height={0} className="h-auto" />
                 <p className="ml-1 text-base text-neutral-900 font-semibold leading-none">{itm.title}</p>
-              </div>
+              </Link>
             )
           })}
       </div>

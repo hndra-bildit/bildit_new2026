@@ -19,7 +19,7 @@ const desktopMenuItems: Array<DesktopMenuItemType> = [
         data: {
           src: '/images/header/BILDIT_Header_CMS_Icon.png',
           alt: 'BILDIT_Header_CMS_Icon.png',
-          href: '#',
+          href: '/bildit_cms',
           title: 'Content Management System',
           children: [
             'Easy to Use for Marketers and IT',
@@ -36,7 +36,7 @@ const desktopMenuItems: Array<DesktopMenuItemType> = [
           thumbnailImage: {
             src: '/images/header/BILDIT_Header_Partners_Find_More.png',
             alt: 'BILDIT_Header_Partners_Find_More.png',
-            href: '#',
+            href: '/commerce_suite',
             title: 'BILDIT COMMERCE SUITE',
             content: 'The unified web and app CMS and Storefront for eCommerce.',
             tip: 'Find out more'
@@ -49,7 +49,7 @@ const desktopMenuItems: Array<DesktopMenuItemType> = [
         data: {
           src: '/images/header/BILDIT_Header_StoreFront_Icon.png',
           alt: 'BILDIT_Header_StoreFront_Icon.png',
-          href: '#',
+          href: '/storefront',
           title: 'BILDIT Storefront',
           children: [
             'Optimized UI/UX Built In',
@@ -73,7 +73,7 @@ const desktopMenuItems: Array<DesktopMenuItemType> = [
         data: {
           src: '/images/header/BILDIT_Header_Technical_Partner_Icon.png',
           alt: 'BILDIT_Header_Technical_Partner_Icon.png',
-          href: '#',
+          href: '/technical_partners',
           title: 'Technology Partners',
           children: [
             'Mobile & eCommerce End to End Sales Partner',
@@ -89,7 +89,7 @@ const desktopMenuItems: Array<DesktopMenuItemType> = [
         data: {
           src: '/images/header/BILDIT_Header_Platform_Partner_Icon.png',
           alt: 'BILDIT_Header_Platform_Partner_Icon.png',
-          href: '#',
+          href: '/integration_partners',
           title: 'Platform Partners',
           children: [
             'Salesforce B2B',
@@ -147,37 +147,44 @@ const desktopMenuItems: Array<DesktopMenuItemType> = [
             {
               src: '/images/header/BILDIT_Header_Blog_Icon.png',
               alt: 'BILDIT_Header_Blog_Icon.png',
-              title: 'Blog'
+              title: 'Blog',
+              href: '/blog/category/news'
             },
             {
               src: '/images/header/BILDIT_Header_Webinars_Icon.png',
               alt: 'BILDIT_Header_Webinars_Icon.png',
-              title: 'Webinars'
+              title: 'Webinars',
+              href: '#'
             },
             {
               src: '/images/header/BILDIT_Header_Webinars_Icon.png',
               alt: 'BILDIT_Header_Webinars_Icon.png',
-              title: 'Webinars'
+              title: 'Webinars',
+              href: '#'
             },
             {
               src: '/images/header/BILDIT_Header_Documentation_Icon.png',
               alt: 'BILDIT_Header_Documentation_Icon.png',
-              title: 'Documentation'
+              title: 'Documentation',
+              href: '#'
             },
             {
               src: '/images/header/BILDIT_Header_For_IT_Icon.png',
               alt: 'BILDIT_Header_For_IT_Icon.png',
-              title: 'For IT'
+              title: 'For IT',
+              href: '#'
             },
             {
               src: '/images/header/BILDIT_Header_For_Brands_Icon.png',
               alt: 'BILDIT_Header_For_Brands_Icon.png',
-              title: 'For Brands'
+              title: 'For Brands',
+              href: '#'
             },
             {
               src: '/images/header/BILDIT_Header_For_Technology_Partners_Icon.png',
               alt: 'BILDIT_Header_For_Technology_Partners_Icon.png',
-              title: 'For Technology Partners'
+              title: 'For Technology Partners',
+              href: '#'
             }
           ],
           className: 'row-span-2'

@@ -133,8 +133,9 @@ export default function StoreFront() {
         <Image
           src="/images/store_front/BILDIT_Store_Front_BG.png"
           alt="BILDIT_Store_Front_BG.png"
-          className="top-0 left-0 absolute -z-1"
-          style={{ width: '100%', height: 'auto' }}
+          className="top-0 left-0 absolute -z-1 w-full h-auto"
+          width={1200}
+          height={0}
         />
         <HeadingOne
           sub1={'BILDIT'}
@@ -235,6 +236,8 @@ export default function StoreFront() {
           src="/images/others/BILDIT_Dot_Line_Effect_BG.png"
           alt="BILDIT_Dot_Line_Effect_BG.png"
           className="top-0 left-0 absolute -z-1 w-auto h-full"
+          width={1200}
+          height={0}
         />
         <div className="container mx-auto px-4">
           <DisplayThree content={'Success Stories'} className="text-center lg:text-left" />
