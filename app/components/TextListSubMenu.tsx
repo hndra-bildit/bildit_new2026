@@ -1,3 +1,4 @@
+import cn from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -24,7 +25,7 @@ const TextListSubMenu: React.FC<Props> = ({ item }) => {
         </div>
         <div className="ml-2 text-xl text-neutral-900">{item.title}</div>
       </Link>
-      <div className={`grid ${item.className} mt-4 gap-3`}>
+      <div className={cn('grid  mt-4 gap-3', item.className)}>
         {item.children.length > 0 &&
           item.children.map((list, key) => (
             <div

@@ -12,11 +12,6 @@ import SecondaryButton from '@/app/components/SecondaryButton'
 import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
 import SubTitleThree from '@/app/components/SubTitleThree'
 import SwiperCarousel from '@/app/components/SwiperCarousel'
-import BILDIT_Dot_Left_Middle_Effect_BG from '@/public/images/others/BILDIT_Dot_Left_Middle_Effect_BG.png'
-import BILDIT_Dot_Line_Effect_BG from '@/public/images/others/BILDIT_Dot_Line_Effect_BG.png'
-import BILDIT_Dot_Right_Middle_Effect_BG from '@/public/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png'
-import BILDIT_Store_Front_BG from '@/public/images/store_front/BILDIT_Store_Front_BG.png'
-import BILDIT_Store_Front_Technical_Detail_BG from '@/public/images/store_front/BILDIT_Store_Front_Technical_Detail_BG.png'
 import Image from 'next/image'
 
 // to-do: should come from CMS
@@ -136,7 +131,7 @@ export default function StoreFront() {
     <div>
       <section className="pt-20 md:pt-30 lg:pt-35 xl:pt-40 text-center px-4 lg:px-0">
         <Image
-          src={BILDIT_Store_Front_BG}
+          src="/images/store_front/BILDIT_Store_Front_BG.png"
           alt="BILDIT_Store_Front_BG.png"
           className="top-0 left-0 absolute -z-1"
           style={{ width: '100%', height: 'auto' }}
@@ -190,10 +185,11 @@ export default function StoreFront() {
       </section>
       <section className="mt-30 xl:mt-50 relative px-4 lg:px-0">
         <Image
-          src={BILDIT_Dot_Left_Middle_Effect_BG}
+          src={'/images/others/BILDIT_Dot_Left_Middle_Effect_BG.png'}
           alt="BILDIT_Dot_Left_Middle_Effect_BG.png"
-          className="absolute inset-y-0 left-0 -z-1"
-          style={{ width: 'auto', height: 'auto' }}
+          className="absolute inset-y-0 left-0 -z-1 w-auto h-auto"
+          width={1200}
+          height={0}
         />
         <div className="container mx-auto">
           <SubTitleFiveCaps content={'App and Website'} className="!text-center" />
@@ -214,13 +210,14 @@ export default function StoreFront() {
 
       <section className="relative px-4">
         <Image
-          src={BILDIT_Dot_Right_Middle_Effect_BG}
+          src="/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png"
           alt="BILDIT_Dot_Right_Middle_Effect_BG.png"
-          className="absolute bottom-0 right-0 right-0 -z-1"
-          style={{ width: 'auto', height: 'auto' }}
+          className="absolute bottom-0 right-0 right-0 -z-1 w-auto h-auto"
+          width={1200}
+          height={0}
         />
         <div className="container mx-auto mt-30 xl:mt-50">
-          <SubTitleFiveCaps content={'Real-World Examples'} />
+          <SubTitleFiveCaps content={'Real-World Examples'} className="text-center lg:text-left" />
           <DisplayOne
             content={'Transforming E-commerce Operations'}
             className={'text-center lg:text-left xl:max-w-[879px]'}
@@ -235,10 +232,9 @@ export default function StoreFront() {
 
       <section className="relative mt-20 mt-30 xl:mt-50 pb-10 lg:pb-30">
         <Image
-          src={BILDIT_Dot_Line_Effect_BG}
+          src="/images/others/BILDIT_Dot_Line_Effect_BG.png"
           alt="BILDIT_Dot_Line_Effect_BG.png"
-          className="top-0 left-0 absolute -z-1"
-          style={{ width: 'auto', height: '100%' }}
+          className="top-0 left-0 absolute -z-1 w-auto h-full"
         />
         <div className="container mx-auto px-4">
           <DisplayThree content={'Success Stories'} className="text-center lg:text-left" />
@@ -251,16 +247,17 @@ export default function StoreFront() {
       </section>
       <section className="relative pt-20 xl:pt-50 px-4 lg:px-0">
         <Image
-          src={BILDIT_Store_Front_Technical_Detail_BG}
+          src="/images/store_front/BILDIT_Store_Front_Technical_Detail_BG.png"
           alt="BILDIT_Store_Front_Technical_Detail_BG.png"
-          className="top-0 left-0 absolute -z-1"
-          style={{ width: '100%', height: '100%' }}
+          className="top-0 left-0 absolute -z-1 w-full h-full"
+          width={1200}
+          height={0}
         />
         <div className="container mx-auto">
-          <SubTitleFiveCaps content="Technical Details for Experts" />
+          <SubTitleFiveCaps content="Technical Details for Experts" className="text-center lg:text-left" />
           <DisplayOne
             content="BILDIT: A Platform Empowering Developers, Solution Integrators, and Marketers"
-            className={'text-white max-w-[1410px]'}
+            className={'text-white lg:max-w-[1410px] text-center lg:text-left'}
           />
           <div className="grid lg:grid-cols-2 pt-4 lg:pt-12">
             <div className="text-center lg:text-left">

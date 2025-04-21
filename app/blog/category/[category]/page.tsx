@@ -9,7 +9,7 @@ import Image from 'next/image'
 export default async function Blogs() {
   const initialItems = await getLatestPosts(1, 3) // Page 1
   return (
-    <div className="pt-[160px] px-4">
+    <div className="pt-40 px-4">
       <Image
         src="/images/blog_main/BILDIT_Blog_Main_BG.png"
         alt="BILDIT_Blog_Main_BG.png"

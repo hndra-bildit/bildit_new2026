@@ -5,6 +5,7 @@ import BodyTwo from './BodyTwo'
 import HeadingTwo from './HeadingTwo'
 import PrimaryButton from './PrimaryButton'
 import SubTitleFiveCaps from './SubTitleFiveCaps'
+import cn from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -91,7 +92,10 @@ const HomeSelectGroups: React.FC = () => {
               <button
                 key={key}
                 onClick={() => handleChange(item.name)}
-                className={`font-gt-walsheim hover:bg-neutral-900 hover:text-white transition duration-500 lg:text-2xl w-35 lg:w-40 p-3 flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? 'bg-neutral-900 text-white' : 'bg-gray-100 text-neutral-700'}`}
+                className={cn(
+                  'font-gt-walsheim hover:bg-neutral-900 hover:text-white transition duration-500 lg:text-2xl w-35 lg:w-40 p-3 flex-wrap items-center justify-center rounded-full cursor-pointer',
+                  item.name === type ? 'bg-neutral-900 text-white' : 'bg-gray-100 text-neutral-700'
+                )}
               >
                 <div className="text-center flex lg:block justify-center items-center">
                   <Image

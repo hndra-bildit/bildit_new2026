@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import DesktopMenu, { DesktopMenuItemType } from './DesktopMenu'
 import MobileMenuItem, { MobileMenuItemType } from './MobileMenuItem'
-import cn from 'classnames'
+import cn from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiMenu, FiX } from 'react-icons/fi'

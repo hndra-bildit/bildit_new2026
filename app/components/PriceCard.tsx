@@ -2,6 +2,7 @@ import BodyThree from './BodyThree'
 import HeadingThree from './HeadingThree'
 import HeadingThreeCaps from './HeadingThreeCaps'
 import PrimaryButton from './PrimaryButton'
+import cn from 'clsx'
 import Link from 'next/link'
 import { FaCheckCircle } from 'react-icons/fa'
 import { IoEye } from 'react-icons/io5'
@@ -27,10 +28,16 @@ const PriceCard: React.FC<Props> = ({ item }) => {
   })
   return (
     <div
-      className={`px-8 py-10 mt-5  text-zinc-600 max-w-93 rounded-xl ${item.isPopular ? 'bg-pink-600/10' : 'border border-gray-200 bg-gray-100'}`}
+      className={cn(
+        'px-8 py-10 mt-5  text-zinc-600 max-w-93 rounded-xl',
+        item.isPopular ? 'bg-pink-600/10' : 'border border-gray-200 bg-gray-100'
+      )}
     >
       <label
-        className={`bg-gradient-to-r from-purple-700 to-violet-700 font-gt-walsheim text-transparent text-white text-base font-400 leading-base px-2 py-1 rounded-4xl ${!item.isPopular ? 'invisible' : ''}`}
+        className={cn(
+          'bg-gradient-to-r from-purple-700 to-violet-700 font-gt-walsheim text-transparent text-white text-base font-400 leading-base px-2 py-1 rounded-4xl',
+          !item.isPopular ? 'invisible' : ''
+        )}
       >
         Most Popular
       </label>

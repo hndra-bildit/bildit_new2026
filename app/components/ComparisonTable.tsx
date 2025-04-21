@@ -1,3 +1,4 @@
+import cn from 'clsx'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { FaCheckCircle } from 'react-icons/fa'
 
@@ -173,7 +174,7 @@ export default function PricingTable() {
           </thead>
           <tbody className="text-sm lg:text-base text-neutral-900 border-t border-b  font-gt-walsheim leading-snug font-bold">
             {data.map((row, index) => (
-              <tr key={index} className={`border-t border-b ${index % 2 === 0 ? 'bg-white' : 'bg-gray-300'}`}>
+              <tr key={index} className={cn('border-t border-b', index % 2 === 0 ? 'bg-white' : 'bg-gray-300')}>
                 <td className="border-gray-300 px-4 py-2  border-t border-b py-5">{renderCell(row.feature)}</td>
                 <td className="border-gray-300 px-4 py-2  border-t border-b font-semibold py-5">
                   {renderCell(row.bildit)}

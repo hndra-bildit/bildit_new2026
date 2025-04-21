@@ -1,15 +1,10 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
 import './globals.css'
+import cn from 'classnames'
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import 'swiper/css'
 import 'swiper/css/navigation'
-
-const mainFont = localFont({
-  src: '../public/fonts/Uncut-Sans/UncutSans-Regular.woff2',
-  display: 'swap'
-})
 
 export const metadata: Metadata = {
   title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
@@ -23,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${mainFont.className} antialiased relative`}>
+      <body className={cn('antialiased relative', 'font-uncut-sans')}>
         <Header />
         <div>{children}</div>
         <Footer />

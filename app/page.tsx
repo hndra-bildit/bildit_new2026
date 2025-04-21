@@ -78,7 +78,7 @@ export default function Home() {
           className="absolute top-0 left-0 -z-1 w-full h-auto"
         />
         <HeadingTwo content={"Belk's Results"} className={'text-center'} />
-        <SubTitleThree content="After Switching to BILDIT CMS and App" className="!text-center" />
+        <SubTitleThree content="After Switching to BILDIT CMS and App" className="text-center" />
         <div className="container mx-auto flex justify-center lg:justify-between flex-wrap">
           {belkResults.map((item, key) => (
             <BelkResultsImage item={item} key={key} />
@@ -89,7 +89,7 @@ export default function Home() {
       <section className="">
         <div className="container mx-auto mt-0 lg:mt-45 py-10 lg:py-20 lg:grid grid-cols-2 gap-10 px-4">
           <div>
-            <SubTitleFiveCaps content={'Why BILDIT'} />
+            <SubTitleFiveCaps content={'Why BILDIT'} className="text-center lg:text-left" />
             <HeadingTwo content={'Build Anything You Want.'} className="text-center lg:text-left" />
             <SubTitleThree
               content={'No coding experience required. Without IT.'}
@@ -117,7 +117,7 @@ export default function Home() {
 
       <section className="pt-20 lg:pt-50 bg-gray-100">
         <div className="container mx-auto px-4">
-          <SubTitleFiveCaps content={'BILDIT CMS overview'} className={'!text-center'} />
+          <SubTitleFiveCaps content={'BILDIT CMS overview'} className={'text-center'} />
           <HeadingTwo
             content={'Deliver seamless cross-channel content that boosts revenue.'}
             className={'text-center'}

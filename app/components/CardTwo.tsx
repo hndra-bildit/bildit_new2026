@@ -1,4 +1,5 @@
 import { CardItemsType } from './CardOne'
+import cn from 'clsx'
 import Image from 'next/image'
 
 interface Props {
@@ -12,7 +13,7 @@ const CardTwo: React.FC<Props> = ({ item, className }) => {
         <Image src={item.src} alt={item.alt} width={0} height={0} className="w-auto h-auto inline-block" unoptimized />
       </div>
       <div className="text-center lg:text-left">
-        <h5 className={`text-3xl leading-none text-neutral-900 font-bold mt-7 font-uncut-sans ${className}`}>
+        <h5 className={cn('text-3xl leading-none text-neutral-900 font-bold mt-7 font-uncut-sans', className)}>
           {item.title}
         </h5>
         <p className="text-xl leading-normal text-zinc-600 font-normal mt-2">{item.content}</p>

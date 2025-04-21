@@ -1,3 +1,5 @@
+import cn from 'clsx'
+
 interface Props {
   content: string
   className?: string
@@ -5,7 +7,10 @@ interface Props {
 const HeadingTwo: React.FC<Props> = ({ content, className }) => {
   return (
     <h2
-      className={`text-4xl md:text-5xl lg:text-7xl  text-neutral-900 mt-[10px] font-gt-walsheim leading-none font-extrabold ${className}`}
+      className={cn(
+        'text-4xl md:text-5xl lg:text-7xl  text-neutral-900 mt-3 font-gt-walsheim leading-none font-extrabold',
+        className
+      )}
     >
       {content}
     </h2>

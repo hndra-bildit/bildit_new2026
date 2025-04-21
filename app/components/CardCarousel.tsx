@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from 'react'
 import CardThree from './CardThree'
+import cn from 'clsx'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -73,14 +74,20 @@ export default function EmblaCarousel() {
         </div>
       </div>
       <button
-        className={`absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-gray-800 text-white rounded-full ${!canScrollPrev && 'opacity-50 cursor-not-allowed'}`}
+        className={cn(
+          'absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-gray-800 text-white rounded-full',
+          !canScrollPrev && 'opacity-50 cursor-not-allowed'
+        )}
         onClick={scrollPrev}
         disabled={!canScrollPrev}
       >
         <ChevronLeft size={24} />
       </button>
       <button
-        className={`absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-gray-800 text-white rounded-full ${!canScrollNext && 'opacity-50 cursor-not-allowed'}`}
+        className={cn(
+          'absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-gray-800 text-white rounded-full',
+          !canScrollNext && 'opacity-50 cursor-not-allowed'
+        )}
         onClick={scrollNext}
         disabled={!canScrollNext}
       >

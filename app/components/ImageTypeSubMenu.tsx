@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn'
+import cn from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi'

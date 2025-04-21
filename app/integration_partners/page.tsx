@@ -1,5 +1,5 @@
-import HeadingOne from '../components/HeadingOne'
 import CardEight, { CardEightType } from '@/app/components/CardEight'
+import HeadingOne from '@/app/components/HeadingOne'
 import Image from 'next/image'
 
 // @todo: should come from cms

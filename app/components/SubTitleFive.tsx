@@ -1,3 +1,5 @@
+import cn from 'clsx'
+
 interface Props {
   content: string
   className?: string
@@ -5,7 +7,7 @@ interface Props {
 
 const SubTitleFive: React.FC<Props> = ({ content, className }) => {
   return (
-    <p className={`font-400 text-base lg:text-xl leading-none font-gt-walsheim text-neutral-900 ${className}`}>
+    <p className={cn('font-400 text-base lg:text-xl leading-none font-gt-walsheim text-neutral-900', className)}>
       {content}
     </p>
   )

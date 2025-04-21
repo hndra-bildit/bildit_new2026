@@ -1,4 +1,5 @@
-'use client'
+import cn from 'clsx'
+
 interface Props {
   type: string
   placeholder: string
@@ -10,7 +11,10 @@ const Input: React.FC<Props> = ({ type, placeholder, className }) => {
     <input
       type={type}
       placeholder={placeholder}
-      className={`w-full p-2 lg:p-5 border border-gray-600 rounded-sm focus:outline-none focus:border-blue-500 text-sm lg:text-xl ${className}`}
+      className={cn(
+        'w-full p-2 lg:p-5 border border-gray-600 rounded-sm focus:outline-none focus:border-blue-500 text-sm lg:text-xl',
+        className
+      )}
     />
   )
 }
