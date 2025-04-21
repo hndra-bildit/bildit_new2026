@@ -1,7 +1,7 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
 import './globals.css'
-import cn from 'classnames'
+import cn from 'clsx'
 import type { Metadata } from 'next'
 import 'swiper/css'
 import 'swiper/css/navigation'

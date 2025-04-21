@@ -21,7 +21,7 @@ export default async function Blogs() {
       <HeadingOne
         sub1="Writing from Our"
         sub2="Team"
-        className1="text-neutral-900 text-center xl:!text-[124px]"
+        className1="text-neutral-900 text-center xl:text-9xl"
         className2="bg-gradient-to-r from-cms-rose to-purple-700 bg-clip-text text-transparent"
       />
       <SubTitleThree
@@ -29,7 +29,7 @@ export default async function Blogs() {
         className="text-center mt-8"
       />
       <BlogClient />
-      <section className="container mx-auto mt-8 lg:mt-[100px]">
+      <section className="container mx-auto mt-8 lg:mt-25">
         <LatestPost initialItems={initialItems} loadMore={true} />
       </section>
     </div>

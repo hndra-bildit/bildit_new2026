@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { CardNineItemType } from '@/app/components/CardNine'
 import CardNine from '@/app/components/CardNine'
-import cn from 'classnames'
+import cn from 'clsx'
 import { useRouter, useParams } from 'next/navigation'
 
 const LinkGroups: Array<{ name: string; param: string }> = [

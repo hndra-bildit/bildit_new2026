@@ -155,12 +155,12 @@ export default function StoreFront() {
       </section>
 
       <section className="container mx-auto mt-20 md:mt-30 xl:mt-50 px-4 lg:px-0">
-        <SubTitleFiveCaps content={'Key Benefits'} className="!text-center" />
+        <SubTitleFiveCaps content={'Key Benefits'} className="text-center" />
         <div className="flex justify-center text-center">
           <div className="max-w-[928px] inline-block">
             <DisplayOne
               content={'Revolutionizing E-commerce Management: The Perks'}
-              className={'text-neutral-900 mt-3 !text-center'}
+              className={'text-neutral-900 mt-3 text-center'}
             />
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function StoreFront() {
       </section>
 
       <section className="container mx-auto px-4 lg:px-0 mt-20 mt-30 xl:mt-50">
-        <DisplayOne content={'Why Mobile App is important?'} className="!text-center" />
+        <DisplayOne content={'Why Mobile App is important?'} className="text-center" />
         <SubTitleThree content={'33% of daily waking hours spent in mobile app.'} className={'mt-5 text-center'} />
         <div className="flex flex-wrap justify-around">
           {IconItems.map((item, key) => {
@@ -192,8 +192,8 @@ export default function StoreFront() {
           height={0}
         />
         <div className="container mx-auto">
-          <SubTitleFiveCaps content={'App and Website'} className="!text-center" />
-          <DisplayOne content={'Unlock the Full Potential of Your Storefront'} className="!text-center" />
+          <SubTitleFiveCaps content={'App and Website'} className="text-center" />
+          <DisplayOne content={'Unlock the Full Potential of Your Storefront'} className="text-center" />
           <div className="mt-12">
             <div className="lg:grid grid-cols-2 lg:space-x-15">
               <CardTwo item={UnLockCardItems[0]} />

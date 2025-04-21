@@ -145,7 +145,7 @@ const Footer: React.FC = () => {
             <DisplayThree content="Sign up for valuable insights" className="text-center" />
             <BodyOne
               content={"Don't worry we won't spam you, we send a insights for how to improve your mobile app"}
-              className="my-12 !text-center"
+              className="my-12 text-center"
             />
             <div className="lg:flex justify-center items-center">
               <div>

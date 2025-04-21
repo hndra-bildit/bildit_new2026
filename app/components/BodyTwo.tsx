@@ -1,4 +1,4 @@
-import cn from 'clsx'
+import { cn } from '@/utils/cn'
 
 interface Props {
   content: string

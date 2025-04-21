@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import TextBtnL from './TextBtnL'
-import cn from 'classnames'
+import cn from 'clsx'
 
 const BillingToggle: React.FC = () => {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly')

@@ -191,7 +191,7 @@ export default function Home() {
               content={
                 'One CMS platform. Endless possibilities to create stunning images, banners, recommendations, animations and customized display configurations.'
               }
-              className={'!text-gray-300 mt-8 text-center lg:text-left'}
+              className={'text-gray-300 mt-8 text-center lg:text-left'}
             />
           </div>
           <div className="flex justify-center">

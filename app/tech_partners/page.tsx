@@ -97,7 +97,7 @@ export default function TechPartners() {
         <Image
           src="/images/tech_partners/BILDIT_Tech_Partners_BG.png"
           alt="BILDIT_Tech_Partners_BG.png"
-          className="hidden lg:block top-0 right-0 -z-1 absolute lg:!w-3/5 2xl:w-auto h-auto"
+          className="hidden lg:block top-0 right-0 -z-1 absolute lg:w-3/5 2xl:w-auto h-auto"
           width={1200}
           height={0}
         />

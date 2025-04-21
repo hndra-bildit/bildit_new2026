@@ -394,9 +394,9 @@ export default function BilditCMS() {
             <div className="mt-2">
               <BodyTwo
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Commodo sapien habitasse sapien ornare diam in at malesuada. Mauris, sed eget gravida sit blandit. Arcu dolor lacus hac enim, aliquet pretium in. Sit non cursus eu sagittis. Pretium et ac risus amet. Posuere sagittis quam tellus, nisl amet rhoncus, ullamcorper. "
-                className="!text-gray-300 text-center lg:text-left"
+                className="text-gray-300 text-center lg:text-left"
               />
-              <SubTitleFive content="John Doe" className="mt-4 lg:mt-8 !text-gray-300 text-center lg:text-left" />
+              <SubTitleFive content="John Doe" className="mt-4 lg:mt-8 text-gray-300 text-center lg:text-left" />
               <BodyFour content="CEO BELK" className="mt-2 text-center lg:text-left" />
               <div className="flex lg:block justify-center">
                 <SecondaryButton content="Case Study" className="mt-10 font-gt-walsheim text-center lg:text-left" />
