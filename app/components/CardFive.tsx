@@ -15,12 +15,12 @@ interface Props {
 }
 const CardFive: React.FC<Props> = ({ item }) => {
   return (
-    <div className="bg-cms-lighter-gray borde border-cms-light-gray rounded-2xl p-6 lg:p-10 text-cms-grey mb-10">
+    <div className="bg-gray-100 borde border-gray-300 rounded-2xl p-6 lg:p-10 text-zinc-600 mb-10">
       <h3 className="font-bold text-2xl xl:text-3xl leading-none font-gt-walsheim">{item.title}</h3>
       {item.subitems.map((subitem, idx) => {
         return (
-          <div className="flex mt-4 lg:mt-7" key={idx}>
-            <div className="text-white rounded-full p-1 mr-2 lg:mr-5">
+          <div className="grid grid-cols-[40px_auto] items-center mt-4 lg:mt-7" key={idx}>
+            <div className="text-white p-1 mr-2">
               {
                 <Image
                   src={`/images/others/${subitem.status ? 'Check_circle_solid.svg' : 'carbon_close-filled.svg'}`}
@@ -30,7 +30,7 @@ const CardFive: React.FC<Props> = ({ item }) => {
                 />
               }
             </div>
-            <p className="font-normal text-2xl leading-[36px]">{subitem.content}</p>
+            <p className="font-normal text-xl lg:text-2xl leading-normal">{subitem.content}</p>
           </div>
         )
       })}

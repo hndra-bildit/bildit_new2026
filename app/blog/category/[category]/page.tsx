@@ -9,7 +9,7 @@ import Image from 'next/image'
 export default async function Blogs() {
   const initialItems = await getLatestPosts(1, 3) // Page 1
   return (
-    <div className="pt-[160px] px-4">
+    <div className="pt-40 px-4">
       <Image
         src="/images/blog_main/BILDIT_Blog_Main_BG.png"
         alt="BILDIT_Blog_Main_BG.png"
@@ -21,15 +21,15 @@ export default async function Blogs() {
       <HeadingOne
         sub1="Writing from Our"
         sub2="Team"
-        className1="text-cms-black-one text-center xl:!text-[124px]"
-        className2="bg-gradient-to-r from-cms-rose to-cms-purple bg-clip-text text-transparent"
+        className1="text-neutral-900 text-center xl:text-9xl"
+        className2="bg-gradient-to-r from-cms-rose to-purple-700 bg-clip-text text-transparent"
       />
       <SubTitleThree
         content="The latest industry news, e-commerce, technologies, and businesses"
         className="text-center mt-8"
       />
       <BlogClient />
-      <section className="container mx-auto mt-8 lg:mt-[100px]">
+      <section className="container mx-auto mt-8 lg:mt-25">
         <LatestPost initialItems={initialItems} loadMore={true} />
       </section>
     </div>

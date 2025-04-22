@@ -1,6 +1,7 @@
 import React from 'react'
 import BodyTwo from './BodyTwo'
 import SubTitleFive from './SubTitleFive'
+import cn from 'clsx'
 import { FaCheckCircle } from 'react-icons/fa'
 
 const features = [
@@ -52,12 +53,12 @@ const CMSFeaturesTable: React.FC = () => {
     <table className="w-full border-collapse rounded-lg overflow-hidden shadow-md">
       <tbody>
         {features.map((feature, index) => (
-          <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-cms-light-gray'}>
-            <td className="py-5 px-2 text-xl text-cms-black-one font-gt-walsheim w-1/3">
+          <tr key={index} className={cn('', index % 2 === 0 ? 'bg-white' : 'bg-gray-300')}>
+            <td className="py-5 px-2 text-xl text-neutral-900 font-gt-walsheim w-1/3">
               <SubTitleFive content={feature.title} />
             </td>
             <td className="py-5 px-2">
-              <BodyTwo content={feature.description} className="!text-cms-black-one !my-0" />
+              <BodyTwo content={feature.description} className="text-neutral-900 my-0" />
             </td>
             <td className="p-4 text-cms-rose text-right">
               <FaCheckCircle className="inline-block w-5 h-5 text-pink" />

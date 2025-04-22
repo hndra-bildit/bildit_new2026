@@ -11,9 +11,8 @@
     "check": "npx prettier --check ."
   },
   "dependencies": {
-    "@bildit-platform/engine": "^0.1.1",
-    "@bildit-platform/nextjs": "^0.1.1",
-    "classnames": "^2.5.1",
+    "@bildit-platform/engine": "^0.1.2",
+    "@bildit-platform/nextjs": "^0.1.7",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.6.3",

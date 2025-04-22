@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { CardNineItemType } from '@/app/components/CardNine'
 import CardNine from '@/app/components/CardNine'
-import cn from 'classnames'
+import cn from 'clsx'
 import { useRouter, useParams } from 'next/navigation'
 
 const LinkGroups: Array<{ name: string; param: string }> = [
@@ -42,7 +42,7 @@ export default function BlogClient() {
 
   const handleTabClick = (cat: string) => {
     if (cat === currentCategory) return
-    router.replace(`/blogs/${cat}`)
+    router.replace(`/blog/category/${cat}`)
   }
 
   return (
@@ -51,7 +51,7 @@ export default function BlogClient() {
         {LinkGroups.map((item, key) => (
           <div
             className={cn(
-              'text-cms-basic lg:text-2xl font-bold leading-normal cursor-pointer hover:text-cms-rose',
+              'text-sm lg:text-2xl font-bold leading-normal cursor-pointer hover:text-cms-rose',
               currentCategory === item.param ? 'text-cms-rose' : 'text-black'
             )}
             key={key}

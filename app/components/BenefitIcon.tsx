@@ -10,12 +10,12 @@ interface Props {
 }
 const BenefitIcon: React.FC<Props> = ({ item }) => {
   return (
-    <div className="mx-5">
+    <div className="mx-5 pt-10">
       <div className="">
         <Image src={item.src} alt={item.alt} width={286} height={286} />
       </div>
       <div className="text-center">
-        <p className="text-2xl leading-none text-cms-grey font-bold mt-5 font-gt-walsheim">{item.content}</p>
+        <p className="text-2xl leading-none text-zinc-600 font-bold mt-5 font-gt-walsheim">{item.content}</p>
       </div>
     </div>
   )

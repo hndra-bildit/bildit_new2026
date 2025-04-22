@@ -4,9 +4,7 @@ interface Props {
 }
 const BodyFour: React.FC<Props> = ({ content, className }) => {
   return (
-    <p
-      className={`my-12 text-cms-light-gray font-normal text-cms-basic lg:text-base leading-normal font-gt-walsheim ${className}`}
-    >
+    <p className={`text-gray-300 font-normal text-sm lg:text-base leading-normal font-gt-walsheim ${className}`}>
       {content}
     </p>
   )

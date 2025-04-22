@@ -1,18 +1,18 @@
-import BILDIT_Comparison_BG from '../../public/images/comparison/BILDIT_Comparison_BG.png'
-import ComparisonTable from '../components/ComparisonTable'
-import DisplayOne from '../components/DisplayOne'
+import ComparisonTable from '@/app/components/ComparisonTable'
+import DisplayOne from '@/app/components/DisplayOne'
 import Image from 'next/image'
 
 export default function Comparison() {
   return (
-    <section className="pt-[160px] text-center py-[54px] md:py-[200px]">
+    <section className="py-20 lg:pt-40 text-center py-13">
       <Image
-        src={BILDIT_Comparison_BG}
-        className="top-0 left-0 absolute -z-1"
+        src="/images/comparison/BILDIT_Comparison_BG.png"
+        className="top-0 left-0 absolute -z-1 w-full h-auto"
         alt="BILDIT_Comparison_BG.png"
-        style={{ width: '100%', height: 'auto' }}
+        width={1200}
+        height={0}
       />
-      <div className="container mx-auto  px-[16px] lg:px-0 pt-[160px]">
+      <div className="container mx-auto  px-4">
         <DisplayOne content="Content Management System Comparisons" />
         <ComparisonTable />
       </div>

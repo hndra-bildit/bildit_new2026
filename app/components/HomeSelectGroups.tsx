@@ -5,6 +5,7 @@ import BodyTwo from './BodyTwo'
 import HeadingTwo from './HeadingTwo'
 import PrimaryButton from './PrimaryButton'
 import SubTitleFiveCaps from './SubTitleFiveCaps'
+import cn from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -68,44 +69,44 @@ const HomeSelectGroups: React.FC = () => {
     setType(val)
   }
   const GroupContent = GroupContents.filter((item) => item.name === type).map((item, key) => (
-    <div className="container mx-auto flex items-center grid grid-cols-2 py-[100px]" key={key}>
-      <div>
-        <Image src={item.src} alt={item.alt} width={715} height={715} />
-      </div>
-
-      <div>
-        <SubTitleFiveCaps content={item.title} />
-        <HeadingTwo content={item.heading} />
-        <BodyTwo content={item.content} />
-        <Link href={item.link}>
-          <PrimaryButton
-            content={item.label}
-            className={item.name === 'Control' ? 'bg-cms-rose shadow-none outline outline-1 outline-cms-rose' : ''}
-          />
+    <div className="container mx-auto lg:grid grid-cols-[35%_auto] gap-10 items-center py-10 lg:py-25" key={key}>
+      <div className="order-2">
+        <SubTitleFiveCaps content={item.title} className="text-center lg:text-left" />
+        <HeadingTwo content={item.heading} className="text-center lg:text-left mt-4" />
+        <BodyTwo content={item.content} className="text-center lg:text-left mt-8" />
+        <Link href={item.link} className="flex justify-center lg:block">
+          <PrimaryButton content={item.label} className="mt-8" />
         </Link>
+      </div>
+      <div className="order-1 mt-10 lg:mt-0">
+        <Image src={item.src} alt={item.alt} width={715} height={0} className="w-full h-auto" />
       </div>
     </div>
   ))
   return (
     <>
       <div>
-        <div className="flex space-x-[20px] justify-center">
+        <div className="flex space-x-5 justify-center">
           {GroupItems.map((item, key) => {
             return (
               <button
                 key={key}
                 onClick={() => handleChange(item.name)}
-                className={`font-gt-walsheim hover:bg-cms-black-one hover:text-white transition duration-500 text-2xl w-[193px] h-[111px] flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? 'bg-cms-black-one text-white' : 'bg-cms-lighter-gray text-cms-black-two'}`}
+                className={cn(
+                  'font-gt-walsheim hover:bg-neutral-900 hover:text-white transition duration-500 lg:text-2xl w-35 lg:w-40 p-3 flex-wrap items-center justify-center rounded-full cursor-pointer',
+                  item.name === type ? 'bg-neutral-900 text-white' : 'bg-gray-100 text-neutral-700'
+                )}
               >
-                <div className="text-center flex justify-center">
+                <div className="text-center flex lg:block justify-center items-center">
                   <Image
                     src={`${type === item.name ? item.active_url : item.unactive_url}`}
                     alt={item.active_url}
                     width={34}
                     height={34}
+                    className="inline-block"
                   />
+                  <p className="text-xl lg:text-2xl font-normal">{item.name}</p>
                 </div>
-                <span className="text-2xl font-normal">{item.name}</span>
               </button>
             )
           })}
