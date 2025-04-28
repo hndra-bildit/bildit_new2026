@@ -1430,6 +1430,7 @@ col-span-2
 pt-6
 xl:pt-0
 w-full
+w-12
 mx-auto
 px-4
 bg-white
