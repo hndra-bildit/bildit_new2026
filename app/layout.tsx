@@ -1,6 +1,9 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
 import './globals.css'
+import { getBanners } from '@/services/bildit'
+import { BilditProvider } from '@bildit-platform/nextjs'
+import type { BannerType } from '@bildit-platform/nextjs'
 import cn from 'clsx'
 import type { Metadata } from 'next'
 import 'swiper/css'
@@ -11,18 +14,26 @@ export const metadata: Metadata = {
   description: 'Content Management System for Mobile Apps and React Web Sites'
 }
 
-export default function RootLayout({
+async function getInitialData(): Promise<BannerType[]> {
+  const banners = await getBanners()
+  return banners
+}
+
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const banners: BannerType[] = await getInitialData()
   return (
     <html lang="en">
-      <body className={cn('antialiased relative', 'font-uncut-sans')}>
-        <Header />
-        <div>{children}</div>
-        <Footer />
-      </body>
+      <BilditProvider banners={banners}>
+        <body className={cn('antialiased relative', 'font-uncut-sans')}>
+          <Header />
+          <div>{children}</div>
+          <Footer />
+        </body>
+      </BilditProvider>
     </html>
   )
 }
