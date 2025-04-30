@@ -1,37 +1,10 @@
-import BlogClient from '@/app/components/BlogClient'
-import HeadingOne from '@/app/components/HeadingOne'
-import LatestPost from '@/app/components/LatestPost'
-import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
-import SubTitleThree from '@/app/components/SubTitleThree'
-import { getLatestPosts } from '@/lib/getPost'
-import Image from 'next/image'
+import { SlotPlaceholder } from '@bildit-platform/nextjs'
 
 export default async function Blogs() {
-  const initialItems = await getLatestPosts(1, 3) // Page 1
   return (
-    <div className="pt-40 px-4">
-      <Image
-        src="/images/blog_main/BILDIT_Blog_Main_BG.png"
-        alt="BILDIT_Blog_Main_BG.png"
-        width={0}
-        height={0}
-        className="w-full h-auto absolute top-0 left-0 -z-1"
-      />
-      <SubTitleFiveCaps content="The Blog" className="text-center" />
-      <HeadingOne
-        sub1="Writing from Our"
-        sub2="Team"
-        className1="text-neutral-900 text-center xl:text-9xl"
-        className2="bg-gradient-to-r from-cms-rose to-purple-700 bg-clip-text text-transparent"
-      />
-      <SubTitleThree
-        content="The latest industry news, e-commerce, technologies, and businesses"
-        className="text-center mt-8"
-      />
-      <BlogClient />
-      <section className="container mx-auto mt-8 lg:mt-25">
-        <LatestPost initialItems={initialItems} loadMore={true} />
-      </section>
-    </div>
+    <>
+      <SlotPlaceholder slotId="blog-main-title" />
+      <SlotPlaceholder slotId="blog-main-content" />
+    </>
   )
 }

@@ -4,8 +4,9 @@ import './globals.css'
 import { getBanners } from '@/services/bildit'
 import { BilditProvider } from '@bildit-platform/nextjs'
 import type { BannerType } from '@bildit-platform/nextjs'
-import cn from 'clsx'
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -27,8 +28,14 @@ export default async function RootLayout({
   const banners: BannerType[] = await getInitialData()
   return (
     <html lang="en">
-      <BilditProvider banners={banners}>
-        <body className={cn('antialiased relative', 'font-uncut-sans')}>
+      <BilditProvider
+        banners={banners}
+        extraDependenciesConfig={{
+          Link: { module: Link, globalName: 'Link' },
+          Image: { module: Image, globalName: 'Image' }
+        }}
+      >
+        <body className="antialiased relative font-uncut-sans">
           <Header />
           <div>{children}</div>
           <Footer />
