@@ -32,7 +32,15 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script src="/scripts/admin.22ff1ce5.js" strategy="beforeInteractive" id="bildit-script" />
+        <Script
+          src={
+            process.env.NODE_ENV === 'development'
+              ? 'http://localhost:3001/scripts/admin.8e3bbd0f.js'
+              : '/scripts/admin.22ff1ce5.js'
+          }
+          strategy="beforeInteractive"
+          id="bildit-script"
+        />
       </head>
       <Providers banners={banners}>
         <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
