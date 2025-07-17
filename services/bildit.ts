@@ -1,7 +1,13 @@
 'use server'
 export async function getBanners() {
   try {
-    const baseUrl = new URL(process.env.BILDIT_API_URL ?? '')
+    const apiUrl = process.env.BILDIT_API_URL
+    if (!apiUrl) {
+      console.warn('BILDIT_API_URL environment variable is not set')
+      return []
+    }
+
+    const baseUrl = new URL(apiUrl)
 
     baseUrl.pathname += '/remote-banners_v1_3'
 
@@ -15,11 +21,18 @@ export async function getBanners() {
     return data
   } catch (e) {
     console.error(e)
+    return []
   }
 }
 
 export async function getRemoteBaseCodeLib() {
-  const baseUrl = new URL(process.env.BILDIT_API_URL ?? '')
+  const apiUrl = process.env.BILDIT_API_URL
+  if (!apiUrl) {
+    console.warn('BILDIT_API_URL environment variable is not set')
+    return []
+  }
+
+  const baseUrl = new URL(apiUrl)
 
   baseUrl.pathname += '/remote-baseCodelib'
 

@@ -1,6 +1,3 @@
-import { v4 } from 'uuid'
-
-
 export type ImageFile = File & {
   preview?: string
   height?: number
@@ -152,55 +149,3 @@ export interface BilditBannerParams {
   category?: string
   location?: string
 }
-
-export const TEMP_ID = () => `__${v4()}__`
-
-export interface ResponsiveImage {
-  base64?: string
-  height: number
-  image?: string
-  screen: string
-  url: string
-  width: number
-  preview?: VariantPreview
-}
-export interface BannerSortOrderUpdate {
-  id?: string
-  bannerSortOrder?: Record<string, number>
-}
-
-export interface WebApp {
-  environment: string
-  id: string
-  image?: string
-  name: string
-  startDate: number
-  type: string
-  url: string
-  version: string
-}
-
-export interface FormValues {
-  order: number
-  name: string
-  devices: ['web']
-  screenTypes: ScreenType[]
-  location: string
-  url: string
-  alternateText: string
-  orientation: 'portrait'
-  siteSpectCampaignId: string
-  schedules: ScheduleType[]
-  slotId: string
-  responsiveImage: ResponsiveImage[]
-}
-
-export interface DefaultTemplate {
-  code: string
-  codeType: CodeType
-  raw: string
-  metadata: VariantMetadata[]
-  name: string
-}
-
-export type SSOConfig = Record<string, Record<string, string>>

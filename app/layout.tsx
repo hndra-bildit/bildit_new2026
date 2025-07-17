@@ -1,11 +1,10 @@
 import './globals.css'
-import type { Metadata } from 'next'
-import type { BannerType } from '@bildit-platform/nextjs'
-import { getBanners } from '@/services/bildit'
 import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
 import Providers from '@/app/components/Providers'
-
+import { getBanners } from '@/services/bildit'
+import type { Banner } from '@/services/bildit.d'
+import type { Metadata } from 'next'
 import Script from 'next/script'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   description: 'Content Management System for Mobile Apps and React Web Sites'
 }
 
-async function getInitialData(): Promise<BannerType[]> {
+async function getInitialData(): Promise<Banner[]> {
   const banners = await getBanners()
   if (!banners) {
     return []
@@ -29,7 +28,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const banners: BannerType[] = await getInitialData()
+  const banners: Banner[] = await getInitialData()
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
