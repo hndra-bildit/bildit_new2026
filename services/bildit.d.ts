@@ -1,5 +1,9 @@
 import { v4 } from 'uuid'
 
+export interface BilditBannerParams {
+  category?: string
+  location?: string
+}
 
 export type ImageFile = File & {
   preview?: string
@@ -67,6 +71,11 @@ export interface ScheduleType {
   slot: number
   startDate: string | number
   endDate: string | number
+}
+
+export interface WebBannersResponse {
+  lastUpdate: number
+  data: Banner[]
 }
 
 export interface Banner {

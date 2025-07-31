@@ -15,12 +15,19 @@ export const metadata: Metadata = {
 }
 
 async function getInitialData(): Promise<Banner[]> {
-  const banners = await getBanners()
-  if (!banners) {
+  try {
+    const response = await getBanners()
+    if (!response || !response.data) {
+      console.warn('No banner data received from API')
+      return []
+    }
+    const banners = response.data as Banner[]
+    console.log('Banners loaded:', banners)
+    return banners
+  } catch (error) {
+    console.error('Error loading banners:', error)
     return []
   }
-  console.log(banners)
-  return banners
 }
 
 export default async function RootLayout({
@@ -33,22 +40,59 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script
-          src={
-            process.env.NODE_ENV === 'development'
-              ? 'http://localhost:3001/scripts/admin.8e3bbd0f.js'
-              : '/scripts/admin.22ff1ce5.js'
-          }
+          id="postmessage-listener"
           strategy="beforeInteractive"
-          id="bildit-script"
+          dangerouslySetInnerHTML={{
+            __html: `
+      // Notify parent that iframe is ready
+      window.parent.postMessage({
+        type: 'IFRAME_READY',
+        success: true
+      }, '*');
+      
+      window.addEventListener("message", (event) => {
+        console.log('📨 Message received in Next.js:', event.data);
+        
+        if (event.data.type === "INJECT_SCRIPT") {
+          console.log('🚀 Script injection message received from parent CMS...');
+          
+          const script = document.createElement("script");
+          script.src = window.location.hostname === 'localhost' 
+            ? "http://localhost:3333/static/js/admin.js"
+            : "https://bildit.co/scripts/admin.654b4488.js";
+          
+          script.onload = function() {
+            console.log('✅ Web script loaded successfully');
+            // Notify parent that script was injected
+            window.parent.postMessage({
+              type: 'SCRIPT_INJECTED',
+              success: true
+            }, '*');
+          };
+          
+          script.onerror = function() {
+            console.error('❌ Failed to load web script');
+            window.parent.postMessage({
+              type: 'SCRIPT_INJECTED',
+              success: false,
+              error: 'Failed to load script'
+            }, '*');
+          };
+          
+          document.body.appendChild(script);
+        }
+      });
+    `
+          }}
         />
       </head>
-      <Providers banners={banners}>
-        <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
+      <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
+        <Providers banners={banners}>
           <Header />
           <div>{children}</div>
           <Footer />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   )
 }
