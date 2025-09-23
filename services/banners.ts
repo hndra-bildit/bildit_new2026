@@ -137,8 +137,7 @@ interface BannerOptionalTestProperties {
   location?: string
 }
 
-export type BannerTypeRenderForTests = BannerTypeRender &
-  BannerOptionalTestProperties
+export type BannerTypeRenderForTests = BannerTypeRender & BannerOptionalTestProperties
 
 export interface BannerSortOrderUpdate {
   id?: string

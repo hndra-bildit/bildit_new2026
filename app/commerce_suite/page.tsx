@@ -1,3 +1,4 @@
+import HeroImage from '../components/HeroImage'
 import { SlotPlaceholder } from '@bildit-platform/nextjs'
 import Image from 'next/image'
 
@@ -5,6 +6,10 @@ export default function CommerceSuite() {
   return (
     <div className="text-center lg:text-left">
       <SlotPlaceholder slotId="commerce-suite-title" />
+
+      {/* HeroImage Component */}
+      <HeroImage />
+
       <section className="relative">
         <Image
           src="/images/others/BILDIT_Dot_Right_Middle_Effect_BG.png"
