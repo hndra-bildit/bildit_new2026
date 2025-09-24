@@ -5,6 +5,7 @@ import Providers from '@/app/components/Providers'
 import { getBanners } from '@/services/bildit'
 import type { Banner } from '@/services/bildit.d'
 import { BILDITAIPixel } from '@bildit-platform/ai-pixel'
+import { buildMouseDetectionInlineScript } from '@bildit-platform/ai-pixel/react'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import 'swiper/css'
@@ -94,6 +95,18 @@ export default async function RootLayout({
           <div>{children}</div>
           <Footer />
         </Providers>
+        <Script
+          id="bildit-mouse-detection"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: buildMouseDetectionInlineScript('https://ai-pixel.bildit.co/pixel.gif', {
+              duration: 5000,
+              throttle: 1000,
+              maxMovements: 10,
+              params: { app: 'marketing' }
+            })
+          }}
+        />
       </body>
     </html>
   )

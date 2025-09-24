@@ -1,11 +1,20 @@
+import { Suspense } from 'react'
 import { SlotPlaceholder } from '@bildit-platform/nextjs'
 import Link from 'next/link'
+
+function SafeSlotPlaceholder({ slotId }: { slotId: string }) {
+  return (
+    <Suspense fallback={<div data-bildit-id={slotId} />}>
+      <SlotPlaceholder slotId={slotId} />
+    </Suspense>
+  )
+}
 
 export default function BilditCMS() {
   return (
     <>
-      <SlotPlaceholder slotId="cms-title" />
-      <SlotPlaceholder slotId="cms-content" />
+      <SafeSlotPlaceholder slotId="cms-title" />
+      <SafeSlotPlaceholder slotId="cms-content" />
 
       {/* Hero Image Banner Demo Section */}
       <div className="bg-white py-12">

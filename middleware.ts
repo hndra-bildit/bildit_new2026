@@ -6,7 +6,6 @@ export async function middleware(request: Request) {
     params: { edge: 'middleware' },
     // force: true, // Uncomment to test with all requests
   });
-
   console.log('[BILDIT Middleware] Result:', result);
   return NextResponse.next();
 }

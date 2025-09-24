@@ -84,10 +84,10 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.27.1"
 
-"@bildit-platform/ai-pixel@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@bildit-platform/ai-pixel/-/ai-pixel-1.2.0.tgz#0311b650708ab6351c755ccd94dd6eaec052743f"
-  integrity sha512-HM4FBwMaWMmeecHKybcXCaHVaDwCWln0/Qb46pzTrcWosDqU3GT8vC5Qr4p1EmJJ1HAIpw1Ppasr3XT3Q7xQyA==
+"@bildit-platform/ai-pixel@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@bildit-platform/ai-pixel/-/ai-pixel-1.5.0.tgz#89cb256c01d46249a596bdab78fa6925c7b7a94d"
+  integrity sha512-oiaGXng4ub3ZKChT5OZH1gS75gMOP1Lq/WaBzHIu4aYmW/MmCX+69ZEZCmjION759cz45gJlJJlxiFGz3Mw5+g==
   dependencies:
     playwright "^1.55.0"
 
