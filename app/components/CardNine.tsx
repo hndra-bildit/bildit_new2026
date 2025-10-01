@@ -15,6 +15,9 @@ export interface CardNineItemType {
   title: string
   content: string
   href: string
+  author: string
+  data: Array<{ title: string; content: string }>
+  createdAt: string
 }
 
 interface Props {

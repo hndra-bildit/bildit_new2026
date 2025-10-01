@@ -1,10 +1,19 @@
 import { v4 } from 'uuid'
 
-export type ImageFile = File & { preview?: string; height?: number; width?: number; screen?: ScreenType }
+export interface BilditBannerParams {
+  category?: string
+  location?: string
+}
+
+export type ImageFile = File & {
+  preview?: string
+  height?: number
+  width?: number
+  screen?: ScreenType
+}
 export type CodeType = 'js' | 'jsx' | 'html' | 'json' | 'ts' | 'tsx'
 export type ScreenType = 'desktop' | 'tablet' | 'phone'
 export type OrientationType = 'portrait' | 'landscape'
-export const TEMP_ID = () => `__${v4()}__`
 
 export interface BannerCode {
   updated?: boolean
@@ -16,11 +25,11 @@ export interface BannerCode {
 export interface VariantMetadata {
   name: string
   type: string
-  defaultValue?: any
-  value?: any
+  defaultValue?: string | number | boolean
+  value?: string | number | boolean
   dropdownOptions?: Array<{
     label: string
-    value: string | number
+    value: string | number | boolean
   }>
 }
 
@@ -43,14 +52,14 @@ export interface VariantPreview {
 
 export interface Variant {
   customerGroups?: string[]
-  id?: string
-  categories?: string[]
+  id: string
+  categories: string[]
   code?: BannerCode
   codePreview?: string
-  codeType?: CodeType
+  codeType: CodeType
   image?: string
   imageFile?: ImageFile
-  locations?: string[]
+  locations: string[]
   metadata?: VariantMetadata[]
   preview?: VariantPreview
   responsiveImage?: ResponsiveImage[]
@@ -64,8 +73,13 @@ export interface ScheduleType {
   endDate: string | number
 }
 
-export interface BannerType {
-  [index: string]: any
+export interface WebBannersResponse {
+  lastUpdate: number
+  data: Banner[]
+}
+
+export interface Banner {
+  [index: string]: unknown
   adobeAnalytics?: string
   alternateText?: string
   appType?: string
@@ -90,7 +104,11 @@ export interface BannerType {
   published: boolean
   responsiveImage?: ResponsiveImage[]
   schedules: ScheduleType[]
-  screenTypes: ScreenType[]
+  screenTypes: {
+    desktop: boolean
+    tablet: boolean
+    phone: boolean
+  }
   slot?: number
   stale?: boolean
   updatedAt?: number | string
@@ -116,7 +134,11 @@ export interface BannerTypeRender {
   published: boolean
   preview?: VariantPreview
   schedules: ScheduleType[]
-  screenTypes: ScreenType[]
+  screenTypes: {
+    desktop: boolean
+    tablet: boolean
+    phone: boolean
+  }
   slot?: number
   url?: string
   variants: Variant[]
@@ -129,6 +151,27 @@ interface BannerOptionalTestProperties {
 
 export type BannerTypeRenderForTests = BannerTypeRender & BannerOptionalTestProperties
 
+export interface BannerSortOrderUpdate {
+  id?: string
+  bannerSortOrder?: Record<string, number>
+}
+
+export interface BilditBannerParams {
+  category?: string
+  location?: string
+}
+
+export const TEMP_ID = () => `__${v4()}__`
+
+export interface ResponsiveImage {
+  base64?: string
+  height: number
+  image?: string
+  screen: string
+  url: string
+  width: number
+  preview?: VariantPreview
+}
 export interface BannerSortOrderUpdate {
   id?: string
   bannerSortOrder?: Record<string, number>
