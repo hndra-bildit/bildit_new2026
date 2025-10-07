@@ -12,3 +12,4 @@ const HeroImageDemo: React.FC = () => {
 }
 
 export default HeroImageDemo
+
