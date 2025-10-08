@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server';
-import { trackAIBotRequestForPixel } from '@bildit-platform/ai-pixel/nextjs';
+import { trackAIBotRequestForPixel } from '@bildit-platform/ai-pixel/nextjs'
+import { NextResponse } from 'next/server'
 
 export async function middleware(request: Request) {
   const result = await trackAIBotRequestForPixel(request, {
-    params: { edge: 'middleware' },
+    params: { edge: 'middleware' }
     // force: true, // Uncomment to test with all requests
-  });
-  console.log('[BILDIT Middleware] Result:', result);
-  return NextResponse.next();
+  })
+  console.log('[BILDIT Middleware] Result:', result)
+  return NextResponse.next()
 }
 
 // Configure which paths the middleware should run on

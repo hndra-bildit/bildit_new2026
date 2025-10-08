@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "BILDIT_DEBUG=true next dev --turbopack -p 5002",
+    "dev": "BILDIT_DEBUG=true next dev -p 5002",
     "dev:admin": "cd ../bildit-web-script && yarn start",
     "dev:all": "concurrently \"pnpm dev\" \"pnpm dev:admin\"",
     "watch:build": "node scripts/watch-build.js",

@@ -1,7 +1,5 @@
-import { Suspense } from 'react'
 import { SlotPlaceholder } from '@bildit-platform/nextjs'
 import Link from 'next/link'
-
 
 export default function BilditCMS() {
   return (

@@ -1,7 +1,7 @@
 # AI Onboarding Guide for BILDIT Web (Next.js)
-> kevin@bildit.co   
-> Mon 2025-09-29
 
+> kevin@bildit.co  
+> Mon 2025-09-29
 
 ## Instructions for the AI Assistant
 
@@ -28,13 +28,11 @@ Goal: Understand routing, components, and server utilities.
 
 Steps:
 
-1) Show root layout and global providers.
-
+1. Show root layout and global providers.
    - Open `app/layout.tsx`. Point out providers, header/footer, and AI pixel.
    - Locate the `getInitialData` function and explain it fetches CMS banners via `services/bildit.ts`.
 
-2) Show page routing.
-
+2. Show page routing.
    - Open `app/page.tsx` (home) and one subpage like `app/commerce_suite/page.tsx`.
    - Explain: every `app/<route>/page.tsx` becomes a route.
 
@@ -56,11 +54,11 @@ Goal: Understand server-only utilities and optional environment variables.
 
 Steps:
 
-1) Open `services/bildit.ts` and review `getBanners`.
+1. Open `services/bildit.ts` and review `getBanners`.
    - Note `process.env.BILDIT_API_URL`, `BILDIT_API_ENDPOINT`, `BILDIT_API_KEY`.
    - Explain safe fallback behavior when env vars are missing.
 
-2) Create `.env.local` (if not present) and add placeholders.
+2. Create `.env.local` (if not present) and add placeholders.
 
 Exercise: Add a dev-only guard log when vars are missing:
 
@@ -85,10 +83,11 @@ Steps:
 
 Exercise: Create a small styled-component wrapper and use it on the home page:
 
-1) Add a file `app/components/Section.tsx`:
+1. Add a file `app/components/Section.tsx`:
 
 ```tsx
 'use client'
+
 import styled from 'styled-components'
 
 export const Section = styled.section`
@@ -98,7 +97,7 @@ export const Section = styled.section`
 `
 ```
 
-2) Import and wrap a block in `app/page.tsx`.
+2. Import and wrap a block in `app/page.tsx`.
 
 Generate: `docs/how-tos/03-components.md`
 
@@ -175,7 +174,7 @@ Steps:
 1. Install Vercel CLI: `npm i -g vercel`
 2. `vercel pull --yes --environment=preview`
 3. `vercel build` then `vercel deploy --prebuilt --yes`
-4.  For production: use `--environment=production` and `--prod`.
+4. For production: use `--environment=production` and `--prod`.
 
 Exercise: Do a preview deploy from a feature branch. Share the preview URL.
 
@@ -193,5 +192,3 @@ Generate: `docs/how-tos/08-deploy.md`
 ## Completion
 
 Congratulate the developer, summarize what they learned, and point them to the generated docs in `docs/how-tos/`.
-
-
