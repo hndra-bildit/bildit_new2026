@@ -87,9 +87,33 @@ export default async function RootLayout({
     `
           }}
         />
+        <Script
+          id="visitiq-pixel"
+          type="text/javascript"
+          src="https://pixel.visitiq.io/vpixel.js"
+          strategy="beforeInteractive"
+        />
+
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
-        <BILDITAIPixel />
+        <Script
+          id="visitiq-tracking"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof vpixel !== 'undefined') {
+                vpixel.piximage('71e1d608-b524-49cc-93ae-fe3234779de0');
+              } else {
+                window.addEventListener('load', function() {
+                  if (typeof vpixel !== 'undefined') {
+                    vpixel.piximage('71e1d608-b524-49cc-93ae-fe3234779de0');
+                  }
+                });
+              }
+            `
+          }}
+        />
+        <BILDITAIPixel mode={['img', 'script', 'noscript']} />
         <Providers banners={banners}>
           <Header />
           <div>{children}</div>
