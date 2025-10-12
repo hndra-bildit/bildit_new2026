@@ -1,7 +1,8 @@
 # BILDIT Web (Next.js) – Developer Onboarding
-> kevin@bildit.co   
+
+> kevin@bildit.co  
 > Mon 2025-09-29
-> 
+>
 > Project: bildit-web-nextjs (Next.js 15 / React 19)  
 > Local dev port: 5002
 
@@ -19,7 +20,7 @@ Welcome! This guide gets you running locally fast, explains the project layout, 
 
 ⚠️ Use these versions for a frictionless setup.
 
-1) Install and select Node.js:
+1. Install and select Node.js:
 
 ```bash
 # Next.js 15 + React 19 works well with Node 18+
@@ -28,14 +29,14 @@ nvm use 18
 node -v   # should print v18.x
 ```
 
-2) Use Yarn 1.x (project is pinned):
+2. Use Yarn 1.x (project is pinned):
 
 ```bash
 npm i -g yarn@1.22.22
 yarn -v    # 1.22.x
 ```
 
-3) Never mix package managers:
+3. Never mix package managers:
 
 - Do not run `npm install`. We commit a `yarn.lock` and the repo declares `"packageManager": "yarn@1.22.22"`.
 
@@ -51,26 +52,27 @@ BILDIT_API_KEY=your-key-here
 ```
 
 Notes:
+
 - If `BILDIT_API_*` are missing, the code logs a warning and falls back safely.
 - We do not require any Vercel env locally to boot the site.
 
 ## Local Development
 
-1) Install deps
+1. Install deps
 
 ```bash
 cd /Users/kevingarriott/Documents/BILDIT/0_projects/0_BILDIT-Next_js
 yarn install
 ```
 
-2) Run the dev server (Turbopack, port 5002)
+2. Run the dev server (Turbopack, port 5002)
 
 ```bash
 yarn dev
 # open http://localhost:5002
 ```
 
-3) Production build locally (optional)
+3. Production build locally (optional)
 
 ```bash
 yarn build
@@ -123,7 +125,7 @@ Keep components small and composed. For simple one-off layout wrappers, utility 
 
 ## From Figma To Page (Typical Flow)
 
-1) Create a new route folder and page file:
+1. Create a new route folder and page file:
 
 ```bash
 # Example: new landing page at /storefront
@@ -131,13 +133,13 @@ mkdir -p app/storefront
 touch app/storefront/page.tsx
 ```
 
-2) Implement the page using components under `app/components/` and styled-components for complex sections.
+2. Implement the page using components under `app/components/` and styled-components for complex sections.
 
-3) Add any server data needs via functions in `services/` (server-only).
+3. Add any server data needs via functions in `services/` (server-only).
 
-4) Add assets to `public/images/...` and reference with `/images/...` paths.
+4. Add assets to `public/images/...` and reference with `/images/...` paths.
 
-5) Verify on `http://localhost:5002/storefront`.
+5. Verify on `http://localhost:5002/storefront`.
 
 ## Quality Gates
 
@@ -204,4 +206,3 @@ Make sure the Vercel project has the same `BILDIT_API_*` vars configured under t
 - `yarn format` – auto-format with Prettier
 - `yarn check` – check formatting without changing files
 - Key files: `app/layout.tsx`, `services/bildit.ts`, `services/heroImageBanner.ts`
-
