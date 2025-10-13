@@ -5,7 +5,6 @@ import Providers from '@/app/components/Providers'
 import { getBanners } from '@/services/bildit'
 import type { Banner } from '@/services/bildit.d'
 import { BILDITAIPixel } from '@bildit-platform/ai-pixel'
-import { buildMouseDetectionInlineScript } from '@bildit-platform/ai-pixel/react'
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import Script from 'next/script'
@@ -17,6 +16,7 @@ export const metadata: Metadata = {
   description: 'Content Management System for Mobile Apps and React Web Sites'
 }
 
+//TODO: Use getWebBanners from the BILDIT Next.js SDK
 async function getInitialData(): Promise<Banner[]> {
   try {
     // Get the pathname from headers
@@ -55,16 +55,17 @@ export default async function RootLayout({
         type: 'IFRAME_READY',
         success: true
       }, '*');
-      
+
       window.addEventListener("message", (event) => {
         console.log(':incoming_envelope: Message received in Next.js:', event.data);
+        console.log('📨 Messagesssss received in Next.js:', event.data);
         
         if (event.data.type === "INJECT_SCRIPT") {
           console.log(':rocket: Script injection message received from parent CMS...');
           
           const script = document.createElement("script");
           script.src = window.location.hostname === 'localhost' 
-            ? "http://localhost:3333/static/js/admin.js"
+            ? "http://localhost:3333/scripts/admin.js"
             : "https://bildit.co/scripts/admin.654b4488.js";
           
           script.onload = function() {
@@ -93,13 +94,13 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
-        <BILDITAIPixel />
+        {/* <BILDITAIPixel /> */}
         <Providers banners={banners}>
           <Header />
           <div>{children}</div>
           <Footer />
         </Providers>
-        <Script
+        {/* <Script
           id="bildit-mouse-detection"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -110,7 +111,7 @@ export default async function RootLayout({
               params: { app: 'marketing' }
             })
           }}
-        />
+        /> */}
       </body>
     </html>
   )
