@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   description: 'Content Management System for Mobile Apps and React Web Sites'
 }
 
+// Force dynamic rendering since we need to access headers for pathname
+export const dynamic = 'force-dynamic'
+
 //TODO: Use getWebBanners from the BILDIT Next.js SDK
 async function getInitialData(): Promise<Banner[]> {
   try {
