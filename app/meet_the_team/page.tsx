@@ -5,8 +5,6 @@ export default function BilditMeetTheTeam() {
     <>
       <SlotPlaceholder slotId="meet-the-team-title" />
       <SlotPlaceholder slotId="meet-the-team-detail" />
-
     </>
   )
 }
-

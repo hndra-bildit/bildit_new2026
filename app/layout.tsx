@@ -7,8 +7,8 @@ import type { Banner } from '@/services/bildit.d'
 import { BILDITAIPixel } from '@bildit-platform/ai-pixel'
 import { buildMouseDetectionInlineScript } from '@bildit-platform/ai-pixel/react'
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import { headers } from 'next/headers'
+import Script from 'next/script'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -22,7 +22,7 @@ async function getInitialData(): Promise<Banner[]> {
     // Get the pathname from headers
     const headersList = await headers()
     const pathname = headersList.get('x-pathname') || '/'
-    
+
     const response = await getBanners({ location: pathname })
     if (!response || !response.data) {
       console.warn('No banner data received from API')

@@ -8,19 +8,19 @@
 
 The following pages are fully implemented and accessible on the production site:
 
-| Page Route | Status | CMS Integration | Description |
-|------------|--------|----------------|-------------|
-| `/` | ✅ Complete | Yes | Home page with multiple content sections |
-| `/bildit_cms` | ✅ Complete | Yes | BILDIT CMS product page with hero image demo |
-| `/bildit_cms/hero-image-demo` | ✅ Complete | Yes | Interactive hero image demo page |
-| `/commerce_suite` | ✅ Complete | Yes | Commerce Suite product page |
-| `/comparison` | ✅ Complete | Yes | CMS comparison page |
-| `/integration_partners` | ✅ Complete | Yes | Integration Partners page |
-| `/pricing` | ✅ Complete | Yes | Pricing page |
-| `/storefront` | ✅ Complete | Yes | Storefront product page |
-| `/tech_partners` | ✅ Complete | Yes | Tech Partners page |
-| `/blog/category/[category]` | ✅ Complete | Yes | Blog category pages (marketing, design, development) |
-| `/blog/[postId]` | ✅ Complete | Yes | Individual blog post pages |
+| Page Route                    | Status      | CMS Integration | Description                                          |
+| ----------------------------- | ----------- | --------------- | ---------------------------------------------------- |
+| `/`                           | ✅ Complete | Yes             | Home page with multiple content sections             |
+| `/bildit_cms`                 | ✅ Complete | Yes             | BILDIT CMS product page with hero image demo         |
+| `/bildit_cms/hero-image-demo` | ✅ Complete | Yes             | Interactive hero image demo page                     |
+| `/commerce_suite`             | ✅ Complete | Yes             | Commerce Suite product page                          |
+| `/comparison`                 | ✅ Complete | Yes             | CMS comparison page                                  |
+| `/integration_partners`       | ✅ Complete | Yes             | Integration Partners page                            |
+| `/pricing`                    | ✅ Complete | Yes             | Pricing page                                         |
+| `/storefront`                 | ✅ Complete | Yes             | Storefront product page                              |
+| `/tech_partners`              | ✅ Complete | Yes             | Tech Partners page                                   |
+| `/blog/category/[category]`   | ✅ Complete | Yes             | Blog category pages (marketing, design, development) |
+| `/blog/[postId]`              | ✅ Complete | Yes             | Individual blog post pages                           |
 
 **Note**: The direct `/blog` route returns a 404, but category pages and individual posts work correctly.
 
@@ -29,10 +29,12 @@ The following pages are fully implemented and accessible on the production site:
 Each page has designated content slots that can be populated via the BILDIT CMS:
 
 ### Global Components
+
 - `header` - Site navigation
 - `footer` - Site footer with links, contact info, and subscription form
 
 ### Page-Specific Content Slots
+
 - **Home**: `home-title`, `home-content`, `home-content-belk-results`
 - **CMS**: `cms-title`, `cms-content`, `cms-content-five`
 - **Commerce Suite**: `commerce-suite-title`, `commerce-suite-content`
@@ -44,6 +46,7 @@ Each page has designated content slots that can be populated via the BILDIT CMS:
 - **Blog**: `blog-main-title`, `blog-main-content`, `blog-single-title`, `blog-single-content`
 
 ### Generic Slots
+
 - `slot1`, `slot2` - Generic slots used across multiple pages
 
 ## Content Management
@@ -78,5 +81,6 @@ When creating new pages:
 ## Deployment
 
 The site is deployed on Vercel:
+
 - Production URL: https://bildit-web-nextjs.vercel.app/
 - Deployment is handled via Bitbucket Pipelines using Vercel CLI
