@@ -8,6 +8,7 @@ import { BILDITAIPixel } from '@bildit-platform/ai-pixel'
 import { buildMouseDetectionInlineScript } from '@bildit-platform/ai-pixel/react'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { headers } from 'next/headers'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -18,13 +19,16 @@ export const metadata: Metadata = {
 
 async function getInitialData(): Promise<Banner[]> {
   try {
-    const response = await getBanners()
+    // Get the pathname from headers
+    const headersList = await headers()
+    const pathname = headersList.get('x-pathname') || '/'
+    
+    const response = await getBanners({ location: pathname })
     if (!response || !response.data) {
       console.warn('No banner data received from API')
       return []
     }
     const banners = response.data as Banner[]
-    console.log('Banners loaded:', banners)
     return banners
   } catch (error) {
     console.error('Error loading banners:', error)
@@ -53,10 +57,10 @@ export default async function RootLayout({
       }, '*');
       
       window.addEventListener("message", (event) => {
-        console.log('📨 Message received in Next.js:', event.data);
+        console.log(':incoming_envelope: Message received in Next.js:', event.data);
         
         if (event.data.type === "INJECT_SCRIPT") {
-          console.log('🚀 Script injection message received from parent CMS...');
+          console.log(':rocket: Script injection message received from parent CMS...');
           
           const script = document.createElement("script");
           script.src = window.location.hostname === 'localhost' 
@@ -64,7 +68,7 @@ export default async function RootLayout({
             : "https://bildit.co/scripts/admin.654b4488.js";
           
           script.onload = function() {
-            console.log('✅ Web script loaded successfully');
+            console.log(':white_check_mark: Web script loaded successfully');
             // Notify parent that script was injected
             window.parent.postMessage({
               type: 'SCRIPT_INJECTED',
@@ -73,7 +77,7 @@ export default async function RootLayout({
           };
           
           script.onerror = function() {
-            console.error('❌ Failed to load web script');
+            console.error(':x: Failed to load web script');
             window.parent.postMessage({
               type: 'SCRIPT_INJECTED',
               success: false,
