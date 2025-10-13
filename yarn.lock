@@ -100,7 +100,7 @@
 
 "@bildit-platform/nextjs@0.4.25":
   version "0.4.25"
-  resolved "https://registry.npmjs.org/@bildit-platform/nextjs/-/nextjs-0.4.25.tgz"
+  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs/-/nextjs-0.4.25.tgz#2c663f99c7433d7f1584b578297f4ad054301c7e"
   integrity sha512-/O2VmoEhBbPNTFn5DsgwwCG21DEXNb8M8kYipdxuCdOuO7MIU9LBq03jJObGuFI/Od5d5V6/7FVXIc6cWEGPwQ==
   dependencies:
     "@bildit-platform/engine" "^0.1.6"
