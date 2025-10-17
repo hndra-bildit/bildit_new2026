@@ -7,16 +7,16 @@ export async function middleware(request: NextRequest) {
     // force: true, // Uncomment to test with all requests
   })
   console.log('[BILDIT Middleware] Result:', result)
-  
+
   // Clone the request headers and add the pathname
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-pathname', request.nextUrl.pathname)
-  
+
   // Return response with modified headers
   return NextResponse.next({
     request: {
-      headers: requestHeaders,
-    },
+      headers: requestHeaders
+    }
   })
 }
 
