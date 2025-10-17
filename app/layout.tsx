@@ -1,10 +1,10 @@
 import './globals.css'
 import Footer from '@/app/components/Footer'
 import Header from '@/app/components/Header'
+import Navigation from '@/app/components/Navigation'
 import Providers from '@/app/components/Providers'
 import { getBanners } from '@/services/bildit'
 import type { Banner } from '@/services/bildit.d'
-import { BILDITAIPixel } from '@bildit-platform/ai-pixel'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import 'swiper/css'
@@ -92,6 +92,7 @@ export default async function RootLayout({
         {/* <BILDITAIPixel /> */}
         <Providers banners={banners}>
           <Header />
+          <Navigation />
           <div>{children}</div>
           <Footer />
         </Providers>
