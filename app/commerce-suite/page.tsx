@@ -6,9 +6,10 @@ export default function CommerceSuite() {
   return (
     <div className="text-center lg:text-left">
       <SlotPlaceholder slotId="commerce-suite-title" />
+      <SlotPlaceholder slotId="commerce-suite-content" />
 
       {/* HeroImage Component */}
-      <HeroImage />
+      {/* <HeroImage />
 
       <section className="relative">
         <Image
@@ -25,8 +26,7 @@ export default function CommerceSuite() {
           width={1200}
           height={0}
         />
-        <SlotPlaceholder slotId="commerce-suite-content" />
-      </section>
+      </section> */}
     </div>
   )
 }

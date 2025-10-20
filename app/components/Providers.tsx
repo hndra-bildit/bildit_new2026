@@ -1,6 +1,7 @@
 'use client'
 
 import React, { Suspense, useEffect, useState } from 'react'
+import BannerLoader from './BannerLoader'
 import { getBanners } from '@/services/bildit'
 import type { Banner } from '@/services/bildit.d'
 import { BilditProvider } from '@bildit-platform/nextjs'
@@ -14,9 +15,18 @@ interface ProvidersProps {
 const Providers: React.FC<ProvidersProps> = ({ children, banners: initialBanners }) => {
   const pathname = usePathname()
   const [banners, setBanners] = useState<Banner[]>(initialBanners)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted) return
+
     const fetchBannersForRoute = async () => {
+      setIsLoading(true)
       try {
         const response = await getBanners({ location: pathname })
         if (response?.data) {
@@ -24,11 +34,18 @@ const Providers: React.FC<ProvidersProps> = ({ children, banners: initialBanners
         }
       } catch (error) {
         console.error('Error fetching banners for route:', error)
+      } finally {
+        setIsLoading(false)
       }
     }
 
     fetchBannersForRoute()
-  }, [pathname])
+  }, [pathname, isMounted])
+
+  // Show loader until mounted and first fetch completes
+  if (!isMounted || isLoading) {
+    return <BannerLoader />
+  }
 
   return (
     <Suspense>
