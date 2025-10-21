@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Duplicator } from '@/app/components/Duplicator'
+import { Skeleton } from '@/app/components/Skeleton'
 import { BilditClient, type Page } from '@bildit-platform/nextjs'
 import Link from 'next/link'
-import { Skeleton } from '@/app/components/Skeleton'
-import { Duplicator } from '@/app/components/Duplicator'
 
 const Navigation: React.FC = () => {
   const [pages, setPages] = useState<Page[]>([])
