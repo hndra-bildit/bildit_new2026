@@ -98,10 +98,10 @@
   dependencies:
     react-is ">=18.0.0"
 
-"@bildit-platform/nextjs@00.4.37":
+"@bildit-platform/nextjs@0.4.37":
   version "0.4.37"
-  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs/-/nextjs-0.4.25.tgz#2c663f99c7433d7f1584b578297f4ad054301c7e"
-  integrity sha512-/O2VmoEhBbPNTFn5DsgwwCG21DEXNb8M8kYipdxuCdOuO7MIU9LBq03jJObGuFI/Od5d5V6/7FVXIc6cWEGPwQ==
+  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs/-/nextjs-0.4.37.tgz#5a50a7bdd17426588cb7871fe40465f16d595080"
+  integrity sha512-RQR7VcvjiKdxUCtS8dN9vwa96omZsurOrOBf1xXt7hIEefjUUu7um2H/hxUzQSzIA5ldlBqqPQ2k5cPGr/O61g==
   dependencies:
     "@bildit-platform/engine" "^0.1.6"
     class-variance-authority "^0.7.1"
