@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import { BilditClient, type Page } from '@bildit-platform/nextjs'
 import Link from 'next/link'
+import { Skeleton } from '@/app/components/Skeleton'
+import { Duplicator } from '@/app/components/Duplicator'
 
 const Navigation: React.FC = () => {
   const [pages, setPages] = useState<Page[]>([])
@@ -36,8 +38,12 @@ const Navigation: React.FC = () => {
 
   if (loading) {
     return (
-      <nav className="py-4 px-6">
-        <div className="text-sm text-gray-500">Loading menu...</div>
+      <nav className="py-4 px-6 bg-white border-b">
+        <div className="flex gap-6 items-center justify-center">
+          <Duplicator count={5} className="flex flex-row gap-6">
+            <Skeleton className="h-6 w-20 rounded" />
+          </Duplicator>
+        </div>
       </nav>
     )
   }
