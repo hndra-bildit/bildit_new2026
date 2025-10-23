@@ -20,7 +20,7 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     // Check if we're in local development
     const isLocal = window.location.hostname === 'localhost'
-    
+
     if (isLocal) {
       // Use mock data for local development
       console.log('🔧 Using mock navigation data for local development')
@@ -52,17 +52,15 @@ const Navigation: React.FC = () => {
 
   return (
     <nav className="py-4 px-6 bg-white border-b">
-      <div className="flex gap-6 items-center justify-center">
+      <ul className="flex gap-6 items-center justify-center">
         {pages.map((page) => (
-          <Link
-            key={page.slug}
-            href={page.slug}
-            className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
-          >
-            {page.title}
-          </Link>
+          <li key={page.slug}>
+            <Link href={page.slug} className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+              {page.title}
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </nav>
   )
 }
