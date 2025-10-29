@@ -1,8 +1,8 @@
+import Header from './components/Header'
 import './globals.css'
 import Footer from '@/app/components/Footer'
-import Header from '@/app/components/Header'
 import Providers from '@/app/components/Providers'
-import { getBanners } from '@/services/bildit'
+import { bannerCache } from '@/services/bannerCache'
 import type { Banner } from '@/services/bildit.d'
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
@@ -19,18 +19,16 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic'
 
 //TODO: Use getWebBanners from the BILDIT Next.js SDK
+// Server-side data fetching for SSR with caching
 async function getInitialData(): Promise<Banner[]> {
   try {
     // Get the pathname from headers
     const headersList = await headers()
     const pathname = headersList.get('x-pathname') || '/'
 
-    const response = await getBanners({ location: pathname })
-    if (!response || !response.data) {
-      console.warn('No banner data received from API')
-      return []
-    }
-    const banners = response.data as Banner[]
+    // Use cached banners if available, otherwise fetch fresh
+    const banners = await bannerCache.getBanners(pathname)
+
     return banners
   } catch (error) {
     console.error('Error loading banners:', error)
