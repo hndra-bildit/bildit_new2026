@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import './globals.css'
 import Footer from '@/app/components/Footer'
+import Navigation from '@/app/components/Navigation'
 import Providers from '@/app/components/Providers'
 import { bannerCache } from '@/services/bannerCache'
 import type { Banner } from '@/services/bildit.d'
@@ -97,6 +98,7 @@ export default async function RootLayout({
         {/* <BILDITAIPixel /> */}
         <Providers banners={banners}>
           <Header />
+          <Navigation />
           <div>{children}</div>
           <Footer />
         </Providers>
