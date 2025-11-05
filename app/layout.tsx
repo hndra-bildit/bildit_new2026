@@ -1,11 +1,11 @@
+import Header from './components/Header'
 import './globals.css'
 import Footer from '@/app/components/Footer'
-import Header from '@/app/components/Header'
 import Providers from '@/app/components/Providers'
-import { getBanners } from '@/services/bildit'
+import { bannerCache } from '@/services/bannerCache'
 import type { Banner } from '@/services/bildit.d'
-import { BILDITAIPixel } from '@bildit-platform/ai-pixel'
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import Script from 'next/script'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -15,16 +15,20 @@ export const metadata: Metadata = {
   description: 'Content Management System for Mobile Apps and React Web Sites'
 }
 
+// Force dynamic rendering since we need to access headers for pathname
+export const dynamic = 'force-dynamic'
+
 //TODO: Use getWebBanners from the BILDIT Next.js SDK
+// Server-side data fetching for SSR with caching
 async function getInitialData(): Promise<Banner[]> {
   try {
-    const response = await getBanners()
-    if (!response || !response.data) {
-      console.warn('No banner data received from API')
-      return []
-    }
-    const banners = response.data as Banner[]
-    console.log('Banners loaded:', banners)
+    // Get the pathname from headers
+    const headersList = await headers()
+    const pathname = headersList.get('x-pathname') || '/'
+
+    // Use cached banners if available, otherwise fetch fresh
+    const banners = await bannerCache.getBanners(pathname)
+
     return banners
   } catch (error) {
     console.error('Error loading banners:', error)
@@ -53,10 +57,11 @@ export default async function RootLayout({
       }, '*');
 
       window.addEventListener("message", (event) => {
+        console.log(':incoming_envelope: Message received in Next.js:', event.data);
         console.log('📨 Messagesssss received in Next.js:', event.data);
         
         if (event.data.type === "INJECT_SCRIPT") {
-          console.log('🚀 Script injection message received from parent CMS...');
+          console.log(':rocket: Script injection message received from parent CMS...');
           
           const script = document.createElement("script");
           script.src = window.location.hostname === 'localhost' 
@@ -64,7 +69,7 @@ export default async function RootLayout({
             : "https://bildit.co/scripts/admin.654b4488.js";
           
           script.onload = function() {
-            console.log('✅ Web script loaded successfully');
+            console.log(':white_check_mark: Web script loaded successfully');
             // Notify parent that script was injected
             window.parent.postMessage({
               type: 'SCRIPT_INJECTED',
@@ -73,7 +78,7 @@ export default async function RootLayout({
           };
           
           script.onerror = function() {
-            console.error('❌ Failed to load web script');
+            console.error(':x: Failed to load web script');
             window.parent.postMessage({
               type: 'SCRIPT_INJECTED',
               success: false,
@@ -116,6 +121,7 @@ export default async function RootLayout({
         {/* <BILDITAIPixel /> */}
         <Providers banners={banners}>
           <Header />
+          {/* <Navigation /> */}
           <div>{children}</div>
           <Footer />
         </Providers>
