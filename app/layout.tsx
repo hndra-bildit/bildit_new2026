@@ -1,7 +1,6 @@
 import Header from './components/Header'
 import './globals.css'
 import Footer from '@/app/components/Footer'
-import Navigation from '@/app/components/Navigation'
 import Providers from '@/app/components/Providers'
 import { bannerCache } from '@/services/bannerCache'
 import type { Banner } from '@/services/bildit.d'
