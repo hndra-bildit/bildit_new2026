@@ -31,7 +31,6 @@ function copyFile(sourcePath) {
   }
 }
 
-
 // Initialize watcher
 console.log(`🔍 Watching for changes in: ${SOURCE_DIR}`)
 console.log(`📁 Target directory: ${TARGET_DIR}`)
