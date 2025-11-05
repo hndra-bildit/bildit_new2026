@@ -98,7 +98,7 @@ export default async function RootLayout({
         {/* <BILDITAIPixel /> */}
         <Providers banners={banners}>
           <Header />
-          <Navigation />
+          {/* <Navigation /> */}
           <div>{children}</div>
           <Footer />
         </Providers>
