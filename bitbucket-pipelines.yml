@@ -6,6 +6,7 @@ pipelines:
       - step:
           name: Build and Deploy to Vercel (Development)
           script:
+            # Uses the current branch
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
@@ -17,6 +18,7 @@ pipelines:
       - step:
           name: Build and Deploy to Vercel (Staging)
           script:
+            # Uses the current branch
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
