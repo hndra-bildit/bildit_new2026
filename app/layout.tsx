@@ -64,9 +64,7 @@ export default async function RootLayout({
           console.log(':rocket: Script injection message received from parent CMS...');
           
           const script = document.createElement("script");
-          script.src = window.location.hostname === 'localhost' 
-            ? "http://localhost:3333/scripts/admin.js"
-            : "https://bildit.co/scripts/admin.654b4488.js";
+          script.src = "/scripts/admin.js";
           
           script.onload = function() {
             console.log(':white_check_mark: Web script loaded successfully');
