@@ -90,8 +90,31 @@ export default async function RootLayout({
     `
           }}
         />
+        <Script
+          id="visitiq-pixel"
+          type="text/javascript"
+          src="https://pixel.visitiq.io/vpixel.js"
+          strategy="beforeInteractive"
+        />
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
+        <Script
+          id="visitiq-tracking"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof vpixel !== 'undefined') {
+                vpixel.piximage('${process.env.BILDIT_VPIXEL_ID}');
+              } else {
+                window.addEventListener('load', function() {
+                  if (typeof vpixel !== 'undefined') {
+                    vpixel.piximage('${process.env.BILDIT_VPIXEL_ID}');
+                  }
+                });
+              }
+            `
+          }}
+        />
         {/* <BILDITAIPixel /> */}
         <Providers banners={banners}>
           <Header />
