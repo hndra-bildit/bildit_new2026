@@ -5,10 +5,14 @@ const path = require('path')
 const chokidar = require('chokidar')
 
 // Configuration
-const SOURCE_DIR = path.resolve(
-  process.env.HOME,
-  'Development/BILDIT/bildit-cms-workspace/apps/bildit-web-script/public/scripts'
-)
+if (!process.env.CMS_COMPANION_SCRIPT_DIR) {
+  console.error('❌ Error: CMS_COMPANION_SCRIPT_DIR environment variable is not set.')
+  console.error('Please set it in your .env file or export it in your shell.')
+  console.error('Example: CMS_COMPANION_SCRIPT_DIR=/path/to/cms/script/build')
+  process.exit(1)
+}
+
+const CMS_COMPANION_SCRIPT_DIR = process.env.CMS_COMPANION_SCRIPT_DIR
 const TARGET_DIR = path.resolve(__dirname, '../public/scripts')
 
 // Ensure target directory exists
@@ -32,10 +36,10 @@ function copyFile(sourcePath) {
 }
 
 // Initialize watcher
-console.log(`🔍 Watching for changes in: ${SOURCE_DIR}`)
+console.log(`🔍 Watching for changes in: ${CMS_COMPANION_SCRIPT_DIR}`)
 console.log(`📁 Target directory: ${TARGET_DIR}`)
 
-const watcher = chokidar.watch(SOURCE_DIR, {
+const watcher = chokidar.watch(CMS_COMPANION_SCRIPT_DIR, {
   persistent: true,
   ignoreInitial: false,
   awaitWriteFinish: {
