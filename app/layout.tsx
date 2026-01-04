@@ -45,7 +45,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <Script
+        <Script
           id="bildit-admin-loader"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
