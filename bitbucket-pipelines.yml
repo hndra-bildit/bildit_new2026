@@ -87,8 +87,8 @@ pipelines:
               echo "Verifying npm authentication..."
               npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
-            # Clean any previous build artifacts to ensure clean production build
-            - rm -rf .vercel/output
+            # Clean any previous build artifacts and .vercel config to ensure clean production build
+            - rm -rf .vercel
             - vercel pull --yes --environment=production --token $VERCEL_TOKEN
-            - vercel build --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN --prod
             - vercel deploy --prebuilt --prod --yes --token $VERCEL_TOKEN
