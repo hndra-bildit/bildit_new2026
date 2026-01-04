@@ -29,9 +29,14 @@ pipelines:
               echo "Verifying npm authentication..."
               npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
-            - vercel pull --yes --environment=preview --token $VERCEL_TOKEN --project bildit-web-nextjs
-            - vercel build --token $VERCEL_TOKEN --project bildit-web-nextjs
-            - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN --project bildit-web-nextjs
+            # Clean .vercel directory to ensure correct project linking
+            - rm -rf .vercel
+            # Link to the correct project explicitly
+            # If project is under a team, add --scope <team-name>
+            - vercel link --yes --project bildit-web-nextjs --token $VERCEL_TOKEN
+            - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN
+            - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN
     deploy-stage:
       - step:
           name: Build and Deploy to Vercel (Staging)
@@ -59,10 +64,15 @@ pipelines:
               echo "Verifying npm authentication..."
               npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
-            - vercel pull --yes --environment=preview --token $VERCEL_TOKEN --project bildit-web-nextjs
-            - vercel build --token $VERCEL_TOKEN --project bildit-web-nextjs
+            # Clean .vercel directory to ensure correct project linking
+            - rm -rf .vercel
+            # Link to the correct project explicitly
+            # If project is under a team, add --scope <team-name>
+            - vercel link --yes --project bildit-web-nextjs --token $VERCEL_TOKEN
+            - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN
             # Use staging branch as target
-            - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN --project bildit-web-nextjs --meta BRANCH=staging
+            - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN --meta BRANCH=staging
   branches:
     master:
       - step:
@@ -89,6 +99,9 @@ pipelines:
             - npm install -g vercel
             # Clean any previous build artifacts and .vercel config to ensure clean production build
             - rm -rf .vercel
-            - vercel pull --yes --environment=production --token $VERCEL_TOKEN --project bildit-web-nextjs
-            - vercel build --token $VERCEL_TOKEN --project bildit-web-nextjs --prod
-            - vercel deploy --prebuilt --prod --yes --token $VERCEL_TOKEN --project bildit-web-nextjs
+            # Link to the correct project explicitly
+            # If project is under a team, add --scope <team-name>
+            - vercel link --yes --project bildit-web-nextjs --token $VERCEL_TOKEN
+            - vercel pull --yes --environment=production --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN --prod
+            - vercel deploy --prebuilt --prod --yes --token $VERCEL_TOKEN
