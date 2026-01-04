@@ -17,11 +17,20 @@ pipelines:
                 echo "ERROR: NPM_TOKEN environment variable is not set!"
                 exit 1
               fi
-              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-              echo "Created .npmrc for npm authentication"
+              # Create .npmrc in project root
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+              # Also create in home directory for Yarn to find it
+              mkdir -p ~
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              echo "Created .npmrc files for npm authentication"
+              # Verify authentication works (test with a simple npm whoami or package check)
+              echo "Verifying npm authentication..."
+              npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
-            - vercel build --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN --build-env NPM_TOKEN=$NPM_TOKEN
             - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN
     deploy-stage:
       - step:
@@ -38,11 +47,20 @@ pipelines:
                 echo "ERROR: NPM_TOKEN environment variable is not set!"
                 exit 1
               fi
-              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-              echo "Created .npmrc for npm authentication"
+              # Create .npmrc in project root
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+              # Also create in home directory for Yarn to find it
+              mkdir -p ~
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              echo "Created .npmrc files for npm authentication"
+              # Verify authentication works (test with a simple npm whoami or package check)
+              echo "Verifying npm authentication..."
+              npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
-            - vercel build --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN --build-env NPM_TOKEN=$NPM_TOKEN
             # Use staging branch as target
             - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN --meta BRANCH=staging
   branches:
@@ -57,9 +75,18 @@ pipelines:
                 echo "ERROR: NPM_TOKEN environment variable is not set!"
                 exit 1
               fi
-              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-              echo "Created .npmrc for npm authentication"
+              # Create .npmrc in project root
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+              # Also create in home directory for Yarn to find it
+              mkdir -p ~
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              echo "Created .npmrc files for npm authentication"
+              # Verify authentication works (test with a simple npm whoami or package check)
+              echo "Verifying npm authentication..."
+              npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
             - vercel pull --yes --environment=production --token $VERCEL_TOKEN
-            - vercel build --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN --build-env NPM_TOKEN=$NPM_TOKEN
             - vercel deploy --prebuilt --prod --yes --token $VERCEL_TOKEN
