@@ -10,6 +10,8 @@ pipelines:
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
+            # Export NPM_TOKEN for private package authentication
+            - export NPM_TOKEN=$NPM_TOKEN
             - npm install -g vercel
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
@@ -22,6 +24,8 @@ pipelines:
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
+            # Export NPM_TOKEN for private package authentication
+            - export NPM_TOKEN=$NPM_TOKEN
             - npm install -g vercel
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
@@ -32,6 +36,8 @@ pipelines:
       - step:
           name: Build and Deploy to Vercel (Production)
           script:
+            # Export NPM_TOKEN for private package authentication
+            - export NPM_TOKEN=$NPM_TOKEN
             - npm install -g vercel
             - vercel pull --yes --environment=production --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
