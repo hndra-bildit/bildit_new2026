@@ -10,8 +10,15 @@ pipelines:
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
-            # Export NPM_TOKEN for private package authentication
-            - export NPM_TOKEN=$NPM_TOKEN
+            # Create .npmrc for Yarn 1.x authentication with private packages
+            # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
+            - |
+              if [ -z "$NPM_TOKEN" ]; then
+                echo "ERROR: NPM_TOKEN environment variable is not set!"
+                exit 1
+              fi
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+              echo "Created .npmrc for npm authentication"
             - npm install -g vercel
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
@@ -24,8 +31,15 @@ pipelines:
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
-            # Export NPM_TOKEN for private package authentication
-            - export NPM_TOKEN=$NPM_TOKEN
+            # Create .npmrc for Yarn 1.x authentication with private packages
+            # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
+            - |
+              if [ -z "$NPM_TOKEN" ]; then
+                echo "ERROR: NPM_TOKEN environment variable is not set!"
+                exit 1
+              fi
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+              echo "Created .npmrc for npm authentication"
             - npm install -g vercel
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
@@ -36,8 +50,15 @@ pipelines:
       - step:
           name: Build and Deploy to Vercel (Production)
           script:
-            # Export NPM_TOKEN for private package authentication
-            - export NPM_TOKEN=$NPM_TOKEN
+            # Create .npmrc for Yarn 1.x authentication with private packages
+            # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
+            - |
+              if [ -z "$NPM_TOKEN" ]; then
+                echo "ERROR: NPM_TOKEN environment variable is not set!"
+                exit 1
+              fi
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+              echo "Created .npmrc for npm authentication"
             - npm install -g vercel
             - vercel pull --yes --environment=production --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
