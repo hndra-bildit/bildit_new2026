@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import { StylePlaceholder } from '@bildit-platform/nextjs'
 import './globals.css'
 import Footer from '@/app/components/Footer'
 import Providers from '@/app/components/Providers'
@@ -103,6 +104,7 @@ export default async function RootLayout({
           src="https://pixel.visitiq.io/vpixel.js"
           strategy="beforeInteractive"
         />
+        <StylePlaceholder slotId="home-style" />
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
         <Script
