@@ -18,4 +18,3 @@ const ResultImage: React.FC<Props> = ({ item }) => {
 }
 
 export default ResultImage
-
