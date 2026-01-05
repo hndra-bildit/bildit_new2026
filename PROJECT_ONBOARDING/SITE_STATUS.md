@@ -35,7 +35,7 @@ Each page has designated content slots that can be populated via the BILDIT CMS:
 
 ### Page-Specific Content Slots
 
-- **Home**: `home-title`, `home-content`, `home-content-belk-results`
+- **Home**: `home-title`, `home-content`, `home-content-results`
 - **CMS**: `cms-title`, `cms-content`, `cms-content-five`
 - **Commerce Suite**: `commerce-suite-title`, `commerce-suite-content`
 - **Comparison**: `comparison-title`, `comparison-content`

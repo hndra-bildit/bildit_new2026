@@ -10,7 +10,7 @@ import { Swiper as SwiperType } from 'swiper/types'
 const ItemList: Array<{ name: string; company: string; content: string }> = [
   {
     name: '1Toni Montgomery',
-    company: 'Belk',
+    company: 'Company',
     content:
       "And I think the biggest win about it is for the most part, I don't necessarily have all developers on my team. And so we need tools that I can teach anyone on my team to use. ... We actually just had someone start and they pretty much had her up to speed in I would say about two weeks. She's pretty much doing the building on her own now."
   },
@@ -22,25 +22,25 @@ const ItemList: Array<{ name: string; company: string; content: string }> = [
   },
   {
     name: '3Toni Montgomery',
-    company: 'Belk',
+    company: 'Company',
     content:
       "And I think the biggest win about it is for the most part, I don't necessarily have all developers on my team. And so we need tools that I can teach anyone on my team to use. ... We actually just had someone start and they pretty much had her up to speed in I would say about two weeks. She's pretty much doing the building on her own now."
   },
   {
     name: '4Toni Montgomery',
-    company: 'Belk',
+    company: 'Company',
     content:
       "And I think the biggest win about it is for the most part, I don't necessarily have all developers on my team. And so we need tools that I can teach anyone on my team to use. ... We actually just had someone start and they pretty much had her up to speed in I would say about two weeks. She's pretty much doing the building on her own now."
   },
   {
     name: '5Toni Montgomery',
-    company: 'Belk',
+    company: 'Company',
     content:
       "And I think the biggest win about it is for the most part, I don't necessarily have all developers on my team. And so we need tools that I can teach anyone on my team to use. ... We actually just had someone start and they pretty much had her up to speed in I would say about two weeks. She's pretty much doing the building on her own now."
   },
   {
     name: '56Toni Montgomery',
-    company: 'Belk',
+    company: 'Company',
     content:
       "And I think the biggest win about it is for the most part, I don't necessarily have all developers on my team. And so we need tools that I can teach anyone on my team to use. ... We actually just had someone start and they pretty much had her up to speed in I would say about two weeks. She's pretty much doing the building on her own now."
   }
