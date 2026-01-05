@@ -58,6 +58,7 @@ import HeroImageBannerConfig from '@/app/components/HeroImageBannerConfig'
 import Input from '@/app/components/Input'
 import LatestPost from '@/app/components/LatestPost'
 import PriceCard from '@/app/components/PriceCard'
+import ResultImage from '@/app/components/ResultImage'
 /* Local components - commonly used in CMS */
 import PrimaryButton from '@/app/components/PrimaryButton'
 import SecondaryButton from '@/app/components/SecondaryButton'
@@ -143,6 +144,7 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/LatestPost': { module: LatestPost },
   '@/app/components/BlogClient': { module: BlogClient },
   '@/app/components/BlogSingleClient': { module: BlogSingleClient },
+  '@/app/components/ResultImage': { module: ResultImage },
 
   // Client-only modules (only include in non-production)
   ...(isProduction
