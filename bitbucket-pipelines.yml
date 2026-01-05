@@ -10,7 +10,30 @@ pipelines:
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
+            # Create .npmrc for Yarn 1.x authentication with private packages
+            # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
+            - |
+              if [ -z "$NPM_TOKEN" ]; then
+                echo "ERROR: NPM_TOKEN environment variable is not set!"
+                exit 1
+              fi
+              # Create .npmrc in project root
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+              # Also create in home directory for Yarn to find it
+              mkdir -p ~
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              echo "Created .npmrc files for npm authentication"
+              # Verify authentication works (test with a simple npm whoami or package check)
+              echo "Verifying npm authentication..."
+              npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
+            # Clean .vercel directory to ensure correct project linking
+            - rm -rf .vercel
+            # Link to the correct project explicitly
+            # If project is under a team, add --scope <team-name>
+            - vercel link --yes --project bildit-web-nextjs --token $VERCEL_TOKEN
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
             - vercel deploy --prebuilt --yes --token $VERCEL_TOKEN
@@ -22,7 +45,30 @@ pipelines:
             # Ensure we're using the develop branch
             - git fetch
             - git checkout develop
+            # Create .npmrc for Yarn 1.x authentication with private packages
+            # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
+            - |
+              if [ -z "$NPM_TOKEN" ]; then
+                echo "ERROR: NPM_TOKEN environment variable is not set!"
+                exit 1
+              fi
+              # Create .npmrc in project root
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+              # Also create in home directory for Yarn to find it
+              mkdir -p ~
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              echo "Created .npmrc files for npm authentication"
+              # Verify authentication works (test with a simple npm whoami or package check)
+              echo "Verifying npm authentication..."
+              npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
+            # Clean .vercel directory to ensure correct project linking
+            - rm -rf .vercel
+            # Link to the correct project explicitly
+            # If project is under a team, add --scope <team-name>
+            - vercel link --yes --project bildit-web-nextjs --token $VERCEL_TOKEN
             - vercel pull --yes --environment=preview --token $VERCEL_TOKEN
             - vercel build --token $VERCEL_TOKEN
             # Use staging branch as target
@@ -32,7 +78,30 @@ pipelines:
       - step:
           name: Build and Deploy to Vercel (Production)
           script:
+            # Create .npmrc for Yarn 1.x authentication with private packages
+            # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
+            - |
+              if [ -z "$NPM_TOKEN" ]; then
+                echo "ERROR: NPM_TOKEN environment variable is not set!"
+                exit 1
+              fi
+              # Create .npmrc in project root
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > .npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+              # Also create in home directory for Yarn to find it
+              mkdir -p ~
+              echo "@bildit-platform:registry=https://registry.npmjs.org/" > ~/.npmrc
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+              echo "Created .npmrc files for npm authentication"
+              # Verify authentication works (test with a simple npm whoami or package check)
+              echo "Verifying npm authentication..."
+              npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
             - npm install -g vercel
+            # Clean any previous build artifacts and .vercel config to ensure clean production build
+            - rm -rf .vercel
+            # Link to the correct project explicitly
+            # If project is under a team, add --scope <team-name>
+            - vercel link --yes --project bildit-web-nextjs --token $VERCEL_TOKEN
             - vercel pull --yes --environment=production --token $VERCEL_TOKEN
-            - vercel build --token $VERCEL_TOKEN
+            - vercel build --token $VERCEL_TOKEN --prod
             - vercel deploy --prebuilt --prod --yes --token $VERCEL_TOKEN
