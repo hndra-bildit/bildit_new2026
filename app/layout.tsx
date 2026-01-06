@@ -45,64 +45,60 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          id="bildit-admin-loader"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-      console.log('[BILDIT DEBUG] Script tag executing');
-      console.log('[BILDIT DEBUG] In iframe:', window.parent !== window);
-      console.log('[BILDIT DEBUG] window.location:', window.location.href);
+      // Notify parent that iframe is ready
+      window.parent.postMessage({
+        type: 'IFRAME_READY',
+        success: true
+      }, '*');
 
-      (function() {
-        // Only run if we're inside an iframe (loaded by CMS)
-        var inIframe = window.parent !== window;
-        console.log('[BILDIT] Iframe check:', inIframe);
-        if (!inIframe) {
-          console.log('[BILDIT] Not in iframe, skipping admin loader');
-          return;
+      window.addEventListener("message", (event) => {
+        console.log('Message received in Next.js:', event.data);
+
+        if (event.data.type === "INJECT_SCRIPT") {
+          console.log('Script injection message received from parent CMS...');
+
+          const script = document.createElement("script");
+          script.src = "/scripts/admin.js";
+
+          script.onload = function() {
+            console.log('Web script loaded successfully');
+            // Notify parent that script was injected
+            window.parent.postMessage({
+              type: 'SCRIPT_INJECTED',
+              success: true
+            }, '*');
+          };
+
+          script.onerror = function() {
+            console.error('Failed to load web script');
+            window.parent.postMessage({
+              type: 'SCRIPT_INJECTED',
+              success: false,
+              error: 'Failed to load script'
+            }, '*');
+          };
+
+          document.body.appendChild(script);
         }
-
-        console.log('[BILDIT] Running in iframe, setting up admin loader');
-        window.__bilditScriptInjected = false;
-
-        // Notify parent we're ready
-        console.log('[BILDIT] Sending IFRAME_READY to parent');
-        window.parent.postMessage({ type: 'IFRAME_READY', success: true }, '*');
-
-        // Listen for script injection command
-        window.addEventListener('message', function(event) {
-          console.log('[BILDIT] Received message:', event.data);
-          if (event.data?.type === 'INJECT_SCRIPT' && !window.__bilditScriptInjected) {
-            console.log('[BILDIT] Injecting admin script...');
-            window.__bilditScriptInjected = true;
-            var script = document.createElement('script');
-            // Use dev server in development, local path in production
-            var isDev = window.location.hostname === 'localhost';
-            script.src = isDev ? 'http://localhost:3333/static/js/admin.js' : '/scripts/admin.js';
-            console.log('[BILDIT] Loading script from:', script.src);
-            script.onload = function() {
-              console.log('[BILDIT] Admin script loaded successfully');
-              window.parent.postMessage({ type: 'SCRIPT_INJECTED', success: true }, '*');
-            };
-            script.onerror = function() {
-              console.error('[BILDIT] Failed to load admin script');
-              window.__bilditScriptInjected = false;
-              window.parent.postMessage({ type: 'SCRIPT_INJECTED', success: false }, '*');
-            };
-            (document.body || document.documentElement).appendChild(script);
-          }
-        });
-      })();
+      });
     `
           }}
         />
+<<<<<<< Updated upstream
         <Script
           id="visitiq-pixel"
           type="text/javascript"
           src="https://pixel.visitiq.io/vpixel.js"
           strategy="beforeInteractive"
         />
+=======
+        <script crossOrigin="anonymous" src="https://unpkg.com/react@19/umd/react.development.js" />
+        <script crossOrigin="anonymous" src="https://unpkg.com/react-dom@19/umd/react-dom.development.js" />
+        <script src="https://pixel.visitiq.io/vpixel.js" />
+>>>>>>> Stashed changes
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
         <Script
@@ -145,3 +141,5 @@ export default async function RootLayout({
     </html>
   )
 }
+
+ 
