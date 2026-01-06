@@ -87,18 +87,9 @@ export default async function RootLayout({
     `
           }}
         />
-<<<<<<< Updated upstream
-        <Script
-          id="visitiq-pixel"
-          type="text/javascript"
-          src="https://pixel.visitiq.io/vpixel.js"
-          strategy="beforeInteractive"
-        />
-=======
         <script crossOrigin="anonymous" src="https://unpkg.com/react@19/umd/react.development.js" />
         <script crossOrigin="anonymous" src="https://unpkg.com/react-dom@19/umd/react-dom.development.js" />
         <script src="https://pixel.visitiq.io/vpixel.js" />
->>>>>>> Stashed changes
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
         <Script

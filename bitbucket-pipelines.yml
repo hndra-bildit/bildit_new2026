@@ -1,5 +1,9 @@
 image: node:20
 
+definitions:
+  caches:
+    npm-global: ~/.npm
+
 pipelines:
   custom:
     deploy-dev:
@@ -77,6 +81,8 @@ pipelines:
     master:
       - step:
           name: Build and Deploy to Vercel (Production)
+          caches:
+            - npm-global
           script:
             # Create .npmrc for Yarn 1.x authentication with private packages
             # Yarn 1.x requires .npmrc (not .yarnrc.yml) for authentication
@@ -96,7 +102,8 @@ pipelines:
               # Verify authentication works (test with a simple npm whoami or package check)
               echo "Verifying npm authentication..."
               npm whoami --registry=https://registry.npmjs.org/ || echo "Warning: npm whoami failed, but continuing..."
-            - npm install -g vercel
+            # Check if vercel is already installed (from cache), otherwise install
+            - vercel --version || npm install -g vercel
             # Clean any previous build artifacts and .vercel config to ensure clean production build
             - rm -rf .vercel
             # Link to the correct project explicitly

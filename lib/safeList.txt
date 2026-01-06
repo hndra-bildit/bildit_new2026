@@ -35,7 +35,7 @@ mt-5
 lg:mt-20
 pt-6
 w-auto
--------------------------- Home Belk Results ---------
+-------------------------- Home Results ---------
 py-10
 lg:py-25
 bg-gray-100
