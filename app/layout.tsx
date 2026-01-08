@@ -45,7 +45,9 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="cms-admin-bridge"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
       // Notify parent that iframe is ready
@@ -87,9 +89,19 @@ export default async function RootLayout({
     `
           }}
         />
-        <script crossOrigin="anonymous" src="https://unpkg.com/react@19/umd/react.development.js" />
-        <script crossOrigin="anonymous" src="https://unpkg.com/react-dom@19/umd/react-dom.development.js" />
-        <script src="https://pixel.visitiq.io/vpixel.js" />
+        <Script
+          id="react-umd"
+          src="https://unpkg.com/react@19/umd/react.development.js"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+        <Script
+          id="react-dom-umd"
+          src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+        <Script id="vpixel-loader" src="https://pixel.visitiq.io/vpixel.js" strategy="beforeInteractive" />
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
         <Script
@@ -132,5 +144,3 @@ export default async function RootLayout({
     </html>
   )
 }
-
- 
