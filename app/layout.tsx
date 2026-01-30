@@ -41,11 +41,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const banners: Banner[] = await getInitialData()
+  // const banners: Banner[] = await getInitialData()
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
+        {/* <Script
           id="cms-admin-bridge"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
@@ -63,7 +63,7 @@ export default async function RootLayout({
           console.log('Script injection message received from parent CMS...');
 
           const script = document.createElement("script");
-          script.src = "/scripts/admin.js";
+          script.src = "https://bildit-cdn.bilditon.com/cms-client/bildit.min.js";
 
           script.onload = function() {
             console.log('Web script loaded successfully');
@@ -88,19 +88,12 @@ export default async function RootLayout({
       });
     `
           }}
-        />
-        <Script
-          id="react-umd"
-          src="https://unpkg.com/react@19/umd/react.development.js"
-          crossOrigin="anonymous"
-          strategy="beforeInteractive"
-        />
-        <Script
-          id="react-dom-umd"
-          src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"
-          crossOrigin="anonymous"
-          strategy="beforeInteractive"
-        />
+        /> */}
+        {process.env.NODE_ENV === 'development' ? (
+          <Script src="http://localhost:4000/admin.js" strategy="afterInteractive" />
+        ) : (
+          <Script src="https://bildit-cdn.bilditon.com/cms-client/bildit.min.js" strategy="afterInteractive" />
+        )}
         <Script id="vpixel-loader" src="https://pixel.visitiq.io/vpixel.js" strategy="beforeInteractive" />
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
@@ -122,24 +115,13 @@ export default async function RootLayout({
           }}
         />
         {/* <BILDITAIPixel /> */}
-        <Providers banners={banners}>
+        {/* <Providers banners={banners}> */}
+        <>
           <Header />
-          {/* <Navigation /> */}
           <div>{children}</div>
           <Footer />
-        </Providers>
-        {/* <Script
-          id="bildit-mouse-detection"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: buildMouseDetectionInlineScript('https://ai-pixel.bildit.co/pixel.gif', {
-              duration: 5000,
-              throttle: 1000,
-              maxMovements: 10,
-              params: { app: 'marketing' }
-            })
-          }}
-        /> */}
+        </>
+        {/* </Providers> */}
       </body>
     </html>
   )
