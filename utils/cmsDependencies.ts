@@ -72,7 +72,18 @@ import SwiperCarousel from '@/app/components/SwiperCarousel'
 import * as LucideIcons from 'lucide-react'
 import * as Next from 'next/client'
 import * as NextForm from 'next/form'
-import * as NextImage from 'next/image'
+import NextImageOriginal from 'next/image'
+import type { ImageProps } from 'next/image'
+
+// Wrapper to handle empty src gracefully (prevents CMS errors)
+const SafeImage = (props: ImageProps) => {
+  if (!props.src || props.src === '') {
+    return null
+  }
+  return React.createElement(NextImageOriginal, props)
+}
+
+const NextImage = { default: SafeImage, __esModule: true }
 import * as NextLink from 'next/link'
 import * as NextNavigation from 'next/navigation'
 import * as NextScript from 'next/script'
