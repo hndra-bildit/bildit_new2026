@@ -1,11 +1,11 @@
 import Header from './components/Header'
 import './globals.css'
 import Footer from '@/app/components/Footer'
-import Providers from '@/app/components/Providers'
-import { bannerCache } from '@/services/bannerCache'
-import type { Banner } from '@/services/bildit.d'
+// import Providers from '@/app/components/Providers'
+// import { bannerCache } from '@/services/bannerCache'
+// import type { Banner } from '@/services/bildit.d'
 import type { Metadata } from 'next'
-import { headers } from 'next/headers'
+// import { headers } from 'next/headers'
 import Script from 'next/script'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -20,21 +20,21 @@ export const dynamic = 'force-dynamic'
 
 //TODO: Use getWebBanners from the BILDIT Next.js SDK
 // Server-side data fetching for SSR with caching
-async function getInitialData(): Promise<Banner[]> {
-  try {
-    // Get the pathname from headers
-    const headersList = await headers()
-    const pathname = headersList.get('x-pathname') || '/'
+// async function getInitialData(): Promise<Banner[]> {
+//   try {
+//     // Get the pathname from headers
+//     const headersList = await headers()
+//     const pathname = headersList.get('x-pathname') || '/'
 
-    // Use cached banners if available, otherwise fetch fresh
-    const banners = await bannerCache.getBanners(pathname)
+//     // Use cached banners if available, otherwise fetch fresh
+//     const banners = await bannerCache.getBanners(pathname)
 
-    return banners
-  } catch (error) {
-    console.error('Error loading banners:', error)
-    return []
-  }
-}
+//     return banners
+//   } catch (error) {
+//     console.error('Error loading banners:', error)
+//     return []
+//   }
+// }
 
 export default async function RootLayout({
   children
