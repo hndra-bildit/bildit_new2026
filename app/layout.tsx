@@ -41,7 +41,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // const banners: Banner[] = await getInitialData()
+  const banners: Banner[] = await getInitialData()
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -115,13 +115,13 @@ export default async function RootLayout({
           }}
         />
         {/* <BILDITAIPixel /> */}
-        {/* <Providers banners={banners}> */}
-        <>
-          <Header />
-          <div>{children}</div>
-          <Footer />
-        </>
-        {/* </Providers> */}
+        <Providers banners={banners}>
+          <>
+            <Header />
+            <div>{children}</div>
+            <Footer />
+          </>
+        </Providers>
       </body>
     </html>
   )
