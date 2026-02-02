@@ -49,6 +49,7 @@ export default async function RootLayout({
         <Script
           id="cms-admin-bridge"
           strategy="beforeInteractive"
+          integrity="sha384-ls36flBuLEyk0EJpJ4Uiozd/fuVBRMVCmkNNbCQySpsICFJq4TEY4DtMtCjO9m/h"
           dangerouslySetInnerHTML={{
             __html: `
               // Notify parent that iframe is ready
