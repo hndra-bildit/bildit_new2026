@@ -45,55 +45,50 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* <Script
+        <Script
           id="cms-admin-bridge"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-      // Notify parent that iframe is ready
-      window.parent.postMessage({
-        type: 'IFRAME_READY',
-        success: true
-      }, '*');
+              // Notify parent that iframe is ready
+              window.parent.postMessage({
+                type: 'IFRAME_READY',
+                success: true
+              }, '*');
 
-      window.addEventListener("message", (event) => {
-        console.log('Message received in Next.js:', event.data);
+              window.addEventListener("message", (event) => {
+                console.log('Message received in Next.js:', event.data);
 
-        if (event.data.type === "INJECT_SCRIPT") {
-          console.log('Script injection message received from parent CMS...');
+                if (event.data.type === "INJECT_SCRIPT") {
+                  console.log('Script injection message received from parent CMS...');
 
-          const script = document.createElement("script");
-          script.src = "https://bildit-cdn.bilditon.com/cms-client/bildit.min.js";
+                  const script = document.createElement("script");
+                  script.src = "${process.env.NODE_ENV !== 'production' ? '/scripts/admin.js' : 'https://bildit-cdn.bilditon.com/cms-client/bildit.min.js'}";
 
-          script.onload = function() {
-            console.log('Web script loaded successfully');
-            // Notify parent that script was injected
-            window.parent.postMessage({
-              type: 'SCRIPT_INJECTED',
-              success: true
-            }, '*');
-          };
+                  script.onload = function() {
+                    console.log('Web script loaded successfully');
+                    // Notify parent that script was injected
+                    window.parent.postMessage({
+                      type: 'SCRIPT_INJECTED',
+                      success: true
+                    }, '*');
+                  };
 
-          script.onerror = function() {
-            console.error('Failed to load web script');
-            window.parent.postMessage({
-              type: 'SCRIPT_INJECTED',
-              success: false,
-              error: 'Failed to load script'
-            }, '*');
-          };
+                  script.onerror = function() {
+                    console.error('Failed to load web script');
+                    window.parent.postMessage({
+                      type: 'SCRIPT_INJECTED',
+                      success: false,
+                      error: 'Failed to load script'
+                    }, '*');
+                  };
 
-          document.body.appendChild(script);
-        }
-      });
-    `
+                  document.body.appendChild(script);
+                }
+              });
+            `
           }}
-        /> */}
-        {process.env.NODE_ENV === 'development' ? (
-          <Script src="http://localhost:4000/admin.js" strategy="afterInteractive" />
-        ) : (
-          <Script src="https://bildit-cdn.bilditon.com/cms-client/bildit.min.js" strategy="afterInteractive" />
-        )}
+        />
         <Script id="vpixel-loader" src="https://pixel.visitiq.io/vpixel.js" strategy="beforeInteractive" />
       </head>
       <body className="antialiased relative font-uncut-sans" style={{ paddingTop: 0 }}>
