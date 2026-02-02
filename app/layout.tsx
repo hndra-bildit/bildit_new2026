@@ -49,7 +49,6 @@ export default async function RootLayout({
         <Script
           id="cms-admin-bridge"
           strategy="beforeInteractive"
-          integrity="sha384-ls36flBuLEyk0EJpJ4Uiozd/fuVBRMVCmkNNbCQySpsICFJq4TEY4DtMtCjO9m/h"
           dangerouslySetInnerHTML={{
             __html: `
               // Notify parent that iframe is ready
@@ -65,7 +64,7 @@ export default async function RootLayout({
                   console.log('Script injection message received from parent CMS...');
 
                   const script = document.createElement("script");
-                  script.src = "${process.env.NODE_ENV !== 'production' ? '/scripts/admin.js' : 'https://bildit-cdn.bilditon.com/cms-client/bildit.min.js'}";
+                  script.src = "${process.env.NODE_ENV === 'production' ? '/scripts/admin.js' : 'https://bildit-cdn.bilditon.com/cms-client/bildit.min.js'}";
                   console.log('Script source:', script.src);
                   script.onload = function() {
                     console.log('Web script loaded successfully');
