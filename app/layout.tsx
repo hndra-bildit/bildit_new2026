@@ -65,7 +65,7 @@ export default async function RootLayout({
 
                   const script = document.createElement("script");
                   script.src = "${process.env.NODE_ENV !== 'production' ? '/scripts/admin.js' : 'https://bildit-cdn.bilditon.com/cms-client/bildit.min.js'}";
-
+                  console.log('Script source:', script.src);
                   script.onload = function() {
                     console.log('Web script loaded successfully');
                     // Notify parent that script was injected
