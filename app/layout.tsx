@@ -41,7 +41,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const banners: Banner[] = await getInitialData()
+  const banners: Banner[] = await getInitialData();
+  console.log("process.env.NODE_ENV", process.env.NODE_ENV)
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
