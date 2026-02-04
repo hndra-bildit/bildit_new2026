@@ -77,6 +77,9 @@ export default async function RootLayout({
 
                   script.onerror = function() {
                     console.error('Failed to load web script');
+                    if ("${process.env.NODE_ENV}" !== 'production') {
+                      console.warn('⚠️ [BILDIT] public/scripts/admin.js is missing! This script is ignored by git and must be manually provided for local development if needed.');
+                    }
                     window.parent.postMessage({
                       type: 'SCRIPT_INJECTED',
                       success: false,
