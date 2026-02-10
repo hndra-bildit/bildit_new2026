@@ -18,7 +18,7 @@
 // limitations under the License.
 //
 /* README:
- 
+
   This file is used to define the dependencies for the CMS.  These dependencies
   are used in the CMS to render components, pages, or banners using local modules. */
 /* node_modules. */
@@ -58,9 +58,9 @@ import HeroImageBannerConfig from '@/app/components/HeroImageBannerConfig'
 import Input from '@/app/components/Input'
 import LatestPost from '@/app/components/LatestPost'
 import PriceCard from '@/app/components/PriceCard'
-import ResultImage from '@/app/components/ResultImage'
 /* Local components - commonly used in CMS */
 import PrimaryButton from '@/app/components/PrimaryButton'
+import ResultImage from '@/app/components/ResultImage'
 import SecondaryButton from '@/app/components/SecondaryButton'
 import SectionCard from '@/app/components/SectionCard'
 import SubTitileFourCaps from '@/app/components/SubTitileFourCaps'
@@ -74,6 +74,13 @@ import * as Next from 'next/client'
 import * as NextForm from 'next/form'
 import NextImageOriginal from 'next/image'
 import type { ImageProps } from 'next/image'
+import * as NextLink from 'next/link'
+import * as NextNavigation from 'next/navigation'
+import * as NextScript from 'next/script'
+import * as NextWebVitals from 'next/web-vitals'
+import ReactDOM from 'react-dom'
+import ReactDOMClient from 'react-dom/client'
+import jsxRuntime from 'react/jsx-runtime'
 
 // Wrapper to handle empty src gracefully (prevents CMS errors)
 const SafeImage = (props: ImageProps) => {
@@ -84,13 +91,6 @@ const SafeImage = (props: ImageProps) => {
 }
 
 const NextImage = { default: SafeImage, __esModule: true }
-import * as NextLink from 'next/link'
-import * as NextNavigation from 'next/navigation'
-import * as NextScript from 'next/script'
-import * as NextWebVitals from 'next/web-vitals'
-import ReactDOM from 'react-dom'
-import ReactDOMClient from 'react-dom/client'
-import jsxRuntime from 'react/jsx-runtime'
 
 /* Specific to component. */
 const isProduction = process.env.ENVIRONMENT === 'production'
@@ -128,7 +128,6 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/SwiperCarousel': { module: SwiperCarousel },
   '@/app/components/HeroImage': { module: HeroImage },
   '@/app/components/HeroImageBanner': { module: HeroImageBanner },
-  '@/app/components/HeroImageBannerConfig': { module: HeroImageBannerConfig },
   '@/app/components/FAQAccordion': { module: FAQAccordion },
   '@/app/components/HeadingOne': { module: HeadingOne },
   '@/app/components/HeadingTwo': { module: HeadingTwo },

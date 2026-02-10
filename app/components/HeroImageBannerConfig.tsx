@@ -1,7 +1,31 @@
 'use client'
 
 import React, { useState } from 'react'
-import { type HeroImageBannerConfig, defaultHeroImageConfig } from '../../services/heroImageBanner'
+
+const defaultHeroImageConfig: HeroImageBannerConfig = {
+  title: 'Commerce Suite',
+  subtitle: 'Unleash the Power of Commerce Suite with Our CMS',
+  description:
+    'Say goodbye to the hassle of juggling multiple tools. Our cutting-edge CMS brings everything you need into one seamless platform, designed for modern e-commerce businesses.',
+  gradientColors: {
+    from: '#3B1DED',
+    via: '#ED1E79',
+    to: '#EB6751'
+  },
+  className: ''
+}
+
+interface HeroImageBannerConfig {
+  title: string
+  subtitle: string
+  description: string
+  gradientColors: {
+    from: string
+    via: string
+    to: string
+  }
+  className?: string
+}
 
 interface HeroImageBannerConfigProps {
   initialConfig?: HeroImageBannerConfig

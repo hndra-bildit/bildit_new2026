@@ -1,5 +1,3 @@
-import { v4 } from 'uuid'
-
 export interface BilditBannerParams {
   category?: string
   location?: string
@@ -160,8 +158,6 @@ export interface BilditBannerParams {
   category?: string
   location?: string
 }
-
-export const TEMP_ID = () => `__${v4()}__`
 
 export interface ResponsiveImage {
   base64?: string
