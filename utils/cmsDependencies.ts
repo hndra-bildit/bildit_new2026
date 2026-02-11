@@ -53,8 +53,6 @@ import HeadingThree from '@/app/components/HeadingThree'
 import HeadingThreeCaps from '@/app/components/HeadingThreeCaps'
 import HeadingTwo from '@/app/components/HeadingTwo'
 import HeroImage from '@/app/components/HeroImage'
-import HeroImageBanner from '@/app/components/HeroImageBanner'
-import HeroImageBannerConfig from '@/app/components/HeroImageBannerConfig'
 import Input from '@/app/components/Input'
 import LatestPost from '@/app/components/LatestPost'
 import PriceCard from '@/app/components/PriceCard'
@@ -127,7 +125,6 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/CardCarousel': { module: CardCarousel },
   '@/app/components/SwiperCarousel': { module: SwiperCarousel },
   '@/app/components/HeroImage': { module: HeroImage },
-  '@/app/components/HeroImageBanner': { module: HeroImageBanner },
   '@/app/components/FAQAccordion': { module: FAQAccordion },
   '@/app/components/HeadingOne': { module: HeadingOne },
   '@/app/components/HeadingTwo': { module: HeadingTwo },
