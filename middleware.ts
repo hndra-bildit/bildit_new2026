@@ -1,7 +1,8 @@
 import { trackAIBotRequestForPixel } from '@bildit-platform/ai-pixel/nextjs'
+import { enhanceMiddlewareWithBildit } from '@bildit-platform/nextjs'
 import { NextRequest, NextResponse } from 'next/server'
 
-export async function middleware(request: NextRequest) {
+async function customMiddleware(request: NextRequest) {
   const result = await trackAIBotRequestForPixel(request, {
     params: { edge: 'middleware' }
     // force: true, // Uncomment to test with all requests
@@ -19,6 +20,9 @@ export async function middleware(request: NextRequest) {
     }
   })
 }
+
+// Enhance custom middleware with BILDIT preview date support
+export const middleware = enhanceMiddlewareWithBildit(customMiddleware)
 
 // Configure which paths the middleware should run on
 export const config = {

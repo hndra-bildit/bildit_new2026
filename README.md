@@ -121,9 +121,6 @@ bildit-web-nextjs/
 │   ├── components/          # Reusable UI components
 │   ├── api/                 # Next.js API routes
 │   └── **/page.tsx          # Route-based pages
-├── services/                 # Server-side functions (CMS data)
-│   ├── bildit.ts            # Main Bildit API service
-│   └── heroImageBanner.ts   # Banner service
 ├── lib/                      # Utilities (blog helpers, safelist)
 ├── utils/                    # Utility functions
 ├── public/                   # Static assets (images, fonts, scripts)
@@ -140,8 +137,6 @@ bildit-web-nextjs/
 
 - **`app/layout.tsx`** – Global providers, header/footer, AI pixel, and CMS script injection
 - **`app/page.tsx`** – Home page
-- **`services/bildit.ts`** – Main API service for CMS data
-- **`services/heroImageBanner.ts`** – Banner data service
 - **`middleware.ts`** – Request/response middleware
 - **`next.config.ts`** – Next.js configuration (port is passed via CLI in scripts)
 
