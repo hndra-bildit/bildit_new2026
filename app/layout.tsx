@@ -2,8 +2,9 @@ import Header from './components/Header'
 import './globals.css'
 import Footer from '@/app/components/Footer'
 import Providers from '@/app/components/Providers'
-import { bannerCache } from '@/services/bannerCache'
 import type { Banner } from '@/services/bildit.d'
+import { getPreviewDateFromHeaders } from '@bildit-platform/nextjs'
+import { RemoteConnector } from '@bildit-platform/nextjs-api'
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import Script from 'next/script'
@@ -15,21 +16,28 @@ export const metadata: Metadata = {
   description: 'Content Management System for Mobile Apps and React Web Sites'
 }
 
-// Force dynamic rendering since we need to access headers for pathname
+// Force dynamic rendering since we need to access headers for pathname and preview date
 export const dynamic = 'force-dynamic'
 
-//TODO: Use getWebBanners from the BILDIT Next.js SDK
-// Server-side data fetching for SSR with caching
+const bilditConnector = new RemoteConnector({
+  key: process.env.BILDIT_API_KEY || '',
+  baseURL: process.env.BILDIT_API_URL || ''
+})
+
 async function getInitialData(): Promise<Banner[]> {
   try {
-    // Get the pathname from headers
     const headersList = await headers()
     const pathname = headersList.get('x-pathname') || '/'
+    const previewDate = getPreviewDateFromHeaders(headersList)
 
-    // Use cached banners if available, otherwise fetch fresh
-    const banners = await bannerCache.getBanners(pathname)
+    const result = await bilditConnector.getWebBanners({
+      location: pathname,
+      date: previewDate,
+      mode: 'csr',
+      tomorrow: true
+    })
 
-    return banners
+    return (result.data as unknown as Banner[]) || []
   } catch (error) {
     console.error('Error loading banners:', error)
     return []
@@ -64,7 +72,7 @@ export default async function RootLayout({
                   console.log('Script injection message received from parent CMS...');
 
                   const script = document.createElement("script");
-                  script.src = "${process.env.NODE_ENV !== 'production' ? '/scripts/admin.js' : 'https://bildit-cdn.bilditon.com/cms-client/static/js/admin.js'}";
+                  script.src = "${process.env.NODE_ENV !== 'production' ? '/scripts/admin.js' : 'https://bildit-cdn.bilditon.com/cms-client/scripts/admin.js?v='}" + new Date().getTime();
                   console.log('Script source:', script.src);
                   script.onload = function() {
                     console.log('Web script loaded successfully');
