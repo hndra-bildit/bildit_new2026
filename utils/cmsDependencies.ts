@@ -45,6 +45,7 @@ import CardThree from '@/app/components/CardThree'
 import CardTwo from '@/app/components/CardTwo'
 import ComparisonTable from '@/app/components/ComparisonTable'
 import DisplayOne from '@/app/components/DisplayOne'
+import { Demo } from '@/app/components/Demo'
 import DisplayThree from '@/app/components/DisplayThree'
 import DisplayTwo from '@/app/components/DisplayTwo'
 import FAQAccordion from '@/app/components/FAQAccordion'
@@ -148,6 +149,7 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/BillingToggle': { module: BillingToggle },
   '@/app/components/ComparisonTable': { module: ComparisonTable },
   '@/app/components/CMSFeatureTable': { module: CMSFeatureTable },
+  '@/app/components/Demo': { module: Demo },
   '@/app/components/LatestPost': { module: LatestPost },
   '@/app/components/BlogClient': { module: BlogClient },
   '@/app/components/BlogSingleClient': { module: BlogSingleClient },

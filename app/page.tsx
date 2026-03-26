@@ -2,18 +2,23 @@ import { SlotPlaceholder } from '@bildit-platform/nextjs'
 
 export default function Home() {
   return (
-    <>
-      <SlotPlaceholder slotId="home-title" />
-      <SlotPlaceholder slotId="home-content" />
-      <SlotPlaceholder slotId="home-content2" />
-      <SlotPlaceholder slotId="home-content3" />
-      <SlotPlaceholder slotId="home-content4" />
-      <SlotPlaceholder slotId="home-content5" />
-      <SlotPlaceholder slotId="home-content6" />
-      <SlotPlaceholder slotId="home-content7" />
-      <SlotPlaceholder slotId="home-content8" />
-      <SlotPlaceholder slotId="home-content9" />
-      <SlotPlaceholder slotId="home-content10" />
-    </>
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <main>
+        <SlotPlaceholder slotId="home-hero" />
+        <SlotPlaceholder slotId="home-before-after" />
+        <SlotPlaceholder slotId="home-social-proof" />
+        <SlotPlaceholder slotId="home-problem" />
+        <SlotPlaceholder slotId="home-liberation" />
+        <SlotPlaceholder slotId="home-how-it-works" />
+        <SlotPlaceholder slotId="home-interactive-section" />
+        <SlotPlaceholder slotId="home-core-benefits" />
+        <SlotPlaceholder slotId="home-value-stack" />
+        <SlotPlaceholder slotId="home-guarantee" />
+        <SlotPlaceholder slotId="home-urgency" />
+        <SlotPlaceholder slotId="home-testimonials" />
+        <SlotPlaceholder slotId="home-faq" />
+        <SlotPlaceholder slotId="home-final-close" />
+      </main>
+    </div>
   )
 }
