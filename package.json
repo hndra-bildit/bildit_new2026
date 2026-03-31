@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@bildit-platform/ai-pixel": "^1.5.0",
-    "@bildit-platform/nextjs": "0.5.2",
+    "@bildit-platform/nextjs": "0.5.5",
     "@bildit-platform/nextjs-api": "0.5.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.5.2",
