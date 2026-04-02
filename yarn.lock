@@ -26,18 +26,14 @@
   dependencies:
     react-is ">=18.0.0"
 
-"@bildit-platform/nextjs-api@0.5.0":
+"@bildit-platform/nextjs-api@file:../bildit-nextjs/packages/api":
   version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs-api/-/nextjs-api-0.5.0.tgz#d0dbdda540011d0dc1af7818eec0c6ec272ec9d2"
-  integrity sha512-6wzJ2cy8vNkmEZUHu4Px0/c7ocQamDqdDr7HVz0Dn/4s313AaSgueF/2Uvj+ZWFs7XwnU2LXAukCg11ZGRV/Wg==
   dependencies:
     axios "^1.7.9"
     node-cache "^5.1.2"
 
-"@bildit-platform/nextjs@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs/-/nextjs-0.5.5.tgz#a1e9fdeb3b3831c367cbab1315656620d7a1d5f1"
-  integrity sha512-l5cahCKEFfNYKGJeJKRL5zX8OgR6scYYx+Mt4sZYPd2e6WtT9ar06f+R7uy08NgIVpLSDVSYsdeNKjZEZxAUbw==
+"@bildit-platform/nextjs@file:../bildit-nextjs/packages/nextjs":
+  version "0.5.6"
   dependencies:
     "@bildit-platform/engine" "^0.1.6"
     class-variance-authority "^0.7.1"

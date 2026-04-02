@@ -30,11 +30,18 @@ async function getInitialData(): Promise<Banner[]> {
     const pathname = headersList.get('x-pathname') || '/'
     const previewDate = getPreviewDateFromHeaders(headersList)
 
+    const customerBucketId = process.env.BILDIT_CUSTOMER_BUCKET_ID
+    const appId = process.env.BILDIT_APP_ID
+    const hasCdnConfig = Boolean(customerBucketId && appId)
+
     const result = await bilditConnector.getWebBanners({
       location: pathname,
       date: previewDate,
       mode: 'csr',
-      tomorrow: true
+      tomorrow: true,
+      ...(hasCdnConfig
+        ? { customerBucketId, appId }
+        : { source: 'live' as const })
     })
 
     return (result.data as unknown as Banner[]) || []
