@@ -76,6 +76,8 @@ export default async function RootLayout({
                 console.log('Message received in Next.js:', event.data);
 
                 if (event.data.type === "INJECT_SCRIPT") {
+                  if (window.__adminScriptInjected) return;
+                  window.__adminScriptInjected = true;
                   console.log('Script injection message received from parent CMS...');
 
                   const script = document.createElement("script");
