@@ -53,6 +53,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'retailmedia-static.azureedge.net',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'belk.scene7.com',
+        pathname: '/**'
       }
     ]
   }

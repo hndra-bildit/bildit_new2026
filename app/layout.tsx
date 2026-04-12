@@ -19,29 +19,51 @@ export const metadata: Metadata = {
 // Force dynamic rendering since we need to access headers for pathname and preview date
 export const dynamic = 'force-dynamic'
 
-const bilditConnector = new RemoteConnector({
-  key: process.env.BILDIT_API_KEY || '',
-  baseURL: process.env.BILDIT_API_URL || ''
-})
+const API_KEY = process.env.BILDIT_API_KEY || ''
+
+const isLocalDevPort5002 = (host: string | null) => {
+  if (!host) return false
+  const h = host.toLowerCase()
+  return (
+    h === 'localhost:5002' ||
+    h === '127.0.0.1:5002' ||
+    h === '[::1]:5002'
+  )
+}
+
+/**
+ * On `localhost:5002` (this app's dev port), use the Firebase Functions emulator base URL
+ * when `BILDIT_API_URL_LOCAL` is set; otherwise `BILDIT_API_URL` (e.g. admin-dev).
+ */
+function resolveBilditApiBaseUrl(host: string | null): string {
+  if (isLocalDevPort5002(host)) {
+    const local = process.env.BILDIT_API_URL_LOCAL
+    if (local) return local
+    console.warn(
+      '[BILDIT] Host is :5002 but BILDIT_API_URL_LOCAL is unset; using BILDIT_API_URL. Set BILDIT_API_URL_LOCAL to your Functions emulator base (e.g. http://127.0.0.1:5001/PROJECT_ID/REGION/FUNCTION_NAME).'
+    )
+  }
+  return process.env.BILDIT_API_URL || ''
+}
 
 async function getInitialData(): Promise<Banner[]> {
   try {
     const headersList = await headers()
     const pathname = headersList.get('x-pathname') || '/'
     const previewDate = getPreviewDateFromHeaders(headersList)
+    const baseURL = resolveBilditApiBaseUrl(headersList.get('host'))
 
-    const customerBucketId = process.env.BILDIT_CUSTOMER_BUCKET_ID
-    const appId = process.env.BILDIT_APP_ID
-    const hasCdnConfig = Boolean(customerBucketId && appId)
+    const remoteConnector = new RemoteConnector({
+      key: API_KEY,
+      baseURL
+    })
 
-    const result = await bilditConnector.getWebBanners({
+    const result = await remoteConnector.getWebBanners({
       location: pathname,
       date: previewDate,
       mode: 'csr',
       tomorrow: true,
-      ...(hasCdnConfig
-        ? { customerBucketId, appId }
-        : { source: 'live' as const })
+      source: 'live' as const
     })
 
     return (result.data as unknown as Banner[]) || []
@@ -57,7 +79,6 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const banners: Banner[] = await getInitialData()
-  console.log('process.env.NODE_ENV', process.env.NODE_ENV)
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
