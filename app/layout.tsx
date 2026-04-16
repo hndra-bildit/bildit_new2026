@@ -12,9 +12,33 @@ import 'swiper/css/navigation'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' })
 
+/** Canonical site for Open Graph / Twitter cards (social crawlers need absolute URLs). */
+const metadataBaseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ||
+  (process.env.NODE_ENV === 'development' ? 'http://localhost:5002' : 'https://bildit.co')
+
+/** Featured preview when sharing links (file in /public). */
+const defaultOgImage = '/images/BILDIT%20Lines%20Animation.gif'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(metadataBaseUrl),
   title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
-  description: 'Content Management System for Mobile Apps and React Web Sites'
+  description: 'Content Management System for Mobile Apps and React Web Sites',
+  openGraph: {
+    title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
+    description: 'Content Management System for Mobile Apps and React Web Sites',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'BILDIT',
+    images: [{ url: defaultOgImage }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
+    description: 'Content Management System for Mobile Apps and React Web Sites',
+    images: [defaultOgImage]
+  }
 }
 
 // Force dynamic rendering since we need to access headers for pathname and preview date
