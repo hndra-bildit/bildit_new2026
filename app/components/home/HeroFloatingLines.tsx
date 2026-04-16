@@ -30,7 +30,10 @@ export function HeroFloatingLines() {
   }, [])
 
   return (
-    <div ref={rootRef} className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[51px] bg-[#1a0d2e]">
+    <div
+      ref={rootRef}
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-none bg-[#1a0d2e] sm:rounded-[51px]"
+    >
       <div
         className="pointer-events-auto absolute left-1/2 top-1/2"
         style={{

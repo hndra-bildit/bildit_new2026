@@ -2,7 +2,7 @@
  * FAQ copy and structured data aligned with https://bildit.co
  * (FAQPage mainEntity matches production JSON-LD.)
  */
-export const HOME_FAQ_SUBTITLE = 'Answers to your common questions about the BILDIT CMS'
+export const HOME_FAQ_SUBTITLE = 'Answers to your common questions about the BILDIT CMS.'
 
 export type HomeFaqEntry = {
   /** schema.org Question.name — includes "Q: " prefix like production */

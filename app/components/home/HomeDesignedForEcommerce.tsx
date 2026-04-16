@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 
 type HomeDesignedStat = {
@@ -153,13 +154,16 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
   }, [statsFullyVisible, reducedMotion])
 
   return (
-    <section className={cn('home-scheme-light relative w-full bg-transparent', className)}>
+    <section className={cn('home-scheme-light relative w-full overflow-hidden bg-white text-neutral-900', className)}>
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <div className="absolute left-[8%] top-[18%] size-[380px] rounded-full bg-[rgba(232,69,144,0.06)] blur-[100px] md:left-[12%]" />
+        <div className="absolute right-[5%] top-[35%] size-[420px] rounded-full bg-[rgba(200,80,240,0.055)] blur-[110px] md:right-[8%]" />
+        <div className="absolute bottom-[12%] left-1/2 size-[400px] -translate-x-1/2 rounded-full bg-[rgba(255,68,102,0.045)] blur-[100px]" />
+      </div>
       <div className="relative mx-auto w-full max-w-[1286px] px-6 py-20 md:px-10 md:py-[100px] lg:px-[116px]">
         <div className="flex flex-col items-center gap-5 text-center">
-          <h2 className="max-w-[855px] font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight text-black md:text-4xl md:leading-tight lg:text-[48px] lg:leading-[48px]">
-            Designed for Modern eCommerce
-          </h2>
-          <p className="max-w-2xl font-[family-name:var(--font-uncut-sans)] text-base leading-normal text-[#0d0118] md:text-[17px]">
+          <h2 className={cn('max-w-[855px] text-center', homeSectionTitleClassName)}>Designed for modern eCommerce.</h2>
+          <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-center')}>
             What teams see after switching to BILDIT Visual Experience Engine.
           </p>
         </div>

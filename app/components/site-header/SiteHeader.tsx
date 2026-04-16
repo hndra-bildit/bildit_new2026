@@ -1,66 +1,201 @@
 'use client'
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { VISUAL_EDITING_PROMO_IMAGE } from '@/app/lib/visual-editing-promo-image'
 import { cn } from '@/utils/cn'
-import { Moon, Sun } from 'lucide-react'
+import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
-type MegaKey = 'platform' | 'solutions'
+type MegaKey = 'capabilities' | 'solutions' | 'partners'
+
+type MegaLinkItem = {
+  href: string
+  title: string
+  description: string
+}
+
+const CAPABILITIES_ITEMS: MegaLinkItem[] = [
+  {
+    href: '/commerce-suite/',
+    title: 'Visual Experience Engine',
+    description: 'Build Templates in React and let the marketing team edit them visually.'
+  },
+  {
+    href: '/storefront/',
+    title: 'Mobile App Storefront',
+    description:
+      'Optimized React Native Mobile App Storefront: fast and modern UI/UX built-in, high conversion with one click checkout'
+  }
+]
+
+const SOLUTION_ITEMS: MegaLinkItem[] = [
+  {
+    href: '/brands/',
+    title: 'Marketing Team',
+    description: 'Update your site without engineering tickets. Schedule and Preview Content in Realtime.'
+  },
+  {
+    href: '/it/',
+    title: 'Engineering Team',
+    description: 'Build advanced templates in React and React Native. Push out template updates without a deployment.'
+  }
+]
+
+const PARTNER_ITEMS: MegaLinkItem[] = [
+  {
+    href: '/tech-partners/',
+    title: 'Tech Partners',
+    description: 'Explore integrations and technology partners that extend the BILDIT platform.'
+  },
+  {
+    href: '/integration-partners/',
+    title: 'Become a Partner',
+    description: 'Join our partner program and build solutions on top of BILDIT.'
+  },
+  {
+    href: '/our-story/',
+    title: 'Webinars',
+    description: 'Watch sessions on commerce, content, and getting the most from the platform.'
+  }
+]
 
 const MEGA_CLOSE_MS = 220
 
-function MegaFeaturedCard() {
+/** Relative luminance 0–1; `null` if transparent / unparseable. */
+function luminanceFromCssColor(color: string): number | null {
+  if (!color || color === 'transparent') return null
+  const m = color.match(/rgba?\(\s*([^)]+)\s*\)/)
+  if (!m) return null
+  const parts = m[1].split(',').map((s) => parseFloat(s.trim()))
+  if (parts.length < 3) return null
+  const r = parts[0]
+  const g = parts[1]
+  const b = parts[2]
+  const a = parts.length >= 4 ? parts[3] : 1
+  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b) || a < 0.04) return null
+  const lin = (c: number) => {
+    const x = c / 255
+    return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4)
+  }
+  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
+}
+
+function effectiveBackgroundLuminance(start: Element): number | null {
+  let el: Element | null = start
+  while (el && el !== document.documentElement) {
+    const bg = getComputedStyle(el).backgroundColor
+    const lum = luminanceFromCssColor(bg)
+    if (lum !== null) return lum
+    el = el.parentElement
+  }
+  const bodyBg = getComputedStyle(document.body).backgroundColor
+  return luminanceFromCssColor(bodyBg)
+}
+
+/**
+ * `true` → light page surface behind the nav (use dark pill + light ink in `header-scheme-light`).
+ */
+function isLightContentBehindHeader(headerRoot: HTMLElement): boolean {
+  const pill = headerRoot.querySelector<HTMLElement>('[data-header-pill]')
+  const rect = pill?.getBoundingClientRect() ?? headerRoot.getBoundingClientRect()
+  const x = Math.min(Math.max(window.innerWidth / 2, 8), window.innerWidth - 8)
+  const y = Math.min(rect.bottom + 16, window.innerHeight - 4)
+
+  const stack = document.elementsFromPoint(x, y)
+  for (const node of stack) {
+    if (!(node instanceof Element)) continue
+    if (headerRoot.contains(node)) continue
+
+    const marked = node.closest<HTMLElement>('[data-header-surface]')
+    if (marked) {
+      return marked.dataset.headerSurface === 'light'
+    }
+
+    const lum = effectiveBackgroundLuminance(node)
+    if (lum !== null) {
+      return lum > 0.55
+    }
+  }
+
+  return true
+}
+
+type MegaFeaturedCardProps = { onNavigate?: () => void }
+
+/** Intrinsic size of `public/images/Girl Designer Live Editing.png` — keeps layout uncropped. */
+const PROMO_IMAGE_ASPECT = '430 / 415' as const
+
+function MegaFeaturedCard({ onNavigate }: MegaFeaturedCardProps) {
   return (
     <Link
       href="/cms/"
-      className="relative flex min-h-[200px] flex-1 flex-col justify-between overflow-hidden rounded-[18px] p-6 text-left md:min-h-0"
+      className="relative block w-full overflow-hidden rounded-[18px] no-underline"
+      style={{
+        aspectRatio: PROMO_IMAGE_ASPECT,
+        backgroundColor: 'var(--header-mega-bg)'
+      }}
+      onClick={onNavigate}
+      aria-label="Visual editing and live preview"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(13,1,24,0.5) 0%, rgba(67,23,130,0.55) 100%), url(${VISUAL_EDITING_PROMO_IMAGE})`
-        }}
+      <Image
+        src={VISUAL_EDITING_PROMO_IMAGE}
+        alt=""
+        width={430}
+        height={415}
+        sizes="(min-width: 1024px) 320px, 100vw"
+        className="absolute inset-0 m-auto h-full w-full object-contain object-center"
       />
-      <div className="relative z-[1]">
-        <p className="font-[family-name:var(--font-inter)] text-xs font-bold uppercase tracking-wide text-white">
-          Learn More
-        </p>
-      </div>
-      <div className="relative z-[1] space-y-1.5">
-        <p className="font-[family-name:var(--font-inter)] text-lg font-bold text-white md:text-[22px]">
-          Visual Editing &amp; Live Preview
-        </p>
-        <p className="font-[family-name:var(--font-inter)] text-sm text-white/90 md:text-base">
-          Our visual editor empowers you to create content your way. Preview live and schedule with confidence.
-        </p>
-      </div>
     </Link>
   )
 }
 
-export type SiteHeaderVariant = 'fixed' | 'inHero'
-
-type SiteHeaderProps = {
-  /** `inHero`: sits at top of home hero; mega menu is laid out inside the hero card. */
-  variant?: SiteHeaderVariant
+function MegaLinkList({ items }: { items: MegaLinkItem[] }) {
+  return (
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item.href}>
+          <Link
+            href={item.href}
+            className="group flex gap-2.5 rounded-xl px-2.5 py-2 no-underline transition-colors duration-200"
+          >
+            <span
+              className="mt-0.5 w-0.5 shrink-0 rounded-[10px]"
+              style={{ backgroundColor: 'var(--header-accent-line)' }}
+            />
+            <div>
+              <p className="font-[family-name:var(--font-uncut-sans)] text-base font-medium text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                {item.title}
+              </p>
+              <p className="text-xs leading-snug text-[var(--header-mega-muted)] transition-colors duration-200 group-hover:text-[var(--header-mega-muted-hover)]">
+                {item.description}
+              </p>
+            </div>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  )
 }
 
-export function SiteHeader({ variant = 'fixed' }: SiteHeaderProps) {
+type MobileAccordionKey = 'capabilities' | 'solutions' | 'partners'
+
+export function SiteHeader() {
   const pathname = usePathname() || '/'
   const router = useRouter()
+  const isHome = pathname.replace(/\/$/, '') === ''
   const isEngineering = pathname.replace(/\/$/, '') === '/it'
 
   const [megaOpen, setMegaOpen] = useState(false)
-  const [megaFocus, setMegaFocus] = useState<MegaKey>('platform')
+  const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const navWrapRef = useRef<HTMLDivElement>(null)
-  const platformRef = useRef<HTMLButtonElement>(null)
-  const solutionsRef = useRef<HTMLButtonElement>(null)
-  const [indicator, setIndicator] = useState({ left: 0, width: 0, visible: false })
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const [mobileAccordion, setMobileAccordion] = useState<MobileAccordionKey | null>(null)
+
+  const headerRef = useRef<HTMLElement>(null)
 
   const clearClose = () => {
     if (closeTimer.current) {
@@ -80,47 +215,48 @@ export function SiteHeader({ variant = 'fixed' }: SiteHeaderProps) {
     setMegaOpen(true)
   }
 
-  const updateIndicator = useCallback(() => {
-    const wrap = navWrapRef.current
-    const btn = megaFocus === 'platform' ? platformRef.current : solutionsRef.current
-    if (!wrap || !btn) {
-      setIndicator((s) => ({ ...s, visible: false }))
-      return
+  useEffect(() => {
+    setMobileNavOpen(false)
+    setMobileAccordion(null)
+  }, [pathname])
+
+  useEffect(() => {
+    if (!mobileNavOpen) return
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prevOverflow
     }
-    const wr = wrap.getBoundingClientRect()
-    const br = btn.getBoundingClientRect()
-    setIndicator({
-      left: br.left - wr.left,
-      width: br.width,
-      visible: megaOpen
-    })
-  }, [megaFocus, megaOpen])
-
-  useLayoutEffect(() => {
-    updateIndicator()
-  }, [updateIndicator, megaOpen, megaFocus])
+  }, [mobileNavOpen])
 
   useEffect(() => {
-    window.addEventListener('resize', updateIndicator)
-    return () => window.removeEventListener('resize', updateIndicator)
-  }, [updateIndicator])
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileNavOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   useEffect(() => {
-    const onScroll = () => {
-      const hero = document.getElementById('home-hero')
-      if (!hero) {
-        document.body.classList.add('header-scheme-light')
-        return
-      }
-      const { bottom } = hero.getBoundingClientRect()
-      const useLight = bottom < 96
+    let raf = 0
+    const applyScheme = () => {
+      const root = headerRef.current
+      if (!root) return
+      const useLight = isLightContentBehindHeader(root)
       document.body.classList.toggle('header-scheme-light', useLight)
     }
+    const schedule = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(applyScheme)
+    }
 
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
+    applyScheme()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
       document.body.classList.remove('header-scheme-light')
     }
   }, [pathname])
@@ -133,61 +269,72 @@ export function SiteHeader({ variant = 'fixed' }: SiteHeaderProps) {
     }
   }
 
-  const isInHero = variant === 'inHero'
+  const toggleMobileAccordion = (key: MobileAccordionKey) => {
+    setMobileAccordion((current) => (current === key ? null : key))
+  }
+
+  const mobileSimpleLinkClass = 'group flex gap-2.5 rounded-xl px-2.5 py-3 no-underline transition-colors duration-200'
 
   return (
     <header
+      ref={headerRef}
+      data-site-header
       className={cn(
-        'pointer-events-none z-50 flex justify-center px-4 pt-4',
-        isInHero ? 'relative w-full shrink-0' : 'fixed inset-x-0 top-0'
+        'pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center',
+        isHome
+          ? 'px-6 sm:px-[calc((1rem+20px)*0.42+40px)] pt-[20px] sm:pt-[calc((1rem+20px)*0.42+20px)]'
+          : 'px-4 sm:px-[calc(1rem+20px)] pt-[calc(1rem+20px)]'
       )}
-      onMouseLeave={scheduleClose}
     >
-      <div className="pointer-events-auto relative w-full max-w-[1260px]">
+      <div className="pointer-events-auto relative w-full max-w-[1260px]" onMouseLeave={scheduleClose}>
         <div
-          className="flex h-[70px] items-center justify-between gap-3 rounded-[45px] pl-6 pr-3 sm:pl-10 sm:pr-4"
+          data-header-pill
+          className="flex h-[70px] items-center justify-between gap-2 rounded-[45px] pl-3 pr-3 sm:pl-6 sm:pr-4 lg:pl-10"
           style={{
             backgroundColor: 'var(--header-pill-bg)',
             boxShadow: 'var(--header-pill-shadow)'
           }}
         >
-          <Link href="/" className="flex shrink-0 items-center py-2" aria-label="BILDIT home">
-            <BilditLogo />
-          </Link>
+          <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 lg:flex-initial lg:gap-0">
+            <button
+              type="button"
+              className="flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-black/[0.06] lg:hidden"
+              aria-expanded={mobileNavOpen}
+              aria-controls="site-mobile-nav"
+              aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => setMobileNavOpen((open) => !open)}
+            >
+              {mobileNavOpen ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
+            </button>
+            <Link
+              href="/"
+              className="flex min-w-0 shrink-0 items-center py-2 no-underline hover:no-underline focus-visible:no-underline"
+              aria-label="BILDIT home"
+            >
+              <BilditLogo className="max-lg:h-[24px] max-lg:w-[107px]" />
+            </Link>
+          </div>
 
-          <nav className="font-[family-name:var(--font-inter)] hidden items-center gap-1 md:flex" aria-label="Primary">
-            <div ref={navWrapRef} className="relative flex items-center gap-6 lg:gap-8">
-              <span
-                className={cn(
-                  'pointer-events-none absolute bottom-0 h-0.5 rounded-full bg-[var(--color-cms-purple)] transition-[transform,width,opacity] duration-300 ease-out',
-                  indicator.visible ? 'opacity-100' : 'opacity-0'
-                )}
-                style={{
-                  width: indicator.width,
-                  transform: `translateX(${indicator.left}px)`
-                }}
-                aria-hidden
-              />
+          <nav className="font-[family-name:var(--font-inter)] hidden items-center gap-1 lg:flex" aria-label="Primary">
+            <div className="flex items-center gap-6 xl:gap-8">
               <button
-                ref={platformRef}
                 type="button"
                 className={cn(
-                  'relative py-3 text-base transition-colors duration-200',
-                  megaOpen && megaFocus === 'platform'
+                  'relative py-3 text-base no-underline transition-colors duration-200',
+                  megaOpen && megaFocus === 'capabilities'
                     ? 'text-[var(--header-nav-hover)]'
                     : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
                 )}
-                aria-expanded={megaOpen && megaFocus === 'platform'}
-                onMouseEnter={() => openMega('platform')}
-                onFocus={() => openMega('platform')}
+                aria-expanded={megaOpen && megaFocus === 'capabilities'}
+                onMouseEnter={() => openMega('capabilities')}
+                onFocus={() => openMega('capabilities')}
               >
-                Platform
+                Capabilities
               </button>
               <button
-                ref={solutionsRef}
                 type="button"
                 className={cn(
-                  'relative py-3 text-base transition-colors duration-200',
+                  'relative py-3 text-base no-underline transition-colors duration-200',
                   megaOpen && megaFocus === 'solutions'
                     ? 'text-[var(--header-nav-hover)]'
                     : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
@@ -198,56 +345,63 @@ export function SiteHeader({ variant = 'fixed' }: SiteHeaderProps) {
               >
                 Solutions
               </button>
-              <Link
-                href="/tech-partners/"
-                className="py-3 text-base text-[var(--header-nav)] transition-colors duration-200 hover:text-[var(--header-nav-hover)]"
-                onMouseEnter={scheduleClose}
+              <button
+                type="button"
+                className={cn(
+                  'relative py-3 text-base no-underline transition-colors duration-200',
+                  megaOpen && megaFocus === 'partners'
+                    ? 'text-[var(--header-nav-hover)]'
+                    : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
+                )}
+                aria-expanded={megaOpen && megaFocus === 'partners'}
+                onMouseEnter={() => openMega('partners')}
+                onFocus={() => openMega('partners')}
               >
                 Partners
-              </Link>
-              <Link
-                href="/pricing/"
-                className="py-3 text-base text-[var(--header-nav)] transition-colors duration-200 hover:text-[var(--header-nav-hover)]"
-                onMouseEnter={scheduleClose}
-              >
-                Pricing
-              </Link>
+              </button>
               <Link
                 href="/blog/"
-                className="py-3 text-base text-[var(--header-nav)] transition-colors duration-200 hover:text-[var(--header-nav-hover)]"
+                className="py-3 text-base text-[var(--header-nav)] no-underline decoration-transparent transition-colors duration-200 hover:text-[var(--header-nav-hover)] hover:no-underline focus-visible:no-underline"
                 onMouseEnter={scheduleClose}
               >
                 Insights
               </Link>
+              <Link
+                href="/pricing/"
+                className="py-3 text-base text-[var(--header-nav)] no-underline decoration-transparent transition-colors duration-200 hover:text-[var(--header-nav-hover)] hover:no-underline focus-visible:no-underline"
+                onMouseEnter={scheduleClose}
+              >
+                Pricing
+              </Link>
             </div>
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <button
               type="button"
               role="switch"
               aria-checked={isEngineering}
               aria-label={isEngineering ? 'Switch to marketing site' : 'Switch to engineering site'}
               onClick={toggleEngineering}
-              className="relative h-[26px] w-[50px] shrink-0 rounded-[13px] transition-colors duration-300"
+              className="relative h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300"
               style={{ backgroundColor: 'var(--header-toggle-track)' }}
             >
               <span
                 className={cn(
-                  'absolute top-px flex size-6 items-center justify-center rounded-full bg-white shadow transition-[left,transform] duration-300 ease-out',
-                  isEngineering ? 'left-[26px]' : 'left-px'
+                  'absolute top-px flex size-5 items-center justify-center rounded-full bg-white shadow transition-[left,transform] duration-300 ease-out',
+                  isEngineering ? 'left-[19px]' : 'left-px'
                 )}
               >
                 {isEngineering ? (
-                  <Moon className="size-3.5 text-violet-700" aria-hidden />
+                  <Moon className="size-3 text-violet-700" aria-hidden />
                 ) : (
-                  <Sun className="size-3.5 text-amber-500" aria-hidden />
+                  <Sun className="size-3 text-amber-500" aria-hidden />
                 )}
               </span>
             </button>
             <Link
               href="/pricing/"
-              className="font-[family-name:var(--font-inter)] hidden rounded-full px-5 py-2.5 text-base font-semibold transition-opacity hover:opacity-90 sm:inline-flex"
+              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 rounded-full px-4 py-2 text-xs font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base"
               style={{
                 backgroundColor: 'var(--header-cta-bg)',
                 color: 'var(--header-cta-fg)'
@@ -260,166 +414,249 @@ export function SiteHeader({ variant = 'fixed' }: SiteHeaderProps) {
 
         <div
           className={cn(
-            'absolute left-0 right-0 top-[calc(100%+12px)] overflow-hidden transition-[opacity,transform] duration-300 ease-out',
+            'absolute left-0 right-0 top-full hidden pt-3 transition-[opacity,transform] duration-300 ease-out lg:block',
             megaOpen ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
           )}
           onMouseEnter={clearClose}
         >
           <div
-            className="font-[family-name:var(--font-inter)] mx-auto flex max-h-[min(80vh,520px)] w-full flex-col gap-8 overflow-y-auto rounded-[24px] px-5 py-7 shadow-xl sm:px-6 lg:flex-row lg:gap-10"
-            style={{
-              backgroundColor: 'var(--header-mega-bg)',
-              boxShadow: 'var(--header-mega-shadow)'
-            }}
+            data-mega-nav-panel
+            className="font-[family-name:var(--font-inter)] flex min-h-0 min-w-0 max-h-[min(80vh,520px)] w-full flex-col gap-8 overflow-y-auto rounded-[24px] px-5 py-7 sm:px-6 lg:flex-row lg:gap-10"
           >
-            <div className="grid min-w-0 flex-1 grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="min-w-0 space-y-3">
-                <p
-                  className="text-xs font-normal uppercase tracking-wide"
-                  style={{ color: 'var(--header-mega-label)' }}
-                >
-                  Platform
-                </p>
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/commerce-suite/"
-                      className="flex gap-2.5 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-black/[0.04]"
-                    >
-                      <span
-                        className="mt-0.5 w-0.5 shrink-0 rounded-[10px]"
-                        style={{ backgroundColor: 'var(--header-accent-line)' }}
-                      />
-                      <div>
-                        <p
-                          className="font-[family-name:var(--font-uncut-sans)] text-base font-medium"
-                          style={{ color: 'var(--header-mega-text)' }}
-                        >
-                          Visual Experience Engine
-                        </p>
-                        <p className="text-xs leading-snug" style={{ color: 'var(--header-mega-muted)' }}>
-                          Easy and fast content creations, for Marketer and/or IT
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/storefront/"
-                      className="flex gap-2.5 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-black/[0.04]"
-                    >
-                      <span
-                        className="mt-0.5 w-0.5 shrink-0 rounded-[10px]"
-                        style={{ backgroundColor: 'var(--header-accent-line)' }}
-                      />
-                      <div>
-                        <p
-                          className="font-[family-name:var(--font-uncut-sans)] text-base font-medium"
-                          style={{ color: 'var(--header-mega-text)' }}
-                        >
-                          Mobile App Storefront
-                        </p>
-                        <p className="text-xs leading-snug" style={{ color: 'var(--header-mega-muted)' }}>
-                          Optimize, fast and modern UI/UX built-in, high conversion with one click checkout
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="min-w-0 space-y-3">
-                <p
-                  className="text-xs font-normal uppercase tracking-wide"
-                  style={{ color: 'var(--header-mega-label)' }}
-                >
-                  Solutions
-                </p>
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/brands/"
-                      className="flex gap-2.5 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-black/[0.04]"
-                    >
-                      <span className="mt-0.5 w-0.5 shrink-0 rounded-[10px] bg-[var(--color-cms-purple)]" />
-                      <div>
-                        <p
-                          className="font-[family-name:var(--font-uncut-sans)] text-base font-medium"
-                          style={{ color: 'var(--header-mega-text)' }}
-                        >
-                          Marketers Team
-                        </p>
-                        <p className="text-xs leading-snug" style={{ color: 'var(--header-mega-muted)' }}>
-                          Update Site without engineering tickets. Schedule and Preview Content in Realtime
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/it/"
-                      className="flex gap-2.5 rounded-xl px-2.5 py-2 transition-colors duration-200 hover:bg-black/[0.04]"
-                    >
-                      <span className="mt-0.5 w-0.5 shrink-0 rounded-[10px] bg-[var(--color-cms-purple)]" />
-                      <div>
-                        <p
-                          className="font-[family-name:var(--font-uncut-sans)] text-base font-medium"
-                          style={{ color: 'var(--header-mega-text)' }}
-                        >
-                          Engineering Team
-                        </p>
-                        <p className="text-xs leading-snug" style={{ color: 'var(--header-mega-muted)' }}>
-                          Build advanced templates in React and React Native. Push out template updates without a
-                          deployment
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="min-w-0 space-y-3 lg:max-w-[140px]">
-                <p
-                  className="text-xs font-normal uppercase tracking-wide"
-                  style={{ color: 'var(--header-mega-label)' }}
-                >
-                  Others
-                </p>
-                <ul
-                  className="font-[family-name:var(--font-uncut-sans)] space-y-3 text-base font-medium"
-                  style={{ color: 'var(--header-mega-text)' }}
-                >
-                  <li>
-                    <Link href="/tech-partners/" className="transition-opacity hover:opacity-80">
-                      Tech Partners
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/integration-partners/" className="underline decoration-solid underline-offset-2">
-                      Become a Partner
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/pricing/" className="transition-opacity hover:opacity-80">
-                      Pricing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog/" className="transition-opacity hover:opacity-80">
-                      Insight
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/our-story/" className="transition-opacity hover:opacity-80">
-                      Webinars
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+            <div className="min-w-0 flex-1 space-y-3">
+              <p className="text-xs font-normal uppercase tracking-wide" style={{ color: 'var(--header-mega-label)' }}>
+                {megaFocus === 'capabilities' ? 'Capabilities' : megaFocus === 'solutions' ? 'Solutions' : 'Partners'}
+              </p>
+              <MegaLinkList
+                items={
+                  megaFocus === 'capabilities'
+                    ? CAPABILITIES_ITEMS
+                    : megaFocus === 'solutions'
+                      ? SOLUTION_ITEMS
+                      : PARTNER_ITEMS
+                }
+              />
             </div>
 
-            <div className="min-h-[220px] w-full min-w-0 shrink-0 lg:max-w-[320px]">
-              <MegaFeaturedCard />
+            {megaFocus !== 'partners' && (
+              <div className="w-full min-w-0 shrink-0 self-start lg:max-w-[320px]">
+                <MegaFeaturedCard />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="site-mobile-nav"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        className={cn(
+          'pointer-events-auto fixed inset-0 z-[60] flex flex-col lg:hidden',
+          mobileNavOpen ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'
+        )}
+      >
+        <button
+          type="button"
+          tabIndex={mobileNavOpen ? 0 : -1}
+          className="absolute inset-0 bg-black/40 transition-opacity"
+          aria-label="Close menu"
+          onClick={() => setMobileNavOpen(false)}
+        />
+        <div
+          data-mega-nav-panel
+          className={cn(
+            'relative flex flex-col rounded-t-[24px] transition-transform duration-300 ease-out',
+            isHome
+              ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
+              : 'mt-[calc(70px+1rem+20px+12px)] min-h-[calc(100dvh-70px-1rem-20px-12px)]',
+            mobileNavOpen ? 'translate-y-0' : 'translate-y-4'
+          )}
+        >
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-5 sm:px-6">
+            <div className="font-[family-name:var(--font-inter)] space-y-1">
+              <div className="border-b" style={{ borderColor: 'var(--header-mega-divider)' }}>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between gap-3 py-4 text-left"
+                  aria-expanded={mobileAccordion === 'capabilities'}
+                  onClick={() => toggleMobileAccordion('capabilities')}
+                >
+                  <span
+                    className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold"
+                    style={{ color: 'var(--header-mega-text)' }}
+                  >
+                    Capabilities
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      'size-5 shrink-0 transition-transform duration-200',
+                      mobileAccordion === 'capabilities' && '-rotate-180'
+                    )}
+                    aria-hidden
+                    style={{ color: 'var(--header-mega-muted)' }}
+                  />
+                </button>
+                {mobileAccordion === 'capabilities' && (
+                  <ul className="space-y-1 pb-4">
+                    {CAPABILITIES_ITEMS.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className={mobileSimpleLinkClass}
+                          onClick={() => setMobileNavOpen(false)}
+                        >
+                          <span
+                            className="mt-1.5 h-8 w-0.5 shrink-0 self-start rounded-[10px]"
+                            style={{ backgroundColor: 'var(--header-accent-line)' }}
+                          />
+                          <div className="min-w-0">
+                            <p className="font-[family-name:var(--font-uncut-sans)] text-base font-medium text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                              {item.title}
+                            </p>
+                            <p className="text-sm leading-snug text-[var(--header-mega-muted)] transition-colors duration-200 group-hover:text-[var(--header-mega-muted-hover)]">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <div className="border-b" style={{ borderColor: 'var(--header-mega-divider)' }}>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between gap-3 py-4 text-left"
+                  aria-expanded={mobileAccordion === 'solutions'}
+                  onClick={() => toggleMobileAccordion('solutions')}
+                >
+                  <span
+                    className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold"
+                    style={{ color: 'var(--header-mega-text)' }}
+                  >
+                    Solutions
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      'size-5 shrink-0 transition-transform duration-200',
+                      mobileAccordion === 'solutions' && '-rotate-180'
+                    )}
+                    aria-hidden
+                    style={{ color: 'var(--header-mega-muted)' }}
+                  />
+                </button>
+                {mobileAccordion === 'solutions' && (
+                  <ul className="space-y-1 pb-4">
+                    {SOLUTION_ITEMS.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className={mobileSimpleLinkClass}
+                          onClick={() => setMobileNavOpen(false)}
+                        >
+                          <span
+                            className="mt-1.5 h-8 w-0.5 shrink-0 self-start rounded-[10px]"
+                            style={{ backgroundColor: 'var(--header-accent-line)' }}
+                          />
+                          <div className="min-w-0">
+                            <p className="font-[family-name:var(--font-uncut-sans)] text-base font-medium text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                              {item.title}
+                            </p>
+                            <p className="text-sm leading-snug text-[var(--header-mega-muted)] transition-colors duration-200 group-hover:text-[var(--header-mega-muted-hover)]">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <div className="border-b" style={{ borderColor: 'var(--header-mega-divider)' }}>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between gap-3 py-4 text-left"
+                  aria-expanded={mobileAccordion === 'partners'}
+                  onClick={() => toggleMobileAccordion('partners')}
+                >
+                  <span
+                    className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold"
+                    style={{ color: 'var(--header-mega-text)' }}
+                  >
+                    Partners
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      'size-5 shrink-0 transition-transform duration-200',
+                      mobileAccordion === 'partners' && '-rotate-180'
+                    )}
+                    aria-hidden
+                    style={{ color: 'var(--header-mega-muted)' }}
+                  />
+                </button>
+                {mobileAccordion === 'partners' && (
+                  <ul className="space-y-1 pb-4">
+                    {PARTNER_ITEMS.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className={mobileSimpleLinkClass}
+                          onClick={() => setMobileNavOpen(false)}
+                        >
+                          <span
+                            className="mt-1.5 h-8 w-0.5 shrink-0 self-start rounded-[10px]"
+                            style={{ backgroundColor: 'var(--header-accent-line)' }}
+                          />
+                          <div className="min-w-0">
+                            <p className="font-[family-name:var(--font-uncut-sans)] text-base font-medium text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                              {item.title}
+                            </p>
+                            <p className="text-sm leading-snug text-[var(--header-mega-muted)] transition-colors duration-200 group-hover:text-[var(--header-mega-muted-hover)]">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <Link
+                href="/blog/"
+                className={cn(mobileSimpleLinkClass, 'border-b')}
+                style={{ borderColor: 'var(--header-mega-divider)' }}
+                onClick={() => setMobileNavOpen(false)}
+              >
+                <span
+                  className="mt-2 h-5 w-0.5 shrink-0 self-start rounded-[10px]"
+                  style={{ backgroundColor: 'var(--header-accent-line)' }}
+                />
+                <span className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                  Insights
+                </span>
+              </Link>
+              <Link
+                href="/pricing/"
+                className={cn(mobileSimpleLinkClass, 'border-b')}
+                style={{ borderColor: 'var(--header-mega-divider)' }}
+                onClick={() => setMobileNavOpen(false)}
+              >
+                <span
+                  className="mt-2 h-5 w-0.5 shrink-0 self-start rounded-[10px]"
+                  style={{ backgroundColor: 'var(--header-accent-line)' }}
+                />
+                <span className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                  Pricing
+                </span>
+              </Link>
+            </div>
+
+            <div className="mt-6 w-full shrink-0">
+              <MegaFeaturedCard onNavigate={() => setMobileNavOpen(false)} />
             </div>
           </div>
         </div>

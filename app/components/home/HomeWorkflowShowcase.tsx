@@ -52,7 +52,7 @@ export function HomeWorkflowShowcase({ className }: { className?: string }) {
   const step = STEPS[active]
 
   return (
-    <section className={cn('home-scheme-light relative overflow-hidden bg-neutral-50', className)}>
+    <section className={cn('home-scheme-light relative overflow-hidden bg-white', className)}>
       <div className="relative mx-auto max-w-[1286px] px-6 py-16 md:px-10 md:py-24 lg:px-[116px]">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-[60px] lg:items-start">
           <div
@@ -83,16 +83,16 @@ export function HomeWorkflowShowcase({ className }: { className?: string }) {
                       <span className="flex rounded-xl p-2.5 text-[#431782]">
                         <Icon className="size-6" strokeWidth={1.75} aria-hidden />
                       </span>
-                      <span className="font-[family-name:var(--font-inter)] text-lg font-semibold leading-7 text-[#171717]">
+                      <span className="font-[family-name:var(--font-uncut-sans)] text-lg font-bold leading-7 text-[#171717]">
                         {s.title}
                       </span>
                     </div>
-                    <p className="font-[family-name:var(--font-inter)] text-base leading-6 text-[#737373]">
+                    <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light leading-6 text-neutral-600">
                       {s.description}
                     </p>
                   </div>
                   <span
-                    className="pointer-events-none absolute right-2 top-2 font-[family-name:var(--font-inter)] text-5xl font-bold leading-none text-[rgba(23,23,23,0.15)]"
+                    className="pointer-events-none absolute right-2 top-2 font-[family-name:var(--font-uncut-sans)] text-5xl font-bold leading-none text-[rgba(23,23,23,0.15)]"
                     aria-hidden
                   >
                     {index + 1}

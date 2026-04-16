@@ -1,3 +1,5 @@
+import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
+import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { cn } from '@/utils/cn'
 import { AlertTriangle, Check } from 'lucide-react'
 
@@ -44,8 +46,8 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         {/* Problem */}
         <div className="flex min-w-0 flex-col">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <h2 className="font-[family-name:var(--font-uncut-sans)] text-2xl font-bold uppercase leading-[1.15] text-[#171717] sm:text-3xl md:text-4xl md:leading-10">
-              It&apos;s 2026. Why are marketers still waiting for Developers?
+            <h2 className={cn('max-w-[855px]', homeSectionTitleClassName)}>
+              It&apos;s 2026. Why are marketers still waiting for developers?
             </h2>
             <div className="flex flex-wrap items-center gap-2.5">
               <AlertTriangle className="size-6 shrink-0 text-[#ff4466]" strokeWidth={2} aria-hidden />
@@ -53,7 +55,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
                 This is broken.
               </p>
             </div>
-            <p className="font-[family-name:var(--font-uncut-sans)] text-lg leading-7 text-[#171717] md:text-xl md:leading-[28px]">
+            <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light leading-7 text-neutral-600 md:text-[17px] md:leading-[28px]">
               We&apos;re generating AI video in seconds.
               <br />
               But marketers still wait days to update a headline.
@@ -69,20 +71,22 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         {/* Solution */}
         <div className="flex min-w-0 flex-col lg:justify-center lg:pt-[140px]">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <h2 className="font-[family-name:var(--font-uncut-sans)] text-2xl font-bold leading-tight text-[#171717] sm:text-3xl md:text-4xl md:leading-10">
-              <span className="font-normal text-[#595959]">Solution:</span>{' '}
-              <span className="font-[family-name:var(--font-gt-walsheim)] font-bold">
-                BILD
-                <span className="text-[#ed1e79]">IT</span>
+            <h2 className={cn('max-w-[855px] flex flex-wrap items-center gap-x-3 gap-y-2', homeSectionTitleClassName)}>
+              <span className="font-light text-neutral-600">Solution:</span>
+              <span className="inline-flex items-center">
+                <span className="sr-only">BILDIT</span>
+                <BilditLogo className="h-9 w-auto sm:h-10 md:h-11" />
               </span>
             </h2>
-            <div className="flex flex-col gap-0 font-[family-name:var(--font-uncut-sans)] text-lg md:text-xl">
-              <p className="leading-[32.5px] text-[#171717]">Break free from deployments.</p>
-              <p className="leading-[32.5px] text-[#595959]">BILDIT turns your site into a Visual Experience Engine.</p>
+            <div className="flex flex-col gap-0 font-[family-name:var(--font-uncut-sans)] text-base md:text-[17px]">
+              <p className="font-bold leading-[32.5px] text-[#171717]">Break free from deployments.</p>
+              <p className="font-light leading-[32.5px] text-neutral-600">
+                BILDIT turns your site into a Visual Experience Engine.
+              </p>
             </div>
 
             <div className="flex flex-col gap-2.5 rounded-3xl">
-              <p className="font-[family-name:var(--font-uncut-sans)] text-base font-bold uppercase tracking-[0.8px] text-[#171717]">
+              <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-neutral-600">
                 Push out:
               </p>
               <ul className="space-y-1 font-[family-name:var(--font-uncut-sans)] text-lg font-medium leading-7">

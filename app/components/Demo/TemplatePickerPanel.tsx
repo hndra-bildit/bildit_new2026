@@ -90,7 +90,7 @@ const TemplatePickerPanel: React.FC<TemplatePickerPanelProps> = ({ open, onClose
           })}
         </ul>
 
-        <div className="shrink-0 border-t border-[#d9d9d9] bg-[#fafafa] px-4 py-4">
+        <div className="shrink-0 border-t border-[#d9d9d9] bg-white px-4 py-4">
           <a
             href={BILDIT_FREE_TRIAL_URL}
             target="_blank"

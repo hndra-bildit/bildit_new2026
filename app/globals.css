@@ -11,17 +11,22 @@
   --header-pill-bg: rgba(255, 255, 255, 0.96);
   --header-pill-shadow: 0px 2px 3.6px rgba(0, 0, 0, 0.1);
   --header-nav: #0d0118;
-  --header-nav-hover: #431782;
+  --header-nav-hover: #000000;
   --header-logo-bild: #0d0118;
   --header-logo-it: #ed1e79;
   --header-cta-bg: #0d0118;
   --header-cta-fg: #f5f7fa;
   --header-toggle-track: #ed1e79;
-  --header-mega-bg: rgba(255, 255, 255, 0.92);
+  --header-mega-bg: var(--header-pill-bg);
   --header-mega-shadow: -4px 7px 9.8px rgba(0, 0, 0, 0.12);
   --header-mega-text: #171717;
   --header-mega-muted: #595959;
+  --header-mega-text-hover: #0a0a0a;
+  --header-mega-muted-hover: #404040;
   --header-mega-label: #737373;
+  --header-mega-row-hover: rgba(0, 0, 0, 0.04);
+  --header-mega-row-active: rgba(0, 0, 0, 0.08);
+  --header-mega-divider: rgba(0, 0, 0, 0.08);
   --header-accent-line: #c850f0;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -60,17 +65,43 @@
 /* Over light sections — dark pill, light wordmark */
 body.header-scheme-light {
   --header-pill-bg: rgba(23, 23, 23, 0.92);
+  /* Re-bind on body so mega menu / drawers always share the pill surface (fixes stray light panel). */
+  --header-mega-bg: var(--header-pill-bg);
+  --header-mega-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
   --header-nav: #f0e6ff;
-  --header-nav-hover: #ffffff;
+  --header-nav-hover: #e0d4f5;
   --header-logo-bild: #ffffff;
-  --header-logo-it: #ffffff;
+  --header-logo-it: #ed1e79;
   --header-cta-bg: #ffffff;
   --header-cta-fg: #595959;
   --header-toggle-track: #7270e9;
-  --header-mega-bg: rgba(255, 255, 255, 0.96);
-  --header-mega-text: #171717;
-  --header-mega-muted: #595959;
-  --header-mega-label: #737373;
+  --header-mega-text: #fafafa;
+  --header-mega-muted: rgba(250, 250, 250, 0.72);
+  --header-mega-text-hover: #e8e8e8;
+  --header-mega-muted-hover: rgba(250, 250, 250, 0.62);
+  --header-mega-label: rgba(250, 250, 250, 0.55);
+  --header-mega-row-hover: rgba(255, 255, 255, 0.08);
+  --header-mega-row-active: rgba(255, 255, 255, 0.12);
+  --header-mega-divider: rgba(255, 255, 255, 0.12);
+}
+
+/*
+ * Mega menu / mobile nav sheet: tell the UA the panel’s color scheme matches the
+ * header pill so default text and controls stay readable (dark panel → light ink).
+ */
+body.header-scheme-light [data-mega-nav-panel] {
+  color-scheme: dark;
+  color: var(--header-mega-text);
+}
+
+body:not(.header-scheme-light) [data-mega-nav-panel] {
+  color-scheme: light;
+  color: var(--header-mega-text);
+}
+
+[data-mega-nav-panel] {
+  background-color: var(--header-mega-bg);
+  box-shadow: var(--header-mega-shadow);
 }
 
 @theme {

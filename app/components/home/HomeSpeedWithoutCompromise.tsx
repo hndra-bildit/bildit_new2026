@@ -1,3 +1,4 @@
+import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
@@ -56,22 +57,17 @@ export function HomeSpeedWithoutCompromise({ className }: { className?: string }
         className
       )}
     >
-      <div
-        className="pointer-events-none absolute left-1/2 top-[100px] h-[603.5px] w-[min(1512px,100%)] -translate-x-1/2"
-        aria-hidden
-      >
-        <div className="absolute left-[25%] top-[201px] size-[400px] rounded-full bg-[rgba(124,58,237,0.15)] blur-[100px]" />
-        <div className="absolute left-[49%] top-0.5 size-[400px] rounded-full bg-[rgba(232,69,144,0.08)] blur-[100px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-[72px] flex justify-center px-6 sm:px-8" aria-hidden>
+        <div className="relative h-[280px] w-full max-w-[min(560px,calc(100%-2rem))]">
+          <div className="absolute left-[18%] top-[52%] size-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(124,58,237,0.14)] blur-[72px]" />
+          <div className="absolute left-[58%] top-[38%] size-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(232,69,144,0.085)] blur-[72px]" />
+        </div>
       </div>
 
       <div className="relative mx-auto flex max-w-[1512px] flex-col items-center gap-12 px-3 py-16 sm:px-4 md:gap-16 md:py-20 lg:py-24">
         <header className="flex max-w-[768px] flex-col items-center gap-4 text-center">
-          <h2 className="font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl md:leading-[48px]">
-            Speed without compromise.
-          </h2>
-          <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold leading-7 text-[#595959] md:text-xl md:leading-7">
-            Independence for Marketing and IT.
-          </p>
+          <h2 className={cn('text-center', homeSectionTitleClassName)}>Speed without compromise.</h2>
+          <p className={cn(homeSectionSubtitleClassName, 'text-center')}>Independence for marketing and IT.</p>
         </header>
 
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-4 xl:gap-[34px]">

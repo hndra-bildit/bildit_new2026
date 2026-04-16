@@ -1,6 +1,10 @@
 'use client'
 
 import { type ElementRef, useEffect, useRef, useState } from 'react'
+import {
+  homeSectionSubtitleOnDarkClassName,
+  homeSectionTitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
@@ -21,12 +25,15 @@ const BONUS_ITEMS = [
 /** Same radius as `HomeHero` (`rounded-[51px]`). */
 const HERO_RADIUS = 51
 
+/** Full-bleed parallax layer behind the section (`public/images/...`). */
+const SECTION_BACKGROUND_SRC = '/images/Gemini_Generated_Image_n7gce1n7gce1n7gc%201.png'
+
 /** Extra height for light “shoulders” that mimic adjacent blocks’ rounding. */
 const CAP_HEIGHT_PX = 60
 
-/** Subtle parallax: background shifts ~0.06× section offset from viewport. */
-const PARALLAX_RATE = 0.06
-const PARALLAX_MAX_PX = 28
+/** Subtle parallax: background shifts with scroll as the section crosses the viewport. */
+const PARALLAX_RATE = 0.1
+const PARALLAX_MAX_PX = 56
 
 function useParallaxY(enabled: boolean) {
   const sectionRef = useRef<ElementRef<'section'>>(null)
@@ -43,7 +50,10 @@ function useParallaxY(enabled: boolean) {
       const el = sectionRef.current
       if (!el) return
       const rect = el.getBoundingClientRect()
-      const offset = rect.top * PARALLAX_RATE
+      const sectionMidY = rect.top + rect.height / 2
+      const viewportMidY = window.innerHeight / 2
+      // Positive when section center is below viewport center → image drifts down slightly.
+      const offset = (sectionMidY - viewportMidY) * PARALLAX_RATE
       const clamped = Math.max(-PARALLAX_MAX_PX, Math.min(PARALLAX_MAX_PX, offset))
       setY(clamped)
     }
@@ -82,27 +92,24 @@ function usePrefersReducedMotion(): boolean {
 }
 
 /**
- * Figma “Everything you need” (4765:13732): blurred grid parallax, dark feature frame, nested checklist card.
- * Parallax image runs behind the full section with no color overlay; shoulder caps match page surface (`bg-neutral-50`).
+ * “Everything you need”: full-bleed parallax background, dark feature frame, nested checklist card.
+ * Parallax image runs behind the full section with no color overlay; shoulder caps match page surface (`bg-white`).
  */
 export function HomeEverythingYouNeed({ className }: { className?: string }) {
   const reducedMotion = usePrefersReducedMotion()
   const { sectionRef, parallaxY } = useParallaxY(!reducedMotion)
 
   return (
-    <section
-      ref={sectionRef}
-      className={cn('home-scheme-light relative w-full overflow-hidden bg-neutral-50', className)}
-    >
+    <section ref={sectionRef} className={cn('home-scheme-light relative w-full overflow-hidden bg-white', className)}>
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         <div
-          className="absolute inset-0 will-change-transform"
+          className="absolute -top-[10%] left-0 right-0 h-[120%] will-change-transform"
           style={{
             transform: `translateY(${parallaxY}px)`
           }}
         >
           <Image
-            src="/images/Section.png"
+            src={SECTION_BACKGROUND_SRC}
             alt=""
             fill
             sizes="100vw"
@@ -114,7 +121,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
       <div
         aria-hidden
-        className="relative z-[1] w-full bg-neutral-50"
+        className="relative z-[1] w-full bg-white"
         style={{
           height: CAP_HEIGHT_PX,
           borderBottomLeftRadius: HERO_RADIUS,
@@ -142,10 +149,10 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
             </div>
 
             <div className="relative z-[1] flex w-full max-w-[768px] flex-col gap-6 text-center">
-              <h2 className="font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight text-[#f5f7fa] md:text-4xl md:leading-tight lg:text-[48px] lg:leading-[48px]">
+              <h2 className={cn('text-center', homeSectionTitleOnDarkClassName, 'text-[#f0e6ff]')}>
                 Everything you need. Nothing holding you back.
               </h2>
-              <p className="font-[family-name:var(--font-uncut-sans)] text-base leading-7 text-[#d6c1ea] md:text-lg md:leading-7">
+              <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-lg leading-[29.25px]')}>
                 You get:
               </p>
             </div>
@@ -153,7 +160,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
             <div
               className={cn(
                 'relative z-[1] mt-10 w-full max-w-[829px] rounded-2xl border border-black/[0.08]',
-                'bg-[#fafafa] p-8 md:p-10'
+                'bg-white p-8 md:p-10'
               )}
             >
               <div className="flex flex-col gap-10 lg:flex-row lg:gap-10">
@@ -178,7 +185,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                 </ul>
 
                 <div className="flex flex-1 flex-col gap-3 border-t border-black/[0.03] pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                  <p className="font-[family-name:var(--font-uncut-sans)] text-sm font-semibold uppercase tracking-[0.7px] text-[#c850f0]">
+                  <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-[#c850f0]">
                     Bonus:
                   </p>
                   <ul className="flex flex-col gap-3">
@@ -203,7 +210,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                 </div>
               </div>
 
-              <p className="font-[family-name:var(--font-uncut-sans)] mt-10 text-center text-lg font-semibold leading-7 text-[#0d0118]">
+              <p className="font-[family-name:var(--font-uncut-sans)] mt-10 text-center text-lg font-bold leading-7 text-[#0d0118]">
                 Set it up once. Control forever.
               </p>
             </div>
@@ -213,7 +220,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
       <div
         aria-hidden
-        className="relative z-[1] -mt-px w-full bg-neutral-50"
+        className="relative z-[1] -mt-px w-full bg-white"
         style={{
           height: CAP_HEIGHT_PX,
           borderTopLeftRadius: HERO_RADIUS,

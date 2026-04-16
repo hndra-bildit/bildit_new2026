@@ -23,7 +23,7 @@ export default function Home() {
         }}
       />
       <HomeHero />
-      <main className="w-full bg-neutral-50">
+      <main className="w-full bg-white">
         <HomeDesignedForEcommerce />
         <div className="mx-auto max-w-[1512px] px-3 pt-10 sm:px-4">
           <HomeWorkflowShowcase />

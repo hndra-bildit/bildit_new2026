@@ -1,3 +1,7 @@
+import {
+  homeSectionSubtitleOnDarkClassName,
+  homeSectionTitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -19,7 +23,7 @@ const CTA_GRADIENT = 'linear-gradient(90deg, rgb(200, 80, 240) 0%, rgb(232, 69, 
 export function HomeEarlyAccess({ className }: { className?: string }) {
   return (
     <section
-      className={cn('home-scheme-light relative w-full overflow-hidden bg-[#f4f6f9] py-16 md:py-24', className)}
+      className={cn('home-scheme-light relative w-full overflow-hidden bg-white py-16 md:py-24', className)}
       aria-labelledby="home-early-access-heading"
     >
       <div
@@ -61,24 +65,21 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
             </div>
 
             <div className="flex max-w-[768px] flex-col gap-2.5 text-center">
-              <h2
-                id="home-early-access-heading"
-                className="font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-10 text-[#f0e6ff] md:text-4xl md:leading-[40px]"
-              >
-                Join our Early Access Program
+              <h2 id="home-early-access-heading" className={cn(homeSectionTitleOnDarkClassName, 'text-[#f0e6ff]')}>
+                Join our early access program.
               </h2>
-              <p className="font-[family-name:var(--font-uncut-sans)] text-lg leading-[29.25px] text-[#d6c1ea]">
+              <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-lg leading-[29.25px]')}>
                 If you&apos;re excited about creating and personalizing amazing content with a visual editor and live
-                previews, WE WANT YOU. We are looking for 10 eCommerce brands who want to use our product for free for 6
-                months with our training and implementation.
+                previews, we want you. We are looking for 10 eCommerce brands who want to use our product for free for
+                six months with our training and implementation.
               </p>
             </div>
 
             <div className="flex w-full max-w-[900px] flex-col gap-12">
               <div className="flex flex-col items-start justify-center gap-10 md:flex-row md:gap-[60px]">
                 <div className="flex flex-col gap-2.5 text-[#f0e6ff]">
-                  <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-semibold leading-7">
-                    What Do You Get?
+                  <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-bold leading-7">
+                    What do you get?
                   </p>
                   <ul className="list-disc space-y-0 pl-7 font-[family-name:var(--font-uncut-sans)] text-lg leading-9 marker:text-[#f0e6ff]">
                     {GET_ITEMS.map((item) => (
@@ -87,8 +88,8 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
                   </ul>
                 </div>
                 <div className="flex flex-col gap-2.5">
-                  <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-semibold leading-7 text-[#f0e6ff]">
-                    Bonus
+                  <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-bold leading-7 text-[#f0e6ff]">
+                    Bonus:
                   </p>
                   <ul className="flex flex-col gap-2.5">
                     {BONUS_ITEMS.map((item) => (
@@ -118,8 +119,8 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
                   Request Access
                   <ArrowRight className="size-4 shrink-0" aria-hidden />
                 </Link>
-                <p className="text-center font-[family-name:var(--font-uncut-sans)] text-base leading-7 text-[#d6c1ea]">
-                  You&apos;ll open the Early Access program page with full details.
+                <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-base leading-7')}>
+                  You&apos;ll open the early access program page with full details.
                 </p>
               </div>
             </div>

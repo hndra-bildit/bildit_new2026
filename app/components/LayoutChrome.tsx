@@ -10,7 +10,7 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
 
   return (
     <>
-      {!isHome && <Header />}
+      <Header />
       <div className={isHome ? undefined : 'pt-[5.5rem]'}>{children}</div>
     </>
   )

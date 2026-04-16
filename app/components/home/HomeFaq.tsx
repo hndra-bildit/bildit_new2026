@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { HOME_FAQ_ENTRIES, HOME_FAQ_SUBTITLE, homeFaqGetStartedAnswerParts } from '@/app/lib/home-faq-data'
 import { cn } from '@/utils/cn'
 import { ChevronDown } from 'lucide-react'
@@ -36,14 +37,10 @@ export function HomeFaq({ className }: { className?: string }) {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className={cn('home-scheme-light bg-neutral-50 py-20 md:py-28', className)}>
+    <section className={cn('home-scheme-light bg-white py-20 md:py-28', className)}>
       <div className="mx-auto max-w-[1260px] px-6">
-        <h2 className="font-[family-name:var(--font-inter)] text-center text-3xl font-bold text-neutral-900 md:text-4xl">
-          Frequently Asked Questions
-        </h2>
-        <p className="font-[family-name:var(--font-inter)] mx-auto mt-4 max-w-2xl text-center text-base text-neutral-600 md:text-lg">
-          {HOME_FAQ_SUBTITLE}
-        </p>
+        <h2 className={cn('text-center', homeSectionTitleClassName)}>Frequently asked questions.</h2>
+        <p className={cn(homeSectionSubtitleClassName, 'mx-auto mt-4 text-center')}>{HOME_FAQ_SUBTITLE}</p>
         <ul className="mx-auto mt-12 max-w-3xl space-y-3">
           {HOME_FAQ_ENTRIES.map((item, i) => {
             const isOpen = open === i

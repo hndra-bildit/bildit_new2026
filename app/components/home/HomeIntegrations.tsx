@@ -1,3 +1,5 @@
+import { homeSectionSubtitleClassName } from '@/app/components/home/home-section-typography'
+import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 const LOGOS = [
@@ -14,8 +16,8 @@ export function HomeIntegrations() {
   return (
     <section className="border-y border-black/[0.05] bg-white" aria-label="eCommerce platform integrations">
       <div className="mx-auto flex max-w-[1260px] flex-col items-center gap-6 px-6 py-10 md:gap-6 md:py-11">
-        <p className="font-[family-name:var(--font-inter)] text-center text-sm font-medium uppercase leading-5 tracking-[0.7px] text-[#595959]">
-          Integrated with the top eCommerce Platforms
+        <p className={cn(homeSectionSubtitleClassName, 'max-w-none text-center')}>
+          Integrated with the top eCommerce platforms.
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">
           {LOGOS.map((logo) => (
