@@ -11,7 +11,7 @@ const Demo: React.FC = () => {
   return (
     <section className="bg-white py-16">
       <div className="container mx-auto max-w-4xl px-4">
-        <h2 className={cn('mb-8 text-center', homeSectionTitleClassName)}>Try out live preview.</h2>
+        <h2 className={cn('mb-8 hidden text-center md:block', homeSectionTitleClassName)}>Try out live preview.</h2>
         <p className={cn(homeSectionSubtitleClassName, 'mx-auto mb-10 text-center')}>
           Click any text to edit. Change colors, styling, and content. Watch it update instantly.
         </p>

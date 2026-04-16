@@ -187,7 +187,6 @@ export function SiteHeader() {
   const router = useRouter()
   const isHome = pathname.replace(/\/$/, '') === ''
   const isEngineering = pathname.replace(/\/$/, '') === '/it'
-
   const [megaOpen, setMegaOpen] = useState(false)
   const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -282,23 +281,23 @@ export function SiteHeader() {
       className={cn(
         'pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center',
         isHome
-          ? 'px-6 sm:px-[calc((1rem+20px)*0.42+40px)] pt-[20px] sm:pt-[calc((1rem+20px)*0.42+20px)]'
-          : 'px-4 sm:px-[calc(1rem+20px)] pt-[calc(1rem+20px)]'
+          ? 'px-3 pt-[10px] sm:px-[calc((1rem+20px)*0.42+40px)] sm:pt-[calc((1rem+20px)*0.42+20px)]'
+          : 'px-2 pt-[calc(0.5rem+10px)] sm:px-[calc(1rem+20px)] sm:pt-[calc(1rem+20px)]'
       )}
     >
       <div className="pointer-events-auto relative w-full max-w-[1260px]" onMouseLeave={scheduleClose}>
         <div
           data-header-pill
-          className="flex h-[70px] items-center justify-between gap-2 rounded-[45px] pl-3 pr-3 sm:pl-6 sm:pr-4 lg:pl-10"
+          className="flex h-[70px] items-center justify-between gap-1 rounded-[45px] pl-1.5 pr-1.5 sm:gap-2 sm:pl-6 sm:pr-4 lg:pl-10"
           style={{
             backgroundColor: 'var(--header-pill-bg)',
             boxShadow: 'var(--header-pill-shadow)'
           }}
         >
-          <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 lg:flex-initial lg:gap-0">
+          <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-3 lg:flex-initial lg:gap-0">
             <button
               type="button"
-              className="flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-black/[0.06] lg:hidden"
+              className="site-header-mobile-trigger flex size-10 shrink-0 items-center justify-center rounded-full transition-colors lg:hidden"
               aria-expanded={mobileNavOpen}
               aria-controls="site-mobile-nav"
               aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
@@ -376,14 +375,14 @@ export function SiteHeader() {
             </div>
           </nav>
 
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <div className="flex shrink-0 items-center gap-[3px] sm:gap-2">
             <button
               type="button"
               role="switch"
               aria-checked={isEngineering}
               aria-label={isEngineering ? 'Switch to marketing site' : 'Switch to engineering site'}
               onClick={toggleEngineering}
-              className="relative h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300"
+              className="relative hidden h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300 lg:inline-flex"
               style={{ backgroundColor: 'var(--header-toggle-track)' }}
             >
               <span
@@ -469,8 +468,8 @@ export function SiteHeader() {
           className={cn(
             'relative flex flex-col rounded-t-[24px] transition-transform duration-300 ease-out',
             isHome
-              ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
-              : 'mt-[calc(70px+1rem+20px+12px)] min-h-[calc(100dvh-70px-1rem-20px-12px)]',
+              ? 'mt-[calc(70px+10px+12px)] min-h-[calc(100dvh-70px-10px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
+              : 'mt-[calc(70px+0.5rem+10px+12px)] min-h-[calc(100dvh-70px-0.5rem-10px-12px)] sm:mt-[calc(70px+1rem+20px+12px)] sm:min-h-[calc(100dvh-70px-1rem-20px-12px)]',
             mobileNavOpen ? 'translate-y-0' : 'translate-y-4'
           )}
         >

@@ -85,6 +85,20 @@ body.header-scheme-light {
   --header-mega-divider: rgba(255, 255, 255, 0.12);
 }
 
+/* Mobile menu (hamburger / close): nav ink on light pill; white on dark pill */
+[data-header-pill] .site-header-mobile-trigger {
+  color: var(--header-nav);
+}
+[data-header-pill] .site-header-mobile-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+body.header-scheme-light [data-header-pill] .site-header-mobile-trigger {
+  color: #ffffff;
+}
+body.header-scheme-light [data-header-pill] .site-header-mobile-trigger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 /*
  * Mega menu / mobile nav sheet: tell the UA the panel’s color scheme matches the
  * header pill so default text and controls stay readable (dark panel → light ink).
@@ -242,37 +256,46 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
 }
 
 /*
- * Stat metrics (7×,0, …) — full-height vertical sweep (pink at bottom → purple at top).
- * Extra-tall background + overscan so the sweep isn’t clipped at the glyph baseline.
+ * Stat metrics (7×, 0, +33%) — horizontal scroll: a vivid band moves across the glyphs
+ * (ink → pink/purple → ink). Easier to read than a fast vertical fill at small durations.
  */
 @keyframes home-stat-metric-gradient {
   0%,
-  8% {
+  5% {
     color: #171717;
     -webkit-text-fill-color: #171717;
     background-image: none;
     background-clip: unset;
     -webkit-background-clip: unset;
   }
-  12% {
+  8% {
     color: transparent;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to top, #e84590 0%, #c850f0 100%);
-    /* ~9× glyph height: room below/above so the sweep clears bottom and top */
-    background-size: 100% 900%;
-    /* Start with gradient band fully below, end with band fully above */
-    background-position: 50% 180%;
+    /* Wide tile: mostly ink with a centered color band; scrolling X reveals the band */
+    background-image: linear-gradient(
+      90deg,
+      #171717 0%,
+      #171717 30%,
+      #e84590 42%,
+      #c850f0 50%,
+      #e84590 58%,
+      #171717 70%,
+      #171717 100%
+    );
+    background-size: 280% 100%;
+    background-position: 100% 50%;
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-clip: text;
   }
+  /* Scroll band right → left across the text */
   52% {
-    background-position: 50% -80%;
+    background-position: 0% 50%;
   }
-  62% {
-    background-position: 50% -80%;
+  58% {
+    background-position: 0% 50%;
   }
-  72%,
+  64%,
   100% {
     color: #171717;
     -webkit-text-fill-color: #171717;
@@ -291,7 +314,7 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
 }
 
 .home-stat-metric-fill {
-  animation: home-stat-metric-gradient 7s cubic-bezier(0.45, 0, 0.25, 1) forwards;
+  animation: home-stat-metric-gradient 1.15s linear forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

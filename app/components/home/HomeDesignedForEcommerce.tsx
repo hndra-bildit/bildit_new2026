@@ -40,9 +40,9 @@ const VALUE_CLASS_METRIC = 'font-[family-name:var(--font-inter)] text-6xl leadin
 
 /**
  * Purple→pink text sweep length — must match `.home-stat-metric-fill` in globals.css.
- * Used to chain 7× → 0; +33% is static.
+ * Chains 7× → 0 → +33% one after another.
  */
-const METRIC_GRADIENT_DURATION_MS = 7000
+const METRIC_GRADIENT_DURATION_MS = 1150
 
 /**
  * Start when the stats block is meaningfully on screen. The strict “fully contained”
@@ -95,9 +95,17 @@ function StatSevenGradient({ active, className }: { active: boolean; className?:
   )
 }
 
-function StatPlusThirtyThree({ className }: { className?: string }) {
+function StatPlusThirtyThree({ active, className }: { active: boolean; className?: string }) {
   return (
-    <p className={cn(VALUE_CLASS, 'font-semibold tabular-nums', className)} aria-label="+33% faster page loads">
+    <p
+      className={cn(
+        VALUE_CLASS_METRIC,
+        'home-stat-metric-wrap font-semibold tabular-nums',
+        active && 'home-stat-metric-fill',
+        className
+      )}
+      aria-label="+33% faster page loads"
+    >
       +33%
     </p>
   )
@@ -123,6 +131,7 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
   const statsRef = useRef<HTMLDivElement>(null)
   const [statsFullyVisible, setStatsFullyVisible] = useState(false)
   const [zeroActive, setZeroActive] = useState(false)
+  const [plusThirtyThreeActive, setPlusThirtyThreeActive] = useState(false)
   const reducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
@@ -147,10 +156,15 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
     if (!statsFullyVisible) return
     if (reducedMotion) {
       setZeroActive(true)
+      setPlusThirtyThreeActive(true)
       return
     }
-    const id = window.setTimeout(() => setZeroActive(true), METRIC_GRADIENT_DURATION_MS)
-    return () => clearTimeout(id)
+    const idZero = window.setTimeout(() => setZeroActive(true), METRIC_GRADIENT_DURATION_MS)
+    const idPlus = window.setTimeout(() => setPlusThirtyThreeActive(true), METRIC_GRADIENT_DURATION_MS * 2)
+    return () => {
+      clearTimeout(idZero)
+      clearTimeout(idPlus)
+    }
   }, [statsFullyVisible, reducedMotion])
 
   return (
@@ -183,7 +197,7 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
                 ) : stat.value === '0' ? (
                   <StatZero active={zeroActive} />
                 ) : stat.title === 'Faster page loads' ? (
-                  <StatPlusThirtyThree />
+                  <StatPlusThirtyThree active={plusThirtyThreeActive} />
                 ) : (
                   <p className={cn(VALUE_CLASS, stat.valueClassName)}>{stat.value}</p>
                 )}

@@ -71,8 +71,13 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         {/* Solution */}
         <div className="flex min-w-0 flex-col lg:justify-center lg:pt-[140px]">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <h2 className={cn('max-w-[855px] flex flex-wrap items-center gap-x-3 gap-y-2', homeSectionTitleClassName)}>
-              <span className="font-light text-neutral-600">Solution:</span>
+            <h2
+              className={cn(
+                'max-w-[855px] flex flex-wrap items-center gap-x-3 gap-y-2 [--header-logo-bild:#0d0118] [--header-logo-it:#ed1e79]',
+                homeSectionTitleClassName
+              )}
+            >
+              <span>Solution:</span>
               <span className="inline-flex items-center">
                 <span className="sr-only">BILDIT</span>
                 <BilditLogo className="h-9 w-auto sm:h-10 md:h-11" />
