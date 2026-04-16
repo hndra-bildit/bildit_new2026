@@ -12,7 +12,7 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      <div className={isHome ? undefined : 'pt-[5.5rem]'}>{children}</div>
+      <div className={isHome ? undefined : 'pt-[calc(5.5rem+10px)] sm:pt-[5.5rem]'}>{children}</div>
       <FloatingSiteModeToggle />
     </>
   )

@@ -9,7 +9,7 @@ import Link from 'next/link'
  * Figma: hero (node 4728:27037). Background matches React Bits “floating lines”
  * studio preset (speed 0.2, bend 15 / 2; no parallax / mouse).
  * Site header is fixed globally (LayoutChrome). Home: sm+ hero inset calc((1rem + 20px) * 0.42); nav pill is a further 40px in on left/right and 20px below the hero top (see SiteHeader isHome).
- * Mobile: full-bleed; nav uses px-6 / 20px top inside the hero.
+ * Mobile: full-bleed; nav uses px-3 / 20px top inset (matches SiteHeader isHome pt).
  * Background: React Bits FloatingLines (WebGL) matching Background Studio export.
  */
 export function HomeHero({ className }: { className?: string }) {
@@ -18,7 +18,7 @@ export function HomeHero({ className }: { className?: string }) {
       id="home-hero"
       data-header-surface="dark"
       className={cn(
-        'relative m-0 flex min-h-svh w-full flex-col rounded-none pt-[calc(70px+20px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]',
+        'relative m-0 flex min-h-svh w-full flex-col rounded-none pt-[calc(70px+30px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]',
         className
       )}
     >

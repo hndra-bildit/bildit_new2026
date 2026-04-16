@@ -281,14 +281,14 @@ export function SiteHeader() {
       className={cn(
         'pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center',
         isHome
-          ? 'px-3 pt-[10px] sm:px-[calc((1rem+20px)*0.42+40px)] sm:pt-[calc((1rem+20px)*0.42+20px)]'
-          : 'px-2 pt-[calc(0.5rem+10px)] sm:px-[calc(1rem+20px)] sm:pt-[calc(1rem+20px)]'
+          ? 'px-3 pt-[20px] sm:px-[calc((1rem+20px)*0.42+40px)] sm:pt-[calc((1rem+20px)*0.42+20px)]'
+          : 'px-2 pt-[calc(0.5rem+20px)] sm:px-[calc(1rem+20px)] sm:pt-[calc(1rem+20px)]'
       )}
     >
       <div className="pointer-events-auto relative w-full max-w-[1260px]" onMouseLeave={scheduleClose}>
         <div
           data-header-pill
-          className="flex h-[70px] items-center justify-between gap-1 rounded-[45px] pl-1.5 pr-1.5 sm:gap-2 sm:pl-6 sm:pr-4 lg:pl-10"
+          className="flex h-[70px] items-center justify-between gap-1 rounded-[45px] pl-1.5 pr-3 sm:gap-2 sm:pl-6 sm:pr-4 lg:pl-10"
           style={{
             backgroundColor: 'var(--header-pill-bg)',
             boxShadow: 'var(--header-pill-shadow)'
@@ -400,7 +400,7 @@ export function SiteHeader() {
             </button>
             <Link
               href="/pricing/"
-              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 rounded-full px-4 py-2 text-xs font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base"
+              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center rounded-full px-4 py-3 text-xs font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base"
               style={{
                 backgroundColor: 'var(--header-cta-bg)',
                 color: 'var(--header-cta-fg)'
@@ -468,8 +468,8 @@ export function SiteHeader() {
           className={cn(
             'relative flex flex-col rounded-t-[24px] transition-transform duration-300 ease-out',
             isHome
-              ? 'mt-[calc(70px+10px+12px)] min-h-[calc(100dvh-70px-10px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
-              : 'mt-[calc(70px+0.5rem+10px+12px)] min-h-[calc(100dvh-70px-0.5rem-10px-12px)] sm:mt-[calc(70px+1rem+20px+12px)] sm:min-h-[calc(100dvh-70px-1rem-20px-12px)]',
+              ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
+              : 'mt-[calc(70px+0.5rem+20px+12px)] min-h-[calc(100dvh-70px-0.5rem-20px-12px)] sm:mt-[calc(70px+1rem+20px+12px)] sm:min-h-[calc(100dvh-70px-1rem-20px-12px)]',
             mobileNavOpen ? 'translate-y-0' : 'translate-y-4'
           )}
         >
