@@ -25,8 +25,8 @@ const BONUS_ITEMS = [
 /** Same radius as `HomeHero` (`rounded-[51px]`). */
 const HERO_RADIUS = 51
 
-/** Full-bleed parallax layer behind the section (`public/images/...`). */
-const SECTION_BACKGROUND_SRC = '/images/Gemini_Generated_Image_n7gce1n7gce1n7gc%201.png'
+/** Full-bleed parallax layer behind the section (`public/images/Mac Marketer.jpg`). */
+const SECTION_BACKGROUND_SRC = '/images/Mac%20Marketer.jpg'
 
 /** Extra height for light “shoulders” that mimic adjacent blocks’ rounding. */
 const CAP_HEIGHT_PX = 60

@@ -1,3 +1,5 @@
+import { BuildPeopleProductsHeading } from '@/app/components/BuildPeopleProductsHeading'
+import { cn } from '@/utils/cn'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -37,15 +39,13 @@ const colLearn = [
   { label: 'Resources', href: '/blog/' }
 ]
 
-export function SiteFooter() {
+export function SiteFooter({ showBuildTitle = true }: { showBuildTitle?: boolean }) {
   return (
     <footer className="border-t border-neutral-200 bg-white">
       <div className="mx-auto max-w-[1260px] px-6 py-12 md:py-16">
-        <p className="font-[family-name:var(--font-archivo-black)] max-w-none text-4xl uppercase tracking-tight text-transparent [-webkit-text-fill-color:transparent] sm:text-5xl md:text-6xl md:leading-[1.06] md:tracking-[-0.03em] lg:text-7xl [-webkit-background-clip:text] [background-clip:text] [background-image:url('/images/BILDIT%20Lines%20Animation.gif')] [background-position:center_center] [background-repeat:no-repeat] [background-size:cover]">
-          build people and products
-        </p>
+        {showBuildTitle ? <BuildPeopleProductsHeading /> : null}
 
-        <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,280px)_1fr] md:gap-16">
+        <div className={cn('grid gap-10 md:grid-cols-[minmax(0,280px)_1fr] md:gap-16', showBuildTitle && 'mt-10')}>
           <div>
             <Link href="/" className="inline-block" aria-label="BILDIT home">
               <Image src="/images/others/BILDIT_Logo.svg" alt="" width={118} height={26} className="h-[26px] w-auto" />

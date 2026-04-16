@@ -1,3 +1,4 @@
+import { BuildPeopleProductsHeading } from '@/app/components/BuildPeopleProductsHeading'
 import { Demo } from '@/app/components/Demo'
 import { HomeDesignedForEcommerce } from '@/app/components/home/HomeDesignedForEcommerce'
 import { HomeEarlyAccess } from '@/app/components/home/HomeEarlyAccess'
@@ -34,6 +35,9 @@ export default function Home() {
         <HomeEarlyAccess />
         <HomeProblemSolution />
         <div className="mx-auto max-w-[1512px] px-3 pb-10 sm:px-4 sm:pb-12">
+          <div className="mx-auto max-w-[1260px] px-6 pt-10 sm:pt-12 pb-6 md:pb-8">
+            <BuildPeopleProductsHeading />
+          </div>
           <HomeFaq />
         </div>
         <div className="w-full px-3 pb-16 sm:px-4">
