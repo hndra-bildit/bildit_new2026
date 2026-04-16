@@ -1,9 +1,12 @@
 'use client'
 
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useState } from 'react'
+import ImageEditPopover from './ImageEditPopover'
+import TemplatePickerPanel from './TemplatePickerPanel'
 import TextEditPopover, { type TextFormat } from './TextEditPopover'
-import { VISUAL_EDITING_PROMO_IMAGE } from '@/app/lib/visual-editing-promo-image'
 import { cn } from '@/utils/cn'
+import { ArrowDown, ChevronUp, GripVertical, Layers, LayoutTemplate, Plus } from 'lucide-react'
+import Image from 'next/image'
 import { createPortal } from 'react-dom'
 
 export interface EditableTextItem {
@@ -11,111 +14,321 @@ export interface EditableTextItem {
   text: string
   format: TextFormat
   className?: string
+  /** Text color (toolbar color control updates this). */
+  color?: string
 }
 
 const DEFAULT_TEXTS: EditableTextItem[] = [
-  { id: 'tagline', text: 'IN-STORE & ONLINE', format: {}, className: 'text-base text-white' },
   {
-    id: 'title',
-    text: 'THE SUMMER SALE',
+    id: 'headline',
+    text: 'New in...',
     format: { bold: true },
-    className: 'text-3xl lg:text-4xl font-bold text-white'
+    color: '#171717',
+    className: 'text-[28px] font-semibold leading-none tracking-normal sm:text-[34px]'
   },
   {
-    id: 'subtitle',
-    text: 'All Dress, Tops, Shorts, and Swim',
-    format: { bold: true },
-    className: 'text-xl lg:text-2xl font-bold text-white'
-  },
-  { id: 'promo', text: '25% OFF', format: { bold: true }, className: 'text-6xl lg:text-7xl font-bold text-white' },
-  { id: 'cta', text: 'Shop Now', format: { bold: true }, className: 'text-2xl font-medium text-white' }
+    id: 'body',
+    text: 'Shop the latest product from the top luxury designers.',
+    format: {},
+    color: '#272727',
+    className: 'text-base font-normal leading-normal'
+  }
 ]
+
+const PRODUCT_CARDS_INITIAL: { src: string; brand: string }[] = [
+  { src: '/images/home/interactive-demo/product-1.png', brand: 'Saint Laurent' },
+  { src: '/images/home/interactive-demo/product-2.png', brand: 'Chanel' },
+  { src: '/images/home/interactive-demo/product-3.png', brand: 'Balenciaga' },
+  { src: '/images/home/interactive-demo/product-4.png', brand: 'Gucci' },
+  { src: '/images/home/interactive-demo/product-1.png', brand: 'Gucci' },
+  { src: '/images/home/interactive-demo/product-2.png', brand: 'Chanel' },
+  { src: '/images/home/interactive-demo/product-3.png', brand: 'Balenciaga' }
+]
+
+const GALLERY_SRCS = [
+  '/images/home/interactive-demo/product-1.png',
+  '/images/home/interactive-demo/product-2.png',
+  '/images/home/interactive-demo/product-3.png',
+  '/images/home/interactive-demo/product-4.png'
+]
+
+function isRemoteImageSrc(src: string): boolean {
+  return /^https?:\/\//i.test(src.trim())
+}
+
+function BannerCardImage({ src, alt }: { src: string; alt: string }) {
+  if (isRemoteImageSrc(src)) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- demo allows arbitrary pasted URLs
+      <img src={src} alt={alt} className="absolute inset-0 size-full object-cover" />
+    )
+  }
+  return <Image src={src} alt={alt} fill className="pointer-events-none object-cover" sizes="130px" />
+}
+
+function CmsLabelPill({
+  tone,
+  label,
+  icon: Icon
+}: {
+  tone: 'blue' | 'green'
+  label: string
+  icon: React.ComponentType<{ className?: string }>
+}) {
+  const active = tone === 'blue' ? 'border-[#0559fd] bg-[#0559fd]' : 'border-[#50c12e] bg-[#50c12e]'
+  return (
+    <div
+      className={cn(
+        'flex items-center gap-1.5 border border-solid px-1.5 py-0.5 font-gt-walsheim text-sm font-medium uppercase leading-none text-white',
+        active
+      )}
+    >
+      <Icon className="size-4 shrink-0 text-white" aria-hidden />
+      <span>{label}</span>
+    </div>
+  )
+}
+
+type PopoverTarget = { kind: 'text'; textId: string } | { kind: 'image'; cardIndex: number }
 
 const EditableBanner: React.FC = () => {
   const [textItems, setTextItems] = useState<EditableTextItem[]>(DEFAULT_TEXTS)
-  const [backgroundColor, setBackgroundColor] = useState('#b88f3f')
-  const [activeId, setActiveId] = useState<string | null>(null)
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+  const [productCards, setProductCards] = useState(PRODUCT_CARDS_INITIAL)
+  const [popoverTarget, setPopoverTarget] = useState<PopoverTarget | null>(null)
+  const [innerBgColor, setInnerBgColor] = useState('#eaebe6')
   const [popoverPosition, setPopoverPosition] = useState({ top: 0, left: 0 })
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+  const [templatePickerOpen, setTemplatePickerOpen] = useState(false)
+  const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(null)
 
   const updateTextItem = useCallback((id: string, updates: Partial<EditableTextItem>) => {
     setTextItems((prev) => prev.map((item) => (item.id === id ? { ...item, ...updates } : item)))
   }, [])
 
-  const handleTextClick = useCallback((id: string, el: HTMLElement) => {
+  const openPopoverAnchoredTo = useCallback((target: PopoverTarget, el: HTMLElement) => {
     const rect = el.getBoundingClientRect()
+    const panelWidth = 320
+    const vw = typeof globalThis.window !== 'undefined' ? globalThis.window.innerWidth : 1200
     setPopoverPosition({
-      left: rect.left,
+      left: Math.min(Math.max(12, rect.left), Math.max(12, vw - panelWidth - 12)),
       top: rect.bottom + 8
     })
-    setActiveId(id)
+    setPopoverTarget(target)
     setAnchorEl(el)
   }, [])
 
+  const handleTextClick = useCallback(
+    (textId: string, el: HTMLElement) => {
+      openPopoverAnchoredTo({ kind: 'text', textId }, el)
+    },
+    [openPopoverAnchoredTo]
+  )
+
+  const handleImageClick = useCallback(
+    (cardIndex: number, el: HTMLElement) => {
+      openPopoverAnchoredTo({ kind: 'image', cardIndex }, el)
+    },
+    [openPopoverAnchoredTo]
+  )
+
   const handleClose = useCallback(() => {
-    setActiveId(null)
+    setPopoverTarget(null)
     setAnchorEl(null)
   }, [])
 
-  const activeItem = activeId ? textItems.find((t) => t.id === activeId) : null
+  const activeTextItem = popoverTarget?.kind === 'text' ? textItems.find((t) => t.id === popoverTarget.textId) : null
+  const activeImageIndex = popoverTarget?.kind === 'image' ? popoverTarget.cardIndex : null
 
-  const heroImageStyle = useMemo(
-    () => ({
-      backgroundImage: `linear-gradient(105deg, ${backgroundColor} 0%, ${backgroundColor}e6 12%, ${backgroundColor}66 28%, transparent 52%), url(${VISUAL_EDITING_PROMO_IMAGE})`
-    }),
-    [backgroundColor]
-  )
+  const headline = textItems.find((t) => t.id === 'headline')
+  const body = textItems.find((t) => t.id === 'body')
 
   return (
     <div
-      className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[rgba(8,11,26,0.95)] to-[rgba(6,8,20,0.98)] shadow-xl"
-      style={{ minHeight: 350 }}
+      className="relative w-full rounded-[24px] border border-black bg-white pt-10 shadow-[0px_8px_10px_0px_rgba(0,0,0,0.1),0px_20px_25px_0px_rgba(0,0,0,0.1)] sm:pt-12 md:px-2 md:pb-5 md:pt-[50px]"
+      style={{ fontFamily: "var(--font-uncut-sans), 'Uncut Sans', sans-serif" }}
     >
-      <div
-        className="relative flex min-h-[350px] items-center px-8 py-12 lg:flex-row lg:gap-12 lg:px-14"
-        style={{
-          background: `linear-gradient(135deg, ${backgroundColor} 0%, ${backgroundColor}dd 50%, ${backgroundColor}99 100%)`
-        }}
-      >
-        <div className="relative z-10 flex flex-1 flex-col gap-5">
-          {textItems.map((item) => (
-            <EditableTextBlock
-              key={item.id}
-              item={item}
-              isActive={activeId === item.id}
-              onClick={(el) => handleTextClick(item.id, el)}
-            />
-          ))}
+      <div className="relative mx-auto min-h-[320px] max-w-[950px] px-3 pb-24 sm:min-h-[340px] sm:px-4 md:min-h-[353px] md:px-0 md:pb-5">
+        {/* Beige fill behind blue slot + green banner outlines (borders are transparent inside) */}
+        <div
+          className="pointer-events-none absolute inset-x-1 top-8 bottom-16 z-0 sm:inset-x-2 md:inset-x-0 md:top-0 md:bottom-0"
+          style={{ backgroundColor: innerBgColor }}
+          aria-hidden
+        />
+
+        {/* Slot chrome */}
+        <div
+          className="pointer-events-none absolute inset-x-1 top-8 bottom-16 z-[1] border border-[#0559fd] sm:inset-x-2 md:inset-x-0 md:top-0 md:bottom-0"
+          aria-hidden
+        >
+          <div className="absolute -top-7 left-0 flex items-start sm:-top-8">
+            <CmsLabelPill tone="blue" label="Slot" icon={Layers} />
+          </div>
         </div>
-        <div className="absolute right-0 top-0 hidden h-full w-[38%] min-w-[220px] lg:block" aria-hidden>
-          <div className="absolute inset-0 bg-cover bg-[center_20%] bg-no-repeat" style={heroImageStyle} />
+
+        {/* Banner outline — stays under live content (z-[3]) */}
+        <div className="pointer-events-none absolute inset-x-2 top-10 bottom-[4.5rem] z-[2] border border-[#50c12e] sm:inset-x-4 sm:top-12 md:inset-x-[6px] md:top-[6px] md:bottom-[6px]" />
+
+        {/* Banner label + Change template — own layer above content (z-[5]); z-[5] on a z-[2] parent would still sit under content */}
+        <div className="pointer-events-none absolute inset-x-2 top-10 bottom-[4.5rem] z-[5] sm:inset-x-4 sm:top-12 md:inset-x-[6px] md:top-[6px] md:bottom-[6px]">
+          <div className="pointer-events-auto absolute left-2 top-2 flex max-w-[calc(100%-1rem)] flex-wrap items-center gap-2 md:left-3 md:top-3">
+            <CmsLabelPill tone="green" label="Banner" icon={LayoutTemplate} />
+            <button
+              type="button"
+              onClick={() => setTemplatePickerOpen(true)}
+              className="cursor-pointer border border-[#50c12e] bg-white px-2 py-1 font-gt-walsheim text-xs font-medium uppercase leading-none text-[#2a7a1c] shadow-sm transition-colors hover:bg-[#f3fcf0]"
+            >
+              Change template
+            </button>
+          </div>
+        </div>
+
+        {/* Live content (beige comes from plate behind outlines) */}
+        <div className="relative z-[3] mx-1 mt-2 flex flex-col gap-6 bg-transparent px-3 py-10 pt-10 sm:mx-2 sm:mt-3 sm:py-12 sm:pt-12 md:mx-[6px] md:mt-[6px] md:flex-row md:items-center md:gap-10 md:py-[65px] md:pl-5 md:pr-0">
+          <div className="relative z-10 flex max-w-full flex-col gap-2.5 md:w-[230px] md:shrink-0">
+            {headline ? (
+              <div className="order-2 md:order-1">
+                <EditableTextBlock
+                  item={headline}
+                  isActive={popoverTarget?.kind === 'text' && popoverTarget.textId === 'headline'}
+                  onClick={(el) => handleTextClick('headline', el)}
+                  frameClassName="px-0.5 py-0.5"
+                />
+              </div>
+            ) : null}
+            {body ? (
+              <div className="order-1 md:order-2">
+                <EditableTextBlock
+                  item={body}
+                  isActive={popoverTarget?.kind === 'text' && popoverTarget.textId === 'body'}
+                  onClick={(el) => handleTextClick('body', el)}
+                  frameClassName="px-0.5 py-0.5"
+                />
+              </div>
+            ) : null}
+          </div>
+
+          <div className="min-w-0 flex-1 overflow-x-auto overflow-y-hidden [-ms-overflow-style:none] [scrollbar-width:none] md:pr-5 [&::-webkit-scrollbar]:hidden">
+            <div className="flex w-max gap-5 pb-1">
+              {productCards.map((p, i) => (
+                <article
+                  key={`card-${i}`}
+                  className="flex w-[150px] shrink-0 flex-col items-center gap-[11px] bg-white px-2.5 pb-[11px] pt-2.5"
+                >
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    className={cn(
+                      'relative h-[163px] w-[130px] cursor-pointer overflow-hidden bg-[#e8eaed] outline-none focus-visible:ring-2 focus-visible:ring-[#0559fd]',
+                      popoverTarget?.kind === 'image' &&
+                        popoverTarget.cardIndex === i &&
+                        'ring-2 ring-[#0559fd] ring-offset-2'
+                    )}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        handleImageClick(i, e.currentTarget)
+                      }
+                    }}
+                    onClick={(e) => handleImageClick(i, e.currentTarget)}
+                  >
+                    <BannerCardImage src={p.src} alt={p.brand} />
+                  </div>
+                  <p className="text-center font-gt-walsheim text-sm font-normal uppercase leading-normal text-black">
+                    {p.brand}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Blue slot handles — z above green banner outline (z-[2]) */}
+        <div
+          className="pointer-events-none absolute inset-x-1 top-8 bottom-16 z-[3] sm:inset-x-2 md:inset-x-0 md:top-0 md:bottom-0"
+          aria-hidden
+        >
+          <div className="absolute left-1/2 top-0 size-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0559fd]">
+            <Plus className="absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 text-white" />
+          </div>
+          <div className="absolute bottom-0 left-1/2 size-6 -translate-x-1/2 translate-y-1/2 rounded-t-[15px] bg-[#0559fd]">
+            <Plus className="absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 text-white" />
+          </div>
+        </div>
+
+        {/* Reorder bar */}
+        <div
+          className="pointer-events-none absolute bottom-6 left-1/2 z-[4] flex -translate-x-1/2 items-center gap-2.5 rounded-[30px] bg-white px-4 py-2.5 shadow-md sm:bottom-8 md:bottom-[31px]"
+          aria-hidden
+        >
+          <GripVertical className="size-6 text-[#171717]" />
+          <div className="h-6 w-px bg-[#d9d9d9]" />
+          <ChevronUp className="size-6 text-[#171717]" />
+          <ArrowDown className="size-6 text-[#171717]" />
         </div>
       </div>
 
-      {activeItem &&
+      {popoverTarget &&
         anchorEl &&
         typeof document !== 'undefined' &&
         createPortal(
-          <div
-            className="fixed z-[9999]"
-            style={{
-              left: popoverPosition.left,
-              top: popoverPosition.top
-            }}
-          >
-            <TextEditPopover
-              anchorRef={{ current: anchorEl }}
-              text={activeItem.text}
-              format={activeItem.format}
-              onTextChange={(text) => updateTextItem(activeItem.id, { text })}
-              onFormatChange={(format) => updateTextItem(activeItem.id, { format })}
-              onBackgroundColorChange={setBackgroundColor}
-              backgroundColor={backgroundColor}
-              onClose={handleClose}
+          <div className="pointer-events-none fixed inset-0 z-[99999]">
+            <div
+              className="absolute inset-0 z-0 bg-transparent"
+              style={{ pointerEvents: 'auto' }}
+              aria-hidden
+              onClick={handleClose}
             />
+            <div
+              className="absolute z-10"
+              style={{
+                left: popoverPosition.left,
+                top: popoverPosition.top,
+                pointerEvents: 'auto'
+              }}
+            >
+              {activeTextItem ? (
+                <TextEditPopover
+                  key={activeTextItem.id}
+                  text={activeTextItem.text}
+                  format={activeTextItem.format}
+                  onTextChange={(text) => updateTextItem(activeTextItem.id, { text })}
+                  onFormatChange={(format) => updateTextItem(activeTextItem.id, { format })}
+                  textColor={activeTextItem.color ?? (activeTextItem.id === 'headline' ? '#171717' : '#272727')}
+                  onTextColorChange={(color) => updateTextItem(activeTextItem.id, { color })}
+                  backgroundColor={innerBgColor}
+                  onBackgroundColorChange={setInnerBgColor}
+                  onClose={handleClose}
+                />
+              ) : null}
+              {activeImageIndex !== null && productCards[activeImageIndex] ? (
+                <ImageEditPopover
+                  key={`img-${activeImageIndex}`}
+                  currentSrc={productCards[activeImageIndex].src}
+                  gallerySrcs={GALLERY_SRCS}
+                  onImageChange={(src) => {
+                    setProductCards((prev) =>
+                      prev.map((card, idx) => (idx === activeImageIndex ? { ...card, src } : card))
+                    )
+                  }}
+                  onClose={handleClose}
+                />
+              ) : null}
+            </div>
           </div>,
           document.body
         )}
+
+      {templatePickerOpen && typeof document !== 'undefined'
+        ? createPortal(
+            <TemplatePickerPanel
+              open={templatePickerOpen}
+              onClose={() => setTemplatePickerOpen(false)}
+              selectedId={selectedTemplateId}
+              onSelect={(id) => setSelectedTemplateId(id)}
+            />,
+            document.body
+          )
+        : null}
     </div>
   )
 }
@@ -124,9 +337,10 @@ interface EditableTextBlockProps {
   item: EditableTextItem
   isActive: boolean
   onClick: (el: HTMLElement) => void
+  frameClassName?: string
 }
 
-const EditableTextBlock: React.FC<EditableTextBlockProps> = ({ item, isActive, onClick }) => {
+const EditableTextBlock: React.FC<EditableTextBlockProps> = ({ item, isActive, onClick, frameClassName }) => {
   const ref = React.useRef<HTMLDivElement>(null)
 
   const handleClick = () => {
@@ -141,18 +355,23 @@ const EditableTextBlock: React.FC<EditableTextBlockProps> = ({ item, isActive, o
       onClick={handleClick}
       onKeyDown={(e) => e.key === 'Enter' && handleClick()}
       className={cn(
-        'w-full cursor-pointer rounded-lg border-none bg-transparent px-2 py-1 text-left font-gt-walsheim transition-all hover:ring-2 hover:ring-[#0559fd] hover:ring-offset-2',
+        'w-full cursor-pointer rounded-sm bg-transparent text-left transition-shadow',
         isActive && 'ring-2 ring-[#0559fd] ring-offset-2',
-        item.id === 'cta' && 'mt-4 w-auto self-start bg-white/25 px-6 py-3',
+        'hover:ring-2 hover:ring-[#0559fd]/60 hover:ring-offset-1',
+        frameClassName,
         item.className
       )}
       style={{
-        fontWeight: item.format.bold ? 700 : 400,
+        color: item.color ?? (item.id === 'headline' ? '#171717' : '#272727'),
+        fontWeight: (() => {
+          if (item.format.bold) return 700
+          return item.id === 'headline' ? 600 : 400
+        })(),
         fontStyle: item.format.italic ? 'italic' : 'normal',
         textDecoration: item.format.underline ? 'underline' : 'none'
       }}
     >
-      {item.text || <span className="text-white/50">Click to edit</span>}
+      {item.text || <span className="text-[#737373]">Click to edit</span>}
     </div>
   )
 }

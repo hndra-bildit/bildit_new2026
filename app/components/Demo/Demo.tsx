@@ -5,18 +5,16 @@ import EditableBanner from './EditableBanner'
 
 const Demo: React.FC = () => {
   return (
-    <section className="home-scheme-light w-full bg-neutral-50 py-16 md:py-20">
-      <div className="mx-auto max-w-[1286px] px-6 md:px-10 lg:px-[116px]">
-        <h2 className="mb-4 text-center font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight text-neutral-900 md:text-4xl lg:text-[40px] lg:leading-tight">
-          Try out Live Preview
+    <section className="bg-gray-50 py-16">
+      <div className="container mx-auto max-w-4xl px-4">
+        <h2 className="font-gt-walsheim mb-8 text-center text-3xl font-extrabold text-neutral-900">
+          Demo: Editable Banner
         </h2>
-        <p className="mx-auto mb-10 max-w-2xl text-center font-[family-name:var(--font-uncut-sans)] text-base leading-7 text-[#595959] md:text-lg">
-          Click any text to edit. Use the popover for formatting and background color — the same kind of control you get
-          in the real editor.
+        <p className="mb-10 text-center text-zinc-600">
+          Click on any text to edit. Use the popover to change text, apply bold/italic/underline, and adjust the
+          background color.
         </p>
-        <div className="mx-auto max-w-4xl">
-          <EditableBanner />
-        </div>
+        <EditableBanner />
       </div>
     </section>
   )
