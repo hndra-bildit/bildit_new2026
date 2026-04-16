@@ -1,23 +1,45 @@
-import { SlotPlaceholder } from '@bildit-platform/nextjs'
+import { Demo } from '@/app/components/Demo'
+import { HomeDesignedForEcommerce } from '@/app/components/home/HomeDesignedForEcommerce'
+import { HomeEarlyAccess } from '@/app/components/home/HomeEarlyAccess'
+import { HomeEverythingYouNeed } from '@/app/components/home/HomeEverythingYouNeed'
+import { HomeFaq } from '@/app/components/home/HomeFaq'
+import { HomeHero } from '@/app/components/home/HomeHero'
+import { HomeIntegrations } from '@/app/components/home/HomeIntegrations'
+import { HomePostFaqCta } from '@/app/components/home/HomePostFaqCta'
+import { HomeProblemSolution } from '@/app/components/home/HomeProblemSolution'
+import { HomeSpeedWithoutCompromise } from '@/app/components/home/HomeSpeedWithoutCompromise'
+import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
+import { homeFaqPageJsonLd } from '@/app/lib/home-faq-data'
+
+const homeFaqStructuredData = homeFaqPageJsonLd()
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-      <main>
-        <SlotPlaceholder slotId="home-hero" />
-        <SlotPlaceholder slotId="home-before-after" />
-        <SlotPlaceholder slotId="home-social-proof" />
-        <SlotPlaceholder slotId="home-problem" />
-        <SlotPlaceholder slotId="home-liberation" />
-        <SlotPlaceholder slotId="home-how-it-works" />
-        <SlotPlaceholder slotId="home-interactive-section" />
-        <SlotPlaceholder slotId="home-core-benefits" />
-        <SlotPlaceholder slotId="home-value-stack" />
-        <SlotPlaceholder slotId="home-guarantee" />
-        <SlotPlaceholder slotId="home-urgency" />
-        <SlotPlaceholder slotId="home-testimonials" />
-        <SlotPlaceholder slotId="home-faq" />
-        <SlotPlaceholder slotId="home-final-close" />
+    <div className="min-h-screen overflow-x-clip text-neutral-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeFaqStructuredData)
+        }}
+      />
+      <HomeHero />
+      <main className="w-full bg-neutral-50">
+        <HomeDesignedForEcommerce />
+        <div className="mx-auto max-w-[1512px] px-3 pt-10 sm:px-4">
+          <HomeWorkflowShowcase />
+        </div>
+        <HomeEverythingYouNeed />
+        <HomeSpeedWithoutCompromise />
+        <Demo />
+        <HomeEarlyAccess />
+        <HomeProblemSolution />
+        <div className="mx-auto max-w-[1512px] px-3 pb-10 sm:px-4 sm:pb-12">
+          <HomeFaq />
+        </div>
+        <div className="w-full px-3 pb-16 sm:px-4">
+          <HomePostFaqCta />
+        </div>
+        <HomeIntegrations />
       </main>
     </div>
   )

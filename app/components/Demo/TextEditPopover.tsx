@@ -1,9 +1,8 @@
 'use client'
 
-import { Bold, Italic, Underline } from 'lucide-react'
 import React, { useCallback, useEffect, useRef } from 'react'
-
 import { cn } from '@/utils/cn'
+import { Bold, Italic, Underline } from 'lucide-react'
 
 export interface TextFormat {
   bold?: boolean
@@ -30,7 +29,7 @@ const TextEditPopover: React.FC<TextEditPopoverProps> = ({
   onFormatChange,
   onBackgroundColorChange,
   backgroundColor = '#b88f3f',
-  onClose,
+  onClose
 }) => {
   const popoverRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)

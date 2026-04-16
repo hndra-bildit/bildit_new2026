@@ -1,13 +1,9 @@
 'use client'
 
-import { SlotPlaceholder } from '@bildit-platform/nextjs'
+import { SiteHeader } from '@/app/components/site-header/SiteHeader'
 
 const Header: React.FC = () => {
-  return (
-    <>
-      <SlotPlaceholder slotId="header" />
-    </>
-  )
+  return <SiteHeader />
 }
 
 export default Header

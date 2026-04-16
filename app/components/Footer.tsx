@@ -1,11 +1,7 @@
-import { SlotPlaceholder } from '@bildit-platform/nextjs'
+import { SiteFooter } from '@/app/components/SiteFooter'
 
 const Footer: React.FC = () => {
-  return (
-    <footer>
-      <SlotPlaceholder slotId="footer" />
-    </footer>
-  )
+  return <SiteFooter />
 }
 
 export default Footer
