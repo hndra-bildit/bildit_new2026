@@ -33,7 +33,7 @@ const CAPABILITIES_ITEMS: MegaLinkItem[] = [
 
 const SOLUTION_ITEMS: MegaLinkItem[] = [
   {
-    href: '/brands/',
+    href: '/solutions-for-marketers/',
     title: 'Marketing Team',
     description: 'Update your site without engineering tickets. Schedule and Preview Content in Realtime.'
   },

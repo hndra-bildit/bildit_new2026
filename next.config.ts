@@ -58,6 +58,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'belk.scene7.com',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.figma.com',
+        pathname: '/api/mcp/asset/**'
       }
     ]
   }

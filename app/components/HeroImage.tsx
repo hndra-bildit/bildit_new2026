@@ -8,8 +8,18 @@ interface HeroImageProps {
 
 const HeroImage: React.FC<HeroImageProps> = ({ className = '' }) => {
   return (
-    <section className={`w-full bg-white py-16 lg:py-24 ${className}`}>
-      <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
+    <section className={`relative w-full overflow-hidden py-16 lg:py-24 ${className}`}>
+      <div className="pointer-events-none absolute inset-0 z-0">
+        {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
+        <img
+          src="/images/Insta Stories.gif"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-white/75" aria-hidden />
+      </div>
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-15">
           {/* Text Content Section */}
           <div className="flex-1 space-y-8 text-center lg:text-left">
