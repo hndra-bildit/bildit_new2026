@@ -28,6 +28,40 @@
   --header-mega-row-active: rgba(0, 0, 0, 0.08);
   --header-mega-divider: rgba(0, 0, 0, 0.08);
   --header-accent-line: #c850f0;
+
+  /* Marketing / VEE shared gradients (avoid duplicating long linear-gradient() in TSX) */
+  --bildit-gradient-cta-figma-long: linear-gradient(
+    90deg,
+    rgb(200, 80, 240) 0%,
+    rgb(202, 80, 233) 7.1429%,
+    rgb(204, 81, 227) 14.286%,
+    rgb(207, 81, 220) 21.429%,
+    rgb(209, 81, 213) 28.571%,
+    rgb(211, 80, 206) 35.714%,
+    rgb(213, 80, 200) 42.857%,
+    rgb(216, 79, 193) 50%,
+    rgb(218, 78, 186) 57.143%,
+    rgb(220, 77, 179) 64.286%,
+    rgb(223, 76, 172) 71.429%,
+    rgb(225, 75, 165) 78.571%,
+    rgb(227, 73, 158) 85.714%,
+    rgb(230, 71, 151) 92.857%,
+    rgb(232, 69, 144) 100%
+  );
+  --bildit-gradient-cta-short: linear-gradient(90deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 100%);
+  --bildit-gradient-check-chip: linear-gradient(
+    135deg,
+    rgb(200, 80, 240) 0%,
+    rgb(216, 79, 193) 50%,
+    rgb(232, 69, 144) 100%
+  );
+  --bildit-gradient-soft-icon-tile: linear-gradient(
+    135deg,
+    rgba(200, 80, 240, 0.2) 0%,
+    rgba(232, 69, 144, 0.2) 100%
+  );
+  --bildit-vee-card-border: rgba(200, 80, 240, 0.15);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

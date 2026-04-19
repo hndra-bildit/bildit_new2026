@@ -1,10 +1,6 @@
-import { SlotPlaceholder } from '@bildit-platform/nextjs'
+import { permanentRedirect } from 'next/navigation'
 
+/** Canonical engineering solutions experience lives under `/solutions-for-engineering/`. */
 export default function BilditIT() {
-  return (
-    <>
-      <SlotPlaceholder slotId="it-title" />
-      <SlotPlaceholder slotId="it-detail" />
-    </>
-  )
+  permanentRedirect('/solutions-for-engineering/')
 }

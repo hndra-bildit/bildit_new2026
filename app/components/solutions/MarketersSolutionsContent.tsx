@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
 import { Check } from 'lucide-react'
-import { GradientCtaButton } from '@/app/components/solutions/SolutionsLocalHeader'
+import Image from 'next/image'
 
 const HERO_BG = 'https://www.figma.com/api/mcp/asset/64a42ff5-53b3-462e-b16c-576e5153ec87'
 
@@ -55,6 +55,12 @@ const PLATFORM_LOGOS = [
   }
 ] as const
 
+const MARKETERS_DEMO_VIDEO_SRC =
+  'https://storage.googleapis.com/compilepoc-2d379.appspot.com/bildit-website-staging%2FMensImage1%2FCMA-ChangeBanner_Reorder.mp4'
+
+const MARKETERS_VIDEO_FRAME_CLASS =
+  'relative h-[280px] w-full overflow-hidden rounded-2xl border border-black/10 bg-[#171717] shadow-[0px_-4px_40px_0px_rgba(0,0,0,0.08)] md:h-[438px]'
+
 const MAIN_LIST = [
   'Visual Experience Engine',
   'Instant publishing infrastructure',
@@ -72,26 +78,29 @@ const BONUS_LIST = [
 export function MarketersSolutionsContent() {
   return (
     <main className="bg-white text-neutral-900">
-      <section className="px-4 pb-6 pt-2 md:px-8">
-        <div className="relative mx-auto flex min-h-[560px] max-w-[1470px] flex-col items-center justify-center gap-10 overflow-hidden rounded-[32px] px-6 py-20 text-center md:min-h-[700px] md:rounded-[54px] md:px-[116px] md:pb-[130px] md:pt-[190px]">
-          <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[#fafafa] md:rounded-[54px]" aria-hidden />
-          <Image
-            src={HERO_BG}
-            alt=""
-            fill
-            priority
-            className="pointer-events-none rounded-[32px] object-cover md:rounded-[54px]"
-            sizes="(max-width: 1536px) 100vw, 1512px"
-          />
-          <div className="relative z-10 flex max-w-[1238px] flex-col items-center gap-8">
+      <section
+        id="marketers-solutions-hero"
+        data-header-surface="light"
+        className="relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none pt-[calc(70px+30px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[#fafafa]" aria-hidden />
+        <Image
+          src={HERO_BG}
+          alt=""
+          fill
+          priority
+          className="pointer-events-none object-cover object-center"
+          sizes="(max-width: 1536px) 100vw, 1512px"
+        />
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
+          <div className="flex max-w-[1238px] flex-col items-center gap-8 md:gap-8">
             <h1 className="font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] text-[#171717] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
               <span className="block">Never be held back</span>
               <span className="block">by your headless platform again...</span>
               <span
                 className="mt-1 block bg-clip-text text-transparent"
                 style={{
-                  backgroundImage:
-                    'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
+                  backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
                 }}
               >
                 Launch campaigns faster
@@ -106,23 +115,8 @@ export function MarketersSolutionsContent() {
       </section>
 
       <section className="flex justify-center px-4 py-16 md:px-8 md:py-[100px]">
-        <div className="relative flex h-[280px] w-full max-w-[780px] items-center justify-center rounded-2xl border border-black/10 bg-[#171717] shadow-[0px_-4px_40px_0px_rgba(0,0,0,0.08)] md:h-[438px]">
-          <div
-            className="absolute inset-0 rounded-2xl"
-            style={{
-              background: 'linear-gradient(135deg, rgb(13, 13, 26) 0%, rgb(26, 10, 26) 50%, rgb(10, 13, 26) 100%)'
-            }}
-            aria-hidden
-          />
-          <button
-            type="button"
-            className="relative z-10 flex size-[68px] items-center justify-center rounded-[34px] border border-white/25 bg-white/10 backdrop-blur-sm transition-transform hover:scale-105"
-            aria-label="Play demo video"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M8 5v14l11-7L8 5z" fill="white" />
-            </svg>
-          </button>
+        <div className="w-full max-w-[780px]">
+          <SolutionsDemoVideo src={MARKETERS_DEMO_VIDEO_SRC} frameClassName={MARKETERS_VIDEO_FRAME_CLASS} />
         </div>
       </section>
 
@@ -183,8 +177,7 @@ export function MarketersSolutionsContent() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage:
-                  'linear-gradient(172deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
+                backgroundImage: 'linear-gradient(172deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
               }}
             >
               Zero Friction
@@ -259,17 +252,15 @@ export function MarketersSolutionsContent() {
                     <p className="text-lg font-semibold text-[#171717]">{step.t}</p>
                     <p className="mt-2 text-sm leading-relaxed text-[#595959]">{step.d}</p>
                   </div>
-                  <span className="font-uncut-sans text-3xl font-bold tabular-nums text-neutral-300">
-                    {step.n}
-                  </span>
+                  <span className="font-uncut-sans text-3xl font-bold tabular-nums text-neutral-300">{step.n}</span>
                 </div>
               </div>
             ))}
             <div className="rounded-xl border border-black/10 bg-white p-4 shadow-sm">
               <p className="text-sm font-semibold text-amber-600">★★★★★ 4.8 out of 5</p>
               <p className="mt-3 text-sm leading-relaxed text-[#595959]">
-                With BILDIT, our CMS has transformed workflows for users by eliminating deployment hurdles and
-                enhancing coordination, saving time. What a game changer!
+                With BILDIT, our CMS has transformed workflows for users by eliminating deployment hurdles and enhancing
+                coordination, saving time. What a game changer!
               </p>
             </div>
           </div>
@@ -285,27 +276,25 @@ export function MarketersSolutionsContent() {
           </div>
         </div>
         <div className="mx-auto mt-12 flex max-w-[1280px] flex-col items-center gap-3">
-          <p className="text-center text-[22px] font-semibold text-[#595959]">Idea → Live experience. Hours. Not weeks.</p>
-          <Link
-            href="/pricing/"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-base font-bold text-white"
-            style={{
-              backgroundImage:
-                'linear-gradient(90deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 100%)'
-            }}
-          >
+          <p className="text-center text-[22px] font-semibold text-[#595959]">
+            Idea → Live experience. Hours. Not weeks.
+          </p>
+          <GradientCtaButton href="/pricing/" variant="figma-long" className="py-2 text-base font-bold">
             Try Visual Editor
-            <span aria-hidden>→</span>
-          </Link>
+          </GradientCtaButton>
         </div>
       </section>
 
-      <section className="relative flex flex-col items-center px-4 py-16 md:px-[116px] md:py-20">
+      <section className="relative flex flex-col items-center overflow-hidden px-4 py-16 md:px-[116px] md:py-20">
+        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+          {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
+          <img src="/images/Insta%20Stories.gif" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        </div>
         <div
-          className="pointer-events-none absolute left-1/2 top-[20%] size-[600px] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.06)] blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-[20%] z-[1] size-[600px] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.06)] blur-[140px]"
           aria-hidden
         />
-        <div className="relative w-full max-w-[1280px] rounded-3xl bg-white px-6 py-12 shadow-[0px_0px_150px_0px_rgba(232,69,144,0.08),0px_0px_80px_0px_rgba(200,80,240,0.15)] md:px-12 md:py-16">
+        <div className="relative z-[2] w-full max-w-[1280px] rounded-3xl bg-white px-6 py-12 shadow-[0px_0px_150px_0px_rgba(232,69,144,0.08),0px_0px_80px_0px_rgba(200,80,240,0.15)] md:px-12 md:py-16">
           <div className="mx-auto max-w-[768px] text-center">
             <h2 className="font-uncut-sans text-3xl font-bold leading-tight text-[#171717] md:text-5xl md:leading-[58px]">
               Everything you need. Nothing holding you back.
@@ -349,9 +338,7 @@ export function MarketersSolutionsContent() {
 
       <section className="px-4 py-16 md:px-[116px] md:py-[100px]">
         <div className="mx-auto max-w-[1048px] text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#171717]">
-            Visual Experience Engine
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#171717]">Visual Experience Engine</p>
           <h2 className="mt-3 font-uncut-sans text-4xl font-bold text-[#171717] md:text-[59px] md:leading-[1.1]">
             No Limitations.
           </h2>
@@ -432,11 +419,7 @@ export function MarketersSolutionsContent() {
             </div>
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-base font-bold text-white"
-              style={{
-                backgroundImage:
-                  'linear-gradient(90deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 100%)'
-              }}
+              className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-base font-bold text-white [background-image:var(--bildit-gradient-cta-short)]"
             >
               Start Free Trial
               <span aria-hidden>→</span>

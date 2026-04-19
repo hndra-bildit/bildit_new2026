@@ -1,0 +1,13 @@
+/** Figma MCP — SDK / API integrations logo strip */
+export const veeLogoSalesforce = 'https://www.figma.com/api/mcp/asset/5a61ecc4-c24c-4c56-aede-32d84633b4be'
+export const veeLogoShopify = 'https://www.figma.com/api/mcp/asset/ce476b71-988d-4382-989b-a879ee33c0e6'
+export const veeLogoSap = 'https://www.figma.com/api/mcp/asset/e0165017-64a3-46cc-88c8-ad5c1256425e'
+export const veeLogoMagento = 'https://www.figma.com/api/mcp/asset/03f9156d-d0ba-4e7a-a205-2f118275e5bc'
+export const veeLogoApplePay = 'https://www.figma.com/api/mcp/asset/a70e905e-3d39-49fc-b932-34d50b681174'
+export const veeLogoAfterpay = 'https://www.figma.com/api/mcp/asset/a044cb3b-2aff-47f9-8da3-7a31272b4e9a'
+export const veeLogoNetlifyMask = 'https://www.figma.com/api/mcp/asset/402c5d28-ffff-4519-9b9b-fe66911bff2f'
+export const veeLogoNetlify = 'https://www.figma.com/api/mcp/asset/14883576-9d32-4f08-9817-ed2daa8c7f48'
+export const veeLogoVercel = 'https://www.figma.com/api/mcp/asset/01ff23ca-83bf-471e-adbe-853e6b1a4140'
+export const veeLogoAci = 'https://www.figma.com/api/mcp/asset/7f1258c1-86f6-4f6d-aaf1-2f2508097d73'
+export const veeLogoSyte = 'https://www.figma.com/api/mcp/asset/851828a5-ab6d-404c-8568-7f1e81ba88d2'
+export const veeLogoBazaarvoice = 'https://www.figma.com/api/mcp/asset/3d6b8ace-1553-40b9-af7f-861c85d53b75'

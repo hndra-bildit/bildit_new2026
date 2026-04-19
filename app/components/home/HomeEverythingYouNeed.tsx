@@ -22,11 +22,8 @@ const BONUS_ITEMS = [
   'Direct access to our engineering team'
 ] as const
 
-/** Same radius as `HomeHero` (`rounded-[51px]`). */
-const HERO_RADIUS = 51
-
-/** Full-bleed parallax layer behind the section (`public/images/Mac Marketer.jpg`). */
-const SECTION_BACKGROUND_SRC = '/images/Mac%20Marketer.jpg'
+/** Full-bleed parallax layer behind the section (`public/images/Insta Stories.gif`). */
+const SECTION_BACKGROUND_SRC = '/images/Insta%20Stories.gif'
 
 /** Extra height for light “shoulders” that mimic adjacent blocks’ rounding. */
 const CAP_HEIGHT_PX = 60
@@ -108,25 +105,20 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
             transform: `translateY(${parallaxY}px)`
           }}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
+          <img
             src={SECTION_BACKGROUND_SRC}
             alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-            priority={false}
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            aria-hidden
           />
         </div>
       </div>
 
       <div
         aria-hidden
-        className="relative z-[1] w-full bg-white"
-        style={{
-          height: CAP_HEIGHT_PX,
-          borderBottomLeftRadius: HERO_RADIUS,
-          borderBottomRightRadius: HERO_RADIUS
-        }}
+        className="relative z-[1] w-full rounded-b-none bg-white sm:rounded-b-[51px]"
+        style={{ height: CAP_HEIGHT_PX }}
       />
 
       <div className={cn('relative z-[1] -mt-px w-full overflow-hidden shadow-[0px_24px_80px_rgba(13,1,24,0.12)]')}>
@@ -135,9 +127,9 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
           aria-hidden
         />
 
-        <div className="relative z-[1] px-5 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
-          <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-[24px] px-5 py-10 sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
-            <div className="absolute inset-0 overflow-hidden rounded-[24px]">
+        <div className="relative z-[1] px-0 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
+          <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-none px-5 py-10 sm:rounded-[24px] sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
+            <div className="absolute inset-0 overflow-hidden rounded-none sm:rounded-[24px]">
               <Image
                 src="/home-everything/dark-card-texture.png"
                 alt=""
@@ -220,12 +212,8 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
       <div
         aria-hidden
-        className="relative z-[1] -mt-px w-full bg-white"
-        style={{
-          height: CAP_HEIGHT_PX,
-          borderTopLeftRadius: HERO_RADIUS,
-          borderTopRightRadius: HERO_RADIUS
-        }}
+        className="relative z-[1] -mt-px w-full rounded-t-none bg-white sm:rounded-t-[51px]"
+        style={{ height: CAP_HEIGHT_PX }}
       />
     </section>
   )

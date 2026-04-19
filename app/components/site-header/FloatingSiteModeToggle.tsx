@@ -8,16 +8,19 @@ import { usePathname, useRouter } from 'next/navigation'
  * Marketing vs engineering site toggle (Sun / Moon), fixed for thumb reach.
  * Desktop uses the pill control in `SiteHeader` instead.
  */
+const engineeringPaths = new Set(['/it', '/solutions-for-engineering'])
+
 export function FloatingSiteModeToggle() {
   const pathname = usePathname() || '/'
   const router = useRouter()
-  const isEngineering = pathname.replace(/\/$/, '') === '/it'
+  const normalized = pathname.replace(/\/$/, '') || '/'
+  const isEngineering = engineeringPaths.has(normalized)
 
   const toggle = () => {
     if (isEngineering) {
       router.push('/')
     } else {
-      router.push('/it/')
+      router.push('/solutions-for-engineering/')
     }
   }
 

@@ -7,12 +7,18 @@ import { usePathname } from 'next/navigation'
 
 export function LayoutChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname() || '/'
-  const isHome = pathname.replace(/\/$/, '') === ''
+  const normalizedPath = pathname.replace(/\/$/, '') || '/'
+  /** Fixed header clears via page content padding (home/marketers heroes, engineering `main`). */
+  const usesHomeHeroLayout =
+    normalizedPath === '/' ||
+    normalizedPath === '/solutions-for-marketers' ||
+    normalizedPath === '/solutions-for-engineering' ||
+    normalizedPath === '/visual-experience-engine'
 
   return (
     <>
       <Header />
-      <div className={isHome ? undefined : 'pt-[calc(5.5rem+10px)] sm:pt-[5.5rem]'}>{children}</div>
+      <div className={usesHomeHeroLayout ? undefined : 'pt-[calc(5.5rem+10px)] sm:pt-[5.5rem]'}>{children}</div>
       <FloatingSiteModeToggle />
     </>
   )

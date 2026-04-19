@@ -19,7 +19,7 @@ type MegaLinkItem = {
 
 const CAPABILITIES_ITEMS: MegaLinkItem[] = [
   {
-    href: '/commerce-suite/',
+    href: '/visual-experience-engine/',
     title: 'Visual Experience Engine',
     description: 'Build Templates in React and let the marketing team edit them visually.'
   },
@@ -38,7 +38,7 @@ const SOLUTION_ITEMS: MegaLinkItem[] = [
     description: 'Update your site without engineering tickets. Schedule and Preview Content in Realtime.'
   },
   {
-    href: '/it/',
+    href: '/solutions-for-engineering/',
     title: 'Engineering Team',
     description: 'Build advanced templates in React and React Native. Push out template updates without a deployment.'
   }
@@ -185,8 +185,13 @@ type MobileAccordionKey = 'capabilities' | 'solutions' | 'partners'
 export function SiteHeader() {
   const pathname = usePathname() || '/'
   const router = useRouter()
-  const isHome = pathname.replace(/\/$/, '') === ''
-  const isEngineering = pathname.replace(/\/$/, '') === '/it'
+  const normalizedPath = pathname.replace(/\/$/, '') || '/'
+  /** Inset + top padding aligned with `HomeHero` / solutions marketing hero (floating lines). */
+  const isHomeLayout =
+    normalizedPath === '/' ||
+    normalizedPath === '/solutions-for-marketers' ||
+    normalizedPath === '/visual-experience-engine'
+  const isEngineering = normalizedPath === '/it' || normalizedPath === '/solutions-for-engineering'
   const [megaOpen, setMegaOpen] = useState(false)
   const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -262,9 +267,9 @@ export function SiteHeader() {
 
   const toggleEngineering = () => {
     if (isEngineering) {
-      router.push('/')
+      router.push('/solutions-for-marketers/')
     } else {
-      router.push('/it/')
+      router.push('/solutions-for-engineering/')
     }
   }
 
@@ -280,7 +285,7 @@ export function SiteHeader() {
       data-site-header
       className={cn(
         'pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center',
-        isHome
+        isHomeLayout
           ? 'px-3 pt-[20px] sm:px-[calc((1rem+20px)*0.42+40px)] sm:pt-[calc((1rem+20px)*0.42+20px)]'
           : 'px-2 pt-[calc(0.5rem+20px)] sm:px-[calc(1rem+20px)] sm:pt-[calc(1rem+20px)]'
       )}
@@ -380,7 +385,7 @@ export function SiteHeader() {
               type="button"
               role="switch"
               aria-checked={isEngineering}
-              aria-label={isEngineering ? 'Switch to marketing site' : 'Switch to engineering site'}
+              aria-label={isEngineering ? 'Switch to solutions for marketers' : 'Switch to solutions for engineering'}
               onClick={toggleEngineering}
               className="relative hidden h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300 lg:inline-flex"
               style={{ backgroundColor: 'var(--header-toggle-track)' }}
@@ -467,7 +472,7 @@ export function SiteHeader() {
           data-mega-nav-panel
           className={cn(
             'relative flex flex-col rounded-t-[24px] transition-transform duration-300 ease-out',
-            isHome
+            isHomeLayout
               ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
               : 'mt-[calc(70px+0.5rem+20px+12px)] min-h-[calc(100dvh-70px-0.5rem-20px-12px)] sm:mt-[calc(70px+1rem+20px+12px)] sm:min-h-[calc(100dvh-70px-1rem-20px-12px)]',
             mobileNavOpen ? 'translate-y-0' : 'translate-y-4'

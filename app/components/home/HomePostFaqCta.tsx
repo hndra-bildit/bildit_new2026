@@ -13,23 +13,23 @@ import Link from 'next/link'
 export function HomePostFaqCta({ className }: { className?: string }) {
   return (
     <section className={cn('w-full', className)} aria-labelledby="home-post-faq-cta-heading">
-      <div className="relative w-full overflow-hidden rounded-3xl px-6 py-16 sm:px-10 md:px-16 md:py-20 lg:px-[116px] lg:py-[100px]">
-        <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl">
-          <div className="absolute inset-0 rounded-3xl bg-black" />
-          <div className="absolute inset-0 rounded-3xl">
-            <div className="relative size-full rounded-3xl">
+      <div className="relative w-full overflow-hidden rounded-none px-6 py-16 sm:rounded-3xl sm:px-10 md:px-16 md:py-20 lg:px-[116px] lg:py-[100px]">
+        <div aria-hidden className="pointer-events-none absolute inset-0 rounded-none sm:rounded-3xl">
+          <div className="absolute inset-0 rounded-none bg-black sm:rounded-3xl" />
+          <div className="absolute inset-0 rounded-none sm:rounded-3xl">
+            <div className="relative size-full rounded-none sm:rounded-3xl">
               <Image
                 src="/home-post-faq-cta/container-bg.png"
                 alt=""
                 fill
                 sizes="100vw"
-                className="rounded-3xl object-cover opacity-[0.35]"
+                className="rounded-none object-cover opacity-[0.35] sm:rounded-3xl"
                 priority={false}
               />
             </div>
           </div>
           <div
-            className="absolute inset-0 rounded-3xl"
+            className="absolute inset-0 rounded-none sm:rounded-3xl"
             style={{
               backgroundImage: 'linear-gradient(114.47deg, rgba(0, 0, 0, 0.45) 0.54%, rgba(0, 0, 0, 0.157) 100%)'
             }}
