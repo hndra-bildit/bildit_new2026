@@ -4,7 +4,10 @@ import Footer from '@/app/components/Footer'
 import Providers from '@/app/components/Providers'
 import { cn } from '@/lib/utils'
 import type { Banner } from '@/services/bildit.d'
+import { getPreviewDateFromHeaders } from '@bildit-platform/nextjs'
+import { RemoteConnector } from '@bildit-platform/nextjs-api'
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import { Archivo_Black, Geist } from 'next/font/google'
 import Script from 'next/script'
 import 'swiper/css'
@@ -51,9 +54,54 @@ const archivoBlack = Archivo_Black({
   display: 'swap'
 })
 
+const API_KEY = process.env.BILDIT_API_KEY || ''
+
+const isLocalDevPort5002 = (host: string | null) => {
+  if (!host) return false
+  const h = host.toLowerCase()
+  return (
+    h === 'localhost:5002' ||
+    h === '127.0.0.1:5002' ||
+    h === '[::1]:5002'
+  )
+}
+
+/**
+ * On `localhost:5002` (this app's dev port), use the Firebase Functions emulator base URL
+ * when `BILDIT_API_URL_LOCAL` is set; otherwise `BILDIT_API_URL` (e.g. admin-dev).
+ */
+function resolveBilditApiBaseUrl(host: string | null): string {
+  if (isLocalDevPort5002(host)) {
+    const local = process.env.BILDIT_API_URL_LOCAL
+    if (local) return local
+    console.warn(
+      '[BILDIT] Host is :5002 but BILDIT_API_URL_LOCAL is unset; using BILDIT_API_URL. Set BILDIT_API_URL_LOCAL to your Functions emulator base (e.g. http://127.0.0.1:5001/PROJECT_ID/REGION/FUNCTION_NAME).'
+    )
+  }
+  return process.env.BILDIT_API_URL || ''
+}
+
 async function getInitialData(): Promise<Banner[]> {
   try {
-    return []
+    const headersList = await headers()
+    const pathname = headersList.get('x-pathname') || '/'
+    const previewDate = getPreviewDateFromHeaders(headersList)
+    const baseURL = resolveBilditApiBaseUrl(headersList.get('host'))
+
+    const remoteConnector = new RemoteConnector({
+      key: API_KEY,
+      baseURL
+    })
+
+    const result = await remoteConnector.getWebBanners({
+      location: pathname,
+      date: previewDate,
+      mode: 'csr',
+      tomorrow: true,
+      source: 'live' as const
+    })
+
+    return (result.data as unknown as Banner[]) || []
   } catch (error) {
     console.error('Error loading banners:', error)
     return []
