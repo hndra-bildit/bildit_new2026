@@ -274,10 +274,10 @@
     axios "^1.7.9"
     node-cache "^5.1.2"
 
-"@bildit-platform/nextjs@0.5.6":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs/-/nextjs-0.5.6.tgz#a5f7f9269e5b7813e10da33e4e9b654935b16f8e"
-  integrity sha512-Pj0MHdMVGX5V5JNV/RfjWqUqAhM709k78xQJqrMi/4G65TXhtrjePBroccp1VIQRVQJ8vzgBqBV4zgiyddyavw==
+"@bildit-platform/nextjs@0.5.7":
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/@bildit-platform/nextjs/-/nextjs-0.5.7.tgz#7bac73fde9a38008fd75ef6f4bb04d430287e83e"
+  integrity sha512-+KDLWnUaO4n8rE0gmn+Flx4WOJ2DmoOaYNbQoO1crjTOJGeVXpgTkx+kNoTbXV/UutCsV3rZtcNk6L0dZDSSWQ==
   dependencies:
     "@bildit-platform/engine" "^0.1.6"
     class-variance-authority "^0.7.1"
