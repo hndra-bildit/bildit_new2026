@@ -19,6 +19,7 @@
       }
     ],
     "paths": {
+      "@/cmsDependencies": ["./utils/cmsDependencies.ts"],
       "@/*": ["./*"]
     }
   },

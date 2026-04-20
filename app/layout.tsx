@@ -7,8 +7,8 @@ import type { Banner } from '@/services/bildit.d'
 import { getPreviewDateFromHeaders } from '@bildit-platform/nextjs'
 import { RemoteConnector } from '@bildit-platform/nextjs-api'
 import type { Metadata } from 'next'
-import { headers } from 'next/headers'
 import { Archivo_Black, Geist } from 'next/font/google'
+import { headers } from 'next/headers'
 import Script from 'next/script'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -59,11 +59,7 @@ const API_KEY = process.env.BILDIT_API_KEY || ''
 const isLocalDevPort5002 = (host: string | null) => {
   if (!host) return false
   const h = host.toLowerCase()
-  return (
-    h === 'localhost:5002' ||
-    h === '127.0.0.1:5002' ||
-    h === '[::1]:5002'
-  )
+  return h === 'localhost:5002' || h === '127.0.0.1:5002' || h === '[::1]:5002'
 }
 
 /**

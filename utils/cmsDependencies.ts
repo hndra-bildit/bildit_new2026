@@ -86,7 +86,6 @@ import ReactDOMClient from 'react-dom/client';
 import jsxRuntime from 'react/jsx-runtime';
 
 // Wrapper to handle empty src gracefully (prevents CMS errors)
-import * as CmsDependencies from "@/cmsDependencies";
 const SafeImage = (props: ImageProps) => {
   if (!props.src || props.src === '') {
     return null;
@@ -292,10 +291,7 @@ const cmsDependencies: Record<string, Dependency> = {
     'react-dom/client': {
       module: ReactDOMClient
     }
-  }),
-  "@/cmsDependencies": {
-    module: CmsDependencies
-  }
+  })
 };
 export default cmsDependencies;
 declare global {

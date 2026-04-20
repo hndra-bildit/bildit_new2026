@@ -1,8 +1,8 @@
 'use client'
 
 import React, { Suspense } from 'react'
+import cmsDependencies from '@/cmsDependencies'
 import type { Banner } from '@/services/bildit.d'
-import cmsDependencies from '@/utils/cmsDependencies'
 import { BilditProvider } from '@bildit-platform/nextjs'
 
 interface ProvidersProps {
