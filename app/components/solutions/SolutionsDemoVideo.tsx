@@ -1,7 +1,7 @@
 'use client'
 
-import { Pause, Play, Volume2, VolumeX } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Pause, Play, Volume2, VolumeX } from 'lucide-react'
 
 const DEFAULT_FRAME_CLASS =
   'relative h-[260px] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#12081f] shadow-[0px_-4px_40px_0px_rgba(0,0,0,0.35)] md:h-[400px]'
@@ -72,10 +72,7 @@ export function SolutionsDemoVideo({ src, frameClassName }: SolutionsDemoVideoPr
         muted={muted}
         src={src}
       />
-      <div
-        className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5" aria-hidden />
       <div className="absolute inset-x-0 bottom-0 flex items-center justify-end gap-2 p-3 md:p-4">
         <button
           type="button"
@@ -83,7 +80,11 @@ export function SolutionsDemoVideo({ src, frameClassName }: SolutionsDemoVideoPr
           onClick={togglePlay}
           aria-label={playing ? 'Pause video' : 'Play video'}
         >
-          {playing ? <Pause className="size-4 md:size-[18px]" aria-hidden /> : <Play className="size-4 md:size-[18px]" aria-hidden />}
+          {playing ? (
+            <Pause className="size-4 md:size-[18px]" aria-hidden />
+          ) : (
+            <Play className="size-4 md:size-[18px]" aria-hidden />
+          )}
         </button>
         <button
           type="button"
@@ -91,7 +92,11 @@ export function SolutionsDemoVideo({ src, frameClassName }: SolutionsDemoVideoPr
           onClick={toggleMute}
           aria-label={muted ? 'Unmute video' : 'Mute video'}
         >
-          {muted ? <VolumeX className="size-4 md:size-[18px]" aria-hidden /> : <Volume2 className="size-4 md:size-[18px]" aria-hidden />}
+          {muted ? (
+            <VolumeX className="size-4 md:size-[18px]" aria-hidden />
+          ) : (
+            <Volume2 className="size-4 md:size-[18px]" aria-hidden />
+          )}
         </button>
       </div>
     </div>

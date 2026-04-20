@@ -1,11 +1,11 @@
 // @template v2
 
-'use client';
+'use client'
 
-import { HeroFloatingLines } from "@/cmsDependencies";
-import { cn } from "@/cmsDependencies";
-import { ArrowRight } from "@/cmsDependencies";
-import Link from 'next/link';
+import { HeroFloatingLines } from '@/cmsDependencies'
+import { cn } from '@/cmsDependencies'
+import { ArrowRight } from '@/cmsDependencies'
+import Link from 'next/link'
 
 /**
  * Figma: hero (node 4728:27037). Background matches React Bits “floating lines”
@@ -14,12 +14,16 @@ import Link from 'next/link';
  * Mobile: full-bleed; nav uses px-3 / 20px top inset (matches SiteHeader isHome pt).
  * Background: React Bits FloatingLines (WebGL) matching Background Studio export.
  */
-export function HomeHero({
-  className
-}: {
-  className?: string;
-}) {
-  return <section id="home-hero" data-header-surface="dark" className={cn('relative m-0 flex min-h-svh w-full flex-col rounded-none pt-[calc(70px+30px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]', className)}>
+export function HomeHero({ className }: { className?: string }) {
+  return (
+    <section
+      id="home-hero"
+      data-header-surface="dark"
+      className={cn(
+        'relative m-0 flex min-h-svh w-full flex-col rounded-none pt-[calc(70px+30px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]',
+        className
+      )}
+    >
       <HeroFloatingLines />
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
         <div className="flex max-w-[896px] flex-col gap-5 md:gap-5">
@@ -27,11 +31,15 @@ export function HomeHero({
             <span className="block">{h1SpanText}</span>
             <span className="mt-1 flex flex-wrap items-center justify-center gap-2.5 py-1 md:gap-2.5">
               <span className="text-white">{h1SpanText}</span>
-              <span className="bg-clip-text text-transparent" style={{
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundImage: 'linear-gradient(235.74deg, #e1beff 6.65%, #ffceff 47.31%, #ff80f4 60.52%, #ff00e1 100%)'
-            }}>
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundImage:
+                    'linear-gradient(235.74deg, #e1beff 6.65%, #ffceff 47.31%, #ff80f4 60.52%, #ff00e1 100%)'
+                }}
+              >
                 {h1SpanText}
               </span>
             </span>
@@ -40,10 +48,14 @@ export function HomeHero({
             {divPText}
           </p>
         </div>
-        <Link href={divLinkHrefValue} className={`font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[19px] py-2.5 text-base font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98] ${divLinkRoundedCornersToggle ? "rounded-full" : ""}`}>
+        <Link
+          href={divLinkHrefValue}
+          className={`font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[19px] py-2.5 text-base font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98] ${divLinkRoundedCornersToggle ? 'rounded-full' : ''}`}
+        >
           {divLinkText}
           <ArrowRight className="size-4 shrink-0" aria-hidden />
         </Link>
       </div>
-    </section>;
+    </section>
+  )
 }

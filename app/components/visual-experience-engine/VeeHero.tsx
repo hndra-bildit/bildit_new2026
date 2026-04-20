@@ -18,8 +18,7 @@ export function VeeHero() {
       <div
         className="pointer-events-none absolute right-[-8%] top-[18%] size-[min(500px,50vw)] rounded-full opacity-25 blur-[64px]"
         style={{
-          background:
-            'radial-gradient(circle, rgba(237,30,121,0.12) 0%, rgba(59,30,237,0.1) 55%, transparent 70%)'
+          background: 'radial-gradient(circle, rgba(237,30,121,0.12) 0%, rgba(59,30,237,0.1) 55%, transparent 70%)'
         }}
         aria-hidden
       />
@@ -31,8 +30,8 @@ export function VeeHero() {
             <span> Visual Experience Engine</span>
           </h1>
           <p className="max-w-[642px] text-lg leading-[1.45] text-[#595959] md:text-2xl md:leading-[1.58]">
-            Take control over digital marketing campaigns across web, mobile apps, email, and push notifications
-            without waiting on deployments.
+            Take control over digital marketing campaigns across web, mobile apps, email, and push notifications without
+            waiting on deployments.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
             <GradientCtaButton href="/pricing/" variant="figma-long" className="md:h-12 md:px-6">

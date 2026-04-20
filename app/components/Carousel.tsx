@@ -1,10 +1,9 @@
 'use client'
 
+import * as React from 'react'
+import { cn } from '@/lib/utils'
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import * as React from 'react'
-
-import { cn } from '@/lib/utils'
 
 export type CarouselApi = NonNullable<UseEmblaCarouselType[1]>
 
@@ -36,18 +35,7 @@ function useCarousel() {
 }
 
 const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
-  (
-    {
-      orientation = 'horizontal',
-      opts,
-      setApi,
-      plugins,
-      className,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ orientation = 'horizontal', opts, setApi, plugins, className, children, ...props }, ref) => {
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
@@ -95,13 +83,7 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
           orientation
         }}
       >
-        <div
-          ref={ref}
-          className={cn('relative', className)}
-          role="region"
-          aria-roledescription="carousel"
-          {...props}
-        >
+        <div ref={ref} className={cn('relative', className)} role="region" aria-roledescription="carousel" {...props}>
           {children}
         </div>
       </CarouselContext.Provider>
@@ -110,95 +92,83 @@ const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
 )
 Carousel.displayName = 'Carousel'
 
-const CarouselContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, style, ...props }, ref) => {
-  const { carouselRef, orientation } = useCarousel()
+const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, style, ...props }, ref) => {
+    const { carouselRef, orientation } = useCarousel()
 
-  return (
-    <div ref={carouselRef} className="overflow-hidden">
-      <div
-        ref={ref}
-        className={cn(
-          'flex',
-          orientation === 'horizontal' ? '' : 'flex-col',
-          className
-        )}
-        style={style}
-        {...props}
-      />
-    </div>
-  )
-})
+    return (
+      <div ref={carouselRef} className="overflow-hidden">
+        <div
+          ref={ref}
+          className={cn('flex', orientation === 'horizontal' ? '' : 'flex-col', className)}
+          style={style}
+          {...props}
+        />
+      </div>
+    )
+  }
+)
 CarouselContent.displayName = 'CarouselContent'
 
-const CarouselItem = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { orientation } = useCarousel()
+const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => {
+    const { orientation } = useCarousel()
 
-  return (
-    <div
-      ref={ref}
-      role="group"
-      aria-roledescription="slide"
-      className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
-        orientation === 'horizontal' ? '' : 'min-h-0',
-        className
-      )}
-      {...props}
-    />
-  )
-})
+    return (
+      <div
+        ref={ref}
+        role="group"
+        aria-roledescription="slide"
+        className={cn('min-w-0 shrink-0 grow-0 basis-full', orientation === 'horizontal' ? '' : 'min-h-0', className)}
+        {...props}
+      />
+    )
+  }
+)
 CarouselItem.displayName = 'CarouselItem'
 
-const CarouselPrevious = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentProps<'button'>
->(({ className, children, ...props }, ref) => {
-  const { scrollPrev, canScrollPrev, orientation } = useCarousel()
+const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProps<'button'>>(
+  ({ className, children, ...props }, ref) => {
+    const { scrollPrev, canScrollPrev, orientation } = useCarousel()
 
-  return (
-    <button
-      ref={ref}
-      type="button"
-      disabled={!canScrollPrev}
-      className={cn(className)}
-      aria-label="Previous slide"
-      onClick={scrollPrev}
-      data-carousel-prev={orientation}
-      {...props}
-    >
-      {children ?? <ChevronLeft className="size-4" aria-hidden />}
-    </button>
-  )
-})
+    return (
+      <button
+        ref={ref}
+        type="button"
+        disabled={!canScrollPrev}
+        className={cn(className)}
+        aria-label="Previous slide"
+        onClick={scrollPrev}
+        data-carousel-prev={orientation}
+        {...props}
+      >
+        {children ?? <ChevronLeft className="size-4" aria-hidden />}
+      </button>
+    )
+  }
+)
 CarouselPrevious.displayName = 'CarouselPrevious'
 
-const CarouselNext = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentProps<'button'>
->(({ className, children, ...props }, ref) => {
-  const { scrollNext, canScrollNext, orientation } = useCarousel()
+const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<'button'>>(
+  ({ className, children, ...props }, ref) => {
+    const { scrollNext, canScrollNext, orientation } = useCarousel()
 
-  return (
-    <button
-      ref={ref}
-      type="button"
-      disabled={!canScrollNext}
-      className={cn(className)}
-      aria-label="Next slide"
-      onClick={scrollNext}
-      data-carousel-next={orientation}
-      {...props}
-    >
-      {children ?? <ChevronRight className="size-4" aria-hidden />}
-    </button>
-  )
-})
+    return (
+      <button
+        ref={ref}
+        type="button"
+        disabled={!canScrollNext}
+        className={cn(className)}
+        aria-label="Next slide"
+        onClick={scrollNext}
+        data-carousel-next={orientation}
+        {...props}
+      >
+        {children ?? <ChevronRight className="size-4" aria-hidden />}
+      </button>
+    )
+  }
+)
 CarouselNext.displayName = 'CarouselNext'
 
 type CarouselDotsProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -230,11 +200,7 @@ function CarouselDots({ className, orientation = 'horizontal', ...props }: Carou
   return (
     <div
       role="tablist"
-      className={cn(
-        'flex justify-center gap-2',
-        orientation === 'vertical' ? 'flex-col' : 'flex-row',
-        className
-      )}
+      className={cn('flex justify-center gap-2', orientation === 'vertical' ? 'flex-col' : 'flex-row', className)}
       {...props}
     >
       {Array.from({ length: snapCount }, (_, i) => (

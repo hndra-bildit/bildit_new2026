@@ -2,7 +2,6 @@
 
 import type { ComponentType } from 'react'
 import { useState } from 'react'
-
 import { cn } from '@/lib/utils'
 
 function buildVideoUrl(slug: string, suffix: 'm' | 't' | null): string | null {
@@ -38,16 +37,10 @@ export type S7VideoPlayerProps = {
  * Responsive Scene7 MP4 background with optional text overlay.
  * Mirrors the `ResponsiveS7VideoPlayer` pattern used in BILDIT holiday templates.
  */
-export default function S7VideoPlayer({
-  video,
-  id,
-  Overlay,
-  OverlayDuringPlay,
-  className
-}: S7VideoPlayerProps) {
+export default function S7VideoPlayer({ video, id, Overlay, OverlayDuringPlay, className }: S7VideoPlayerProps) {
   const [playing, setPlaying] = useState(false)
 
-  const ActiveOverlay = playing ? OverlayDuringPlay ?? Overlay : Overlay
+  const ActiveOverlay = playing ? (OverlayDuringPlay ?? Overlay) : Overlay
 
   const videoProps = {
     autoPlay: true,
@@ -61,22 +54,13 @@ export default function S7VideoPlayer({
   return (
     <div className={cn('relative w-full', className)}>
       <div className="relative w-full">
-        <video
-          {...videoProps}
-          className="block h-full w-full object-cover md:hidden"
-        >
+        <video {...videoProps} className="block h-full w-full object-cover md:hidden">
           <source src={buildVideoUrl(buildVideoSlug(video, 'm'), null) ?? undefined} type="video/mp4" />
         </video>
-        <video
-          {...videoProps}
-          className="hidden h-full w-full object-cover md:block lg:hidden"
-        >
+        <video {...videoProps} className="hidden h-full w-full object-cover md:block lg:hidden">
           <source src={buildVideoUrl(buildVideoSlug(video, 't'), null) ?? undefined} type="video/mp4" />
         </video>
-        <video
-          {...videoProps}
-          className="hidden h-full w-full object-cover lg:block"
-        >
+        <video {...videoProps} className="hidden h-full w-full object-cover lg:block">
           <source src={buildVideoUrl(buildVideoSlug(video, 'd'), null) ?? undefined} type="video/mp4" />
         </video>
       </div>
