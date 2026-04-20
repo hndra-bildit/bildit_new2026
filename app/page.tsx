@@ -24,35 +24,46 @@ export default function Home() {
           __html: JSON.stringify(homeFaqStructuredData)
         }}
       />
-      <SlotPlaceholder slotId="home-hero" />
-      <HomeHero />
+      <SlotPlaceholder slotId="home-hero">
+        <HomeHero />
+      </SlotPlaceholder>
       <main className="w-full bg-white">
-        <SlotPlaceholder slotId="home-slot-1" />
-        <HomeDesignedForEcommerce />
+        <SlotPlaceholder slotId="home-slot-1">
+          <HomeDesignedForEcommerce />
+        </SlotPlaceholder>
         <div className="mx-auto max-w-[1512px] px-3 pt-10 sm:px-4">
-          <SlotPlaceholder slotId="home-slot-2" />
-          <HomeWorkflowShowcase />
+          <SlotPlaceholder slotId="home-slot-2">
+            <HomeWorkflowShowcase />
+          </SlotPlaceholder>
         </div>
-        <SlotPlaceholder slotId="home-slot-3" />
-        <HomeEverythingYouNeed />
-        <SlotPlaceholder slotId="home-slot-4" />
-        <HomeSpeedWithoutCompromise />
-        <SlotPlaceholder slotId="home-demo" />
-        <Demo />
-        <SlotPlaceholder slotId="home-slot-5" />
-        <HomeEarlyAccess />
-        <SlotPlaceholder slotId="home-slot-6" />
-        <HomeProblemSolution />
+        <SlotPlaceholder slotId="home-slot-3">
+          <HomeEverythingYouNeed />
+        </SlotPlaceholder>
+        <SlotPlaceholder slotId="home-slot-4">
+          <HomeSpeedWithoutCompromise />
+        </SlotPlaceholder>
+        <SlotPlaceholder slotId="home-demo">
+          <Demo />
+        </SlotPlaceholder>
+        <SlotPlaceholder slotId="home-slot-5">
+          <HomeEarlyAccess />
+        </SlotPlaceholder>
+        <SlotPlaceholder slotId="home-slot-6">
+          <HomeProblemSolution />
+        </SlotPlaceholder>
         <div className="mx-auto max-w-[1512px] px-3 pb-10 sm:px-4 sm:pb-12">
-          <SlotPlaceholder slotId="home-faq" />
-          <HomeFaq />
+          <SlotPlaceholder slotId="home-faq">
+            <HomeFaq />
+          </SlotPlaceholder>
         </div>
         <div className="w-full px-0 pb-16 sm:px-4">
-          <SlotPlaceholder slotId="home-post-faq-cta" />
-          <HomePostFaqCta />
+          <SlotPlaceholder slotId="home-post-faq-cta">
+            <HomePostFaqCta />
+          </SlotPlaceholder>
         </div>
-        <SlotPlaceholder slotId="home-integrations" />
-        <HomeIntegrations />
+        <SlotPlaceholder slotId="home-integrations">
+          <HomeIntegrations />
+        </SlotPlaceholder>
       </main>
     </div>
   )
