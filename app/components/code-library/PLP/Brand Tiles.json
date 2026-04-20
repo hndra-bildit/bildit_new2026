@@ -1,0 +1,9 @@
+{
+  "name": "Brand Tiles",
+  "description": "",
+  "type": "PLP",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-03-09%20at%202.46.52%E2%80%AFPM.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "Brand Tiles"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "#31 - 3 Column Across",
+  "description": "",
+  "type": "Static Banner",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-06-21%20at%2022.27.59.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "#31 - 3 Column Across"
+}

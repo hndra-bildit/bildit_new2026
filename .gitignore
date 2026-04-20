@@ -45,3 +45,6 @@ next-env.d.ts
 
 # scripts
 public/scripts/admin.js
+
+# BILD CLI `template from-jsx` output (e.g. ./scripts/bild-home-templates.sh template-export)
+app/components/cms-templates/**/blocks/*.export.jsx

@@ -1,0 +1,12 @@
+{
+  "fields": {
+    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle",
+    "header.h2|RichText": "headerH2Text",
+    "header.p|RichText": "headerPText",
+    "div.article.roundedCorners|Boolean": "divArticleRoundedCornersToggle",
+    "article.div.aspectRatioWidth|Number": "articleDivAspectRatioWidthNumber",
+    "article.div.aspectRatioHeight|Number": "articleDivAspectRatioHeightNumber",
+    "article.div.roundedCorners|Boolean": "articleDivRoundedCornersToggle"
+  },
+  "nextIndex": {}
+}

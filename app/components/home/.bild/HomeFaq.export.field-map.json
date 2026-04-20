@@ -1,0 +1,7 @@
+{
+  "fields": {
+    "div.h2|RichText": "divH2Text",
+    "ul.li.roundedCorners|Boolean": "ulLiRoundedCornersToggle"
+  },
+  "nextIndex": {}
+}

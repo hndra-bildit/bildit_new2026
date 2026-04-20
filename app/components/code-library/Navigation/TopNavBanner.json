@@ -1,0 +1,9 @@
+{
+  "name": "Top Nav Banner",
+  "description": "",
+  "type": "Navigation",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2Fnav%20(1)%20(2).png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "TopNavBanner"
+}

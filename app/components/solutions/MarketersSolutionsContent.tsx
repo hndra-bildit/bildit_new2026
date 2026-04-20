@@ -1,5 +1,6 @@
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
+import { VeeLiveEditorMockup } from '@/app/components/visual-experience-engine/VeeLiveEditorMockup'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
 
@@ -264,14 +265,9 @@ export function MarketersSolutionsContent() {
               </p>
             </div>
           </div>
-          <div className="relative min-h-[320px] flex-1 overflow-hidden rounded-2xl border border-black/10 bg-gradient-to-br from-[#f8f4ff] to-white shadow-inner lg:min-h-[480px]">
-            <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-[#595959]">Product preview</p>
-                <p className="mt-2 text-lg text-[#171717]">
-                  Live editor mockup ships from Figma — drop an exported PNG or wire the CMS slot here.
-                </p>
-              </div>
+          <div className="relative flex-1 min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-gradient-to-br from-[#f8f4ff] to-white shadow-inner">
+            <div className="min-w-0 overflow-x-auto overflow-y-visible pb-4 pt-2 pl-2">
+              <VeeLiveEditorMockup />
             </div>
           </div>
         </div>

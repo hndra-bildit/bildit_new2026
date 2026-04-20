@@ -1,0 +1,9 @@
+{
+  "name": "Sale Hero with 8 CTA's",
+  "description": "",
+  "type": "Holidays",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FSale%20Banner%20Lg%20Desktop.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "Sale Hero with 8 CTA's"
+}

@@ -1,0 +1,7 @@
+{
+  "fields": {
+    "div.span.roundedCorners|Boolean": "divSpanRoundedCornersToggle",
+    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle"
+  },
+  "nextIndex": {}
+}

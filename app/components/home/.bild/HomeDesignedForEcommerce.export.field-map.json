@@ -1,0 +1,9 @@
+{
+  "fields": {
+    "p|RichText": "pText",
+    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle",
+    "div.h2|RichText": "divH2Text",
+    "div.p|RichText": "divPText"
+  },
+  "nextIndex": {}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "HP - Ranch - 2 Column",
+  "description": "",
+  "type": "Homepage",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FGroup%2079881.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "HP-Ranch-2-Column"
+}

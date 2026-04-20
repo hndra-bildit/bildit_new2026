@@ -1,0 +1,9 @@
+{
+  "name": "#51 - Static Full Hero Nike",
+  "description": "",
+  "type": "Static Banner",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2Fwk24_071425_homepage_nike_fh_1.webp",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "#51 - Static Full Hero Nike"
+}

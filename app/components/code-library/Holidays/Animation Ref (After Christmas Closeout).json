@@ -1,0 +1,9 @@
+{
+  "name": "Animation Ref (After Christmas Closeout)",
+  "description": "",
+  "type": "Holidays",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2F1-6%20Up%20Equal%20LG%20Desktop%20-%20Inner%20Copy.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "Animation Ref (After Christmas Closeout)"
+}

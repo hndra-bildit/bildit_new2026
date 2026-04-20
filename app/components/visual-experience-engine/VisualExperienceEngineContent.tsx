@@ -8,14 +8,16 @@ import { VeePlatformsStrip } from '@/app/components/visual-experience-engine/Vee
 
 export function VisualExperienceEngineContent() {
   return (
-    <main className="bg-white text-neutral-900">
+    <div className="min-h-screen overflow-x-clip text-neutral-900">
       <VeeHero />
-      <VeeHowItWorksSection />
-      <VeeIntegrationsStrip />
-      <VeeAdvantagesSection />
-      <VeeEarlyAccessSection />
-      <VeeFaqSection />
-      <VeePlatformsStrip />
-    </main>
+      <main className="w-full bg-white">
+        <VeeHowItWorksSection />
+        <VeeIntegrationsStrip />
+        <VeeAdvantagesSection />
+        <VeeEarlyAccessSection />
+        <VeeFaqSection />
+        <VeePlatformsStrip />
+      </main>
+    </div>
   )
 }

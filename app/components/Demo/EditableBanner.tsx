@@ -35,22 +35,25 @@ const DEFAULT_TEXTS: EditableTextItem[] = [
   }
 ]
 
+/** Stock photos for the interactive demo — `/images/home/interactive-demo/product-*.png` were never added to `public/`. */
+const DEMO_PRODUCT_IMAGES = [
+  'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=520&h=652&q=80',
+  'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=520&h=652&q=80',
+  'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=520&h=652&q=80',
+  'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=520&h=652&q=80'
+] as const
+
 const PRODUCT_CARDS_INITIAL: { src: string; brand: string }[] = [
-  { src: '/images/home/interactive-demo/product-1.png', brand: 'Saint Laurent' },
-  { src: '/images/home/interactive-demo/product-2.png', brand: 'Chanel' },
-  { src: '/images/home/interactive-demo/product-3.png', brand: 'Balenciaga' },
-  { src: '/images/home/interactive-demo/product-4.png', brand: 'Gucci' },
-  { src: '/images/home/interactive-demo/product-1.png', brand: 'Gucci' },
-  { src: '/images/home/interactive-demo/product-2.png', brand: 'Chanel' },
-  { src: '/images/home/interactive-demo/product-3.png', brand: 'Balenciaga' }
+  { src: DEMO_PRODUCT_IMAGES[0], brand: 'Saint Laurent' },
+  { src: DEMO_PRODUCT_IMAGES[1], brand: 'Chanel' },
+  { src: DEMO_PRODUCT_IMAGES[2], brand: 'Balenciaga' },
+  { src: DEMO_PRODUCT_IMAGES[3], brand: 'Gucci' },
+  { src: DEMO_PRODUCT_IMAGES[0], brand: 'Gucci' },
+  { src: DEMO_PRODUCT_IMAGES[1], brand: 'Chanel' },
+  { src: DEMO_PRODUCT_IMAGES[2], brand: 'Balenciaga' }
 ]
 
-const GALLERY_SRCS = [
-  '/images/home/interactive-demo/product-1.png',
-  '/images/home/interactive-demo/product-2.png',
-  '/images/home/interactive-demo/product-3.png',
-  '/images/home/interactive-demo/product-4.png'
-]
+const GALLERY_SRCS = [...DEMO_PRODUCT_IMAGES]
 
 function isRemoteImageSrc(src: string): boolean {
   return /^https?:\/\//i.test(src.trim())

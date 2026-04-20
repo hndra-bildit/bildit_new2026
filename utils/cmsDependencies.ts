@@ -68,6 +68,20 @@ import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
 import SubTitleFour from '@/app/components/SubTitleFour'
 import SubTitleThree from '@/app/components/SubTitleThree'
 import SwiperCarousel from '@/app/components/SwiperCarousel'
+import { HomeHero } from '@/app/components/home/HomeHero'
+import { HomeDesignedForEcommerce } from '@/app/components/home/HomeDesignedForEcommerce'
+import { HomeEarlyAccess } from '@/app/components/home/HomeEarlyAccess'
+import { HomeEverythingYouNeed } from '@/app/components/home/HomeEverythingYouNeed'
+import { HomeFaq } from '@/app/components/home/HomeFaq'
+import { HomeIntegrations } from '@/app/components/home/HomeIntegrations'
+import { HomePostFaqCta } from '@/app/components/home/HomePostFaqCta'
+import { HomeProblemSolution } from '@/app/components/home/HomeProblemSolution'
+import { HomeSpeedWithoutCompromise } from '@/app/components/home/HomeSpeedWithoutCompromise'
+import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
+import * as homeSectionTypography from '@/app/components/home/home-section-typography'
+import { BilditLogo } from '@/app/components/site-header/BilditLogo'
+import * as homeFaqData from '@/app/lib/home-faq-data'
+import { cn } from '@/utils/cn'
 import * as LucideIcons from 'lucide-react'
 import * as Next from 'next/client'
 import * as NextForm from 'next/form'
@@ -155,6 +169,11 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/BlogSingleClient': { module: BlogSingleClient },
   '@/app/components/ResultImage': { module: ResultImage },
 
+  // Home page sections (code library templates resolve these paths)
+  '@/utils/cn': { module: { cn } },
+  '@/app/components/home/home-section-typography': { module: homeSectionTypography },
+  '@/app/lib/home-faq-data': { module: homeFaqData },
+  '@/app/components/site-header/BilditLogo': { module: { BilditLogo } },
   // Client-only modules (only include in non-production)
   ...(isProduction
     ? {}
@@ -176,3 +195,5 @@ declare global {
     ReactDOM: typeof ReactDOM & typeof ReactDOMClient
   }
 }
+export { cn } from '@/utils/cn'
+export { Eye, PenLine, Rocket } from 'lucide-react'

@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react'
+'use client'
+
+import { useEffect, useRef, type CSSProperties } from 'react'
 import './FloatingLines.css'
 import {
   Clock,
@@ -204,7 +206,31 @@ void main() {
 
 const MAX_GRADIENT_STOPS = 8
 
-function hexToVec3(hex) {
+type WavePosition = {
+  x: number
+  y: number
+  rotate: number
+}
+
+type FloatingLinesProps = {
+  linesGradient?: string[]
+  enabledWaves?: Array<'top' | 'middle' | 'bottom'>
+  lineCount?: number | number[]
+  lineDistance?: number | number[]
+  topWavePosition?: WavePosition
+  middleWavePosition?: WavePosition
+  bottomWavePosition?: WavePosition
+  animationSpeed?: number
+  interactive?: boolean
+  bendRadius?: number
+  bendStrength?: number
+  mouseDamping?: number
+  parallax?: boolean
+  parallaxStrength?: number
+  mixBlendMode?: CSSProperties['mixBlendMode']
+}
+
+function hexToVec3(hex: string): Vector3 {
   let value = hex.trim()
 
   if (value.startsWith('#')) {
@@ -244,23 +270,23 @@ export default function FloatingLines({
   parallax = true,
   parallaxStrength = 0.2,
   mixBlendMode = 'screen'
-}) {
-  const containerRef = useRef(null)
-  const targetMouseRef = useRef(new Vector2(-1000, -1000))
-  const currentMouseRef = useRef(new Vector2(-1000, -1000))
-  const targetInfluenceRef = useRef(0)
-  const currentInfluenceRef = useRef(0)
-  const targetParallaxRef = useRef(new Vector2(0, 0))
-  const currentParallaxRef = useRef(new Vector2(0, 0))
+}: FloatingLinesProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const targetMouseRef = useRef<Vector2>(new Vector2(-1000, -1000))
+  const currentMouseRef = useRef<Vector2>(new Vector2(-1000, -1000))
+  const targetInfluenceRef = useRef<number>(0)
+  const currentInfluenceRef = useRef<number>(0)
+  const targetParallaxRef = useRef<Vector2>(new Vector2(0, 0))
+  const currentParallaxRef = useRef<Vector2>(new Vector2(0, 0))
 
-  const getLineCount = (waveType) => {
+  const getLineCount = (waveType: 'top' | 'middle' | 'bottom'): number => {
     if (typeof lineCount === 'number') return lineCount
     if (!enabledWaves.includes(waveType)) return 0
     const index = enabledWaves.indexOf(waveType)
     return lineCount[index] ?? 6
   }
 
-  const getLineDistance = (waveType) => {
+  const getLineDistance = (waveType: 'top' | 'middle' | 'bottom'): number => {
     if (typeof lineDistance === 'number') return lineDistance
     if (!enabledWaves.includes(waveType)) return 0.1
     const index = enabledWaves.indexOf(waveType)
@@ -389,7 +415,7 @@ export default function FloatingLines({
 
     if (ro) ro.observe(container)
 
-    const handlePointerMove = (event) => {
+    const handlePointerMove = (event: PointerEvent) => {
       const rect = renderer.domElement.getBoundingClientRect()
       const x = event.clientX - rect.left
       const y = event.clientY - rect.top
@@ -417,21 +443,24 @@ export default function FloatingLines({
     }
 
     let raf = 0
+    /** Studio `mouseDamping={0}` means no smoothing — lerp alpha 0 would freeze the cursor. */
+    const mouseSmoothing = mouseDamping <= 0 ? 1 : mouseDamping
+
     const renderLoop = () => {
       if (!active) return
 
       uniforms.iTime.value = clock.getElapsedTime()
 
       if (interactive) {
-        currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping)
+        currentMouseRef.current.lerp(targetMouseRef.current, mouseSmoothing)
         uniforms.iMouse.value.copy(currentMouseRef.current)
 
-        currentInfluenceRef.current += (targetInfluenceRef.current - currentInfluenceRef.current) * mouseDamping
+        currentInfluenceRef.current += (targetInfluenceRef.current - currentInfluenceRef.current) * mouseSmoothing
         uniforms.bendInfluence.value = currentInfluenceRef.current
       }
 
       if (parallax) {
-        currentParallaxRef.current.lerp(targetParallaxRef.current, mouseDamping)
+        currentParallaxRef.current.lerp(targetParallaxRef.current, mouseSmoothing)
         uniforms.parallaxOffset.value.copy(currentParallaxRef.current)
       }
 
@@ -460,12 +489,17 @@ export default function FloatingLines({
         renderer.domElement.parentElement.removeChild(renderer.domElement)
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     linesGradient,
     enabledWaves,
     lineCount,
     lineDistance,
+    topLineCount,
+    middleLineCount,
+    bottomLineCount,
+    topLineDistance,
+    middleLineDistance,
+    bottomLineDistance,
     topWavePosition,
     middleWavePosition,
     bottomWavePosition,
@@ -481,7 +515,7 @@ export default function FloatingLines({
   return (
     <div
       ref={containerRef}
-      className="floating-lines-container"
+      className="relative w-full h-full overflow-hidden floating-lines-container"
       style={{
         mixBlendMode: mixBlendMode
       }}

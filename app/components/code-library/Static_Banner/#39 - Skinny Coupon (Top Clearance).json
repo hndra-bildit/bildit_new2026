@@ -1,0 +1,9 @@
+{
+  "name": "#39 - Skinny Coupon (Top Clearance)",
+  "description": "",
+  "type": "Static Banner",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-07-02%20131642.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "#39 - Skinny Coupon (Top Clearance)"
+}

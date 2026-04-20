@@ -1,0 +1,10 @@
+{
+  "fields": {
+    "h1.span|RichText": "h1SpanText",
+    "div.p|RichText": "divPText",
+    "div.Link.href|String": "divLinkHrefValue",
+    "div.Link.roundedCorners|Boolean": "divLinkRoundedCornersToggle",
+    "div.Link|RichText": "divLinkText"
+  },
+  "nextIndex": {}
+}

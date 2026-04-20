@@ -1,0 +1,9 @@
+{
+  "name": "Responsive-Image-For-nested",
+  "description": "",
+  "type": "Nested Banners",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FFrame%2080449.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "Responsive-Image-For-nested"
+}

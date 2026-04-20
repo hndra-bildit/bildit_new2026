@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle",
+    "div.Image.src|String": "divImageSrcValue",
+    "div.Image.roundedCorners|Boolean": "divImageRoundedCornersToggle",
+    "h2.span|RichText": "h2SpanText",
+    "div.p|RichText": "divPText",
+    "div.Link.href|String": "divLinkHrefValue",
+    "div.Link.roundedCorners|Boolean": "divLinkRoundedCornersToggle",
+    "div.Link|RichText": "divLinkText"
+  },
+  "nextIndex": {}
+}

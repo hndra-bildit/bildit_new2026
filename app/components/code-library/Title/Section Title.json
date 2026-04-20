@@ -1,0 +1,9 @@
+{
+  "name": "Section Title",
+  "description": "",
+  "type": "Title",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-10-08%20at%208.51.50%E2%80%AFAM%20(2).png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "Section Title"
+}

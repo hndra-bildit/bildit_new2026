@@ -1,0 +1,9 @@
+{
+  "name": "1-2-2(image)",
+  "description": "With text",
+  "type": "PLP",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-02-26%20at%204.55.30%E2%80%AFAM.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "1-2-2-V1-text"
+}

@@ -1,0 +1,10 @@
+{
+  "fields": {
+    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle",
+    "div.h2|RichText": "divH2Text",
+    "div.p|RichText": "divPText",
+    "h2.span|RichText": "h2SpanText",
+    "li.span|RichText": "liSpanText"
+  },
+  "nextIndex": {}
+}

@@ -1,0 +1,9 @@
+{
+  "name": "#41 - Skinny Coupon",
+  "description": "",
+  "type": "Static Banner",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FCleanShot%202025-07-07%20at%2011.04.07%402x.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "#41 - Skinny Coupon"
+}

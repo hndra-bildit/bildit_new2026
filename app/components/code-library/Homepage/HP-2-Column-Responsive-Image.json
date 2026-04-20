@@ -1,0 +1,9 @@
+{
+  "name": "HP - 2 Column Responsive Image",
+  "description": "",
+  "type": "Homepage",
+  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FBeauty%20Promos%20Desktop.png",
+  "codeType": "jsx",
+  "appType": "web",
+  "templateId": "HP-2-Column-Responsive-Image"
+}
