@@ -1,0 +1,8 @@
+export { StorefrontEverythingYouNeed } from './StorefrontEverythingYouNeed'
+export { StorefrontHero } from './StorefrontHero'
+export { StorefrontIntroBand } from './StorefrontIntroBand'
+export { StorefrontLeadCta } from './StorefrontLeadCta'
+export { StorefrontPlatformStrip } from './StorefrontPlatformStrip'
+export { StorefrontSchedulingIntegrations } from './StorefrontSchedulingIntegrations'
+export { StorefrontTestimonials } from './StorefrontTestimonials'
+export { StorefrontTransforming } from './StorefrontTransforming'

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import Link from 'next/link'
+import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const GroupItems = [
   { name: 'Build', active_url: '/images/home/blush-brush-02.svg', unactive_url: 'images/home/blush-brush-02-2.svg' },
@@ -46,20 +46,26 @@ const GroupContents = [
   }
 ]
 
-
-export default function HomeContentCmsOverviewSecond(){
-  const [type, setType] = useState('Build');
+export default function HomeContentCmsOverviewSecond() {
+  const [type, setType] = useState('Build')
   const handleChange = (val) => {
     setType(val)
   }
   const GroupContent = GroupContents.filter((item) => item.name === type).map((item, key) => (
     <div className="container mx-auto lg:grid grid-cols-[35%_auto] gap-10 items-center py-10 lg:py-25" key={key}>
       <div className="order-2">
-        <p className="text-cms-rose text-xl font-medium font-gt-walsheim leading-none uppercase text-center lg:text-left">{item.title}</p>
-        <h2 className='text-4xl md:text-5xl lg:text-7xl  text-neutral-900 mt-3 font-gt-walsheim leading-none font-extrabold text-center lg:text-left mt-4'>{item.heading}</h2>
-        <p className="text-lg leading-none lg:text-xl lg:leading-normal font-normal text-zinc-600 text-center lg:text-left mt-8"> {item.content}</p>
+        <p className="text-cms-rose text-xl font-medium font-gt-walsheim leading-none uppercase text-center lg:text-left">
+          {item.title}
+        </p>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl  text-neutral-900 mt-3 font-gt-walsheim leading-none font-extrabold text-center lg:text-left mt-4">
+          {item.heading}
+        </h2>
+        <p className="text-lg leading-none lg:text-xl lg:leading-normal font-normal text-zinc-600 text-center lg:text-left mt-8">
+          {' '}
+          {item.content}
+        </p>
         <Link href={item.link} className="flex justify-center lg:block">
-          <div className='transition-all duration-500 border-2 border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-neutral-900 cursor-pointer hover:bg-gray-200 hover:text-black hover:text-neutral-900 text-base outline-2 outline-neutral-900 mt-8 inline-block'>
+          <div className="transition-all duration-500 border-2 border-gray-200 px-4 py-2 xl:px-7 xl:py-2 rounded-full text-white bg-neutral-900 cursor-pointer hover:bg-gray-200 hover:text-black hover:text-neutral-900 text-base outline-2 outline-neutral-900 mt-8 inline-block">
             {item.label}
           </div>
         </Link>
@@ -68,8 +74,8 @@ export default function HomeContentCmsOverviewSecond(){
         <Image src={item.src} alt={item.alt} width={1200} height={1200} className="w-full h-auto" />
       </div>
     </div>
-  ));
-  
+  ))
+
   return (
     <section className="py-10 lg:py-25 relative px-4">
       <Image
@@ -93,7 +99,8 @@ export default function HomeContentCmsOverviewSecond(){
               <button
                 key={key}
                 onClick={() => handleChange(item.name)}
-                className={`font-gt-walsheim hover:bg-neutral-900 hover:text-white transition duration-500 lg:text-2xl w-35 lg:w-40 p-3 flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? 'bg-neutral-900 text-white' : 'bg-gray-100 text-neutral-700'}`}>
+                className={`font-gt-walsheim hover:bg-neutral-900 hover:text-white transition duration-500 lg:text-2xl w-35 lg:w-40 p-3 flex-wrap items-center justify-center rounded-full cursor-pointer ${item.name === type ? 'bg-neutral-900 text-white' : 'bg-gray-100 text-neutral-700'}`}
+              >
                 <div className="text-center flex lg:block justify-center items-center">
                   <Image
                     src={`${type === item.name ? item.active_url : item.unactive_url}`}

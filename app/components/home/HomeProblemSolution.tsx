@@ -1,7 +1,6 @@
-import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { cn } from '@/utils/cn'
-import { AlertTriangle, Check } from 'lucide-react'
+import { Check } from 'lucide-react'
 
 const PROBLEM_POINTS = [
   'Dev tickets. Release cycles. Missed windows.',
@@ -10,7 +9,7 @@ const PROBLEM_POINTS = [
   'Slow teams lose revenue.'
 ] as const
 
-const PUSH_OUT_ITEMS = ['Campaigns', 'Personalized experiences', 'Brand upgrades', 'Conversion experiments'] as const
+const PUSH_OUT_ITEMS = ['Campaigns', 'Personalized experiences', 'Conversion experiments', 'Brand upgrades'] as const
 
 const IMMEDIATE_POINTS = ['No engineering bottleneck.', 'No performance regression.', 'No deployments.'] as const
 
@@ -18,7 +17,7 @@ const gradientImmediately = {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text' as const,
-  backgroundImage: 'linear-gradient(167.8deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 50%, rgb(244, 114, 182) 100%)'
+  backgroundImage: 'linear-gradient(172.5deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 50%, rgb(244, 114, 182) 100%)'
 }
 
 const gradientJustControl = {
@@ -42,67 +41,67 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="relative mx-auto grid max-w-[1512px] grid-cols-1 gap-12 px-6 py-16 sm:px-10 md:gap-14 md:py-20 lg:grid-cols-2 lg:gap-[60px] lg:px-[116px] lg:py-[100px] xl:px-[216px]">
-        {/* Problem */}
-        <div className="flex min-w-0 flex-col">
+      <div className="relative mx-auto grid max-w-[1512px] grid-cols-1 gap-12 px-6 py-16 sm:px-10 md:gap-14 md:py-20 lg:grid-cols-2 lg:gap-10 lg:px-[116px] lg:py-[100px] xl:px-[216px]">
+        {/* Problem — Figma 5119:16646: pink top rule, label → headline → body → numbered list */}
+        <div className="flex min-w-0 flex-col border-t-[5px] border-solid border-[#ed1e79] pt-5">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <h2 className={cn('max-w-[855px]', homeSectionTitleClassName)}>
-              It&apos;s 2026. Why are marketers still waiting for developers?
-            </h2>
-            <div className="flex flex-wrap items-center gap-2.5">
-              <AlertTriangle className="size-6 shrink-0 text-[#ff4466]" strokeWidth={2} aria-hidden />
-              <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-bold text-[#ff4466] md:text-xl md:leading-[32.5px]">
+            <div className="flex items-center gap-2.5">
+              <span className="size-3 shrink-0 rounded-full bg-[#ff4466]" aria-hidden />
+              <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-semibold uppercase leading-[32.5px] text-[#ff4466]">
                 This is broken.
               </p>
             </div>
-            <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light leading-7 text-neutral-600 md:text-[17px] md:leading-[28px]">
+            <h2 className="max-w-[855px] font-[family-name:var(--font-uncut-sans)] text-[32px] font-bold uppercase leading-[38px] tracking-tight text-[#171717] md:text-[40px] md:leading-[48px]">
+              It&apos;s 2026. Why are marketers still waiting for Developers?
+            </h2>
+            <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-7 text-[#171717] md:text-xl md:leading-[28px]">
               We&apos;re generating AI video in seconds.
               <br />
               But marketers still wait days to update a headline.
             </p>
-            <ul className="flex flex-col gap-2.5 font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-[#595959]">
-              {PROBLEM_POINTS.map((line) => (
-                <li key={line}>{line}</li>
+            <ul className="flex flex-col gap-2.5">
+              {PROBLEM_POINTS.map((line, i) => (
+                <li key={line} className="flex items-center gap-2.5">
+                  <span
+                    className="inline-flex min-w-[2.25rem] shrink-0 items-center justify-center rounded-full border border-solid border-[#ff4466] px-2.5 py-1 font-[family-name:var(--font-uncut-sans)] text-xs leading-6 text-[#ff4466]"
+                    aria-hidden
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-neutral-500">
+                    {line}
+                  </span>
+                </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Solution */}
-        <div className="flex min-w-0 flex-col lg:justify-center lg:pt-[140px]">
+        {/* Solution — Figma 5119:16665: purple top rule */}
+        <div className="flex min-w-0 flex-col border-t-4 border-solid border-[#bc95ff] pt-5 lg:justify-center">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <h2
-              className={cn(
-                'max-w-[855px] flex flex-wrap items-center gap-x-3 gap-y-2 [--header-logo-bild:#0d0118] [--header-logo-it:#ed1e79]',
-                homeSectionTitleClassName
-              )}
-            >
-              <span>Solution:</span>
-              <span className="inline-flex items-center">
-                <span className="sr-only">BILDIT</span>
-                <BilditLogo className="h-9 w-auto sm:h-10 md:h-11" />
-              </span>
-            </h2>
-            <div className="flex flex-col gap-0 font-[family-name:var(--font-uncut-sans)] text-base md:text-[17px]">
-              <p className="font-bold leading-[32.5px] text-[#171717]">Break free from deployments.</p>
-              <p className="font-light leading-[32.5px] text-neutral-600">
-                BILDIT turns your site into a Visual Experience Engine.
-              </p>
+            <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-semibold uppercase leading-[32.5px] text-[#171717]">
+              The Solution
+            </p>
+            <div className="[--header-logo-bild:#0d0118] [--header-logo-it:#ed1e79]">
+              <span className="sr-only">BILDIT</span>
+              <BilditLogo className="h-10 w-auto sm:h-11 md:h-[48px] md:w-auto" />
             </div>
+            <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-[32.5px] text-[#171717] md:text-xl">
+              Break free from deployments. Your site into a Visual Experience Engine.
+            </p>
 
             <div className="flex flex-col gap-2.5 rounded-3xl">
-              <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-neutral-600">
-                Push out:
+              <p className="font-[family-name:var(--font-uncut-sans)] text-base font-bold uppercase tracking-[0.05em] text-[#171717]">
+                Push out Instantly
               </p>
-              <ul className="space-y-1 font-[family-name:var(--font-uncut-sans)] text-lg font-medium leading-7">
+              <ul className="flex flex-wrap gap-2 font-[family-name:var(--font-uncut-sans)] text-base font-medium leading-7">
                 {PUSH_OUT_ITEMS.map((item) => (
-                  <li key={item} className="flex gap-2 ps-1">
-                    <span className="shrink-0 text-[#c850f0]" aria-hidden>
-                      •
-                    </span>
-                    <span className="bg-gradient-to-br from-[#c850f0] via-[#e84590] to-[#f472b6] bg-clip-text text-transparent">
-                      {item}
-                    </span>
+                  <li
+                    key={item}
+                    className="inline-flex rounded-[40px] border border-solid border-[#633b9c] px-[15px] py-1.5 text-[#633b9c]"
+                  >
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -110,10 +109,10 @@ export function HomeProblemSolution({ className }: { className?: string }) {
 
             <div className="flex flex-col gap-4">
               <p
-                className="inline-block font-[family-name:var(--font-uncut-sans)] text-2xl font-bold"
+                className="inline-block max-w-full font-[family-name:var(--font-uncut-sans)] text-base font-bold uppercase leading-8 md:text-lg"
                 style={gradientImmediately}
               >
-                Immediately.
+                Immediately. No trade-offs.
               </p>
               <ul className="flex flex-col gap-4">
                 {IMMEDIATE_POINTS.map((line) => (

@@ -55,11 +55,7 @@
     rgb(216, 79, 193) 50%,
     rgb(232, 69, 144) 100%
   );
-  --bildit-gradient-soft-icon-tile: linear-gradient(
-    135deg,
-    rgba(200, 80, 240, 0.2) 0%,
-    rgba(232, 69, 144, 0.2) 100%
-  );
+  --bildit-gradient-soft-icon-tile: linear-gradient(135deg, rgba(200, 80, 240, 0.2) 0%, rgba(232, 69, 144, 0.2) 100%);
   --bildit-vee-card-border: rgba(200, 80, 240, 0.15);
 
   --background: oklch(1 0 0);
@@ -150,6 +146,61 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
 [data-mega-nav-panel] {
   background-color: var(--header-mega-bg);
   box-shadow: var(--header-mega-shadow);
+}
+
+/*
+ * Header desktop layout at 1000px (Tailwind `lg` is 1024px). Typical MacBook *layout*
+ * viewports are ~1008px while `outerWidth` is much larger (devtools, dock, split view).
+ */
+@media (min-width: 1000px) {
+  [data-site-header] [data-header-pill] {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-items: stretch;
+    gap: 0.5rem;
+  }
+  [data-site-header] [data-header-pill] > :nth-child(1) {
+    justify-self: start;
+  }
+  [data-site-header] [data-header-pill] > :nth-child(2) {
+    justify-self: center;
+  }
+  [data-site-header] [data-header-pill] > :nth-child(3) {
+    justify-self: end;
+  }
+  [data-site-header] nav.site-header--nav-desktop {
+    display: flex !important;
+  }
+  [data-site-header] .site-header-mobile-trigger.site-header--hide-wide {
+    display: none !important;
+  }
+  [data-site-header] #site-mobile-nav.site-header--mobile-sheet {
+    display: none !important;
+  }
+  [data-site-header] .site-header--mega-host {
+    display: block !important;
+  }
+  [data-site-header] .site-header--mega-inner {
+    flex-direction: row !important;
+    gap: 2.5rem !important;
+  }
+  [data-site-header] .site-header--mega-featured {
+    max-width: 20rem !important;
+  }
+  [data-site-header] .site-header--engineering {
+    display: inline-flex !important;
+  }
+  button.site-header--floating {
+    display: none !important;
+  }
+}
+
+@media (max-width: 999px) {
+  .site-header--logo-compact {
+    height: 24px;
+    width: 107px;
+  }
 }
 
 @theme {
@@ -359,6 +410,27 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
     background-image: none !important;
     background-clip: unset !important;
     -webkit-background-clip: unset !important;
+  }
+}
+
+/**
+ * Stripe <stripe-pricing-table> — shadow DOM; scale the host so four columns fit one row
+ * on typical viewports (zoom affects layout size in Chromium/WebKit).
+ */
+.stripe-pricing-table-host {
+  zoom: 0.6;
+  max-width: 100%;
+}
+
+@media (min-width: 1800px) {
+  .stripe-pricing-table-host {
+    zoom: 0.72;
+  }
+}
+
+@media (min-width: 2200px) {
+  .stripe-pricing-table-host {
+    zoom: 0.85;
   }
 }
 

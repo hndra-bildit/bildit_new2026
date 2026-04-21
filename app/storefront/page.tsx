@@ -1,10 +1,5 @@
-import { SlotPlaceholder } from '@bildit-platform/nextjs'
+import { redirect } from 'next/navigation'
 
-export default function StoreFront() {
-  return (
-    <div>
-      <SlotPlaceholder slotId="storefront-title" />
-      <SlotPlaceholder slotId="storefront-content" />
-    </div>
-  )
+export default function StorefrontPage() {
+  redirect('/mobile-app-storefront/')
 }

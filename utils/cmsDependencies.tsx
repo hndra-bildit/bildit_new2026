@@ -17,28 +17,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 /* README:
 
   This file is used to define the dependencies for the CMS.  These dependencies
   are used in the CMS to render components, pages, or banners using local modules. */
-
 /* node_modules. */
 import React from 'react'
-import ReactDOM from 'react-dom'
-import ReactDOMClient from 'react-dom/client'
-import jsxRuntime from 'react/jsx-runtime'
-import { getRemoteProps } from '@bildit-platform/nextjs'
-import * as Next from 'next/client'
-import * as NextForm from 'next/form'
-import NextImageOriginal from 'next/image'
-import type { ImageProps } from 'next/image'
-import * as NextLink from 'next/link'
-import * as NextNavigation from 'next/navigation'
-import * as NextScript from 'next/script'
-import * as NextWebVitals from 'next/web-vitals'
-import * as LucideIcons from 'lucide-react'
-
 /* Local modules - used in multiple places. */
 import BenefitIcon from '@/app/components/BenefitIcon'
 import BillingToggle from '@/app/components/BillingToggle'
@@ -77,6 +61,7 @@ import PrimaryButton from '@/app/components/PrimaryButton'
 import ResultImage from '@/app/components/ResultImage'
 import SecondaryButton from '@/app/components/SecondaryButton'
 import SectionCard from '@/app/components/SectionCard'
+import SocialProofSlider from '@/app/components/SocialProofSlider'
 import SubTitileFourCaps from '@/app/components/SubTitileFourCaps'
 import SubTitleFive from '@/app/components/SubTitleFive'
 import SubTitleFiveCaps from '@/app/components/SubTitleFiveCaps'
@@ -86,8 +71,31 @@ import SwiperCarousel from '@/app/components/SwiperCarousel'
 import { HomeWorkflowShowcase, HomeWorkflowShowcaseWithSteps } from '@/app/components/home/HomeWorkflowShowcase'
 import * as homeSectionTypography from '@/app/components/home/home-section-typography'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
+import {
+  StorefrontEverythingYouNeed,
+  StorefrontHero,
+  StorefrontIntroBand,
+  StorefrontLeadCta,
+  StorefrontPlatformStrip,
+  StorefrontSchedulingIntegrations,
+  StorefrontTestimonials,
+  StorefrontTransforming
+} from '@/app/components/storefront'
 import * as homeFaqData from '@/app/lib/home-faq-data'
 import { cn } from '@/utils/cn'
+import { getRemoteProps } from '@bildit-platform/nextjs'
+import * as LucideIcons from 'lucide-react'
+import * as Next from 'next/client'
+import * as NextForm from 'next/form'
+import NextImageOriginal from 'next/image'
+import type { ImageProps } from 'next/image'
+import * as NextLink from 'next/link'
+import * as NextNavigation from 'next/navigation'
+import * as NextScript from 'next/script'
+import * as NextWebVitals from 'next/web-vitals'
+import ReactDOM from 'react-dom'
+import ReactDOMClient from 'react-dom/client'
+import jsxRuntime from 'react/jsx-runtime'
 
 // Avoids CMS/runtime errors when `src` is missing
 function SafeImage(props: ImageProps) {
@@ -157,6 +165,7 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/ResultImage': { module: ResultImage },
   '@/app/components/SecondaryButton': { module: SecondaryButton },
   '@/app/components/SectionCard': { module: SectionCard },
+  '@/app/components/SocialProofSlider': { module: SocialProofSlider },
   '@/app/components/SubTitileFourCaps': { module: SubTitileFourCaps },
   '@/app/components/SubTitleFive': { module: SubTitleFive },
   '@/app/components/SubTitleFiveCaps': { module: SubTitleFiveCaps },
@@ -181,6 +190,18 @@ const cmsDependencies: Record<string, Dependency> = {
     }
   },
   '@/app/components/home/home-section-typography': { module: homeSectionTypography },
+  '@/app/components/storefront': {
+    module: {
+      StorefrontEverythingYouNeed,
+      StorefrontHero,
+      StorefrontIntroBand,
+      StorefrontLeadCta,
+      StorefrontPlatformStrip,
+      StorefrontSchedulingIntegrations,
+      StorefrontTestimonials,
+      StorefrontTransforming
+    }
+  },
   '@/app/components/site-header/BilditLogo': { module: { BilditLogo } },
   '@/app/lib/home-faq-data': { module: homeFaqData },
   '@/utils/cn': { module: { cn } }

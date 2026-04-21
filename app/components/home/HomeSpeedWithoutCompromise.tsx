@@ -8,46 +8,42 @@ type SpeedCard = {
   imageAlt: string
   title: string
   description: string
-  iconSrc?: string
 }
 
+/** 804×520 WebP (2× Figma 402×260); generated from PNGs exported from the file. */
 const CARDS: readonly SpeedCard[] = [
   {
     id: 'eliminate-deploys',
-    imageSrc: '/home-speed/card-eliminate-deploys.png',
+    imageSrc: '/home-speed/card-eliminate-deploys.webp',
     imageAlt: 'Developer shipping storefront updates from a multi-monitor workspace',
     title: 'Eliminate deploys',
     description: 'Push out experiences immediately.'
   },
   {
     id: 'sophisticated',
-    imageSrc: '/home-speed/card-sophisticated.png',
+    imageSrc: '/home-speed/card-sophisticated.webp',
     imageAlt: 'Premium mobile storefront experience on a smartphone',
     title: 'Sophisticated by default',
-    description: 'Precision design. Premium feel. Always on-brand.',
-    iconSrc: '/home-speed/icon-sophisticated.svg'
+    description: 'Precision design. Premium feel. Always on-brand.'
   },
   {
     id: 'performance',
-    imageSrc: '/home-speed/card-performance.png',
+    imageSrc: '/home-speed/card-performance.webp',
     imageAlt: 'Core Web Vitals and performance metrics visualization',
     title: 'Performance protected',
-    description: 'Core web vitals stay fast. Always.',
-    iconSrc: '/home-speed/icon-performance.svg'
+    description: 'Core web vitals stay fast. Always.'
   },
   {
     id: 'marketers',
-    imageSrc: '/home-speed/card-marketers.png',
+    imageSrc: '/home-speed/card-marketers.webp',
     imageAlt: 'Marketer managing storefront content in a visual editor',
     title: 'Control returned to marketers',
-    description: 'No developer tickets. No bottlenecks. No dependency.',
-    iconSrc: '/home-speed/icon-marketers.svg'
+    description: 'No developer tickets. No bottlenecks. No dependency.'
   }
 ] as const
-const ICON_GRADIENT = 'linear-gradient(135deg, rgba(200, 80, 240, 0.2) 0%, rgba(232, 69, 144, 0.2) 100%)'
 
 /**
- * Figma “Speed without compromise.” (4728:27038): headline, subhead, four feature cards with optional marketing icons.
+ * Figma “Speed without compromise” row (4728:27045): four article cards — image, title, subtext.
  */
 export function HomeSpeedWithoutCompromise({ className }: { className?: string }) {
   return (
@@ -76,24 +72,17 @@ export function HomeSpeedWithoutCompromise({ className }: { className?: string }
               key={card.id}
               className="flex min-w-0 flex-col gap-3.5 overflow-hidden rounded-2xl border border-black/10 bg-white"
             >
-              <div className="relative aspect-[402/260] w-full overflow-hidden">
+              <div className="relative aspect-[402/260] w-full overflow-hidden rounded-t-2xl">
                 <Image
                   src={card.imageSrc}
                   alt={card.imageAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                   className="object-cover object-center"
+                  fetchPriority="low"
                 />
               </div>
               <div className="flex flex-col gap-3.5 px-2.5 pb-2.5">
-                {card.iconSrc ? (
-                  <div
-                    className="flex size-12 shrink-0 items-center justify-center rounded-xl px-3"
-                    style={{ backgroundImage: ICON_GRADIENT }}
-                  >
-                    <Image src={card.iconSrc} alt="" width={24} height={24} className="size-6" />
-                  </div>
-                ) : null}
                 <h3 className="font-[family-name:var(--font-uncut-sans)] text-[18px] font-semibold leading-6 text-neutral-900">
                   {card.title}
                 </h3>

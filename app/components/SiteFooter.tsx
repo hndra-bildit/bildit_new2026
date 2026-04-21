@@ -6,7 +6,6 @@ const colAbout = [
   { label: 'About Us', href: '/our-story/' },
   { label: 'Contact Us', href: '/our-story/' },
   { label: 'Meet the Team', href: '/meet-the-team/' },
-  { label: 'Blog', href: '/blog/' },
   { label: 'Careers', href: '/career/' },
   { label: 'Partners', href: '/tech-partners/' },
   { label: 'ROI Calculator', href: '/pricing/' },
@@ -15,15 +14,20 @@ const colAbout = [
 ]
 
 const colProduct = [
-  { label: 'Reference App', href: '/storefront/' },
+  { label: 'Reference App', href: '/mobile-app-storefront/' },
   { label: 'Native Checkout', href: '/commerce-suite/' },
   { label: 'App Clip SDK', href: '/commerce-suite/' },
   { label: 'Visual Experience Engine', href: '/visual-experience-engine/' },
   { label: 'Mobile Checkout Index', href: '/commerce-suite/' },
   { label: 'Integrations', href: '/integration-partners/' },
   { label: 'React Native SDKs', href: '/it/' },
-  { label: 'Demo', href: '/storefront/' },
+  { label: 'Demo', href: '/mobile-app-storefront/' },
   { label: 'KPIs and Metrics', href: '/comparison/' }
+]
+
+const colInsights = [
+  { label: 'Blog', href: '/blog/' },
+  { label: 'Webinars', href: '/our-story/' }
 ]
 
 const colLearn = [
@@ -31,11 +35,9 @@ const colLearn = [
   { label: 'Features', href: '/cms/' },
   { label: 'Documentation', href: '/it/' },
   { label: 'Developers', href: '/it/' },
-  { label: 'Webinars', href: '/our-story/' },
   { label: 'For IT', href: '/it/' },
   { label: 'For Agencies', href: '/integration-partners/' },
-  { label: 'For Brands', href: '/brands/' },
-  { label: 'Resources', href: '/blog/' }
+  { label: 'For Brands', href: '/brands/' }
 ]
 
 export function SiteFooter() {
@@ -101,7 +103,19 @@ export function SiteFooter() {
                 </ul>
               </div>
               <div>
-                <ul className="font-[family-name:var(--font-inter)] space-y-2 text-sm">
+                <p className="font-[family-name:var(--font-inter)] text-xs font-semibold uppercase tracking-wide text-neutral-900">
+                  Insights
+                </p>
+                <ul className="font-[family-name:var(--font-inter)] mt-3 space-y-2 text-sm">
+                  {colInsights.map((item) => (
+                    <li key={item.href + item.label}>
+                      <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="font-[family-name:var(--font-inter)] mt-6 space-y-2 text-sm">
                   {colLearn.map((item) => (
                     <li key={item.href + item.label}>
                       <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">

@@ -18,7 +18,7 @@ const BONUS_ITEMS = [
 const CTA_GRADIENT = 'linear-gradient(90deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 100%)'
 
 /**
- * Figma Early Access section (4729:27157): program CTA card with benefits and link to `/early-access/`.
+ * Figma Early Access section (4729:27157): program CTA card with benefits and link to `/early-access-program/`.
  */
 export function HomeEarlyAccess({ className }: { className?: string }) {
   return (
@@ -41,7 +41,7 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
         >
           <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl bg-[#0d0118]" aria-hidden />
           <div
-            className="pointer-events-none absolute -left-[51px] -top-0.5 h-[720px] w-[min(1280px,calc(100%+102px))] opacity-90"
+            className="pointer-events-none absolute -left-[29px] -top-0.5 h-[720px] w-[min(1280px,calc(100%+58px))] opacity-90"
             aria-hidden
           >
             <Image
@@ -112,7 +112,7 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
 
               <div className="flex flex-col items-center gap-2.5 px-0 sm:px-8 md:px-[162px]">
                 <Link
-                  href="/early-access/"
+                  href="/early-access-program/"
                   className="font-[family-name:var(--font-uncut-sans)] inline-flex items-center gap-2.5 rounded-full px-5 py-2 text-base font-bold text-white shadow-md transition-transform hover:scale-[1.02] active:scale-[0.98]"
                   style={{ backgroundImage: CTA_GRADIENT }}
                 >

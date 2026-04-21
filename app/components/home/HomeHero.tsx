@@ -8,7 +8,7 @@ import Link from 'next/link'
 /**
  * Figma: hero (node 4728:27037). Background matches React Bits “floating lines”
  * studio preset (speed 0.2, bend 15 / 2; no parallax / mouse).
- * Site header is fixed globally (LayoutChrome). Home: sm+ hero inset calc((1rem + 20px) * 0.42); nav pill is a further 40px in on left/right and 20px below the hero top (see SiteHeader isHome).
+ * Site header is fixed globally (LayoutChrome). Home: sm+ hero inset calc((1rem + 20px) * 0.42) with top/left/right −10px; nav pill is a further 30px in on left/right and 10px below the hero top (see SiteHeader isHome).
  * Mobile: full-bleed; nav uses px-3 / 20px top inset (matches SiteHeader isHome pt).
  * Background: React Bits FloatingLines (WebGL) matching Background Studio export.
  */
@@ -18,12 +18,12 @@ export function HomeHero({ className }: { className?: string }) {
       id="home-hero"
       data-header-surface="dark"
       className={cn(
-        'relative m-0 flex min-h-svh w-full flex-col rounded-none pt-[calc(70px+30px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]',
+        'relative m-0 flex h-svh max-h-svh w-full flex-col overflow-hidden rounded-none pt-[calc(70px+30px+0.75rem)] sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:max-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]',
         className
       )}
     >
       <HeroFloatingLines />
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
         <div className="flex max-w-[896px] flex-col gap-5 md:gap-5">
           <h1 className="font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white sm:text-5xl md:text-6xl lg:text-[72px] lg:leading-[72px]">
             <span className="block">Ship high performance</span>

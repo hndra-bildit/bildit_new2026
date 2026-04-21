@@ -117,7 +117,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
       <div
         aria-hidden
-        className="relative z-[1] w-full rounded-b-none bg-white sm:rounded-b-[51px]"
+        className="relative z-[1] w-full rounded-b-none bg-white sm:rounded-b-[29px]"
         style={{ height: CAP_HEIGHT_PX }}
       />
 
@@ -212,7 +212,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
       <div
         aria-hidden
-        className="relative z-[1] -mt-px w-full rounded-t-none bg-white sm:rounded-t-[51px]"
+        className="relative z-[1] -mt-px w-full rounded-t-none bg-white sm:rounded-t-[29px]"
         style={{ height: CAP_HEIGHT_PX }}
       />
     </section>

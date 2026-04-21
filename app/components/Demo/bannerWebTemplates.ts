@@ -3,7 +3,9 @@
  * @see https://www.figma.com/design/mzWt5bbIDkM99DfqP23Ri8/Clone---Web-Templates?node-id=461-1433
  * Files live in `public/images/templates/`.
  */
-export const BILDIT_FREE_TRIAL_URL = 'https://signup.bildit.co/signup'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+
+export const BILDIT_FREE_TRIAL_URL = BILDIT_SIGNUP_URL
 
 /** Safe path for template filenames that may include spaces. */
 function templateImage(file: string): string {

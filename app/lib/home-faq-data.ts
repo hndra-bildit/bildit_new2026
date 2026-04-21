@@ -2,6 +2,8 @@
  * FAQ copy and structured data aligned with https://bildit.co
  * (FAQPage mainEntity matches production JSON-LD.)
  */
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+
 export const HOME_FAQ_SUBTITLE = 'Answers to your common questions about the BILDIT CMS.'
 
 export type HomeFaqEntry = {
@@ -90,7 +92,7 @@ export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
   }
 ] as const
 
-const SIGNUP_URL = 'https://signup.bildit.co/signup'
+const SIGNUP_URL = BILDIT_SIGNUP_URL
 
 export function homeFaqPageJsonLd() {
   return {

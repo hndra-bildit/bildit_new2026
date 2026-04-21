@@ -2,6 +2,7 @@ import BodyThree from './BodyThree'
 import HeadingThree from './HeadingThree'
 import HeadingThreeCaps from './HeadingThreeCaps'
 import PrimaryButton from './PrimaryButton'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import cn from 'clsx'
 import Link from 'next/link'
 import { FaCheckCircle } from 'react-icons/fa'
@@ -62,7 +63,7 @@ const PriceCard: React.FC<Props> = ({ item }) => {
         )}
       </div>
       <div className="mt-5 text-center">
-        <Link href="#">
+        <Link href={BILDIT_SIGNUP_URL}>
           <PrimaryButton content="Start Free Trial" className="w-full" />
         </Link>
       </div>

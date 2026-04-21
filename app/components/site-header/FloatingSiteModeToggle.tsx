@@ -32,7 +32,7 @@ export function FloatingSiteModeToggle() {
       aria-label={isEngineering ? 'Switch to marketing site' : 'Switch to engineering site'}
       onClick={toggle}
       className={cn(
-        'fixed z-[70] flex size-12 items-center justify-center rounded-full border border-neutral-200/80 bg-white/95 text-neutral-900 shadow-lg backdrop-blur-sm transition-transform hover:scale-[1.04] active:scale-[0.98] lg:hidden',
+        'site-header--floating fixed z-[70] hidden size-12 items-center justify-center rounded-full border border-neutral-200/80 bg-white/95 text-neutral-900 shadow-lg backdrop-blur-sm transition-transform hover:scale-[1.04] active:scale-[0.98] max-lg:flex',
         'bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))]'
       )}
     >

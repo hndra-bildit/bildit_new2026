@@ -125,3 +125,6 @@ export function HomeWorkflowShowcase({ className }: { className?: string }) {
     </section>
   )
 }
+
+/** Legacy export name for CMS bundles; same as `HomeWorkflowShowcase`. */
+export const HomeWorkflowShowcaseWithSteps = HomeWorkflowShowcase

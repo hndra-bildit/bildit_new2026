@@ -1,5 +1,6 @@
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import { Check, Code2, Gauge, GitBranch, Layers, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
@@ -65,7 +66,7 @@ const BENTO = [
 export function EngineeringSolutionsContent() {
   return (
     <main className="bg-[#07020f] pt-24 text-white md:pt-28">
-      <section className="relative px-4 pb-10 pt-4 md:px-8 md:pb-16">
+      <section className="relative px-[calc(1rem-10px)] pb-10 pt-[calc(1rem-10px)] md:px-[calc(2rem-10px)] md:pb-16">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
           <div
             className="absolute -right-24 -top-32 size-[420px] rounded-full opacity-40 blur-[48px]"
@@ -76,7 +77,7 @@ export function EngineeringSolutionsContent() {
             style={{ background: 'radial-gradient(circle, rgba(59,30,237,0.45) 0%, transparent 70%)' }}
           />
         </div>
-        <div className="relative mx-auto flex min-h-[480px] max-w-[1470px] flex-col items-center justify-center gap-8 overflow-hidden rounded-[32px] border border-white/10 bg-[#0d0118] px-6 py-20 text-center md:min-h-[620px] md:rounded-[48px] md:px-[116px] md:py-24">
+        <div className="relative mx-auto flex max-w-[1470px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[18px] border border-white/10 bg-[#0d0118] px-6 py-12 text-center sm:gap-6 sm:py-16 md:gap-7 md:rounded-[27px] md:px-[116px] md:py-16 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#a07dc0]">For engineering teams</p>
           <h1 className="max-w-[1100px] font-uncut-sans text-4xl font-bold leading-[1.06] tracking-[-0.03em] md:text-6xl md:leading-[1.05] lg:text-[72px] lg:leading-[78px]">
             <span className="text-[#f0e6ff]">Stop being the bottleneck for every</span>
@@ -84,7 +85,7 @@ export function EngineeringSolutionsContent() {
             <span className="text-[#f0e6ff]">merchandising experiment.</span>
             <br />
             <span
-              className="mt-2 inline-block bg-clip-text text-transparent"
+              className="mt-1.5 inline-block bg-clip-text font-uncut-sans text-lg font-bold leading-snug tracking-[-0.02em] text-transparent sm:mt-2 sm:text-xl md:mt-2.5 md:text-2xl md:leading-snug lg:mt-3 lg:text-3xl lg:leading-tight"
               style={{
                 backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
               }}
@@ -306,7 +307,7 @@ export function EngineeringSolutionsContent() {
             </p>
           </div>
           <div className="mt-10 flex justify-center">
-            <GradientCtaButton href="/pricing/">Start a trial</GradientCtaButton>
+            <GradientCtaButton href={BILDIT_SIGNUP_URL}>Start a trial</GradientCtaButton>
           </div>
         </div>
       </section>

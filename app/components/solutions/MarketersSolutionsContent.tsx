@@ -1,10 +1,11 @@
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
 import { VeeLiveEditorMockup } from '@/app/components/visual-experience-engine/VeeLiveEditorMockup'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
-
-const HERO_BG = 'https://www.figma.com/api/mcp/asset/64a42ff5-53b3-462e-b16c-576e5153ec87'
 
 const BENEFIT_CARDS = [
   {
@@ -82,18 +83,18 @@ export function MarketersSolutionsContent() {
       <section
         id="marketers-solutions-hero"
         data-header-surface="light"
-        className="relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none pt-[calc(70px+30px+0.75rem)] sm:m-[calc((1rem+20px)*0.42)] sm:min-h-[calc(100svh-(1rem+20px)*0.84)] sm:w-auto sm:rounded-[51px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
+        className="relative m-0 flex h-svh max-h-svh w-full flex-col overflow-hidden rounded-none pt-[calc(70px+30px+0.75rem)] sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:max-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
       >
         <div className="pointer-events-none absolute inset-0 bg-[#fafafa]" aria-hidden />
         <Image
-          src={HERO_BG}
+          src={MARKETERS_SOLUTIONS_HERO_BG}
           alt=""
           fill
           priority
           className="pointer-events-none object-cover object-center"
           sizes="(max-width: 1536px) 100vw, 1512px"
         />
-        <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-14 overflow-y-auto px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
           <div className="flex max-w-[1238px] flex-col items-center gap-8 md:gap-8">
             <h1 className="font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] text-[#171717] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
               <span className="block">Never be held back</span>
@@ -110,7 +111,7 @@ export function MarketersSolutionsContent() {
             <p className="max-w-[480px] font-uncut-sans text-lg text-black md:text-xl md:leading-[31px]">
               Ever missed a trend? Fixed it for you!
             </p>
-            <GradientCtaButton href="/pricing/">Start a Free Trial</GradientCtaButton>
+            <GradientCtaButton href={BILDIT_SIGNUP_URL}>Start a Free Trial</GradientCtaButton>
           </div>
         </div>
       </section>
@@ -391,39 +392,7 @@ export function MarketersSolutionsContent() {
           <p className="text-center text-lg text-[#595959]">
             We work with a limited number of teams each month. Secure your spot today.
           </p>
-          <form className="mt-4 w-full max-w-[480px] space-y-5" action="#" method="post">
-            <div className="grid gap-3 sm:grid-cols-2">
-              <label className="sr-only" htmlFor="cta-full-name">
-                Full name
-              </label>
-              <input
-                id="cta-full-name"
-                name="name"
-                placeholder="Full name"
-                className="rounded-xl border-[1.5px] border-[#d3d6db] px-[18px] py-3.5 text-base text-neutral-900 placeholder:text-[#757575]"
-              />
-              <label className="sr-only" htmlFor="cta-email">
-                Work email
-              </label>
-              <input
-                id="cta-email"
-                name="email"
-                type="email"
-                placeholder="Work email"
-                className="rounded-xl border-[1.5px] border-[#d3d6db] px-[18px] py-3.5 text-base text-neutral-900 placeholder:text-[#757575]"
-              />
-            </div>
-            <button
-              type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-base font-bold text-white [background-image:var(--bildit-gradient-cta-short)]"
-            >
-              Start Free Trial
-              <span aria-hidden>→</span>
-            </button>
-            <p className="text-center text-[13px] text-[#737373]">
-              No cost. No risk. We don&apos;t win unless you ship.
-            </p>
-          </form>
+          <MarketersSolutionsCtaForm />
         </div>
       </section>
 

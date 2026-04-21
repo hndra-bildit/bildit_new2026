@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import { VISUAL_EDITING_PROMO_IMAGE } from '@/app/lib/visual-editing-promo-image'
 import { cn } from '@/utils/cn'
 import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react'
@@ -9,7 +10,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
-type MegaKey = 'capabilities' | 'solutions' | 'partners'
+type MegaKey = 'capabilities' | 'solutions' | 'partners' | 'insights'
 
 type MegaLinkItem = {
   href: string
@@ -24,7 +25,7 @@ const CAPABILITIES_ITEMS: MegaLinkItem[] = [
     description: 'Build Templates in React and let the marketing team edit them visually.'
   },
   {
-    href: '/storefront/',
+    href: '/mobile-app-storefront/',
     title: 'Mobile App Storefront',
     description:
       'Optimized React Native Mobile App Storefront: fast and modern UI/UX built-in, high conversion with one click checkout'
@@ -54,6 +55,14 @@ const PARTNER_ITEMS: MegaLinkItem[] = [
     href: '/integration-partners/',
     title: 'Become a Partner',
     description: 'Join our partner program and build solutions on top of BILDIT.'
+  }
+]
+
+const INSIGHTS_ITEMS: MegaLinkItem[] = [
+  {
+    href: '/blog/',
+    title: 'Blog',
+    description: 'Articles on commerce, content strategy, and platform updates.'
   },
   {
     href: '/our-story/',
@@ -180,7 +189,7 @@ function MegaLinkList({ items }: { items: MegaLinkItem[] }) {
   )
 }
 
-type MobileAccordionKey = 'capabilities' | 'solutions' | 'partners'
+type MobileAccordionKey = 'capabilities' | 'solutions' | 'partners' | 'insights'
 
 export function SiteHeader() {
   const pathname = usePathname() || '/'
@@ -189,8 +198,11 @@ export function SiteHeader() {
   /** Inset + top padding aligned with `HomeHero` / solutions marketing hero (floating lines). */
   const isHomeLayout =
     normalizedPath === '/' ||
+    normalizedPath === '/pricing' ||
     normalizedPath === '/solutions-for-marketers' ||
-    normalizedPath === '/visual-experience-engine'
+    normalizedPath === '/visual-experience-engine' ||
+    normalizedPath === '/visual-experience-layer-visual-editor-beautiful-content-scheduling' ||
+    normalizedPath === '/mobile-app-storefront'
   const isEngineering = normalizedPath === '/it' || normalizedPath === '/solutions-for-engineering'
   const [megaOpen, setMegaOpen] = useState(false)
   const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')
@@ -286,14 +298,14 @@ export function SiteHeader() {
       className={cn(
         'pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center',
         isHomeLayout
-          ? 'px-3 pt-[20px] sm:px-[calc((1rem+20px)*0.42+40px)] sm:pt-[calc((1rem+20px)*0.42+20px)]'
+          ? 'px-3 pt-[20px] sm:px-[calc((1rem+20px)*0.42+30px)] sm:pt-[calc((1rem+20px)*0.42+10px)]'
           : 'px-2 pt-[calc(0.5rem+20px)] sm:px-[calc(1rem+20px)] sm:pt-[calc(1rem+20px)]'
       )}
     >
       <div className="pointer-events-auto relative w-full max-w-[1260px]" onMouseLeave={scheduleClose}>
         <div
           data-header-pill
-          className="flex h-[70px] items-center justify-between gap-1 rounded-[45px] pl-1.5 pr-3 sm:gap-2 sm:pl-6 sm:pr-4 lg:pl-10"
+          className="flex h-[70px] items-center gap-1 rounded-[45px] pl-1.5 pr-3 max-[999px]:justify-between sm:gap-2 sm:pl-6 sm:pr-4 lg:pl-10"
           style={{
             backgroundColor: 'var(--header-pill-bg)',
             boxShadow: 'var(--header-pill-shadow)'
@@ -302,7 +314,7 @@ export function SiteHeader() {
           <div className="flex min-w-0 flex-1 items-center gap-1 sm:gap-3 lg:flex-initial lg:gap-0">
             <button
               type="button"
-              className="site-header-mobile-trigger flex size-10 shrink-0 items-center justify-center rounded-full transition-colors lg:hidden"
+              className="site-header-mobile-trigger site-header--hide-wide hidden size-10 shrink-0 items-center justify-center rounded-full transition-colors max-lg:inline-flex"
               aria-expanded={mobileNavOpen}
               aria-controls="site-mobile-nav"
               aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
@@ -315,16 +327,19 @@ export function SiteHeader() {
               className="flex min-w-0 shrink-0 items-center py-2 no-underline hover:no-underline focus-visible:no-underline"
               aria-label="BILDIT home"
             >
-              <BilditLogo className="max-lg:h-[24px] max-lg:w-[107px]" />
+              <BilditLogo className="site-header--logo-compact" />
             </Link>
           </div>
 
-          <nav className="font-[family-name:var(--font-inter)] hidden items-center gap-1 lg:flex" aria-label="Primary">
-            <div className="flex items-center gap-6 xl:gap-8">
+          <nav
+            className="site-header--nav-desktop font-[family-name:var(--font-inter)] hidden min-w-0 items-center justify-center gap-1 lg:flex"
+            aria-label="Primary"
+          >
+            <div className="flex min-w-0 items-center gap-5 lg:gap-8 xl:gap-12 2xl:gap-16">
               <button
                 type="button"
                 className={cn(
-                  'relative py-3 text-base no-underline transition-colors duration-200',
+                  'relative shrink-0 py-3 text-sm no-underline transition-colors duration-200 xl:text-base',
                   megaOpen && megaFocus === 'capabilities'
                     ? 'text-[var(--header-nav-hover)]'
                     : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
@@ -333,12 +348,12 @@ export function SiteHeader() {
                 onMouseEnter={() => openMega('capabilities')}
                 onFocus={() => openMega('capabilities')}
               >
-                Capabilities
+                Platform
               </button>
               <button
                 type="button"
                 className={cn(
-                  'relative py-3 text-base no-underline transition-colors duration-200',
+                  'relative shrink-0 py-3 text-sm no-underline transition-colors duration-200 xl:text-base',
                   megaOpen && megaFocus === 'solutions'
                     ? 'text-[var(--header-nav-hover)]'
                     : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
@@ -352,7 +367,7 @@ export function SiteHeader() {
               <button
                 type="button"
                 className={cn(
-                  'relative py-3 text-base no-underline transition-colors duration-200',
+                  'relative shrink-0 py-3 text-sm no-underline transition-colors duration-200 xl:text-base',
                   megaOpen && megaFocus === 'partners'
                     ? 'text-[var(--header-nav-hover)]'
                     : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
@@ -363,16 +378,23 @@ export function SiteHeader() {
               >
                 Partners
               </button>
-              <Link
-                href="/blog/"
-                className="py-3 text-base text-[var(--header-nav)] no-underline decoration-transparent transition-colors duration-200 hover:text-[var(--header-nav-hover)] hover:no-underline focus-visible:no-underline"
-                onMouseEnter={scheduleClose}
+              <button
+                type="button"
+                className={cn(
+                  'relative shrink-0 py-3 text-sm no-underline transition-colors duration-200 xl:text-base',
+                  megaOpen && megaFocus === 'insights'
+                    ? 'text-[var(--header-nav-hover)]'
+                    : 'text-[var(--header-nav)] hover:text-[var(--header-nav-hover)]'
+                )}
+                aria-expanded={megaOpen && megaFocus === 'insights'}
+                onMouseEnter={() => openMega('insights')}
+                onFocus={() => openMega('insights')}
               >
                 Insights
-              </Link>
+              </button>
               <Link
                 href="/pricing/"
-                className="py-3 text-base text-[var(--header-nav)] no-underline decoration-transparent transition-colors duration-200 hover:text-[var(--header-nav-hover)] hover:no-underline focus-visible:no-underline"
+                className="shrink-0 py-3 text-sm text-[var(--header-nav)] no-underline decoration-transparent transition-colors duration-200 hover:text-[var(--header-nav-hover)] hover:no-underline focus-visible:no-underline xl:text-base"
                 onMouseEnter={scheduleClose}
               >
                 Pricing
@@ -387,7 +409,7 @@ export function SiteHeader() {
               aria-checked={isEngineering}
               aria-label={isEngineering ? 'Switch to solutions for marketers' : 'Switch to solutions for engineering'}
               onClick={toggleEngineering}
-              className="relative hidden h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300 lg:inline-flex"
+              className="site-header--engineering relative hidden h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300 lg:inline-flex"
               style={{ backgroundColor: 'var(--header-toggle-track)' }}
             >
               <span
@@ -404,8 +426,8 @@ export function SiteHeader() {
               </span>
             </button>
             <Link
-              href="/pricing/"
-              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center rounded-full px-4 py-3 text-xs font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base"
+              href={BILDIT_SIGNUP_URL}
+              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center rounded-full px-4 py-3 text-xs font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base lg:px-4 lg:text-sm xl:px-6 xl:text-base"
               style={{
                 backgroundColor: 'var(--header-cta-bg)',
                 color: 'var(--header-cta-fg)'
@@ -418,18 +440,24 @@ export function SiteHeader() {
 
         <div
           className={cn(
-            'absolute left-0 right-0 top-full hidden pt-3 transition-[opacity,transform] duration-300 ease-out lg:block',
+            'site-header--mega-host absolute left-0 right-0 top-full hidden pt-3 transition-[opacity,transform] duration-300 ease-out lg:block',
             megaOpen ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
           )}
           onMouseEnter={clearClose}
         >
           <div
             data-mega-nav-panel
-            className="font-[family-name:var(--font-inter)] flex min-h-0 min-w-0 max-h-[min(80vh,520px)] w-full flex-col gap-8 overflow-y-auto rounded-[24px] px-5 py-7 sm:px-6 lg:flex-row lg:gap-10"
+            className="site-header--mega-inner font-[family-name:var(--font-inter)] flex min-h-0 min-w-0 max-h-[min(80vh,520px)] w-full flex-col gap-8 overflow-y-auto rounded-[24px] px-5 py-7 sm:px-6 lg:flex-row lg:gap-10"
           >
             <div className="min-w-0 flex-1 space-y-3">
               <p className="text-xs font-normal uppercase tracking-wide" style={{ color: 'var(--header-mega-label)' }}>
-                {megaFocus === 'capabilities' ? 'Capabilities' : megaFocus === 'solutions' ? 'Solutions' : 'Partners'}
+                {megaFocus === 'capabilities'
+                  ? 'Platform'
+                  : megaFocus === 'solutions'
+                    ? 'Solutions'
+                    : megaFocus === 'partners'
+                      ? 'Partners'
+                      : 'Insights'}
               </p>
               <MegaLinkList
                 items={
@@ -437,13 +465,15 @@ export function SiteHeader() {
                     ? CAPABILITIES_ITEMS
                     : megaFocus === 'solutions'
                       ? SOLUTION_ITEMS
-                      : PARTNER_ITEMS
+                      : megaFocus === 'partners'
+                        ? PARTNER_ITEMS
+                        : INSIGHTS_ITEMS
                 }
               />
             </div>
 
-            {megaFocus !== 'partners' && (
-              <div className="w-full min-w-0 shrink-0 self-start lg:max-w-[320px]">
+            {megaFocus !== 'partners' && megaFocus !== 'insights' && (
+              <div className="site-header--mega-featured w-full min-w-0 shrink-0 self-start lg:max-w-[320px]">
                 <MegaFeaturedCard />
               </div>
             )}
@@ -457,7 +487,7 @@ export function SiteHeader() {
         aria-modal="true"
         aria-label="Site navigation"
         className={cn(
-          'pointer-events-auto fixed inset-0 z-[60] flex flex-col lg:hidden',
+          'site-header--mobile-sheet pointer-events-auto fixed inset-0 z-[60] hidden max-lg:flex max-lg:flex-col',
           mobileNavOpen ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'
         )}
       >
@@ -473,7 +503,7 @@ export function SiteHeader() {
           className={cn(
             'relative flex flex-col rounded-t-[24px] transition-transform duration-300 ease-out',
             isHomeLayout
-              ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+20px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-20px-12px)]'
+              ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+10px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-10px-12px)]'
               : 'mt-[calc(70px+0.5rem+20px+12px)] min-h-[calc(100dvh-70px-0.5rem-20px-12px)] sm:mt-[calc(70px+1rem+20px+12px)] sm:min-h-[calc(100dvh-70px-1rem-20px-12px)]',
             mobileNavOpen ? 'translate-y-0' : 'translate-y-4'
           )}
@@ -491,7 +521,7 @@ export function SiteHeader() {
                     className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold"
                     style={{ color: 'var(--header-mega-text)' }}
                   >
-                    Capabilities
+                    Platform
                   </span>
                   <ChevronDown
                     className={cn(
@@ -629,20 +659,57 @@ export function SiteHeader() {
                   </ul>
                 )}
               </div>
-              <Link
-                href="/blog/"
-                className={cn(mobileSimpleLinkClass, 'border-b')}
-                style={{ borderColor: 'var(--header-mega-divider)' }}
-                onClick={() => setMobileNavOpen(false)}
-              >
-                <span
-                  className="mt-2 h-5 w-0.5 shrink-0 self-start rounded-[10px]"
-                  style={{ backgroundColor: 'var(--header-accent-line)' }}
-                />
-                <span className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
-                  Insights
-                </span>
-              </Link>
+
+              <div className="border-b" style={{ borderColor: 'var(--header-mega-divider)' }}>
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between gap-3 py-4 text-left"
+                  aria-expanded={mobileAccordion === 'insights'}
+                  onClick={() => toggleMobileAccordion('insights')}
+                >
+                  <span
+                    className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold"
+                    style={{ color: 'var(--header-mega-text)' }}
+                  >
+                    Insights
+                  </span>
+                  <ChevronDown
+                    className={cn(
+                      'size-5 shrink-0 transition-transform duration-200',
+                      mobileAccordion === 'insights' && '-rotate-180'
+                    )}
+                    aria-hidden
+                    style={{ color: 'var(--header-mega-muted)' }}
+                  />
+                </button>
+                {mobileAccordion === 'insights' && (
+                  <ul className="space-y-1 pb-4">
+                    {INSIGHTS_ITEMS.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className={mobileSimpleLinkClass}
+                          onClick={() => setMobileNavOpen(false)}
+                        >
+                          <span
+                            className="mt-1.5 h-8 w-0.5 shrink-0 self-start rounded-[10px]"
+                            style={{ backgroundColor: 'var(--header-accent-line)' }}
+                          />
+                          <div className="min-w-0">
+                            <p className="font-[family-name:var(--font-uncut-sans)] text-base font-medium text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
+                              {item.title}
+                            </p>
+                            <p className="text-sm leading-snug text-[var(--header-mega-muted)] transition-colors duration-200 group-hover:text-[var(--header-mega-muted-hover)]">
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
               <Link
                 href="/pricing/"
                 className={cn(mobileSimpleLinkClass, 'border-b')}

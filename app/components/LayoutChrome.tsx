@@ -11,9 +11,12 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
   /** Fixed header clears via page content padding (home/marketers heroes, engineering `main`). */
   const usesHomeHeroLayout =
     normalizedPath === '/' ||
+    normalizedPath === '/pricing' ||
     normalizedPath === '/solutions-for-marketers' ||
     normalizedPath === '/solutions-for-engineering' ||
-    normalizedPath === '/visual-experience-engine'
+    normalizedPath === '/visual-experience-engine' ||
+    normalizedPath === '/visual-experience-layer-visual-editor-beautiful-content-scheduling' ||
+    normalizedPath === '/mobile-app-storefront'
 
   return (
     <>
