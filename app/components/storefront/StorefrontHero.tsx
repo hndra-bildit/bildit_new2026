@@ -33,7 +33,12 @@ export function StorefrontHero({ className }: { className?: string }) {
           aria-hidden
         >
           <div className="relative h-full w-full">
-            <Image src="/mobile-app-storefront/hero-overlay.svg" alt="" fill className="object-contain object-right-top" />
+            <Image
+              src="/mobile-app-storefront/hero-overlay.svg"
+              alt=""
+              fill
+              className="object-contain object-right-top"
+            />
           </div>
         </div>
         <div

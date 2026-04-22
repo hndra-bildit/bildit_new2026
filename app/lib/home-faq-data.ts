@@ -4,8 +4,7 @@
  */
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 
-export const HOME_FAQ_SUBTITLE =
-  'Answers to your common questions about the Visual Experience Engine.'
+export const HOME_FAQ_SUBTITLE = 'Answers to your common questions about the Visual Experience Engine.'
 
 export type HomeFaqEntry = {
   /** schema.org Question.name — includes "Q: " prefix like production */

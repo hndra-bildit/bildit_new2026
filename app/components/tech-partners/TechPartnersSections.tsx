@@ -35,14 +35,7 @@ function ShowcaseCard({
         )}
       >
         <div className="relative h-14 w-full max-w-[280px] shrink-0 md:h-[72px]">
-          <Image
-            src={logoSrc}
-            alt={logoAlt}
-            fill
-            unoptimized
-            className="object-contain object-center"
-            sizes="280px"
-          />
+          <Image src={logoSrc} alt={logoAlt} fill unoptimized className="object-contain object-center" sizes="280px" />
         </div>
       </div>
       <div className="flex min-h-[200px] flex-col gap-2.5 border-t border-[#d3d6db] px-6 py-7 md:min-h-[220px]">

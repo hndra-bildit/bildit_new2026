@@ -117,11 +117,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
       <InstaStoriesShoulderCapsTop />
 
-      <div
-        className={cn(
-          'relative z-10 w-full overflow-hidden shadow-[0px_24px_80px_rgba(13,1,24,0.12)]'
-        )}
-      >
+      <div className={cn('relative z-10 w-full overflow-hidden shadow-[0px_24px_80px_rgba(13,1,24,0.12)]')}>
         <div className="relative w-full">
           <div
             className="pointer-events-none absolute bottom-0 left-1/2 z-0 size-[min(600px,90vw)] -translate-x-1/2 translate-y-1/4 rounded-full bg-[rgba(200,80,240,0.07)] blur-[140px]"
@@ -145,7 +141,9 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                 <h2 className={cn('text-center', homeSectionTitleOnDarkClassName, 'text-[#f0e6ff]')}>
                   Everything you need. Nothing holding you back.
                 </h2>
-                <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-lg leading-[29.25px]')}>
+                <p
+                  className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-lg leading-[29.25px]')}
+                >
                   You get:
                 </p>
               </div>

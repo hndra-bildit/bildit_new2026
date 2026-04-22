@@ -1,8 +1,8 @@
+import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
 import {
   InstaStoriesShoulderCapsBottom,
   InstaStoriesShoulderCapsTop
 } from '@/app/components/home/InstaStoriesSectionShoulderCaps'
-import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { MarketersFeaturesBentoSection } from '@/app/components/solutions/MarketersFeaturesBentoSection'
@@ -191,11 +191,7 @@ export function MarketersSolutionsContent() {
       <section className="relative w-full overflow-hidden bg-white">
         <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
-          <img
-            src="/images/Insta%20Stories.gif"
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <img src="/images/Insta%20Stories.gif" alt="" className="absolute inset-0 h-full w-full object-cover" />
         </div>
         <InstaStoriesShoulderCapsTop />
         <div className="relative z-10 w-full overflow-hidden">

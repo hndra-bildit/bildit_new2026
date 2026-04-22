@@ -240,8 +240,8 @@ export function VisualExperienceLayerLanding() {
             Create unified cross-channel content experiences that drive revenue
           </h2>
           <p className="mx-auto mt-5 max-w-[720px] font-[family-name:var(--font-uncut-sans)] text-lg text-[#595959] md:text-xl">
-            Launch more, launch faster. With the Visual Experience Engine, you can line up your next
-            campaign in hours, not weeks.
+            Launch more, launch faster. With the Visual Experience Engine, you can line up your next campaign in hours,
+            not weeks.
           </p>
           <ul className="mx-auto mt-10 flex max-w-[900px] flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-8 md:gap-12">
             {(

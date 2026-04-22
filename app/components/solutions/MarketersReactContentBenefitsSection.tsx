@@ -54,9 +54,7 @@ export function MarketersReactContentBenefitsSection() {
                 <Image src={card.src} alt="" fill className="object-contain" sizes="52px" />
               </div>
               <h3 className="mt-5 text-[17px] font-bold text-[#171717]">{card.title}</h3>
-              <p className="mt-2 whitespace-pre-line text-sm leading-[22.4px] text-[#595959] md:text-sm">
-                {card.body}
-              </p>
+              <p className="mt-2 whitespace-pre-line text-sm leading-[22.4px] text-[#595959] md:text-sm">{card.body}</p>
             </article>
           ))}
         </div>

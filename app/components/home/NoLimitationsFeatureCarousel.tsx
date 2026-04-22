@@ -1,8 +1,5 @@
 import { homeNoLimitationsCardImages } from '@/app/lib/home-no-limitations-assets'
-import {
-  NO_LIMITATIONS_FEATURE_CARDS,
-  type NoLimitationsFeatureCard
-} from '@/app/lib/no-limitations-feature-cards'
+import { NO_LIMITATIONS_FEATURE_CARDS, type NoLimitationsFeatureCard } from '@/app/lib/no-limitations-feature-cards'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 

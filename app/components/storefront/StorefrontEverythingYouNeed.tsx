@@ -1,11 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { MOBILE_APP_STOREFRONT_IMAGES } from '@/app/lib/storefront-remote-assets'
 import { cn } from '@/utils/cn'
 import { CalendarHeart, CreditCard, LayoutTemplate, Paintbrush } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
 
 const FEATURES = [
   {
@@ -92,9 +92,7 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
                   className={cn(
                     'flex w-full flex-col gap-1.5 rounded-2xl border p-2.5 text-left transition-colors md:p-2.5',
                     'hover:border-[#7c3aed]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c3aed]',
-                    isActive
-                      ? 'border-transparent bg-[#f7ebf2] backdrop-blur-[10px]'
-                      : 'border-black/10 bg-white'
+                    isActive ? 'border-transparent bg-[#f7ebf2] backdrop-blur-[10px]' : 'border-black/10 bg-white'
                   )}
                 >
                   <div className="flex items-center gap-0">
