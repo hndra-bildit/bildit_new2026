@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 /**
- * Figma: hero (node 4728:27037). Background: `lines-background.png` with rounded shell on sm+.
+ * Figma: hero (node 4728:27037). Background: `lines-background.webp` with rounded shell on sm+.
  * Site header is fixed globally (LayoutChrome). Home: sm+ hero inset calc((1rem + 20px) * 0.42) with top/left/right −10px; nav pill is a further 30px in on left/right and 10px below the hero top (see SiteHeader isHome).
  * Mobile: full-bleed; nav uses px-3 / 20px top inset (matches SiteHeader isHome pt).
  */

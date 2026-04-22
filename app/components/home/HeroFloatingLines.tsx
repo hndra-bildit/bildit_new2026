@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * Full-bleed neon lines art (`public/images/lines-background.png`) with a slow pan + pulse
+ * Full-bleed neon lines art (`public/images/lines-background.webp`) with a slow pan + pulse
  * so the hero reads as alive / “loading” without WebGL.
  */
 export function HeroFloatingLines() {

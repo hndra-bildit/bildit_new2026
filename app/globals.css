@@ -471,7 +471,7 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
 
 /* Home hero — static lines art with slow drift (loading / energy feel) */
 .hero-lines-bg-loading {
-  background-image: url('/images/lines-background.png');
+  background-image: url('/images/lines-background.webp');
   background-repeat: no-repeat;
   background-size: 125% 100%;
   background-position: 0% 50%;
