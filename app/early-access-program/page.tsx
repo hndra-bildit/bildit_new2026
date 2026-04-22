@@ -1,5 +1,6 @@
 import { EarlyAccessProgramApply } from '@/app/components/early-access-program/EarlyAccessProgramApply'
 import { EarlyAccessSpotsCounter } from '@/app/components/early-access-program/EarlyAccessSpotsCounter'
+import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { StorefrontPlatformStrip } from '@/app/components/storefront/StorefrontPlatformStrip'
 import { cn } from '@/utils/cn'
 import type { Metadata } from 'next'
@@ -15,7 +16,7 @@ const BENEFITS = [{ label: '6 Months Free' }, { label: 'Free Implementation' }, 
 export default function EarlyAccessProgramPage() {
   return (
     <div className="min-h-screen bg-[#0d0118] text-[#e8d4ff]">
-      <section className="relative overflow-hidden bg-[#0d0118]">
+      <section className="relative overflow-hidden bg-[#0d0118]" data-header-surface="dark">
         <div className="pointer-events-none absolute inset-0 opacity-90" aria-hidden>
           <Image
             src="/home-early-access/line-waves.png"
@@ -31,8 +32,9 @@ export default function EarlyAccessProgramPage() {
           aria-hidden
         />
 
-        <div className="relative z-[1] mx-auto flex max-w-[960px] flex-col items-center px-4 pb-14 pt-10 text-center sm:px-6 md:pb-20 md:pt-14">
-          <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.28em] text-[#d6c1ea]">
+        <div className="relative z-[1] mx-auto flex max-w-[960px] flex-col items-center px-4 pb-14 text-center sm:px-6 md:pb-20">
+          <SiteHeroTopSpacer />
+          <p className="pt-4 font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.28em] text-[#d6c1ea] md:pt-6">
             Early access program
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight tracking-tight text-[#f0e6ff] md:text-5xl md:leading-[1.1]">

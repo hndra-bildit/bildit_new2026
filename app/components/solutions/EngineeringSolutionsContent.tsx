@@ -1,4 +1,5 @@
 import { HomeIntegrations } from '@/app/components/home/HomeIntegrations'
+import { EngineeringSdkCodePanel } from '@/app/components/solutions/EngineeringSdkCodePanel'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
 import { VeeLayerLeadForm } from '@/app/components/visual-experience-layer-landing/VeeLayerLeadForm'
@@ -62,7 +63,7 @@ export function EngineeringSolutionsContent() {
         </div>
         <div className="relative mx-auto flex max-w-[1470px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[18px] border border-white/10 bg-[#0d0118] px-6 py-12 text-center sm:gap-6 sm:py-16 md:gap-7 md:rounded-[27px] md:px-[116px] md:py-16 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#a07dc0]">For engineering teams</p>
-          <h1 className="max-w-[1100px] font-uncut-sans text-4xl font-bold leading-[1.06] tracking-[-0.03em] md:text-6xl md:leading-[1.05] lg:text-[72px] lg:leading-[78px]">
+          <h1 className="max-w-[1100px] font-uncut-sans text-3xl font-bold leading-[1.08] tracking-[-0.03em] md:text-5xl md:leading-[1.06] lg:text-[56px] lg:leading-[62px]">
             <span className="text-[#f0e6ff]">Stop being the bottleneck for every</span>
             <br />
             <span className="text-[#f0e6ff]">merchandising experiment.</span>
@@ -234,15 +235,8 @@ export function EngineeringSolutionsContent() {
               </p>
             </div>
           </div>
-          <div className="relative min-h-[340px] flex-1 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#1a0f2e] to-[#07020f] lg:min-h-[520px]">
-            <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-[#a07dc0]">Architecture preview</p>
-                <p className="mt-3 text-lg text-[#f0e6ff]">
-                  Drop a Figma export or live embed of your editor shell here when assets are ready.
-                </p>
-              </div>
-            </div>
+          <div className="relative min-h-[340px] flex-1 lg:min-h-[520px]">
+            <EngineeringSdkCodePanel />
           </div>
         </div>
         <div className="mx-auto mt-14 flex max-w-[1280px] flex-col items-center gap-3">

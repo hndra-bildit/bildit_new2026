@@ -8,7 +8,6 @@ import {
   veeAdvantagesFastRuntimeLaptop,
   veeAdvantagesLaptopScreen
 } from '@/app/lib/vee-advantages-assets'
-import { Zap } from 'lucide-react'
 import Image from 'next/image'
 
 const REASONS = [
@@ -34,7 +33,7 @@ const REASONS = [
     ]
   },
   {
-    title: 'Fast Runtime Rendering',
+    title: 'Fast Runtime Rendering (SSR)',
     subtitle: 'Speed Isn’t an Option',
     intro: 'Milliseconds matter. BILDIT speeds up your existing site.',
     bullets: [
@@ -54,15 +53,15 @@ const PANEL_IMAGES: readonly { src: string; width: number; height: number; alt: 
   },
   {
     src: veeAdvantagesAdvancedScheduling,
-    width: 804,
-    height: 520,
+    width: 794,
+    height: 794,
     alt: 'Schedule content with date range and web slots, no deployments'
   },
   {
     src: veeAdvantagesFastRuntimeLaptop,
-    width: 1306,
-    height: 1196,
-    alt: 'Storefront on laptop with fast publish path'
+    width: 2040,
+    height: 1330,
+    alt: 'Core Web Vitals-style performance cards: LCP, CLS, and FID on a purple background'
   }
 ] as const
 
@@ -130,17 +129,6 @@ export function VeeAdvantagesSection() {
                 sizes="(max-width: 768px) 100vw, 640px"
                 priority={active === 0}
               />
-              {active === 2 ? (
-                <div
-                  className="pointer-events-none absolute left-1/2 top-[30%] z-10 flex -translate-x-1/2 items-center gap-2.5 rounded-[60px] bg-gradient-to-r from-[#e84590] to-[#c850f0] px-6 py-2.5 text-white shadow-[0_0_40px_rgba(255,255,255,0.55)] md:top-[32%] md:px-8"
-                  aria-hidden
-                >
-                  <span className="font-uncut-sans text-[22px] font-semibold leading-none md:text-[28px]">
-                    Publish...
-                  </span>
-                  <Zap className="size-7 text-white md:size-8" strokeWidth={2.25} aria-hidden />
-                </div>
-              ) : null}
             </div>
           </div>
         </div>

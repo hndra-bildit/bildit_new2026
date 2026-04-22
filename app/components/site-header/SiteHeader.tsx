@@ -65,7 +65,7 @@ const INSIGHTS_ITEMS: MegaLinkItem[] = [
     description: 'Articles on commerce, content strategy, and platform updates.'
   },
   {
-    href: '/our-story/',
+    href: '/webinars/',
     title: 'Webinars',
     description: 'Watch sessions on commerce, content, and getting the most from the platform.'
   }
@@ -160,7 +160,7 @@ function MegaFeaturedCard({ onNavigate }: MegaFeaturedCardProps) {
   )
 }
 
-function MegaLinkList({ items }: { items: MegaLinkItem[] }) {
+function MegaLinkList({ items, onNavigate }: { items: MegaLinkItem[]; onNavigate?: () => void }) {
   return (
     <ul className="space-y-2">
       {items.map((item) => (
@@ -168,6 +168,7 @@ function MegaLinkList({ items }: { items: MegaLinkItem[] }) {
           <Link
             href={item.href}
             className="group flex gap-2.5 rounded-xl px-2.5 py-2 no-underline transition-colors duration-200"
+            onClick={onNavigate}
           >
             <span
               className="mt-0.5 w-0.5 shrink-0 rounded-[10px]"
@@ -202,7 +203,10 @@ export function SiteHeader() {
     normalizedPath === '/visual-experience-engine' ||
     normalizedPath === '/visual-experience-layer-visual-editor-beautiful-content-scheduling' ||
     normalizedPath === '/mobile-app-storefront' ||
-    normalizedPath === '/tech-partners'
+    normalizedPath === '/tech-partners' ||
+    normalizedPath === '/early-access-program' ||
+    normalizedPath === '/blog' ||
+    normalizedPath === '/webinars'
   const isEngineering = normalizedPath === '/it' || normalizedPath === '/solutions-for-engineering'
   const [megaOpen, setMegaOpen] = useState(false)
   const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')
@@ -469,12 +473,21 @@ export function SiteHeader() {
                         ? PARTNER_ITEMS
                         : INSIGHTS_ITEMS
                 }
+                onNavigate={() => {
+                  clearClose()
+                  setMegaOpen(false)
+                }}
               />
             </div>
 
             {megaFocus !== 'partners' && megaFocus !== 'insights' && (
               <div className="site-header--mega-featured w-full min-w-0 shrink-0 self-start lg:max-w-[320px]">
-                <MegaFeaturedCard />
+                <MegaFeaturedCard
+                  onNavigate={() => {
+                    clearClose()
+                    setMegaOpen(false)
+                  }}
+                />
               </div>
             )}
           </div>

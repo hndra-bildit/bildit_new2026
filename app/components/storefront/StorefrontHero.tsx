@@ -48,20 +48,20 @@ export function StorefrontHero({ className }: { className?: string }) {
       </div>
       <SiteHeroTopSpacer />
       <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="flex min-h-0 flex-1 flex-col items-start justify-center px-4 py-16 sm:px-10 sm:py-20 lg:items-center">
-          <div className="flex w-full max-w-[896px] flex-col gap-14 text-left md:gap-[60px] lg:text-center">
-            <div className="flex w-full min-w-0 max-w-[450px] flex-col items-start gap-5 md:gap-5 lg:items-center">
-              <p className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.08em] text-[#f0e6ff] lg:text-center">
+        <div className="flex min-h-0 flex-1 flex-col items-start justify-center px-4 py-16 sm:px-10 sm:py-20">
+          <div className="flex w-full max-w-[896px] flex-col gap-14 text-left md:gap-[60px]">
+            <div className="flex w-full min-w-0 max-w-[450px] flex-col items-start gap-5 md:gap-5">
+              <p className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.08em] text-[#f0e6ff]">
                 Storefront
               </p>
-              <h1 className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:text-6xl lg:text-center lg:text-[72px] lg:leading-[72px]">
+              <h1 className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:text-6xl lg:text-[72px] lg:leading-[72px]">
                 Your mobile store
               </h1>
-              <p className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-relaxed text-[#f0e6ff] [text-shadow:0_1px_2px_rgba(0,0,0,0.3),0_2px_12px_rgba(0,0,0,0.18)] sm:text-xl md:text-[20px] md:leading-[31px] lg:text-center">
+              <p className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-relaxed text-[#f0e6ff] [text-shadow:0_1px_2px_rgba(0,0,0,0.3),0_2px_12px_rgba(0,0,0,0.18)] sm:text-xl md:text-[20px] md:leading-[31px]">
                 Stop waiting on developers. Launch campaigns, update banners, and ship experiences — instantly.
               </p>
             </div>
-            <div className="flex w-full flex-wrap items-center justify-start gap-5 lg:justify-center">
+            <div className="flex w-full flex-wrap items-center justify-start gap-5">
               <Link
                 href="/pricing/"
                 className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[22px] py-2.5 text-base font-semibold text-white shadow-[0px_10px_24px_0px_rgba(232,69,139,0.18)] transition-transform hover:scale-[1.02] active:scale-[0.98]"

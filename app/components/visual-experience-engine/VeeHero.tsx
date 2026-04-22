@@ -1,7 +1,14 @@
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import {
+  marketingHeroHeadlineGradientClassName,
+  marketingHeroHeadlineGradientStyle,
+  marketingHeroMutedTextClassName,
+  marketingHeroTitleLayoutClassName
+} from '@/app/lib/marketing-hero-headline-gradient'
 import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { VEE_HERO_LIVE_EDITOR_IMAGE } from '@/app/lib/vee-hero-image'
+import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 /**
@@ -33,10 +40,22 @@ export function VeeHero() {
         <div className="mx-auto flex w-full max-w-[1280px] min-h-full flex-1 flex-col justify-center px-4 py-10 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
           <div className="grid w-full min-w-0 grid-cols-1 items-center gap-10 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
             <div className="order-1 flex min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
-              <h1 className="font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-[#171717] md:text-5xl md:leading-[1.08] lg:text-[64px] lg:leading-[1.04] xl:text-[72px] xl:leading-[72px]">
+              <h1
+                className={cn(
+                  marketingHeroTitleLayoutClassName,
+                  marketingHeroHeadlineGradientClassName,
+                  'md:mx-0 md:text-left'
+                )}
+                style={marketingHeroHeadlineGradientStyle}
+              >
                 Visual Experience Engine
               </h1>
-              <p className="text-lg leading-[1.45] text-[#595959] md:text-2xl md:leading-[1.58]">
+              <p
+                className={cn(
+                  'font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-[1.45] md:text-2xl md:leading-[1.58]',
+                  marketingHeroMutedTextClassName
+                )}
+              >
                 Take control over digital marketing campaigns across web, mobile apps, email, and push notifications
                 without waiting on deployments.
               </p>

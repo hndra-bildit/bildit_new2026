@@ -1,6 +1,15 @@
 // app/api/posts/route.ts
-import { getLatestPosts, getPost, getPostsByCategory } from '@/lib/getPost'
+import { getLatestPosts, getPost, getPostsByCategory, type PostCategory } from '@/lib/getPost'
 import { NextResponse } from 'next/server'
+
+const ALLOWED_CATEGORIES: readonly PostCategory[] = [
+  'news',
+  'ecommerce',
+  'insight',
+  'business',
+  'technology',
+  'webinar'
+]
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
@@ -20,17 +29,10 @@ export async function GET(request: Request) {
     return NextResponse.json(latestPosts)
   }
 
-  if (
-    !category ||
-    (category !== 'news' &&
-      category !== 'ecommerce' &&
-      category !== 'insight' &&
-      category !== 'business' &&
-      category !== 'technology')
-  ) {
+  if (!category || !ALLOWED_CATEGORIES.includes(category as PostCategory)) {
     return NextResponse.json({ error: 'Invalid category' }, { status: 400 })
   }
 
-  const posts = await getPostsByCategory(category as 'news' | 'insight' | 'ecommerce' | 'business' | 'technology')
+  const posts = await getPostsByCategory(category as PostCategory)
   return NextResponse.json(posts)
 }

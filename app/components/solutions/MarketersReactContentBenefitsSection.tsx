@@ -1,29 +1,39 @@
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
-import Image from 'next/image'
+import { ArrowRight, Calendar, Cloud, Zap } from 'lucide-react'
 
 /** Figma BILDIT-Website-2025 `5028:18302` — Section “4 BENEFITS” (REACT CONTENT). */
 const REACT_BENEFIT_ICONS = [
   {
-    src: 'https://www.figma.com/api/mcp/asset/e5fb39f6-a462-4e14-963e-9262448ffc8d',
     title: 'Server Side Rendering',
-    body: 'Fully server side rendered\ncontent without a deployment.'
+    body: 'Fully server side rendered\ncontent without a deployment.',
+    icon: 'cloud' as const
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/a6dc5f3a-8a15-4bf4-bdf9-6fc6dab622fd',
     title: 'Scheduled Components',
-    body: 'Even React components can be scheduled. Schedule any\npiece of UI or content.'
+    body: 'Even React components can be scheduled. Schedule any\npiece of UI or content.',
+    icon: 'calendar' as const
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/91c50491-551f-4248-8382-56e62ad49448',
     title: 'Content without Deploy',
-    body: 'New templates and types without a deployment. Yes, code changes without a deploy!'
+    body: 'New templates and types without a deployment. Yes, code changes without a deploy!',
+    icon: 'arrow' as const
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/e12bd41b-2f81-4fa8-a941-c384d32ab5f5',
     title: 'Live Preview React',
-    body: 'Built in live preview for any\nscheduled change. See React\nchanges live in real time.'
+    body: 'Built in live preview for any\nscheduled change. See React\nchanges live in real time.',
+    icon: 'lightning' as const
   }
 ] as const
+
+const BENEFIT_ICON = {
+  cloud: Cloud,
+  calendar: Calendar,
+  arrow: ArrowRight,
+  lightning: Zap
+} as const
+
+const iconClassName = 'size-[52px] text-black'
+const iconStroke = 1.75
 
 export function MarketersReactContentBenefitsSection() {
   return (
@@ -36,7 +46,7 @@ export function MarketersReactContentBenefitsSection() {
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#f5f7fa]">React content</p>
           <h2
             id="marketers-react-content-heading"
-            className="font-uncut-sans text-2xl font-bold leading-tight tracking-[-0.02em] text-[#f0e6ff] md:text-5xl md:leading-[58px]"
+            className="marketers-react-content-heading-gradient font-uncut-sans text-2xl font-bold leading-tight tracking-[-0.02em] md:text-5xl md:leading-[58px]"
           >
             <span className="block">Build the React Content your</span>
             <span className="block">Customer Demands..</span>
@@ -45,18 +55,23 @@ export function MarketersReactContentBenefitsSection() {
         </div>
 
         <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {REACT_BENEFIT_ICONS.map((card) => (
-            <article
-              key={card.title}
-              className="flex min-h-[234px] flex-col overflow-hidden rounded-[20px] border border-black/[0.08] bg-white p-7"
-            >
-              <div className="relative size-[52px] shrink-0">
-                <Image src={card.src} alt="" fill className="object-contain" sizes="52px" />
-              </div>
-              <h3 className="mt-5 text-[17px] font-bold text-[#171717]">{card.title}</h3>
-              <p className="mt-2 whitespace-pre-line text-sm leading-[22.4px] text-[#595959] md:text-sm">{card.body}</p>
-            </article>
-          ))}
+          {REACT_BENEFIT_ICONS.map((card) => {
+            const Icon = BENEFIT_ICON[card.icon]
+            return (
+              <article
+                key={card.title}
+                className="flex min-h-[234px] flex-col overflow-hidden rounded-[20px] border border-black/[0.08] bg-white p-7"
+              >
+                <div className="shrink-0 text-black">
+                  <Icon className={iconClassName} strokeWidth={iconStroke} aria-hidden />
+                </div>
+                <h3 className="mt-5 text-[17px] font-bold text-[#171717]">{card.title}</h3>
+                <p className="mt-2 whitespace-pre-line text-sm leading-[22.4px] text-[#595959] md:text-sm">
+                  {card.body}
+                </p>
+              </article>
+            )
+          })}
         </div>
 
         <GradientCtaButton href="/pricing/">Get the Templates</GradientCtaButton>

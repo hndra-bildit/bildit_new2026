@@ -37,19 +37,24 @@ export default function LatestPost({ initialItems, loadMore }: Props) {
   return (
     <>
       <DisplayTwo content="Latest Posts" className="font-uncut-sans lg:font-bold" />
-      <div className="container mx-auto grid md:grid-cols-3 gap-10">
+      <div className="mx-auto grid max-w-[1512px] grid-cols-1 gap-4 px-3 sm:grid-cols-2 sm:gap-5 sm:px-4 lg:grid-cols-3 xl:grid-cols-4">
         {items.map((item, idx) => (
-          <CardNine item={item} cardType="small" key={idx} />
+          <CardNine item={item} key={item.id ?? idx} />
         ))}
       </div>
-      {loading && <p>Loading more...</p>}
+      {loading && (
+        <p className="font-[family-name:var(--font-uncut-sans)] mt-8 text-center text-sm text-[#595959]">
+          Loading more…
+        </p>
+      )}
       {!loading && hasMore && loadMore && (
-        <p
-          className="text-zinc-600 text-base lg:text-2xl leading-normal text-center my-12 cursor-pointer"
+        <button
+          type="button"
+          className="font-[family-name:var(--font-uncut-sans)] mx-auto mt-10 block text-center text-sm font-semibold text-neutral-900 hover:text-[#c850f0]"
           onClick={() => handleLoadMore()}
         >
-          Load more...
-        </p>
+          Load more…
+        </button>
       )}
     </>
   )

@@ -32,7 +32,7 @@ export function NoLimitationsFeatureCarousel({
       role="region"
       aria-label="BILDIT storefront capabilities"
     >
-      <div className={cn('flex w-max gap-5', trackPaddingClassName)}>
+      <div className={cn('mx-auto flex w-max gap-5', trackPaddingClassName)}>
         {NO_LIMITATIONS_FEATURE_CARDS.map((card, index) => {
           const art = cardImages[index] ?? homeNoLimitationsCardImages[index]
           if (!art) {

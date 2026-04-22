@@ -117,7 +117,7 @@ export function VeeFaqSection() {
                 </button>
                 {isOpen ? (
                   <div className="border-t border-[#eee8f5] px-6 pb-5 pt-1">
-                    <p className="font-uncut-sans text-base leading-relaxed text-[#a07dc0]">{item.a}</p>
+                    <p className="font-uncut-sans text-base leading-relaxed text-[#2a2a2a]">{item.a}</p>
                   </div>
                 ) : null}
               </div>

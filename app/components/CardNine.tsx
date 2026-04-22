@@ -1,10 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { cn } from '../../utils/cn'
+import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ImArrowUpRight2 } from 'react-icons/im'
 
 export interface CardNineItemType {
   id: string
@@ -22,51 +21,58 @@ export interface CardNineItemType {
 
 interface Props {
   item: CardNineItemType
-  cardType: string | 'small' | 'big'
+  /** @deprecated Layout is uniform; value ignored. */
+  cardType?: string | 'small' | 'big'
 }
 
-const CardNine: React.FC<Props> = ({ item, cardType }) => {
-  const [windowWidth, setWindowWidth] = useState<number | null>(null)
+/**
+ * Blog / insights card — matches storefront & home marketing cards (bordered tile, Uncut Sans, neutral palette).
+ */
+const CardNine: React.FC<Props> = ({ item }) => {
+  const categoryLabel = item.category.charAt(0).toUpperCase() + item.category.slice(1).toLowerCase()
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth)
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
   return (
-    <div className="mt-5 lg:mt-10">
-      <div className="aspect-[4/3] flex items-center overflow-hidden">
-        <Image src={item.src} alt={item.alt} width={900} height={900} className="w-full h-auto" />
-      </div>
-      <div className="mt-2 ">
-        <label className="font-gt-walsheim text-purple-700 text-base">
-          {item.category} <span className="text-zinc-600">{item.updatedAt}</span>
-        </label>
-      </div>
-      <div className="mt-2">
-        <h4
-          className={cn(
-            'font-medium font-gt-walsheim line-clamp-2 overflow-hidden text-ellipsis',
-            cardType === 'big' && windowWidth && windowWidth > 768 ? 'text-4xl leading-none' : 'text-2xl leading-none'
-          )}
-        >
-          {item.title}
-        </h4>
-        <p
-          className={cn(
-            'mt-5 font-gt-walsheim line-clamp-3 overflow-hidden text-ellipsis',
-            cardType === 'big' && windowWidth && windowWidth > 768 ? 'text-2xl leading-none' : 'text-lg leading-none'
-          )}
-        >
+    <article
+      className={cn(
+        'flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white',
+        'sm:rounded-3xl'
+      )}
+    >
+      <Link href={item.href} className="group block shrink-0 text-inherit no-underline">
+        <div className="relative w-full overflow-hidden rounded-t-2xl bg-[#f5f7fa] sm:rounded-t-3xl">
+          <div className="relative aspect-square w-full">
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
+            />
+          </div>
+        </div>
+      </Link>
+      <div className="flex min-h-0 flex-1 flex-col gap-2 border-t border-black/[0.06] px-3.5 py-3.5 sm:px-4 sm:py-4">
+        <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-medium uppercase tracking-[0.14em] text-[#595959]">
+          {categoryLabel}
+          <span className="font-normal normal-case tracking-normal text-neutral-400"> · {item.updatedAt}</span>
+        </p>
+        <h3 className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-semibold leading-snug text-neutral-900 line-clamp-2">
+          <Link href={item.href} className="text-inherit no-underline hover:text-neutral-700">
+            {item.title}
+          </Link>
+        </h3>
+        <p className="font-[family-name:var(--font-uncut-sans)] text-sm leading-6 text-[#595959] line-clamp-3">
           {item.content}
         </p>
-        <Link className="text-cms-rose text-base font-normal flex items-center mt-1 lg:mt-3" href={item.href}>
-          <ImArrowUpRight2 className="mr-1" size={12} />
-          <span>Read More</span>
+        <Link
+          href={item.href}
+          className="font-[family-name:var(--font-uncut-sans)] mt-auto inline-flex items-center gap-1 pt-1 text-sm font-semibold text-neutral-900 no-underline transition-colors hover:text-[#c850f0]"
+        >
+          Read more
+          <ArrowUpRight className="size-3.5 shrink-0 opacity-80" aria-hidden />
         </Link>
       </div>
-    </div>
+    </article>
   )
 }
 
