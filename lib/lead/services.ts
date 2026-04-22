@@ -52,11 +52,7 @@ export async function humanFeedback(
 /**
  * Notify Slack for leads that skip the approve/reject flow (e.g. UNQUALIFIED, SUPPORT).
  */
-export async function slackNotifyLeadWithoutHitl(
-  lead: InboundLead,
-  research: string,
-  qualification: Qualification
-) {
+export async function slackNotifyLeadWithoutHitl(lead: InboundLead, research: string, qualification: Qualification) {
   const text =
     `*New BILDIT lead* (${qualification.category} — no draft approval step)\n` +
     `*Source:* ${lead.source}\n` +

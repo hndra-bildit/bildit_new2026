@@ -6,10 +6,7 @@ import { z } from 'zod'
  */
 export const templateSubmitFormSchema = z.object({
   email: z.email('Please enter a valid email address.'),
-  name: z
-    .string()
-    .min(2, 'Name is required')
-    .max(50, 'Name must be at most 50 characters.'),
+  name: z.string().min(2, 'Name is required').max(50, 'Name must be at most 50 characters.'),
   phone: z.preprocess(
     (v) => (v === undefined || v === null ? '' : String(v)),
     z.union([
@@ -21,10 +18,7 @@ export const templateSubmitFormSchema = z.object({
     ])
   ),
   company: z.string().optional().or(z.literal('')),
-  message: z
-    .string()
-    .min(10, 'Message is required')
-    .max(500, 'Message must be less than 500 characters.')
+  message: z.string().min(10, 'Message is required').max(500, 'Message must be less than 500 characters.')
 })
 
 export type TemplateSubmitForm = z.infer<typeof templateSubmitFormSchema>
