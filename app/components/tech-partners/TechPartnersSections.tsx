@@ -1,3 +1,4 @@
+import { FigmaLogoAsset } from '@/app/components/FigmaLogoAsset'
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import {
   TECH_PARTNERS_AIRSHIP_LOGO,
@@ -6,12 +7,10 @@ import {
   TECH_PARTNERS_COMMERCETOOLS_LOGO,
   TECH_PARTNERS_FLYBUY_LOGO,
   TECH_PARTNERS_GRINTEQ_LOGO,
-  TECH_PARTNERS_INSIGHT_GLOBAL_LOGO,
-  TECH_PARTNERS_WALLOP_LOGO
+  TECH_PARTNERS_INSIGHT_GLOBAL_LOGO
 } from '@/app/lib/tech-partners-assets'
 import { TECH_PARTNERS_INTEGRATIONS } from '@/app/lib/tech-partners-integrations'
 import { cn } from '@/utils/cn'
-import Image from 'next/image'
 
 function ShowcaseCard({
   title,
@@ -34,8 +33,8 @@ function ShowcaseCard({
           logoAreaClassName ?? 'min-h-[190px] md:min-h-[190px]'
         )}
       >
-        <div className="relative h-14 w-full max-w-[280px] shrink-0 md:h-[72px]">
-          <Image src={logoSrc} alt={logoAlt} fill unoptimized className="object-contain object-center" sizes="280px" />
+        <div className="grid w-full min-w-0 max-w-[280px] place-items-center">
+          <FigmaLogoAsset src={logoSrc} alt={logoAlt} className="max-h-14 max-w-full md:max-h-[72px]" />
         </div>
       </div>
       <div className="flex min-h-[200px] flex-col gap-2.5 border-t border-[#d3d6db] px-6 py-7 md:min-h-[220px]">
@@ -50,18 +49,9 @@ function ShowcaseCard({
 
 function IntegrationLogoCard({ name, logoSrc }: { name: string; logoSrc: string }) {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex h-[191px] w-full items-center justify-center rounded-[14px] border border-[#d9d9d9] bg-[#f5f7fa] px-6 py-6 shadow-[0px_2px_3px_0px_rgba(0,0,0,0.05)]">
-        <div className="relative h-[94px] w-full max-w-[210px] shrink-0">
-          <Image
-            src={logoSrc}
-            alt={`${name} logo`}
-            fill
-            unoptimized
-            className="object-contain object-center"
-            sizes="210px"
-          />
-        </div>
+    <div className="flex min-w-0 flex-col items-center gap-4">
+      <div className="flex h-[191px] w-full min-w-0 items-center justify-center rounded-[14px] border border-[#d9d9d9] bg-[#f5f7fa] px-6 py-6 shadow-[0px_2px_3px_0px_rgba(0,0,0,0.05)]">
+        <FigmaLogoAsset src={logoSrc} alt={`${name} logo`} className="max-h-[94px] max-w-[min(100%,210px)]" />
       </div>
       <p className="text-center font-[family-name:var(--font-uncut-sans)] text-lg font-bold text-[#171717] md:text-2xl">
         {name}
@@ -94,12 +84,6 @@ export function TechPartnersSections() {
               description="We create digital commerce experiences that engage consumers, increase sales & fuel exponential growth."
               logoSrc={TECH_PARTNERS_ASTOUND_LOGO}
               logoAlt="Astound Commerce"
-            />
-            <ShowcaseCard
-              title="Wallop"
-              description="Wallop is an independent creative and digital strategy firm generating growth and impact for hospitality and travel experiences."
-              logoSrc={TECH_PARTNERS_WALLOP_LOGO}
-              logoAlt="Wallop"
             />
             <ShowcaseCard
               title="Grinteq"
@@ -183,7 +167,9 @@ export function TechPartnersSections() {
           </h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
             {TECH_PARTNERS_INTEGRATIONS.map((item) => (
-              <IntegrationLogoCard key={item.name} name={item.name} logoSrc={item.logoSrc} />
+              <div key={item.name} className="min-w-0">
+                <IntegrationLogoCard name={item.name} logoSrc={item.logoSrc} />
+              </div>
             ))}
           </div>
         </div>
