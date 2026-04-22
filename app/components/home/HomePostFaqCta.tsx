@@ -51,7 +51,10 @@ export function HomePostFaqCta({ className }: { className?: string }) {
               'flex max-w-none flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lg md:gap-x-8 md:text-[18px] md:leading-7'
             )}
           >
-            <p className="px-2.5 py-2.5">Not your deploy cycle.</p>
+            <div className="flex items-center gap-2.5 px-2.5 py-2.5">
+              <X className="size-6 shrink-0" strokeWidth={2.25} aria-hidden />
+              <p className="leading-7">Not your deploy cycle.</p>
+            </div>
             <div className="flex items-center gap-2.5 px-2.5 py-2.5">
               <X className="size-6 shrink-0" strokeWidth={2.25} aria-hidden />
               <p className="leading-7">Not your dev queue.</p>
@@ -68,7 +71,7 @@ export function HomePostFaqCta({ className }: { className?: string }) {
               'max-w-none text-center text-base tracking-[0.2em] text-white sm:text-lg md:text-xl md:tracking-[3px]'
             )}
           >
-            Fast • controlled • sophisticated.
+            Fast • Controlled • Sophisticated
           </p>
 
           <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center sm:text-lg md:text-[18px]')}>

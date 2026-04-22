@@ -13,10 +13,13 @@ import type { Swiper as SwiperType } from 'swiper/types'
 export default function SocialProofSlider({ className }: { className?: string }) {
   const prevRef = useRef<HTMLButtonElement>(null)
   const nextRef = useRef<HTMLButtonElement>(null)
+  const swiperRef = useRef<SwiperType | null>(null)
   const [windowWidth, setWindowWidth] = useState<number | null>(null)
   const [slidesPerView, setSlidesPerView] = useState(3)
+  const [prevDisabled, setPrevDisabled] = useState(true)
+  const [nextDisabled, setNextDisabled] = useState(false)
 
-  const slides = [...SOCIAL_PROOF_TESTIMONIALS, ...SOCIAL_PROOF_TESTIMONIALS]
+  const slides = SOCIAL_PROOF_TESTIMONIALS
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -36,6 +39,19 @@ export default function SocialProofSlider({ className }: { className?: string })
     }
   }, [windowWidth])
 
+  useEffect(() => {
+    const s = swiperRef.current
+    if (!s) return
+    s.update()
+    setPrevDisabled(s.isBeginning)
+    setNextDisabled(s.isEnd)
+  }, [slidesPerView])
+
+  const syncNav = (swiper: SwiperType) => {
+    setPrevDisabled(swiper.isBeginning)
+    setNextDisabled(swiper.isEnd)
+  }
+
   return (
     <section
       className={cn('bg-neutral-50 px-4 py-14 sm:px-6 md:py-20 lg:py-24', className)}
@@ -54,7 +70,8 @@ export default function SocialProofSlider({ className }: { className?: string })
             <button
               ref={prevRef}
               type="button"
-              className="bg-neutral-900 p-2.5 text-white shadow-md transition hover:bg-neutral-800"
+              disabled={prevDisabled}
+              className="bg-neutral-900 p-2.5 text-white shadow-md transition hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-35"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="size-6" aria-hidden />
@@ -62,7 +79,8 @@ export default function SocialProofSlider({ className }: { className?: string })
             <button
               ref={nextRef}
               type="button"
-              className="bg-neutral-900 p-2.5 text-white shadow-md transition hover:bg-neutral-800"
+              disabled={nextDisabled}
+              className="bg-neutral-900 p-2.5 text-white shadow-md transition hover:bg-neutral-800 disabled:pointer-events-none disabled:opacity-35"
               aria-label="Next testimonial"
             >
               <ChevronRight className="size-6" aria-hidden />
@@ -71,19 +89,24 @@ export default function SocialProofSlider({ className }: { className?: string })
 
           <Swiper
             modules={[Navigation]}
-            loop
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current
             }}
-            onInit={(swiper: SwiperType) => {
-              if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+            onBeforeInit={(swiper) => {
+              if (typeof swiper.params.navigation === 'object' && swiper.params.navigation) {
                 swiper.params.navigation.prevEl = prevRef.current
                 swiper.params.navigation.nextEl = nextRef.current
-                swiper.navigation.init()
-                swiper.navigation.update()
               }
             }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper
+              swiper.navigation.init()
+              swiper.navigation.update()
+              syncNav(swiper)
+            }}
+            onSlideChange={syncNav}
+            onBreakpoint={syncNav}
             slidesPerView={slidesPerView}
             spaceBetween={24}
             className="w-full !pb-2"
@@ -93,8 +116,8 @@ export default function SocialProofSlider({ className }: { className?: string })
               1280: { spaceBetween: 30 }
             }}
           >
-            {slides.map((item, i) => (
-              <SwiperSlide key={`${item.name}-${i}`} className="py-2">
+            {slides.map((item) => (
+              <SwiperSlide key={`${item.name}-${item.company}`} className="py-2">
                 <CardThree item={item} />
               </SwiperSlide>
             ))}

@@ -8,8 +8,6 @@ import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import type { Swiper as SwiperType } from 'swiper/types'
 
-const LOOP_SLIDES = [...SOCIAL_PROOF_TESTIMONIALS, ...SOCIAL_PROOF_TESTIMONIALS, ...SOCIAL_PROOF_TESTIMONIALS]
-
 function initialsFromDisplayName(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean)
   if (parts.length === 0) return '?'
@@ -38,8 +36,11 @@ export function HomeWorkflowSocialStrip({
   const isDark = variant === 'dark'
   const prevRef = useRef<HTMLButtonElement>(null)
   const nextRef = useRef<HTMLButtonElement>(null)
+  const swiperRef = useRef<SwiperType | null>(null)
   const [w, setW] = useState<number | null>(null)
   const [perView, setPerView] = useState(1.15)
+  const [prevDisabled, setPrevDisabled] = useState(true)
+  const [nextDisabled, setNextDisabled] = useState(false)
 
   useEffect(() => {
     const onR = () => setW(window.innerWidth)
@@ -51,10 +52,30 @@ export function HomeWorkflowSocialStrip({
   useEffect(() => {
     if (w == null) return
     if (w < 640) setPerView(1.08)
-    else if (w < 900) setPerView(2)
-    else if (w < 1200) setPerView(3)
-    else setPerView(3.3)
+    else setPerView(2)
   }, [w])
+
+  useEffect(() => {
+    const s = swiperRef.current
+    if (!s) return
+    s.update()
+    setPrevDisabled(s.isBeginning)
+    setNextDisabled(s.isEnd)
+  }, [perView])
+
+  const syncNav = (swiper: SwiperType) => {
+    setPrevDisabled(swiper.isBeginning)
+    setNextDisabled(swiper.isEnd)
+  }
+
+  const navBtnClass = (disabled: boolean) =>
+    cn(
+      'shrink-0 rounded-lg p-2 shadow-sm transition',
+      isDark
+        ? 'border border-white/15 bg-white/5 text-white hover:bg-white/10'
+        : 'border border-[rgba(200,80,240,0.2)] bg-white text-[#171717] hover:bg-[#fafafa]',
+      disabled && 'pointer-events-none opacity-35'
+    )
 
   return (
     <div
@@ -71,12 +92,8 @@ export function HomeWorkflowSocialStrip({
           <button
             ref={prevRef}
             type="button"
-            className={cn(
-              'shrink-0 rounded-lg p-2 shadow-sm transition',
-              isDark
-                ? 'border border-white/15 bg-white/5 text-white hover:bg-white/10'
-                : 'border border-[rgba(200,80,240,0.2)] bg-white text-[#171717] hover:bg-[#fafafa]'
-            )}
+            disabled={prevDisabled}
+            className={navBtnClass(prevDisabled)}
             aria-label="Previous customer quote"
           >
             <ChevronLeft className="size-5" aria-hidden />
@@ -84,12 +101,8 @@ export function HomeWorkflowSocialStrip({
           <button
             ref={nextRef}
             type="button"
-            className={cn(
-              'shrink-0 rounded-lg p-2 shadow-sm transition',
-              isDark
-                ? 'border border-white/15 bg-white/5 text-white hover:bg-white/10'
-                : 'border border-[rgba(200,80,240,0.2)] bg-white text-[#171717] hover:bg-[#fafafa]'
-            )}
+            disabled={nextDisabled}
+            className={navBtnClass(nextDisabled)}
             aria-label="Next customer quote"
           >
             <ChevronRight className="size-5" aria-hidden />
@@ -100,19 +113,24 @@ export function HomeWorkflowSocialStrip({
       <div className="relative -mx-1 px-1 md:static md:mx-0 md:px-0 md:pt-12">
         <Swiper
           modules={[Navigation]}
-          loop
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current
           }}
-          onInit={(swiper: SwiperType) => {
-            if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
+          onBeforeInit={(swiper) => {
+            if (typeof swiper.params.navigation === 'object' && swiper.params.navigation) {
               swiper.params.navigation.prevEl = prevRef.current
               swiper.params.navigation.nextEl = nextRef.current
-              swiper.navigation.init()
-              swiper.navigation.update()
             }
           }}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper
+            swiper.navigation.init()
+            swiper.navigation.update()
+            syncNav(swiper)
+          }}
+          onSlideChange={syncNav}
+          onBreakpoint={syncNav}
           slidesPerView={perView}
           spaceBetween={16}
           className="w-full"
@@ -121,8 +139,8 @@ export function HomeWorkflowSocialStrip({
             768: { spaceBetween: 20 }
           }}
         >
-          {LOOP_SLIDES.map((item, i) => (
-            <SwiperSlide key={`${item.name}-${item.company}-${i}`} className="h-auto py-0.5">
+          {SOCIAL_PROOF_TESTIMONIALS.map((item) => (
+            <SwiperSlide key={`${item.name}-${item.company}`} className="h-auto py-0.5">
               <article
                 className={cn(
                   'flex h-full flex-col justify-between rounded-2xl',
@@ -140,7 +158,7 @@ export function HomeWorkflowSocialStrip({
                           'text-sm leading-snug md:text-base md:leading-relaxed',
                           isDark ? 'text-white/[0.82]' : 'text-[#171717]'
                         )
-                      : cn('text-xs leading-[14px]', isDark ? 'text-white/[0.75]' : 'text-[#171717]')
+                      : cn('text-[15px] leading-[18px]', isDark ? 'text-white/[0.75]' : 'text-[#171717]')
                   )}
                 >
                   {item.content}
@@ -179,7 +197,7 @@ export function HomeWorkflowSocialStrip({
                   <div className="mt-2.5">
                     <p
                       className={cn(
-                        'font-[family-name:var(--font-uncut-sans)] text-xs font-semibold',
+                        'font-[family-name:var(--font-uncut-sans)] text-[15px] font-semibold',
                         isDark ? 'text-white' : 'text-[#171717]'
                       )}
                     >
@@ -187,7 +205,7 @@ export function HomeWorkflowSocialStrip({
                     </p>
                     <p
                       className={cn(
-                        'mt-0.5 font-[family-name:var(--font-uncut-sans)] text-xs',
+                        'mt-0.5 font-[family-name:var(--font-uncut-sans)] text-[15px]',
                         isDark ? 'text-white/45' : 'text-[#737373]'
                       )}
                     >
