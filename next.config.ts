@@ -1,6 +1,9 @@
+import { withBotId } from 'botid/next/config'
 import type { NextConfig } from 'next'
+import { withWorkflow } from 'workflow/next'
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['@slack/bolt'],
   /* config options here */
   // Port configuration handled via CLI flags in package.json
   // but can also be set via env variable: PORT=5002
@@ -73,4 +76,4 @@ const nextConfig: NextConfig = {
   }
 }
 
-export default nextConfig
+export default withWorkflow(withBotId(nextConfig))

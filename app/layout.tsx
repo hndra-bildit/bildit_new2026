@@ -23,7 +23,7 @@ const metadataBaseUrl =
   (process.env.NODE_ENV === 'development' ? 'http://localhost:5002' : 'https://bildit.co')
 
 /** Featured preview when sharing links (file in /public). */
-const defaultOgImage = '/images/BILDIT%20Lines%20Animation.gif'
+const defaultOgImage = '/images/bildit-lines-animation.gif'
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataBaseUrl),

@@ -66,17 +66,17 @@ export default function FooterContent(){
   return (
     <section className="relative">
       <Image
-        src="/images/footer/BILDIT_Footer_ShadeBlurr_Subscribe_BG.png"
+        src="/images/footer/bildit-footer-shade-blurr-subscribe-bg.png"
         className="hidden lg:block top-0 right-0 -z-1 absolute w-auto h-auto"
-        alt="BILDIT_Footer_ShadeBlurr_Subscribe_BG.png"
+        alt="bildit-footer-shade-blurr-subscribe-bg.png"
         width={1200}
         height={1200}
       />
       <div className="overflow-hidden relative px-4 lg:px-0">
         <Image
-          src="/images/footer/BILDIT_Footer_Background_Mobile_BG.png"
+          src="/images/footer/bildit-footer-background-mobile-bg.png"
           className="block lg:hidden top-0 left-0 -z-1 absolute w-full h-full"
-          alt="BILDIT_Footer_Background_Mobile_BG.png"
+          alt="bildit-footer-background-mobile-bg.png"
           width={1200}
           height={1200}
         />
@@ -107,46 +107,46 @@ export default function FooterContent(){
       <div className="px-4 lg:px-0 relative">
         <div className="hidden lg:block">
           <Image
-            src="/images/footer/BILDIT_Footer_Rectangle_BG.png"
+            src="/images/footer/bildit-footer-rectangle-bg.png"
             className="top-0 left-0 -z-3 absolute w-full h-full"
-            alt="BILDIT_Footer_Rectangle_BG.png"
+            alt="bildit-footer-rectangle-bg.png"
             width={1200}
             height={1200}
           />
           <Image
-            src="/images/footer/BILDIT_Footer_ShadeBlurr_Subscribe_Circle.png"
+            src="/images/footer/bildit-footer-shade-blurr-subscribe-circle.png"
             className="bottom-0 left-0 -z-2 absolute w-auto h-auto"
-            alt="BILDIT_Footer_ShadeBlurr_Subscribe_Circle.png"
+            alt="bildit-footer-shade-blurr-subscribe-circle.png"
             width={1200}
             height={1200}
           />
           <Image
-            src="/images/footer/BILDIT_Footer_SubscribeLines_BG.png"
+            src="/images/footer/bildit-footer-subscribe-lines-bg.png"
             className="bottom-40 right-0 -z-1 absolute w-auto h-auto"
-            alt="BILDIT_Footer_SubscribeLines_BG.png"
+            alt="bildit-footer-subscribe-lines-bg.png"
             width={1200}
             height={1200}
           />
         </div>
         <div className="block lg:hidden">
           <Image
-            src="/images/footer/BILDIT_Footer_Rectangle_BG.png"
+            src="/images/footer/bildit-footer-rectangle-bg.png"
             className="top-0 left-0 -z-3 absolute w-full h-full"
-            alt="BILDIT_Footer_Rectangle_BG.png"
+            alt="bildit-footer-rectangle-bg.png"
             width={1200}
             height={1200}
           />
           <Image
-            src="/images/footer/BILDIT_Footer_Background_Mobile_BG.png"
+            src="/images/footer/bildit-footer-background-mobile-bg.png"
             className="top-0 left-0 -z-3 absolute w-full h-1/2"
-            alt="BILDIT_Footer_Background_Mobile_BG.png"
+            alt="bildit-footer-background-mobile-bg.png"
             width={1200}
             height={1200}
           />
           <Image
-            src="/images/footer/BILDIT_Footer_Background_Mobile_BG.png"
+            src="/images/footer/bildit-footer-background-mobile-bg.png"
             className="bottom-0 left-0 -z-3 absolute w-full h-1/2"
-            alt="BILDIT_Footer_Background_Mobile_BG.png"
+            alt="bildit-footer-background-mobile-bg.png"
             width={1200}
             height={1200}
           />
@@ -156,7 +156,7 @@ export default function FooterContent(){
           <div className="text-center">
             <div className="pt-4 lg:pt-0">
               <Image
-                src="/images/others/BILDIT_Logo.svg"
+                src="/images/others/bildit-logo.svg"
                 className="inline-block"
                 alt="BILDIT Logo"
                 width={127}
@@ -167,8 +167,8 @@ export default function FooterContent(){
               <div className="mt-4 mt-10">
                 <Image
                   className="inline-block"
-                  src="/images/footer/markunread_mailbox.svg"
-                  alt="markunread_mailbox.svg"
+                  src="/images/footer/markunread-mailbox.svg"
+                  alt="markunread-mailbox.svg"
                   width={21}
                   height={21}
                 />
@@ -189,16 +189,16 @@ export default function FooterContent(){
 
             <div className="space-x-6 pt-10">
               <Link href={companyLinkedinLink}>
-                <Image className="inline-block" src="/images/footer/akar-icons_linkedin-box-fill.svg" alt="LinkedIn" width={24} height={24} />
+                <Image className="inline-block" src="/images/footer/akar-icons-linkedin-box-fill.svg" alt="LinkedIn" width={24} height={24} />
               </Link>
               <Link href={companyFacebookLink}>
-                <Image className="inline-block" src="/images/footer/fa-brands_facebook-square.svg" alt="FaceBook" width={24} height={24} />
+                <Image className="inline-block" src="/images/footer/fa-brands-facebook-square.svg" alt="FaceBook" width={24} height={24} />
               </Link>
               <Link href={companyTwitterLink}>
-                <Image className="inline-block" src="/images/footer/fe_twitter.svg" alt="Twitter" width={24} height={24} />
+                <Image className="inline-block" src="/images/footer/fe-twitter.svg" alt="Twitter" width={24} height={24} />
               </Link>
               <Link href={companyInstagramLink}>
-                <Image className="inline-block" src="/images/footer/fe_instagram.svg" alt="Instagram" width={24} height={24} />
+                <Image className="inline-block" src="/images/footer/fe-instagram.svg" alt="Instagram" width={24} height={24} />
               </Link>
             </div>
           </div>

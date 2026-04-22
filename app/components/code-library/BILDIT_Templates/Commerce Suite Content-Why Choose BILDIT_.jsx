@@ -11,14 +11,14 @@ export default function CommerceSuiteContent(){
   return (
     <section className="mt-12 lg:mt-25 py-12 lg:py-25 bg-center px-4 lg:px-0 relative">
       <img
-        src="/images/commerce_suite/BILDIT_Commerce_Suite_Why_BG.png"
+        src="/images/commerce-suite/bildit-commerce-suite-why-bg.png"
         className="hidden lg:block absolute top-0 left-0 -z-1 w-full h-full"
-        alt="BILDIT_Commerce_Suite_Why_BG.png"
+        alt="bildit-commerce-suite-why-bg.png"
       />
       <img
-        src="/images/commerce_suite/BILDIT_Commerce_Suite_Why_Bildit_Mobile_BG.png"
+        src="/images/commerce-suite/bildit-commerce-suite-why-bildit-mobile-bg.png"
         className="block lg:hidden absolute top-0 left-0 -z-1 w-full h-full"
-        alt="BILDIT_Commerce_Suite_Why_Bildit_Mobile_BG"
+        alt="bildit-commerce-suite-why-bildit-mobile-bg"
       />
       <div className="container mx-auto">
         <h2 className='text-4xl md:text-5xl lg:text-7xl text-white mt-3 font-gt-walsheim leading-none font-extrabold text-center lg:pt-10'>

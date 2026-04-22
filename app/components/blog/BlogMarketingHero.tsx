@@ -1,4 +1,5 @@
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
+import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import {
   marketingHeroBackdropBgClassName,
   marketingHeroHeadlineGradientClassName,
@@ -6,7 +7,6 @@ import {
   marketingHeroMutedTextClassName,
   marketingHeroTitleLayoutClassName
 } from '@/app/lib/marketing-hero-headline-gradient'
-import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 

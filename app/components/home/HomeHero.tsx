@@ -2,10 +2,7 @@
 
 import { HeroFloatingLines } from './HeroFloatingLines'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
-import {
-  homeHeroHeadlineGradientClassName,
-  homeHeroHeadlineGradientStyle
-} from '@/app/lib/home-hero-headline-gradient'
+import { homeHeroHeadlineGradientClassName, homeHeroHeadlineGradientStyle } from '@/app/lib/home-hero-headline-gradient'
 import { cn } from '@/utils/cn'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'

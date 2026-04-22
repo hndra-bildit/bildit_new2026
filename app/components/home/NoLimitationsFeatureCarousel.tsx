@@ -46,7 +46,7 @@ export function NoLimitationsFeatureCarousel({
                 'sm:w-[min(397px,calc(100vw-4rem))] md:w-[397px]'
               )}
             >
-              <div className="relative w-full overflow-hidden rounded-t-2xl bg-neutral-100 sm:rounded-t-3xl">
+              <div className="relative w-full overflow-hidden rounded-t-2xl bg-neutral-100">
                 <div className="relative aspect-[402/260] w-full">
                   <Image
                     src={art.src}

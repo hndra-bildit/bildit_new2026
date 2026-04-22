@@ -8,8 +8,7 @@ export const marketingHeroHeadlineGradientStyle: CSSProperties = {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
-  backgroundImage:
-    'linear-gradient(118deg, #1f1f1f 0%, #2a2430 38%, #5a4878 72%, #a080f0 100%)'
+  backgroundImage: 'linear-gradient(118deg, #1f1f1f 0%, #2a2430 38%, #5a4878 72%, #a080f0 100%)'
 }
 
 /** Subtitle / eyebrow on light marketing heroes. */

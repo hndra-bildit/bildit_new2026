@@ -4,18 +4,18 @@ import Image from 'next/image'
 
 const cardGroups = [
   {
-    src: '/images/home/BILDIT_Home_Campaign_Control.png',
+    src: '/images/home/bildit-home-campaign-control.png',
     alt: 'Campaign_Control',
     title: 'Complete control over campaigns'
   },
   {
-    src: '/images/home/BILDIT_Home_Advanced_Mobile_Capability.png',
-    alt: 'BILDIT_Home_Advanced_Mobile_Capability',
+    src: '/images/home/bildit-home-advanced-mobile-capability.png',
+    alt: 'bildit-home-advanced-mobile-capability',
     title: 'Advanced mobile app capabilities'
   },
   {
-    src: '/images/home/BILDIT_Home_Easy_Cross_Channel.png',
-    alt: 'BILDIT_Home_Easy_Cross_Channel',
+    src: '/images/home/bildit-home-easy-cross-channel.png',
+    alt: 'bildit-home-easy-cross-channel',
     title: 'Easy cross-channel content management'
   }
 ];

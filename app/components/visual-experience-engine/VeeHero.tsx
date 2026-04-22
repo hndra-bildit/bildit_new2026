@@ -1,12 +1,12 @@
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle,
   marketingHeroMutedTextClassName,
   marketingHeroTitleLayoutClassName
 } from '@/app/lib/marketing-hero-headline-gradient'
-import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { VEE_HERO_LIVE_EDITOR_IMAGE } from '@/app/lib/vee-hero-image'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'

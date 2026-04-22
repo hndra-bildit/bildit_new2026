@@ -10,7 +10,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BILD_ENTRY="${BILD_ENTRY:-/Users/matthudson/Development/BILDIT/bild/src/index.js}"
 BLOCKS="$ROOT/app/components/home"
-DEFAULT_IMG="$ROOT/public/images/BILDIT Lines Animation.gif"
+DEFAULT_IMG="$ROOT/public/images/bildit-lines-animation.gif"
 IMAGE="${BILD_TEMPLATE_IMAGE:-$DEFAULT_IMG}"
 
 bild() {

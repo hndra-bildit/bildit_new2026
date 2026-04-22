@@ -1,6 +1,12 @@
 import { LogoImage } from '@/app/components/LogoImage'
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import {
+  marketingHeroHeadlineGradientClassName,
+  marketingHeroHeadlineGradientStyle,
+  marketingHeroSectionTitleLayoutClassName,
+  marketingHeroTitleLayoutClassName
+} from '@/app/lib/marketing-hero-headline-gradient'
+import {
   TECH_PARTNERS_AIRSHIP_LOGO,
   TECH_PARTNERS_ASTOUND_LOGO,
   TECH_PARTNERS_COMMERCE_CLOUD_LOGO,
@@ -9,12 +15,6 @@ import {
   TECH_PARTNERS_GRINTEQ_LOGO,
   TECH_PARTNERS_INSIGHT_GLOBAL_LOGO
 } from '@/app/lib/tech-partners-assets'
-import {
-  marketingHeroHeadlineGradientClassName,
-  marketingHeroHeadlineGradientStyle,
-  marketingHeroSectionTitleLayoutClassName,
-  marketingHeroTitleLayoutClassName
-} from '@/app/lib/marketing-hero-headline-gradient'
 import { TECH_PARTNERS_INTEGRATIONS } from '@/app/lib/tech-partners-integrations'
 import { cn } from '@/utils/cn'
 

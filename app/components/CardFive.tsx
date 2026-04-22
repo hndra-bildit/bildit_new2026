@@ -23,7 +23,7 @@ const CardFive: React.FC<Props> = ({ item }) => {
             <div className="text-white p-1 mr-2">
               {
                 <Image
-                  src={`/images/others/${subitem.status ? 'Check_circle_solid.svg' : 'carbon_close-filled.svg'}`}
+                  src={`/images/others/${subitem.status ? 'check-circle-solid.svg' : 'carbon-close-filled.svg'}`}
                   width={34}
                   height={34}
                   alt="close"

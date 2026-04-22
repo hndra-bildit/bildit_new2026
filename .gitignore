@@ -15,6 +15,9 @@
 # testing
 /coverage
 
+# Workflow DevKit (generated on build; do not commit)
+app/.well-known/
+
 # next.js
 /.next/
 /out/

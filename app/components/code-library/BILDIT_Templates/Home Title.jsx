@@ -11,8 +11,8 @@ export default function HomeTitle(){
   return (
     <section className="pt-20 lg:pt-40 relative">
         <Image
-          src="/images/home/BILDIT_Home_BG.png"
-          alt="BILDIT_Home_BG.png"
+          src="/images/home/bildit-home-bg.png"
+          alt="bildit-home-bg.png"
           className="top-0 left-0 absolute -z-1 w-full h-full"
           width={1200}
           height={1200}
@@ -29,7 +29,7 @@ export default function HomeTitle(){
               </div>
             </div>
             <div className="pt-6">
-              <img alt="BILDIT_Home_Intro.png " src="/images/home/BILDIT_Home_Intro.png" className="w-auto"/>
+              <img alt="bildit-home-intro.png " src="/images/home/bildit-home-intro.png" className="w-auto"/>
             </div>
           </div>
         </div>

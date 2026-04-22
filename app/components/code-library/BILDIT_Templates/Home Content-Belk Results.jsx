@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const belkResults = [
-  { src: '/images/home/BILDIT_Home_BelkResult_YOY.png', alt: 'BILDIT_Home_BelkResult_YOY.png' },
-  { src: '/images/home/BILDIT_Home_BelkResult_AOV.png', alt: 'BILDIT_Home_BelkResult_AOV.png' },
-  { src: '/images/home/BILDIT_Home_BelkResult_CVR.png', alt: 'BILDIT_Home_BelkResult_CVR.png' }
+  { src: '/images/home/bildit-home-belk-result-yoy.png', alt: 'bildit-home-belk-result-yoy.png' },
+  { src: '/images/home/bildit-home-belk-result-aov.png', alt: 'bildit-home-belk-result-aov.png' },
+  { src: '/images/home/bildit-home-belk-result-cvr.png', alt: 'bildit-home-belk-result-cvr.png' }
 ];
 
 const title = $(tile:String="Belk Results");
@@ -15,8 +15,8 @@ export default function HomeContentBelkResults(){
   return (
     <section className="relative overflow-hidden">
       <Image
-        src="/images/others/BILDIT_Dot_Line_Effect_BG.png"
-        alt="BILDIT_Dot_Line_Effect_BG.png"
+        src="/images/others/bildit-dot-line-effect-bg.png"
+        alt="bildit-dot-line-effect-bg.png"
         className="absolute top-0 left-0 z-1 w-auto h-auto"
         width={1200}
         height={1200}

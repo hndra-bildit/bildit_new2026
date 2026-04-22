@@ -430,14 +430,7 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
   color: transparent;
   -webkit-text-fill-color: transparent;
   /* Wide tile: light lavender → vivid purple and back, shifted slowly for a soft pulse */
-  background-image: linear-gradient(
-    95deg,
-    #f0e6ff 0%,
-    #eedbff 18%,
-    #a78bfa 50%,
-    #eedbff 82%,
-    #f0e6ff 100%
-  );
+  background-image: linear-gradient(95deg, #f0e6ff 0%, #eedbff 18%, #a78bfa 50%, #eedbff 82%, #f0e6ff 100%);
   background-size: 220% 100%;
   background-repeat: no-repeat;
   -webkit-background-clip: text;

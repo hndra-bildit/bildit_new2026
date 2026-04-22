@@ -6,7 +6,7 @@ const title = $(title:String="")
 const firstTypo = $(firstTypo:String="")
 const lastTypo = $(lastTypo:String="")
 const subTitle = $(subTitle:String="")
-const blogBgImage = $(blogBgImage:String="/images/blog_main/BILDIT_Blog_Main_BG.png")
+const blogBgImage = $(blogBgImage:String="/images/blog-main/bildit-blog-main-bg.png")
 
 export default function blogsTitle(){
   return (
@@ -15,7 +15,7 @@ export default function blogsTitle(){
         data-bildit-var-name="blogBgImage"
         data-bildit-var-type="String"
         src={blogBgImage}
-        alt="BILDIT_Blog_Main_BG.png"
+        alt="bildit-blog-main-bg.png"
         className="w-full h-auto absolute top-0 left-0 -z-1"
         width={1200}
         height={0}

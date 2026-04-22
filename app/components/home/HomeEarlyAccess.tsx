@@ -59,8 +59,8 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
 
           <div className="relative z-[1] flex flex-col items-center gap-10">
             <div className="flex justify-center">
-              <div className="flex size-16 items-center justify-center rounded-2xl bg-[#c850f0] px-4">
-                <Image src="/home-early-access/shield-icon.svg" alt="" width={32} height={32} className="size-8" />
+              <div className="flex size-16 items-center justify-center rounded-2xl bg-white px-3">
+                <Image src="/home-early-access/lines-icon.svg" alt="" width={32} height={32} className="size-8" />
               </div>
             </div>
 

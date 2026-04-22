@@ -21,7 +21,7 @@ const CardSix: React.FC<Props> = ({ item }) => {
         return (
           <div className="flex mt-4 lg:mt-7" key={idx}>
             <div className="text-white rounded-full inline-block w-11 mt-1 mr-2">
-              <Image src={`/images/others/Check_circle_solid.svg`} width={25} height={24} alt="check" />
+              <Image src={`/images/others/check-circle-solid.svg`} width={25} height={24} alt="check" />
             </div>
             <BodyTwo content={content} className={'w-[248px] m-0'} />
           </div>

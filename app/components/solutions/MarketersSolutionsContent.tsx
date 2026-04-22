@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
 import {
   InstaStoriesShoulderCapsBottom,
@@ -12,15 +13,14 @@ import { MarketersSolutionsTestimonialsSection } from '@/app/components/solution
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
 import { VeeAdvantagesSection } from '@/app/components/visual-experience-engine/VeeAdvantagesSection'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle
 } from '@/app/lib/marketing-hero-headline-gradient'
-import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
-import type { CSSProperties } from 'react'
 
 /** Marketers hero accent line — original pink → indigo clip (first two lines use shared marketing gradient). */
 const MARKETERS_HERO_ACCENT_LINE_STYLE: CSSProperties = {
@@ -104,14 +104,23 @@ export function MarketersSolutionsContent() {
           <div className="flex w-full flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
             <div className="flex max-w-[1238px] flex-col items-center gap-8 md:gap-8">
               <h1 className="mx-auto w-fit max-w-full pb-[3px] text-center font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
-                <span className={cn('block', marketingHeroHeadlineGradientClassName)} style={marketingHeroHeadlineGradientStyle}>
+                <span
+                  className={cn('block', marketingHeroHeadlineGradientClassName)}
+                  style={marketingHeroHeadlineGradientStyle}
+                >
                   Never be held back
                 </span>
-                <span className={cn('block', marketingHeroHeadlineGradientClassName)} style={marketingHeroHeadlineGradientStyle}>
+                <span
+                  className={cn('block', marketingHeroHeadlineGradientClassName)}
+                  style={marketingHeroHeadlineGradientStyle}
+                >
                   by your headless platform again...
                 </span>
                 <span
-                  className={cn('mt-1 block pb-[3px] leading-[1.12] lg:leading-[1.14]', marketingHeroHeadlineGradientClassName)}
+                  className={cn(
+                    'mt-1 block pb-[3px] leading-[1.12] lg:leading-[1.14]',
+                    marketingHeroHeadlineGradientClassName
+                  )}
                   style={MARKETERS_HERO_ACCENT_LINE_STYLE}
                 >
                   Launch campaigns faster
@@ -210,7 +219,7 @@ export function MarketersSolutionsContent() {
       <section className="relative w-full overflow-hidden bg-white">
         <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
-          <img src="/images/Insta%20Stories.gif" alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img src="/images/insta-stories.gif" alt="" className="absolute inset-0 h-full w-full object-cover" />
         </div>
         <InstaStoriesShoulderCapsTop />
         <div className="relative z-10 w-full overflow-hidden">
@@ -237,7 +246,7 @@ export function MarketersSolutionsContent() {
                     ))}
                   </ul>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#c850f0]">Bonus:</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#171717]">Bonus:</p>
                     <ul className="mt-4 flex flex-col gap-3">
                       {BONUS_LIST.map((item) => (
                         <li key={item} className="flex gap-3 text-[#f0e6ff]">

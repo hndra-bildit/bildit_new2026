@@ -5,10 +5,7 @@ import {
   InstaStoriesShoulderCapsBottom,
   InstaStoriesShoulderCapsTop
 } from '@/app/components/home/InstaStoriesSectionShoulderCaps'
-import {
-  homeSectionSubtitleOnDarkClassName,
-  homeSectionTitleOnDarkClassName
-} from '@/app/components/home/home-section-typography'
+import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
@@ -26,8 +23,8 @@ const BONUS_ITEMS = [
   'Direct access to our engineering team'
 ] as const
 
-/** Full-bleed parallax layer behind the section (`public/images/Insta Stories.gif`). */
-const SECTION_BACKGROUND_SRC = '/images/Insta%20Stories.gif'
+/** Full-bleed parallax layer behind the section (`public/images/insta-stories.gif`). */
+const SECTION_BACKGROUND_SRC = '/images/insta-stories.gif'
 
 /** Subtle parallax: background shifts with scroll as the section crosses the viewport. */
 const PARALLAX_RATE = 0.1
@@ -137,24 +134,25 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0d0118]/25 via-transparent to-[#0d0118]/35" />
               </div>
 
-              <div className="relative z-[1] flex w-full max-w-[768px] flex-col gap-6 text-center">
-                <h2 className={cn('text-center', homeSectionTitleOnDarkClassName, 'text-[#f0e6ff]')}>
-                  Everything you need. Nothing holding you back.
-                </h2>
-                <p
-                  className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-lg leading-[29.25px]')}
-                >
-                  You get:
-                </p>
-              </div>
-
               <div
                 className={cn(
-                  'relative z-[1] mt-10 w-full max-w-[829px] rounded-2xl border border-black/[0.08]',
+                  'relative z-[1] w-full max-w-[829px] rounded-2xl border border-black/[0.08]',
                   'bg-white p-8 md:p-10'
                 )}
               >
-                <div className="flex flex-col gap-10 lg:flex-row lg:gap-10">
+                <div className="mx-auto max-w-[768px] text-center">
+                  <h2 className={cn('text-balance', homeSectionTitleClassName)}>Everything you need. Nothing holding you back.</h2>
+                  <p
+                    className={cn(
+                      homeSectionSubtitleClassName,
+                      'mt-4 max-w-none text-center text-lg leading-[29.25px] text-[#595959]'
+                    )}
+                  >
+                    You get:
+                  </p>
+                </div>
+
+                <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-10">
                   <ul className="flex flex-1 flex-col gap-4">
                     {PRIMARY_ITEMS.map((label) => (
                       <li
@@ -176,7 +174,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                   </ul>
 
                   <div className="flex flex-1 flex-col gap-3 border-t border-black/[0.03] pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                    <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-[#c850f0]">
+                    <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-[#171717]">
                       Bonus:
                     </p>
                     <ul className="flex flex-col gap-3">

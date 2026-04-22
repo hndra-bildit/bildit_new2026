@@ -46,6 +46,8 @@ export function VeeLayerLeadForm({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const fieldClass = fieldClassByVariant[variant]
 
+  const isContactUs = source === 'contact-us'
+
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setStatus('loading')
@@ -55,12 +57,19 @@ export function VeeLayerLeadForm({
     const fullName = String(data.get('fullName') ?? '').trim()
     const email = String(data.get('email') ?? '').trim()
     const company = String(data.get('company') ?? '').trim()
+    const message = isContactUs
+      ? String(data.get('message') ?? '').trim()
+      : ''
 
     try {
       const res = await fetch('/api/lead/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ source, fullName, email, company })
+        body: JSON.stringify(
+          isContactUs
+            ? { source, fullName, email, company, message }
+            : { source, fullName, email, company }
+        )
       })
       const json = (await res.json().catch(() => ({}))) as { error?: string }
       if (!res.ok) {
@@ -151,6 +160,28 @@ export function VeeLayerLeadForm({
         placeholder="Company (optional)"
         className={fieldClass}
       />
+      {isContactUs ? (
+        <div className="flex flex-col gap-1.5">
+          <label
+            htmlFor={`vee-lead-message-${source}`}
+            className={cn(
+              'font-[family-name:var(--font-uncut-sans)] text-sm font-medium',
+              variant === 'dark' ? 'text-white/80' : 'text-neutral-800'
+            )}
+          >
+            Message
+          </label>
+          <textarea
+            id={`vee-lead-message-${source}`}
+            name="message"
+            required
+            minLength={10}
+            rows={5}
+            placeholder="Tell us how we can help. We will respond as soon as we can."
+            className={cn(fieldClass, 'min-h-[120px] resize-y leading-relaxed')}
+          />
+        </div>
+      ) : null}
       {status === 'error' && errorMessage ? (
         <p
           className={cn(

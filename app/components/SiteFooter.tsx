@@ -40,7 +40,7 @@ export function SiteFooter() {
             <div>
               <Link href="/" className="inline-block" aria-label="BILDIT home">
                 <Image
-                  src="/images/others/BILDIT_Logo.svg"
+                  src="/images/others/bildit-logo.svg"
                   alt=""
                   width={118}
                   height={26}
@@ -68,7 +68,7 @@ export function SiteFooter() {
                   className="opacity-80 hover:opacity-100"
                   aria-label="BILDIT on Instagram"
                 >
-                  <Image src="/images/footer/fe_instagram.svg" alt="" width={24} height={24} />
+                  <Image src="/images/footer/fe-instagram.svg" alt="" width={24} height={24} />
                 </a>
                 <a
                   href="https://www.facebook.com/BILDITco"
@@ -77,7 +77,7 @@ export function SiteFooter() {
                   className="opacity-80 hover:opacity-100"
                   aria-label="BILDIT on Facebook"
                 >
-                  <Image src="/images/footer/fa-brands_facebook-square.svg" alt="" width={24} height={24} />
+                  <Image src="/images/footer/fa-brands-facebook-square.svg" alt="" width={24} height={24} />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/bilditon/"
@@ -86,7 +86,7 @@ export function SiteFooter() {
                   className="opacity-80 hover:opacity-100"
                   aria-label="BILDIT on LinkedIn"
                 >
-                  <Image src="/images/footer/akar-icons_linkedin-box-fill.svg" alt="" width={24} height={24} />
+                  <Image src="/images/footer/akar-icons-linkedin-box-fill.svg" alt="" width={24} height={24} />
                 </a>
               </div>
             </div>
@@ -139,7 +139,11 @@ export function SiteFooter() {
               </div>
             </div>
           </div>
-
+        </div>
+      </footer>
+      <div className="bg-white pt-[20px]">
+        <div className="mx-auto max-w-[1260px] px-6 pb-12 md:pb-16">
+          <BuildPeopleProductsHeading />
           <div className="font-[family-name:var(--font-inter)] mt-12 flex flex-col gap-4 border-t border-neutral-200 pt-8 text-xs text-neutral-500 md:flex-row md:items-center md:justify-between">
             <p>Copyright 2026 BILDIT, INC. All Rights Reserved</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -151,11 +155,6 @@ export function SiteFooter() {
               </Link>
             </div>
           </div>
-        </div>
-      </footer>
-      <div className="border-t border-neutral-200 bg-white pt-[20px]">
-        <div className="mx-auto max-w-[1260px] px-6 pb-12 md:pb-16">
-          <BuildPeopleProductsHeading />
         </div>
       </div>
     </>

@@ -10,15 +10,15 @@ export default function HomeContentCmsOverViewThird(){
   return(
     <section className="py-25 relative px-4">
       <Image
-        src="/images/home/BILDIT_Home_Unified_Solution_BG.png"
-        alt="BILDIT_Home_Unified_Solution_BG.png"
+        src="/images/home/bildit-home-unified-solution-bg.png"
+        alt="bildit-home-unified-solution-bg.png"
         className="top-0 left-0 absolute -z-1 w-full h-full hidden lg:block"
         width={1200}
         height={1200}
       />
       <Image
-        src="/images/home/BILDIT_Home_Unified_Solution_Mobile_BG.png"
-        alt="BILDIT_Home_Unified_Solution_Mobile_BG.png"
+        src="/images/home/bildit-home-unified-solution-mobile-bg.png"
+        alt="bildit-home-unified-solution-mobile-bg.png"
         className="top-0 left-0 absolute -z-1 w-full h-full lg:hidden"
         width={1200}
         height={1200}
@@ -37,8 +37,8 @@ export default function HomeContentCmsOverViewThird(){
         </div>
         <div className="flex justify-center">
           <Image
-            src="/images/home/BILDIT_Home_Unified_Solution_Image.png"
-            alt="BILDIT_Home_Unified_Solution_Image.png"
+            src="/images/home/bildit-home-unified-solution-image.png"
+            alt="bildit-home-unified-solution-image.png"
             className="w-full h-auto"
             width={1200}
             height={1200}

@@ -14,8 +14,8 @@ const GroupItems = [
 const GroupContents = [
   {
     name: 'Build',
-    src: '/images/home/BILDIT_Home_Build_Intro.png',
-    alt: 'BILDIT_Home_Build_Intro.png',
+    src: '/images/home/bildit-home-build-intro.png',
+    alt: 'bildit-home-build-intro.png',
     title: 'Easy cross-channel content management',
     heading: 'Build and manage content for web and mobile. In a single CMS.',
     content:
@@ -25,8 +25,8 @@ const GroupContents = [
   },
   {
     name: 'Launch',
-    src: '/images/home/BILDIT_Home_Launch_Intro.png',
-    alt: 'BILDIT_Home_launch_Intro.png',
+    src: '/images/home/bildit-home-launch-intro.png',
+    alt: 'bildit-home-launch-intro.png',
     title: 'Complete control over cross-channel campaigns',
     heading: 'Launch the way you want. Without going through developers.',
     content: 'Build, schedule, launch and update revenue-driving campaigns across multiple channels.',
@@ -35,8 +35,8 @@ const GroupContents = [
   },
   {
     name: 'Control',
-    src: '/images/home/BILDIT_Home_Control_Intro.png',
-    alt: 'BILDIT_Home_Control_Intro.png',
+    src: '/images/home/bildit-home-control-intro.png',
+    alt: 'bildit-home-control-intro.png',
     title: 'Advanced mobile app capabilities',
     heading: 'Take control of your app and boost conversions with personalization.',
     content:
@@ -79,15 +79,15 @@ export default function HomeContentCmsOverviewSecond() {
   return (
     <section className="py-10 lg:py-25 relative px-4">
       <Image
-        src="/images/others/BILDIT_Dot_Line_Effect_BG.png"
-        alt="BILDIT_Dot_Line_Effect_BG.png"
+        src="/images/others/bildit-dot-line-effect-bg.png"
+        alt="bildit-dot-line-effect-bg.png"
         className="top-0 left-0 absolute -z-1 w-auto h-auto hidden lg:block"
         width={1200}
         height={1200}
       />
       <Image
-        src="/images/home/BILDIT_Home_Mobile_BG.png"
-        alt="BILDIT_Home_Mobile_BG.png"
+        src="/images/home/bildit-home-mobile-bg.png"
+        alt="bildit-home-mobile-bg.png"
         className="lg:hidden top-0 left-0 -z-1 absolute w-full h-auto"
         width={1200}
         height={1200}

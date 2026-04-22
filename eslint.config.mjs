@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 const eslintConfig = [
   // BILD `from-tsx` sources: macros and @/cmsDependencies are for the CMS toolchain, not eslint/tsc.
   {
-    ignores: ['**/*.template.tsx']
+    ignores: ['**/*.template.tsx', 'app/.well-known/**']
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
   {

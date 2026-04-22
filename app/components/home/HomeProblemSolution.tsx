@@ -1,6 +1,7 @@
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
+import type { CSSProperties } from 'react'
 
 const PROBLEM_POINTS = [
   'Dev tickets. Release cycles. Missed windows.',
@@ -13,18 +14,13 @@ const PUSH_OUT_ITEMS = ['Campaigns', 'Personalized experiences', 'Conversion exp
 
 const IMMEDIATE_POINTS = ['No engineering bottleneck.', 'No performance regression.', 'No deployments.'] as const
 
-const gradientImmediately = {
+/** Accent gradient for “Immediately. No trade-offs.” — same stops as pill border/tint. */
+const solutionAccentGradient: CSSProperties = {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text' as const,
-  backgroundImage: 'linear-gradient(172.5deg, rgb(200, 80, 240) 0%, rgb(232, 69, 144) 50%, rgb(244, 114, 182) 100%)'
-}
-
-const gradientJustControl = {
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text' as const,
-  backgroundImage: 'linear-gradient(169.13deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
+  backgroundClip: 'text',
+  backgroundImage:
+    'linear-gradient(170deg, rgb(237, 30, 121) 0%, rgb(200, 80, 240) 50%, rgb(59, 30, 237) 100%)'
 }
 
 /**
@@ -99,7 +95,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
                 {PUSH_OUT_ITEMS.map((item) => (
                   <li
                     key={item}
-                    className="inline-flex rounded-[40px] border border-solid border-[#633b9c] px-[15px] py-1.5 text-[#633b9c]"
+                    className="inline-flex rounded-[40px] border border-solid border-[rgb(200,80,240)]/45 bg-[rgba(237,30,121,0.06)] px-[15px] py-1.5 text-[#8a2166]"
                   >
                     {item}
                   </li>
@@ -110,7 +106,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
             <div className="flex flex-col gap-4">
               <p
                 className="inline-block max-w-full font-[family-name:var(--font-uncut-sans)] text-base font-bold uppercase leading-8 md:text-lg"
-                style={gradientImmediately}
+                style={solutionAccentGradient}
               >
                 Immediately. No trade-offs.
               </p>
@@ -126,10 +122,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
               </ul>
             </div>
 
-            <p
-              className="inline-block font-[family-name:var(--font-uncut-sans)] text-lg leading-7 md:text-xl"
-              style={gradientJustControl}
-            >
+            <p className="inline-block font-[family-name:var(--font-uncut-sans)] text-lg font-bold uppercase leading-7 text-[#171717] md:text-xl">
               Just control.
             </p>
           </div>

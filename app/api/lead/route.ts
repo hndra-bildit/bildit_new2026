@@ -1,10 +1,15 @@
+import { inboundFormSchema } from '@/lib/lead/inbound-types'
+import { workflowInbound } from '@/workflows/inbound'
+import { checkBotId } from 'botid/server'
 import { NextResponse } from 'next/server'
+import { start } from 'workflow/api'
 
 type LeadPayloadBase = {
   source?: string
   fullName?: string
   email?: string
   company?: string
+  message?: string
   turnstileToken?: string
 }
 
@@ -49,12 +54,15 @@ async function verifyTurnstileToken(token: string, secret: string): Promise<bool
 }
 
 /**
- * Lead capture (Vercel-friendly): validates input, optionally verifies Turnstile, forwards to webhook when configured.
- * Set `LEADS_WEBHOOK_URL` to POST JSON to HubSpot, Zapier, Slack, etc.
- *
- * Turnstile (integration partner and optional future flows): `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY`.
+ * All marketing / contact / integration lead forms: BotID, validate, then Workflow DevKit inbound pipeline
+ * (vercel-labs/lead-agent pattern). Optional `LEADS_WEBHOOK_URL` still receives a JSON POST for HubSpot, Zapier, etc.
  */
 export async function POST(request: Request) {
+  const verification = await checkBotId()
+  if (verification.isBot) {
+    return NextResponse.json({ error: 'Access denied' }, { status: 403 })
+  }
+
   let body: LeadPayload
   try {
     body = (await request.json()) as LeadPayload
@@ -66,16 +74,18 @@ export async function POST(request: Request) {
   const email = String(body.email ?? '').trim()
   const fullName = String(body.fullName ?? '').trim()
   const company = String(body.company ?? '').trim()
+  const userMessage = String((body as LeadPayloadBase).message ?? '').trim()
 
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
 
   if (source === 'integration-partners') {
-    const websiteRaw = String((body as IntegrationPartnersPayload).website ?? '').trim()
+    const b = body as IntegrationPartnersPayload
+    const websiteRaw = String(b.website ?? '').trim()
     const website = normalizeWebsite(websiteRaw)
-    const engineerRaw = (body as IntegrationPartnersPayload).engineerCount
+    const engineerRaw = b.engineerCount
     const engineerCount = typeof engineerRaw === 'number' ? engineerRaw : parseInt(String(engineerRaw ?? '').trim(), 10)
-    const cmses = String((body as IntegrationPartnersPayload).cmses ?? '').trim()
-    const buildsMobileApps = String((body as IntegrationPartnersPayload).buildsMobileApps ?? '')
+    const cmses = String(b.cmses ?? '').trim()
+    const buildsMobileApps = String(b.buildsMobileApps ?? '')
       .trim()
       .toLowerCase()
 
@@ -98,7 +108,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Please indicate whether you build mobile apps.' }, { status: 400 })
     }
 
-    const token = String(body.turnstileToken ?? '').trim()
+    const token = String(b.turnstileToken ?? '').trim()
     if (turnstileSecret) {
       if (!token || !(await verifyTurnstileToken(token, turnstileSecret))) {
         return NextResponse.json({ error: 'Verification failed. Please try again.' }, { status: 400 })
@@ -107,16 +117,26 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Captcha is not configured on the server.' }, { status: 503 })
     }
 
-    const payload = {
+    const message = [
+      'Integration partners application',
+      `Website: ${website}`,
+      `Engineer count: ${engineerCount}`,
+      `CMS platforms: ${cmses}`,
+      `Builds mobile apps: ${buildsMobileApps}`,
+      `Submitted: ${new Date().toISOString()}`
+    ].join('\n')
+
+    const parsed = inboundFormSchema.safeParse({
       source,
-      fullName,
+      name: fullName,
       email,
-      company,
-      website,
-      engineerCount,
-      cmses,
-      buildsMobileApps,
-      submittedAt: new Date().toISOString()
+      phone: '',
+      company: company || '',
+      message
+    })
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.issues[0]?.message ?? 'Invalid input' }, { status: 400 })
     }
 
     const webhook = process.env.LEADS_WEBHOOK_URL
@@ -125,13 +145,24 @@ export async function POST(request: Request) {
         await fetch(webhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({
+            source,
+            fullName,
+            email,
+            company,
+            website,
+            engineerCount,
+            cmses,
+            buildsMobileApps,
+            submittedAt: new Date().toISOString()
+          })
         })
       } catch {
-        // Still return success to the user; ops can monitor webhook separately
+        // best-effort
       }
     }
 
+    await start(workflowInbound, [parsed.data])
     return NextResponse.json({ ok: true })
   }
 
@@ -139,7 +170,32 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Name and a valid email are required.' }, { status: 400 })
   }
 
-  const payload = { source, fullName, email, company: company || undefined, submittedAt: new Date().toISOString() }
+  if (source === 'contact-us') {
+    if (!userMessage) {
+      return NextResponse.json({ error: 'Please enter a message.' }, { status: 400 })
+    }
+    if (userMessage.length < 10) {
+      return NextResponse.json({ error: 'Message must be at least 10 characters.' }, { status: 400 })
+    }
+  }
+
+  const message =
+    source === 'contact-us'
+      ? userMessage
+      : `This is a lead request from the BILDIT site (form source: "${source}"). The visitor used a short marketing form without a long message.`
+
+  const parsed = inboundFormSchema.safeParse({
+    source,
+    name: fullName,
+    email,
+    phone: '',
+    company: company || '',
+    message
+  })
+
+  if (!parsed.success) {
+    return NextResponse.json({ error: parsed.error.issues[0]?.message ?? 'Invalid input' }, { status: 400 })
+  }
 
   const webhook = process.env.LEADS_WEBHOOK_URL
   if (webhook) {
@@ -147,12 +203,20 @@ export async function POST(request: Request) {
       await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          source,
+          fullName,
+          email,
+          company: company || undefined,
+          message: userMessage || undefined,
+          submittedAt: new Date().toISOString()
+        })
       })
     } catch {
-      // Still return success to the user; ops can monitor webhook separately
+      // best-effort
     }
   }
 
+  await start(workflowInbound, [parsed.data])
   return NextResponse.json({ ok: true })
 }

@@ -134,7 +134,7 @@ function isLightContentBehindHeader(headerRoot: HTMLElement): boolean {
 
 type MegaFeaturedCardProps = { onNavigate?: () => void }
 
-/** Intrinsic size of `public/images/Girl Designer Live Editing.jpg` — keeps layout uncropped. */
+/** Intrinsic size of `public/images/girl-designer-live-editing.jpg` — keeps layout uncropped. */
 const PROMO_IMAGE_ASPECT = '430 / 415' as const
 
 function MegaFeaturedCard({ onNavigate }: MegaFeaturedCardProps) {

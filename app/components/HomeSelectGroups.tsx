@@ -31,8 +31,8 @@ const GroupContents: Array<{
 }> = [
   {
     name: 'Build',
-    src: '/images/home/BILDIT_Home_Build_Intro.png',
-    alt: 'BILDIT_Home_Build_Intro.png',
+    src: '/images/home/bildit-home-build-intro.png',
+    alt: 'bildit-home-build-intro.png',
     title: 'Easy cross-channel content management',
     heading: 'Build and manage content for web and mobile. In a single CMS.',
     content:
@@ -42,8 +42,8 @@ const GroupContents: Array<{
   },
   {
     name: 'Launch',
-    src: '/images/home/BILDIT_Home_Launch_Intro.png',
-    alt: 'BILDIT_Home_launch_Intro.png',
+    src: '/images/home/bildit-home-launch-intro.png',
+    alt: 'bildit-home-launch-intro.png',
     title: 'Complete control over cross-channel campaigns',
     heading: 'Launch the way you want. Without going through developers.',
     content: 'Build, schedule, launch and update revenue-driving campaigns across multiple channels.',
@@ -52,8 +52,8 @@ const GroupContents: Array<{
   },
   {
     name: 'Control',
-    src: '/images/home/BILDIT_Home_Control_Intro.png',
-    alt: 'BILDIT_Home_Control_Intro.png',
+    src: '/images/home/bildit-home-control-intro.png',
+    alt: 'bildit-home-control-intro.png',
     title: 'Advanced mobile app capabilities',
     heading: 'Take control of your app and boost conversions with personalization.',
     content:

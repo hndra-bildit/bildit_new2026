@@ -7,6 +7,5 @@ export const homeHeroHeadlineGradientStyle: CSSProperties = {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
-  backgroundImage:
-    'linear-gradient(235.74deg, #e1beff 6.65%, #ffceff 47.31%, #ff80f4 60.52%, #ff00e1 100%)'
+  backgroundImage: 'linear-gradient(235.74deg, #e1beff 6.65%, #ffceff 47.31%, #ff80f4 60.52%, #ff00e1 100%)'
 }
