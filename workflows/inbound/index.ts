@@ -1,9 +1,18 @@
-import { stepHumanFeedback, stepQualify, stepResearch, stepWriteEmail } from './steps'
+import {
+  stepHumanFeedback,
+  stepQualify,
+  stepResearch,
+  stepSlackNotifyWithoutHitl,
+  stepWriteEmail
+} from './steps'
 import { type InboundLead } from '@/lib/lead/inbound-types'
 
 /**
- * Durable workflow: research → qualify → (optional) draft + Slack HITL.
- * Based on vercel-labs/lead-agent.
+ * Inbound lead workflow (vercel-labs/lead-agent pattern):
+ * - research the lead
+ * - qualify the lead
+ * - QUALIFIED / FOLLOW_UP: draft + Slack message with Approve / Reject
+ * - Other categories: Slack summary only (so every lead is visible in-channel)
  */
 export const workflowInbound = async (data: InboundLead) => {
   'use workflow'
@@ -14,5 +23,7 @@ export const workflowInbound = async (data: InboundLead) => {
   if (qualification.category === 'QUALIFIED' || qualification.category === 'FOLLOW_UP') {
     const emailDraft = await stepWriteEmail(research, qualification)
     await stepHumanFeedback(data, research, emailDraft, qualification)
+  } else {
+    await stepSlackNotifyWithoutHitl(data, research, qualification)
   }
 }

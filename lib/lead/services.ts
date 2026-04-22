@@ -1,6 +1,6 @@
 import { getExa, isExaConfigured } from '@/lib/lead/exa'
 import { type InboundLead, type Qualification, qualificationSchema } from '@/lib/lead/inbound-types'
-import { sendSlackMessageWithButtons } from '@/lib/lead/slack'
+import { sendSlackMarkdownMessage, sendSlackMessageWithButtons } from '@/lib/lead/slack'
 import { generateObject, generateText, ToolLoopAgent, tool, stepCountIs } from 'ai'
 import { z } from 'zod'
 
@@ -46,8 +46,25 @@ export async function humanFeedback(
     `*Research (excerpt):*\n${research.slice(0, 500)}…\n\n` +
     `*Draft reply (review in thread):*\n${draftResponse.slice(0, 1500)}`
 
-  const slackChannel = process.env.SLACK_CHANNEL_ID || ''
-  return await sendSlackMessageWithButtons(slackChannel, text)
+  return await sendSlackMessageWithButtons('', text)
+}
+
+/**
+ * Notify Slack for leads that skip the approve/reject flow (e.g. UNQUALIFIED, SUPPORT).
+ */
+export async function slackNotifyLeadWithoutHitl(
+  lead: InboundLead,
+  research: string,
+  qualification: Qualification
+) {
+  const text =
+    `*New BILDIT lead* (${qualification.category} — no draft approval step)\n` +
+    `*Source:* ${lead.source}\n` +
+    `*From:* ${lead.name} <${lead.email}>\n` +
+    `*Reason:* ${qualification.reason}\n\n` +
+    `*Research (excerpt):*\n${research.slice(0, 800)}…`
+
+  return await sendSlackMarkdownMessage('', text)
 }
 
 const fetchUrl = tool({
@@ -84,7 +101,7 @@ const search = tool({
     keywords: z.string().describe('Entity to search (e.g. company name)'),
     resultCategory: z
       .enum(['company', 'research paper', 'news', 'pdf', 'personal site', 'financial report', 'people'])
-      .describe('The category of the result to prefer (Exa-supported categories)')
+      .describe('The category of the result to prefer (Exa-supported categories for this SDK version)')
   }),
   execute: async ({ keywords, resultCategory }) => {
     if (!isExaConfigured()) {

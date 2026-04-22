@@ -1,5 +1,12 @@
 import { type InboundLead, type Qualification } from '@/lib/lead/inbound-types'
-import { humanFeedback, qualify, researchAgent, writeEmail } from '@/lib/lead/services'
+import { isSlackBoltConfigured } from '@/lib/lead/slack'
+import {
+  humanFeedback,
+  qualify,
+  researchAgent,
+  slackNotifyLeadWithoutHitl,
+  writeEmail
+} from '@/lib/lead/services'
 
 export const stepQualify = async (data: InboundLead, research: string) => {
   'use step'
@@ -26,9 +33,22 @@ export const stepHumanFeedback = async (
   qualification: Qualification
 ) => {
   'use step'
-  if (!process.env.SLACK_BOT_TOKEN || !process.env.SLACK_SIGNING_SECRET) {
+  if (!isSlackBoltConfigured()) {
     console.warn('⚠️ SLACK_BOT_TOKEN or SLACK_SIGNING_SECRET is not set, skipping human feedback step')
     return
   }
   return await humanFeedback(data, research, emailDraft, qualification)
+}
+
+export const stepSlackNotifyWithoutHitl = async (
+  data: InboundLead,
+  research: string,
+  qualification: Qualification
+) => {
+  'use step'
+  if (!isSlackBoltConfigured()) {
+    console.warn('⚠️ SLACK_BOT_TOKEN or SLACK_SIGNING_SECRET is not set, skipping Slack notification')
+    return
+  }
+  return await slackNotifyLeadWithoutHitl(data, research, qualification)
 }

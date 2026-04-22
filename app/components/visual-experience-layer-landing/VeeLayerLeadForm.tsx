@@ -1,7 +1,11 @@
 'use client'
 
-import { type FormEvent, useState } from 'react'
+import { type FormEvent, useEffect, useState } from 'react'
 import { cn } from '@/utils/cn'
+
+function sentStorageKey(source: string) {
+  return `bildit-vee-lead-sent:${source}`
+}
 
 export type LeadSource =
   | 'figma-templates'
@@ -24,6 +28,8 @@ type VeeLayerLeadFormProps = {
   /** Field + success styling: default (Vee landing), marketing (light rounded-xl CTAs), dark (engineering band). */
   variant?: LeadFormVariant
   helperText?: string
+  /** Short marketing forms (home, storefront, solutions) omit company; contact and long forms keep it. */
+  showCompany?: boolean
 }
 
 const fieldClassByVariant: Record<LeadFormVariant, string> = {
@@ -40,13 +46,25 @@ export function VeeLayerLeadForm({
   className,
   submitButtonClassName,
   variant = 'default',
-  helperText
+  helperText,
+  showCompany = true
 }: VeeLayerLeadFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const fieldClass = fieldClassByVariant[variant]
 
   const isContactUs = source === 'contact-us'
+
+  /** SlotPlaceholder / parent remounts after CMS hydration can reset state; persist success for this tab. */
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && window.sessionStorage.getItem(sentStorageKey(source)) === '1') {
+        setStatus('sent')
+      }
+    } catch {
+      // private mode / storage blocked
+    }
+  }, [source])
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -56,22 +74,30 @@ export function VeeLayerLeadForm({
     const data = new FormData(form)
     const fullName = String(data.get('fullName') ?? '').trim()
     const email = String(data.get('email') ?? '').trim()
-    const company = String(data.get('company') ?? '').trim()
+    const company = showCompany ? String(data.get('company') ?? '').trim() : ''
     const message = isContactUs ? String(data.get('message') ?? '').trim() : ''
 
     try {
+      const payload = isContactUs
+        ? { source, fullName, email, company, message }
+        : showCompany
+          ? { source, fullName, email, company }
+          : { source, fullName, email }
       const res = await fetch('/api/lead/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(
-          isContactUs ? { source, fullName, email, company, message } : { source, fullName, email, company }
-        )
+        body: JSON.stringify(payload)
       })
       const json = (await res.json().catch(() => ({}))) as { error?: string }
       if (!res.ok) {
         setStatus('error')
         setErrorMessage(json.error ?? 'Something went wrong. Please try again.')
         return
+      }
+      try {
+        window.sessionStorage.setItem(sentStorageKey(source), '1')
+      } catch {
+        // ignore
       }
       setStatus('sent')
       form.reset()
@@ -115,6 +141,23 @@ export function VeeLayerLeadForm({
         >
           We&apos;ll be in touch soon.
         </p>
+        <button
+          type="button"
+          className={cn(
+            'mt-6 font-[family-name:var(--font-uncut-sans)] text-sm font-medium underline underline-offset-4',
+            isDark ? 'text-[#c4b5dc] hover:text-white' : 'text-[#595959] hover:text-neutral-900'
+          )}
+          onClick={() => {
+            try {
+              window.sessionStorage.removeItem(sentStorageKey(source))
+            } catch {
+              // ignore
+            }
+            setStatus('idle')
+          }}
+        >
+          Submit another response
+        </button>
       </div>
     )
   }
@@ -145,17 +188,21 @@ export function VeeLayerLeadForm({
         placeholder="Work email"
         className={fieldClass}
       />
-      <label className="sr-only" htmlFor={`vee-lead-company-${source}`}>
-        Company (optional)
-      </label>
-      <input
-        id={`vee-lead-company-${source}`}
-        name="company"
-        type="text"
-        autoComplete="organization"
-        placeholder="Company (optional)"
-        className={fieldClass}
-      />
+      {showCompany ? (
+        <>
+          <label className="sr-only" htmlFor={`vee-lead-company-${source}`}>
+            Company (optional)
+          </label>
+          <input
+            id={`vee-lead-company-${source}`}
+            name="company"
+            type="text"
+            autoComplete="organization"
+            placeholder="Company (optional)"
+            className={fieldClass}
+          />
+        </>
+      ) : null}
       {isContactUs ? (
         <div className="flex flex-col gap-1.5">
           <label

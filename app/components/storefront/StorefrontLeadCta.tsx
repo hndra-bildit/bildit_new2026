@@ -57,11 +57,7 @@ export function StorefrontLeadCta({ className, leadSource = 'mobile-app-storefro
           </p>
         </div>
 
-        <MarketersSolutionsCtaForm
-          source={leadSource}
-          submitLabel="Start Free Trial"
-          className="mt-0 w-full max-w-[480px]"
-        />
+        <MarketersSolutionsCtaForm source={leadSource} className="mt-0 w-full max-w-[480px]" />
       </div>
     </section>
   )

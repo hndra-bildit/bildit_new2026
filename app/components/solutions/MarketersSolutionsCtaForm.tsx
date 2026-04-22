@@ -27,6 +27,7 @@ export function MarketersSolutionsCtaForm({
       source={source}
       submitLabel={submitLabel}
       variant="marketing"
+      showCompany={false}
       className={cn('mt-4 w-full max-w-2xl', className)}
       submitButtonClassName={gradientSubmitClassName}
       helperText={"No cost. No risk. We don't win unless you ship."}

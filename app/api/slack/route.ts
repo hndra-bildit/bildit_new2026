@@ -13,7 +13,7 @@ if (slackApp && receiver) {
 
   slackApp.action('lead_approved', async ({ ack }) => {
     await ack()
-    await sendEmail('Approved: wire sendEmail() in lib/lead/services.ts to your provider')
+    await sendEmail('Send email to the lead')
   })
 
   slackApp.action('lead_rejected', async ({ ack }) => {
@@ -21,7 +21,11 @@ if (slackApp && receiver) {
   })
 }
 
-export const POST =
-  slackApp && receiver
-    ? createHandler(slackApp, receiver)
-    : () => new Response('Slack credentials not configured', { status: 503 })
+const slackBoltPost = slackApp && receiver ? createHandler(slackApp, receiver) : null
+
+export async function POST(request: Request) {
+  if (!slackBoltPost) {
+    return new Response('Slack credentials not configured', { status: 503 })
+  }
+  return slackBoltPost(request)
+}
