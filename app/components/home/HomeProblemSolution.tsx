@@ -1,7 +1,7 @@
+import type { CSSProperties } from 'react'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
-import type { CSSProperties } from 'react'
 
 const PROBLEM_POINTS = [
   'Dev tickets. Release cycles. Missed windows.',
@@ -19,8 +19,7 @@ const solutionAccentGradient: CSSProperties = {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
-  backgroundImage:
-    'linear-gradient(170deg, rgb(237, 30, 121) 0%, rgb(200, 80, 240) 50%, rgb(59, 30, 237) 100%)'
+  backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 0%, rgb(200, 80, 240) 50%, rgb(59, 30, 237) 100%)'
 }
 
 /**

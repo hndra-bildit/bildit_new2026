@@ -141,7 +141,9 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                 )}
               >
                 <div className="mx-auto max-w-[768px] text-center">
-                  <h2 className={cn('text-balance', homeSectionTitleClassName)}>Everything you need. Nothing holding you back.</h2>
+                  <h2 className={cn('text-balance', homeSectionTitleClassName)}>
+                    Everything you need. Nothing holding you back.
+                  </h2>
                   <p
                     className={cn(
                       homeSectionSubtitleClassName,

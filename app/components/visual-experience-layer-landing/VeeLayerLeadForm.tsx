@@ -57,18 +57,14 @@ export function VeeLayerLeadForm({
     const fullName = String(data.get('fullName') ?? '').trim()
     const email = String(data.get('email') ?? '').trim()
     const company = String(data.get('company') ?? '').trim()
-    const message = isContactUs
-      ? String(data.get('message') ?? '').trim()
-      : ''
+    const message = isContactUs ? String(data.get('message') ?? '').trim() : ''
 
     try {
       const res = await fetch('/api/lead/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(
-          isContactUs
-            ? { source, fullName, email, company, message }
-            : { source, fullName, email, company }
+          isContactUs ? { source, fullName, email, company, message } : { source, fullName, email, company }
         )
       })
       const json = (await res.json().catch(() => ({}))) as { error?: string }
