@@ -4,6 +4,13 @@ import { withWorkflow } from 'workflow/next'
 
 const nextConfig: NextConfig = {
   serverExternalPackages: ['@slack/bolt'],
+  webpack: (config, { dev, isServer }) => {
+    if (dev && !isServer) {
+      // Large CMS dependency graph can produce multi‑MB chunks in dev; avoid spurious load timeouts.
+      config.output = { ...config.output, chunkLoadTimeout: 300_000 }
+    }
+    return config
+  },
   /* config options here */
   // Port configuration handled via CLI flags in package.json
   // but can also be set via env variable: PORT=5002

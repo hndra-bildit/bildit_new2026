@@ -16,7 +16,7 @@ export function BilditLogo({ className }: BilditLogoProps) {
 
   return (
     <svg
-      className={cn('h-[30px] w-[134px] shrink-0', className)}
+      className={cn('h-[30px] w-[134px] max-w-full shrink-0', className)}
       viewBox="0 0 134 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -198,10 +198,26 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
   }
 }
 
+/* Header wordmark: Tailwind `w-[134px]` on the SVG can override unscoped rules; scope +
+   `!important` so responsive sizes always win. iPhone 12–15 are 390–430 CSS px. */
 @media (max-width: 999px) {
-  .site-header--logo-compact {
-    height: 24px;
-    width: 107px;
+  [data-header-pill] .site-header--logo-compact {
+    width: 107px !important;
+    height: 24px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  [data-header-pill] .site-header--logo-compact {
+    width: 84px !important;
+    height: 19px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  [data-header-pill] .site-header--logo-compact {
+    width: 72px !important;
+    height: 16px !important;
   }
 }
 

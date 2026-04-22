@@ -1,10 +1,4 @@
-import {
-  stepHumanFeedback,
-  stepQualify,
-  stepResearch,
-  stepSlackNotifyWithoutHitl,
-  stepWriteEmail
-} from './steps'
+import { stepHumanFeedback, stepQualify, stepResearch, stepSlackNotifyWithoutHitl, stepWriteEmail } from './steps'
 import { type InboundLead } from '@/lib/lead/inbound-types'
 
 /**

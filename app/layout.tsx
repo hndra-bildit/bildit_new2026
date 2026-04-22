@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import type { Banner } from '@/services/bildit.d'
 import { getPreviewDateFromHeaders } from '@bildit-platform/nextjs'
 import { RemoteConnector } from '@bildit-platform/nextjs-api'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Archivo_Black, Geist } from 'next/font/google'
 import { headers } from 'next/headers'
 import Script from 'next/script'
@@ -24,6 +24,12 @@ const metadataBaseUrl =
 
 /** Featured preview when sharing links (file in /public). */
 const defaultOgImage = '/images/bildit-lines-animation.gif'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover'
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataBaseUrl),

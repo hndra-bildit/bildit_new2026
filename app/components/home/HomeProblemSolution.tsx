@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
@@ -46,8 +47,8 @@ export function HomeProblemSolution({ className }: { className?: string }) {
                 This is broken.
               </p>
             </div>
-            <h2 className="max-w-full font-[family-name:var(--font-uncut-sans)] text-[32px] font-bold uppercase leading-[38px] tracking-tight text-[#171717] md:max-[999px]:text-[40px] md:max-[999px]:leading-[48px] min-[1000px]:text-[32px] min-[1000px]:leading-[38px] lg:text-[34px] lg:leading-[41px] xl:text-[40px] xl:leading-[48px]">
-              It&apos;s 2026. Why are marketers still waiting for Developers?
+            <h2 className={cn(homeSectionTitleClassName, 'max-w-full text-[#171717]')}>
+              It&apos;s 2026. Why are marketers still waiting for developers?
             </h2>
             <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-7 text-[#171717] md:text-xl md:leading-[28px]">
               We&apos;re generating AI video in seconds.

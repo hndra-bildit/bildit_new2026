@@ -1,12 +1,6 @@
 import { type InboundLead, type Qualification } from '@/lib/lead/inbound-types'
+import { humanFeedback, qualify, researchAgent, slackNotifyLeadWithoutHitl, writeEmail } from '@/lib/lead/services'
 import { isSlackBoltConfigured } from '@/lib/lead/slack'
-import {
-  humanFeedback,
-  qualify,
-  researchAgent,
-  slackNotifyLeadWithoutHitl,
-  writeEmail
-} from '@/lib/lead/services'
 
 export const stepQualify = async (data: InboundLead, research: string) => {
   'use step'
@@ -40,11 +34,7 @@ export const stepHumanFeedback = async (
   return await humanFeedback(data, research, emailDraft, qualification)
 }
 
-export const stepSlackNotifyWithoutHitl = async (
-  data: InboundLead,
-  research: string,
-  qualification: Qualification
-) => {
+export const stepSlackNotifyWithoutHitl = async (data: InboundLead, research: string, qualification: Qualification) => {
   'use step'
   if (!isSlackBoltConfigured()) {
     console.warn('⚠️ SLACK_BOT_TOKEN or SLACK_SIGNING_SECRET is not set, skipping Slack notification')

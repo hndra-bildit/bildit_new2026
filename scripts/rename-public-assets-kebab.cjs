@@ -11,10 +11,7 @@ function renamePathSafe(fromAbs, toAbs) {
   if (fromAbs === toAbs) return
   if (!fs.existsSync(fromAbs)) return
   const dir = path.dirname(fromAbs)
-  const tmp = path.join(
-    dir,
-    `.kebab-rename-${crypto.randomBytes(8).toString('hex')}${path.extname(fromAbs) || '.dir'}`,
-  )
+  const tmp = path.join(dir, `.kebab-rename-${crypto.randomBytes(8).toString('hex')}${path.extname(fromAbs) || '.dir'}`)
   fs.renameSync(fromAbs, tmp)
   fs.renameSync(tmp, toAbs)
 }
@@ -33,7 +30,7 @@ const IMAGE_ROOTS = [
   'home-no-limitations',
   'home-post-faq-cta',
   'home-speed',
-  'home-workflow',
+  'home-workflow'
 ].map((p) => path.join(PUBLIC, p))
 
 function toKebabBase(base) {
@@ -79,9 +76,7 @@ function collectDirs() {
     }
   }
   for (const root of IMAGE_ROOTS) walk(root)
-  return dirs.sort(
-    (a, b) => b.split(path.sep).length - a.split(path.sep).length,
-  )
+  return dirs.sort((a, b) => b.split(path.sep).length - a.split(path.sep).length)
 }
 
 function collectFiles() {
@@ -97,9 +92,7 @@ function collectFiles() {
     }
   }
   for (const root of IMAGE_ROOTS) walk(root)
-  return files.sort(
-    (a, b) => b.split(path.sep).length - a.split(path.sep).length,
-  )
+  return files.sort((a, b) => b.split(path.sep).length - a.split(path.sep).length)
 }
 
 const urlMap = {}
@@ -118,8 +111,7 @@ function main() {
     const parent = path.dirname(dir)
     const dest = path.join(parent, nextBase)
     const dirCaseOnly =
-      path.dirname(dir) === path.dirname(dest) &&
-      path.basename(dir).toLowerCase() === path.basename(dest).toLowerCase()
+      path.dirname(dir) === path.dirname(dest) && path.basename(dir).toLowerCase() === path.basename(dest).toLowerCase()
     if (!dirCaseOnly && fs.existsSync(dest)) {
       throw new Error(`Refusing to overwrite: ${dest}`)
     }

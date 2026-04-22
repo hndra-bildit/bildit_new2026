@@ -13,12 +13,7 @@ const sharp = require('sharp')
 const ROOT = path.join(__dirname, '..')
 const PUBLIC = path.join(ROOT, 'public')
 const DATE_TAG = new Date().toISOString().slice(0, 10)
-const ARCHIVE_BASE = path.join(
-  PUBLIC,
-  'images',
-  'archive',
-  `public-originals-${DATE_TAG}`,
-)
+const ARCHIVE_BASE = path.join(PUBLIC, 'images', 'archive', `public-originals-${DATE_TAG}`)
 
 const EXT_RE = /\.(png|jpe?g|gif)$/i
 
@@ -61,7 +56,7 @@ async function optimizeOne(absPath) {
         .png({
           compressionLevel: 9,
           adaptiveFiltering: true,
-          effort: 10,
+          effort: 10
         })
         .toFile(tmp)
     } else if (ext === '.jpg' || ext === '.jpeg') {
@@ -69,15 +64,11 @@ async function optimizeOne(absPath) {
         .jpeg({
           quality: 93,
           mozjpeg: true,
-          chromaSubsampling: '4:4:4',
+          chromaSubsampling: '4:4:4'
         })
         .toFile(tmp)
     } else if (ext === '.gif') {
-      execFileSync(
-        'gifsicle',
-        ['-O3', '--no-warnings', absPath, '-o', tmp],
-        { stdio: 'pipe' },
-      )
+      execFileSync('gifsicle', ['-O3', '--no-warnings', absPath, '-o', tmp], { stdio: 'pipe' })
     } else {
       return { rel, before, after: before, skipped: true }
     }
@@ -120,17 +111,10 @@ async function main() {
 
   console.log(`Backed up ${images.length} files to:\n  ${ARCHIVE_BASE}\n`)
   for (const r of rows) {
-    const pct =
-      r.before > 0
-        ? (((r.before - r.after) / r.before) * 100).toFixed(1)
-        : '0'
-    console.log(
-      `${r.rel}: ${(r.before / 1024).toFixed(0)} KiB -> ${(r.after / 1024).toFixed(0)} KiB (${pct}% smaller)`,
-    )
+    const pct = r.before > 0 ? (((r.before - r.after) / r.before) * 100).toFixed(1) : '0'
+    console.log(`${r.rel}: ${(r.before / 1024).toFixed(0)} KiB -> ${(r.after / 1024).toFixed(0)} KiB (${pct}% smaller)`)
   }
-  console.log(
-    `\nTotal net: ${(saved - grew) / 1024 / 1024} MiB smaller (vs pre-optimize originals in archive)`,
-  )
+  console.log(`\nTotal net: ${(saved - grew) / 1024 / 1024} MiB smaller (vs pre-optimize originals in archive)`)
 }
 
 main().catch((err) => {

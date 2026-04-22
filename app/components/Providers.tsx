@@ -1,7 +1,6 @@
 'use client'
 
 import React, { Suspense } from 'react'
-import cmsDependencies from '@/cmsDependencies'
 import type { Banner } from '@/services/bildit.d'
 import { BilditProvider } from '@bildit-platform/nextjs'
 
@@ -10,12 +9,22 @@ interface ProvidersProps {
   banners: Banner[]
 }
 
+/** Loaded async so the root layout client chunk stays small (avoids ChunkLoadError timeouts in dev). */
+const cmsDependenciesModulePromise = import('@/cmsDependencies')
+
+function BilditProvidersWithDeps({ children, banners }: ProvidersProps) {
+  const mod = React.use(cmsDependenciesModulePromise)
+  return (
+    <BilditProvider banners={banners} extraDependenciesConfig={mod.default}>
+      {children}
+    </BilditProvider>
+  )
+}
+
 const Providers: React.FC<ProvidersProps> = ({ children, banners }) => {
   return (
-    <Suspense>
-      <BilditProvider banners={banners} extraDependenciesConfig={cmsDependencies}>
-        {children}
-      </BilditProvider>
+    <Suspense fallback={children}>
+      <BilditProvidersWithDeps banners={banners}>{children}</BilditProvidersWithDeps>
     </Suspense>
   )
 }
