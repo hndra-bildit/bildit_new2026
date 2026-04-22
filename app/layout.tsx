@@ -2,6 +2,7 @@ import { LayoutChrome } from './components/LayoutChrome'
 import './globals.css'
 import Footer from '@/app/components/Footer'
 import Providers from '@/app/components/Providers'
+import { SITE_PAGE_TITLE } from '@/app/lib/site-page-title'
 import { cn } from '@/lib/utils'
 import type { Banner } from '@/services/bildit.d'
 import { getPreviewDateFromHeaders } from '@bildit-platform/nextjs'
@@ -26,10 +27,10 @@ const defaultOgImage = '/images/BILDIT%20Lines%20Animation.gif'
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataBaseUrl),
-  title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
+  title: SITE_PAGE_TITLE,
   description: 'Content Management System for Mobile Apps and React Web Sites',
   openGraph: {
-    title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
+    title: SITE_PAGE_TITLE,
     description: 'Content Management System for Mobile Apps and React Web Sites',
     type: 'website',
     locale: 'en_US',
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BILDIT | Content Management System for Mobile Apps and React Web Sites',
+    title: SITE_PAGE_TITLE,
     description: 'Content Management System for Mobile Apps and React Web Sites',
     images: [defaultOgImage]
   }

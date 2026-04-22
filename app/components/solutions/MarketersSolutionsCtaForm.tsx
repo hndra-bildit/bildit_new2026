@@ -1,47 +1,35 @@
 'use client'
 
-import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
-import Link from 'next/link'
+import { type LeadSource, VeeLayerLeadForm } from '@/app/components/visual-experience-layer-landing/VeeLayerLeadForm'
+import { cn } from '@/utils/cn'
 
-export function MarketersSolutionsCtaForm() {
+const gradientSubmitClassName =
+  'border-0 normal-case tracking-normal text-base [background-image:var(--bildit-gradient-cta-short)] hover:opacity-95 hover:bg-[#ed1e79] disabled:opacity-60'
+
+type MarketingCtaFormSource = Extract<
+  LeadSource,
+  'marketers-solutions' | 'tech-partners' | 'home' | 'mobile-app-storefront'
+>
+
+type MarketersSolutionsCtaFormProps = {
+  source: MarketingCtaFormSource
+  submitLabel?: string
+  className?: string
+}
+
+export function MarketersSolutionsCtaForm({
+  source,
+  submitLabel = 'Book a Demo',
+  className
+}: MarketersSolutionsCtaFormProps) {
   return (
-    <form
-      className="mt-4 w-full max-w-[480px] space-y-5"
-      action="#"
-      method="post"
-      onSubmit={(e) => e.preventDefault()}
-    >
-      <div className="grid gap-3 sm:grid-cols-2">
-        <label className="sr-only" htmlFor="cta-full-name">
-          Full name
-        </label>
-        <input
-          id="cta-full-name"
-          name="name"
-          placeholder="Full name"
-          className="rounded-xl border-[1.5px] border-[#d3d6db] px-[18px] py-3.5 text-base text-neutral-900 placeholder:text-[#757575]"
-        />
-        <label className="sr-only" htmlFor="cta-email">
-          Work email
-        </label>
-        <input
-          id="cta-email"
-          name="email"
-          type="email"
-          placeholder="Work email"
-          className="rounded-xl border-[1.5px] border-[#d3d6db] px-[18px] py-3.5 text-base text-neutral-900 placeholder:text-[#757575]"
-        />
-      </div>
-      <Link
-        href={BILDIT_SIGNUP_URL}
-        className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-base font-bold text-white no-underline [background-image:var(--bildit-gradient-cta-short)] hover:opacity-95"
-      >
-        Start Free Trial
-        <span aria-hidden>→</span>
-      </Link>
-      <p className="text-center text-[13px] text-[#737373]">
-        No cost. No risk. We don&apos;t win unless you ship.
-      </p>
-    </form>
+    <VeeLayerLeadForm
+      source={source}
+      submitLabel={submitLabel}
+      variant="marketing"
+      className={cn('mt-4 w-full max-w-2xl', className)}
+      submitButtonClassName={gradientSubmitClassName}
+      helperText={"No cost. No risk. We don't win unless you ship."}
+    />
   )
 }

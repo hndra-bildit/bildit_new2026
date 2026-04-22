@@ -234,13 +234,14 @@ export function VisualExperienceLayerLanding() {
       <main className="w-full bg-white">
         <section className="border-b border-black/5 px-4 py-14 text-center md:px-8 md:py-20 lg:px-[116px]">
           <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-bold uppercase tracking-[0.2em] text-[#737373]">
-            BILDIT CMS overview
+            Visual Experience Engine overview
           </p>
           <h2 className="mx-auto mt-4 max-w-[920px] font-[family-name:var(--font-gt-walsheim)] text-3xl font-extrabold leading-tight text-[#171717] md:text-[44px] md:leading-[1.1]">
             Create unified cross-channel content experiences that drive revenue
           </h2>
           <p className="mx-auto mt-5 max-w-[720px] font-[family-name:var(--font-uncut-sans)] text-lg text-[#595959] md:text-xl">
-            Launch more, launch faster. On BILDIT CMS, you can line up your next campaign in hours, not weeks.
+            Launch more, launch faster. With the Visual Experience Engine, you can line up your next
+            campaign in hours, not weeks.
           </p>
           <ul className="mx-auto mt-10 flex max-w-[900px] flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-8 md:gap-12">
             {(

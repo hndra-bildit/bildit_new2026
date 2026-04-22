@@ -1,3 +1,4 @@
+import { SITE_PAGE_TITLE } from '@/app/lib/site-page-title'
 import { BilditClient, type Page } from '@bildit-platform/nextjs'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const apiKey = process.env.NEXT_PUBLIC_BILDIT_API_KEY
     if (!apiKey) {
       return {
-        title: 'Page Not Found'
+        title: SITE_PAGE_TITLE
       }
     }
 
@@ -42,17 +43,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     if (!pageData) {
       return {
-        title: 'Page Not Found'
+        title: SITE_PAGE_TITLE
       }
     }
 
     return {
-      title: `${pageData.name} | BILDIT`,
+      title: SITE_PAGE_TITLE,
       description: pageData.name
     }
   } catch {
     return {
-      title: 'Page Not Found'
+      title: SITE_PAGE_TITLE
     }
   }
 }

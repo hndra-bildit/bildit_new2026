@@ -21,7 +21,7 @@ interface TextEditPopoverProps {
   textColor?: string
   onTextColorChange?: (color: string) => void
   onClose: () => void
-  /** Matches BILDIT CMS edit panel (Figma Edit_Popup_Collapsed). */
+  /** Matches Visual Experience Engine edit panel (Figma Edit_Popup_Collapsed). */
   variant?: 'light' | 'dark'
 }
 

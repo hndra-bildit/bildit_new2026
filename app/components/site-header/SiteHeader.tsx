@@ -152,10 +152,9 @@ function MegaFeaturedCard({ onNavigate }: MegaFeaturedCardProps) {
       <Image
         src={VISUAL_EDITING_PROMO_IMAGE}
         alt=""
-        width={430}
-        height={415}
+        fill
         sizes="(min-width: 1024px) 320px, 100vw"
-        className="absolute inset-0 m-auto h-full w-full object-contain object-center"
+        className="object-contain object-center"
       />
     </Link>
   )
@@ -202,7 +201,8 @@ export function SiteHeader() {
     normalizedPath === '/solutions-for-marketers' ||
     normalizedPath === '/visual-experience-engine' ||
     normalizedPath === '/visual-experience-layer-visual-editor-beautiful-content-scheduling' ||
-    normalizedPath === '/mobile-app-storefront'
+    normalizedPath === '/mobile-app-storefront' ||
+    normalizedPath === '/tech-partners'
   const isEngineering = normalizedPath === '/it' || normalizedPath === '/solutions-for-engineering'
   const [megaOpen, setMegaOpen] = useState(false)
   const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')

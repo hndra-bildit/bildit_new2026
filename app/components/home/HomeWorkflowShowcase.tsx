@@ -1,125 +1,64 @@
 'use client'
 
 import { useState } from 'react'
+import { HomeWorkflowSocialStrip } from '@/app/components/home/HomeWorkflowSocialStrip'
+import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { WorkflowStepPanel, WorkflowStepTabList } from '@/app/components/workflow/WorkflowBuildPreviewPublish'
 import { cn } from '@/utils/cn'
-import { Eye, PenLine, Rocket } from 'lucide-react'
-import Image from 'next/image'
 
-/**
- * Right-hand panel art: add PNGs (or WebP — update extensions below) exported from Figma.
- *
- * - panel-build: frame `5028:28094` (browser mock in “Build visually”) — or crop from `5028:28054`
- * - panel-preview: frame `5076:18759` (“Preview instantly”)
- * - panel-publish: frame `5076:19001` (“Publish immediately”)
- *
- * Place files in `public/home-workflow/`. Export at 2× if you want sharp retina output.
- */
-const STEPS = [
-  {
-    id: 'build',
-    title: 'Build visually',
-    description: 'Templates with real brand control. Type. Color. Layout. Precision.',
-    Icon: PenLine,
-    panelSrc: '/home-workflow/panel-build.png',
-    panelAlt: 'BILDIT live editor: build storefront content visually',
-    panelWidth: 1004,
-    panelHeight: 644
-  },
-  {
-    id: 'preview',
-    title: 'Preview instantly',
-    description: 'See exactly what users see. Before it goes live. No surprises.',
-    Icon: Eye,
-    panelSrc: '/home-workflow/panel-preview.png',
-    panelAlt: 'Storefront preview across desktop, tablet, and mobile',
-    panelWidth: 920,
-    panelHeight: 562
-  },
-  {
-    id: 'publish',
-    title: 'Publish immediately',
-    description: 'No deploy cycle. No coordination overhead. No waiting.',
-    Icon: Rocket,
-    panelSrc: '/home-workflow/panel-publish.png',
-    panelAlt: 'Publish changes to the live site without a dev ticket',
-    panelWidth: 920,
-    panelHeight: 562
-  }
-] as const
+type HomeWorkflowShowcaseProps = {
+  className?: string
+  /** When false, omits the customer-quote carousel (e.g. marketers page shows it in testimonials). @default true */
+  showSocialStrip?: boolean
+}
 
-export function HomeWorkflowShowcase({ className }: { className?: string }) {
+export function HomeWorkflowShowcase({ className, showSocialStrip = true }: HomeWorkflowShowcaseProps) {
   const [active, setActive] = useState(0)
-  const step = STEPS[active]
 
   return (
     <section className={cn('home-scheme-light relative overflow-hidden bg-white', className)}>
-      <div className="relative mx-auto max-w-[1286px] px-6 py-16 md:px-10 md:py-24 lg:px-[116px]">
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-[60px] lg:items-start">
-          <div
-            className="flex w-full shrink-0 flex-col gap-10 lg:w-[300px] lg:gap-[50px]"
-            role="tablist"
-            aria-label="Workflow steps"
-          >
-            {STEPS.map((s, index) => {
-              const selected = index === active
-              const Icon = s.Icon
-              return (
-                <button
-                  key={s.id}
-                  type="button"
-                  role="tab"
-                  id={`workflow-tab-${s.id}`}
-                  aria-selected={selected}
-                  aria-controls={`workflow-panel-${s.id}`}
-                  tabIndex={selected ? 0 : -1}
-                  onClick={() => setActive(index)}
-                  className={cn(
-                    'relative w-full rounded-2xl border border-[rgba(200,80,240,0.15)] p-2.5 text-left backdrop-blur-[10px] transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-[#c850f0] focus-visible:ring-offset-2',
-                    selected ? 'bg-[#f3f0ff] shadow-[0px_0px_20px_rgba(200,80,240,0.12)]' : 'bg-white/70 hover:bg-white'
-                  )}
-                >
-                  <div className="flex flex-col gap-2.5 pr-10">
-                    <div className="flex items-center gap-2.5">
-                      <span className="flex rounded-xl p-2.5 text-[#431782]">
-                        <Icon className="size-6" strokeWidth={1.75} aria-hidden />
-                      </span>
-                      <span className="font-[family-name:var(--font-uncut-sans)] text-lg font-bold leading-7 text-[#171717]">
-                        {s.title}
-                      </span>
-                    </div>
-                    <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light leading-6 text-neutral-600">
-                      {s.description}
-                    </p>
-                  </div>
-                  <span
-                    className="pointer-events-none absolute right-2 top-2 font-[family-name:var(--font-uncut-sans)] text-5xl font-bold leading-none text-[rgba(23,23,23,0.15)]"
-                    aria-hidden
-                  >
-                    {index + 1}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
+      <div className="relative mx-auto flex max-w-[1286px] flex-col gap-10 px-6 py-16 md:gap-[50px] md:px-10 md:py-[100px] lg:px-[116px]">
+        <div className="flex flex-col items-center gap-2.5 text-center">
+          <h2 className="font-[family-name:var(--font-uncut-sans)] text-3xl font-bold tracking-[-0.025em] text-[#171717] md:text-[48px] md:leading-[48px] md:tracking-[-1.2px]">
+            Your Content is Visual. Build Visually.
+          </h2>
+          <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[#595959] md:text-xl md:leading-7">
+            Build. Preview. Publish.... Fast
+          </p>
+        </div>
 
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-8 lg:gap-[60px]">
+          <WorkflowStepTabList active={active} onActiveChange={setActive} />
+          <WorkflowStepPanel active={active} />
+        </div>
+
+        <div
+          className={cn(
+            'flex w-full flex-col gap-6 md:max-w-none md:gap-8 lg:gap-[60px]',
+            showSocialStrip ? 'md:flex-row md:items-center' : 'md:items-center'
+          )}
+          data-name="Main Frame"
+        >
           <div
-            className="min-w-0 flex-1"
-            role="tabpanel"
-            id={`workflow-panel-${step.id}`}
-            aria-labelledby={`workflow-tab-${step.id}`}
+            className={cn(
+              'flex w-full shrink-0 flex-col gap-2.5',
+              showSocialStrip ? 'items-start md:w-[300px]' : 'items-center text-center'
+            )}
           >
-            <div className="overflow-hidden rounded-[22px] border border-[rgba(200,80,240,0.16)] bg-white shadow-[0px_0px_25px_0px_rgba(200,80,240,0.1),0px_0px_40px_0px_rgba(232,69,144,0.08)]">
-              <Image
-                src={step.panelSrc}
-                alt={step.panelAlt}
-                width={step.panelWidth}
-                height={step.panelHeight}
-                className="h-auto w-full object-contain object-top"
-                sizes="(max-width: 1024px) 100vw, min(924px, 100vw)"
-                priority={active === 0}
-              />
+            <p
+              className="max-w-[250px] font-[family-name:var(--font-uncut-sans)] text-lg font-semibold leading-7 text-[#595959] md:text-[22px] md:leading-7"
+              id="home-workflow-cta-heading"
+            >
+              Idea → Live experience. Hours. Not weeks.
+            </p>
+            <div aria-describedby="home-workflow-cta-heading">
+              <GradientCtaButton href="/pricing/" variant="figma-long">
+                Try Visual Editor
+              </GradientCtaButton>
             </div>
           </div>
+
+          {showSocialStrip ? <HomeWorkflowSocialStrip className="w-full min-w-0" id="home-workflow-social" /> : null}
         </div>
       </div>
     </section>

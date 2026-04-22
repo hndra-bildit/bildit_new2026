@@ -58,7 +58,7 @@ const GroupContents: Array<{
     heading: 'Take control of your app and boost conversions with personalization.',
     content:
       'Build out advanced content types, from videos to filtered product displays. Deliver right content to right users at the right time with personalization and advanced targeting.',
-    label: 'Explore BILDIT CMS',
+    label: 'Explore Visual Experience Engine',
     link: '#'
   }
 ]

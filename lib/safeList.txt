@@ -124,7 +124,7 @@ absolute
 bottom-0
 left-0
 -z-1
---------------------------- Home Content BILDIT CMS Overview 1 -------------------
+--------------------------- Home Content Visual Experience Engine Overview 1 -------------------
 pt-20
 lg:pt-50
 bg-gray-100
@@ -168,7 +168,7 @@ lg:text-4xl
 font-bold
 
 
------------------------------ Home Content BILDIT CMS Overview 2 -------------------------------
+----------------------------- Home Content Visual Experience Engine Overview 2 -------------------------------
 container
 mx-auto
 lg:grid
@@ -261,7 +261,7 @@ h-8
 text-xl
 font-normal
 
---------------------------- Home Content BILDIT CMS Overview 3 --------------------------------
+--------------------------- Home Content Visual Experience Engine Overview 3 --------------------------------
 
 py-25
 relative

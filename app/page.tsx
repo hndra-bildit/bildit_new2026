@@ -9,6 +9,7 @@ import { HomePostFaqCta } from '@/app/components/home/HomePostFaqCta'
 import { HomeProblemSolution } from '@/app/components/home/HomeProblemSolution'
 import { HomeSpeedWithoutCompromise } from '@/app/components/home/HomeSpeedWithoutCompromise'
 import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
+import { StorefrontLeadCta } from '@/app/components/storefront/StorefrontLeadCta'
 import { homeFaqPageJsonLd } from '@/app/lib/home-faq-data'
 import { SlotPlaceholder, StylePlaceholder } from '@bildit-platform/nextjs'
 
@@ -59,6 +60,11 @@ export default function Home() {
         <div className="w-full px-0 pb-16 sm:px-4">
           <SlotPlaceholder slotId="home-post-faq-cta">
             <HomePostFaqCta />
+          </SlotPlaceholder>
+        </div>
+        <div className="w-full bg-white">
+          <SlotPlaceholder slotId="home-storefront-lead-cta">
+            <StorefrontLeadCta leadSource="home" />
           </SlotPlaceholder>
         </div>
         <SlotPlaceholder slotId="home-integrations">

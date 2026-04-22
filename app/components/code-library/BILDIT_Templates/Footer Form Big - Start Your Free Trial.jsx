@@ -39,10 +39,8 @@ const linkgroup3 = [
 ]
 
 const linkgroup4 = [
-  { name: 'Enterprise License', href: '#' },
-  { name: 'For Investors', href: '#' },
-  { name: 'Terms + Conditions', href: '#' },
-  { name: 'Privacy Policy', href: '#' }
+  { name: 'Enterprise License', href: '/enterprise-license/' },
+  { name: 'Privacy Policy', href: '/privacy-policy/' }
 ]
 
 const title = $(title:String="")

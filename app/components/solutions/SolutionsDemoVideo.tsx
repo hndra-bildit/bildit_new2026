@@ -13,10 +13,14 @@ export type SolutionsDemoVideoProps = {
   src: string
   /** Outer frame (heights, border, shadow). Defaults to engineering / dark-page styling. */
   frameClassName?: string
+  /** When true, plays while the frame is in view (muted autoplay); pauses when scrolled away. */
+  playWhenVisible?: boolean
 }
 
-export function SolutionsDemoVideo({ src, frameClassName }: SolutionsDemoVideoProps) {
+export function SolutionsDemoVideo({ src, frameClassName, playWhenVisible = false }: SolutionsDemoVideoProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const userPausedRef = useRef(false)
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(true)
 
@@ -24,8 +28,10 @@ export function SolutionsDemoVideo({ src, frameClassName }: SolutionsDemoVideoPr
     const el = videoRef.current
     if (!el) return
     if (el.paused) {
+      userPausedRef.current = false
       void el.play()
     } else {
+      userPausedRef.current = true
       el.pause()
     }
   }, [])
@@ -59,10 +65,35 @@ export function SolutionsDemoVideo({ src, frameClassName }: SolutionsDemoVideoPr
     }
   }, [src])
 
+  useEffect(() => {
+    if (!playWhenVisible) return
+    const container = containerRef.current
+    const el = videoRef.current
+    if (!container || !el) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        if (!entry) return
+        if (entry.isIntersecting) {
+          if (!userPausedRef.current) {
+            void el.play()
+          }
+        } else {
+          el.pause()
+          userPausedRef.current = false
+        }
+      },
+      { threshold: 0.35, rootMargin: '0px 0px -8% 0px' }
+    )
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [playWhenVisible, src])
+
   const frame = frameClassName ?? DEFAULT_FRAME_CLASS
 
   return (
-    <div className={frame}>
+    <div ref={containerRef} className={frame}>
       <video
         ref={videoRef}
         key={src}

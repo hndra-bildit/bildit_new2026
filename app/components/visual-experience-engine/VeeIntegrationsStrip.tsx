@@ -33,23 +33,20 @@ export function VeeIntegrationsStrip() {
       <div className="mx-auto flex max-w-[1048px] flex-col items-center gap-8">
         <div className="flex flex-col gap-2.5 text-center">
           <h2 className="font-uncut-sans text-xl font-bold text-[#f0e6ff] md:text-2xl">
-            BILDIT CMS provides SDK &amp; API integrations
+            The Visual Experience Engine provides SDK &amp; API integrations
           </h2>
           <p className="font-uncut-sans text-xs font-semibold uppercase tracking-[0.48px] text-[#d6c1ea]">
             with top eCommerce platforms
           </p>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 opacity-95">
-          {LOGOS.map(({ src, alt, w, h }) => (
-            <Image
-              key={alt}
-              src={src}
-              alt={alt}
-              width={w}
-              height={h}
-              className="h-auto w-auto max-h-8 object-contain"
-            />
-          ))}
+        <div className="w-full overflow-x-auto overflow-y-hidden opacity-95">
+          <div className="mx-auto flex w-max max-w-none flex-nowrap items-center justify-center gap-x-6 sm:gap-x-8">
+            {LOGOS.map(({ src, alt, w, h }) => (
+              <span key={alt} className="inline-flex shrink-0">
+                <Image src={src} alt={alt} width={w} height={h} className="h-8 w-auto max-w-none object-contain" />
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

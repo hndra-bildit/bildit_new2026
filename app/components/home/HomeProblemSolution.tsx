@@ -41,7 +41,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="relative mx-auto grid max-w-[1512px] grid-cols-1 gap-12 px-6 py-16 sm:px-10 md:gap-14 md:py-20 lg:grid-cols-2 lg:gap-10 lg:px-[116px] lg:py-[100px] xl:px-[216px]">
+      <div className="relative mx-auto grid max-w-[1512px] grid-cols-1 gap-12 px-6 py-16 sm:px-10 md:gap-14 md:py-20 min-[1000px]:grid-cols-2 min-[1000px]:gap-x-8 min-[1000px]:gap-y-12 min-[1000px]:px-8 lg:gap-10 lg:px-12 lg:py-[100px] xl:px-[216px]">
         {/* Problem — Figma 5119:16646: pink top rule, label → headline → body → numbered list */}
         <div className="flex min-w-0 flex-col border-t-[5px] border-solid border-[#ed1e79] pt-5">
           <div className="flex flex-col gap-8 md:gap-[30px]">
@@ -51,7 +51,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
                 This is broken.
               </p>
             </div>
-            <h2 className="max-w-[855px] font-[family-name:var(--font-uncut-sans)] text-[32px] font-bold uppercase leading-[38px] tracking-tight text-[#171717] md:text-[40px] md:leading-[48px]">
+            <h2 className="max-w-full font-[family-name:var(--font-uncut-sans)] text-[32px] font-bold uppercase leading-[38px] tracking-tight text-[#171717] md:max-[999px]:text-[40px] md:max-[999px]:leading-[48px] min-[1000px]:text-[32px] min-[1000px]:leading-[38px] lg:text-[34px] lg:leading-[41px] xl:text-[40px] xl:leading-[48px]">
               It&apos;s 2026. Why are marketers still waiting for Developers?
             </h2>
             <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-7 text-[#171717] md:text-xl md:leading-[28px]">

@@ -9,7 +9,7 @@ const belkResults = [
 ];
 
 const title = $(tile:String="Belk Results");
-const subTitle = $(subTitle:String="After Switching to BILDIT CMS and App");
+const subTitle = $(subTitle:String="After Switching to the Visual Experience Engine and App");
 
 export default function HomeContentBelkResults(){
   return (

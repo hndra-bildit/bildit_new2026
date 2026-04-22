@@ -16,7 +16,9 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
     normalizedPath === '/solutions-for-engineering' ||
     normalizedPath === '/visual-experience-engine' ||
     normalizedPath === '/visual-experience-layer-visual-editor-beautiful-content-scheduling' ||
-    normalizedPath === '/mobile-app-storefront'
+    normalizedPath === '/mobile-app-storefront' ||
+    normalizedPath === '/tech-partners' ||
+    normalizedPath === '/integration-partners'
 
   return (
     <>

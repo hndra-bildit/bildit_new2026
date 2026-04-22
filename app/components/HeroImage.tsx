@@ -44,7 +44,7 @@ const HeroImage: React.FC<HeroImageProps> = ({ className = '' }) => {
 
               {/* Subtitle */}
               <h2 className="text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-600 leading-tight max-w-2xl mx-auto lg:mx-0">
-                Unleash the Power of Commerce Suite with Our CMS
+                Unleash the Power of Commerce Suite with the Visual Experience Engine
               </h2>
 
               {/* Description */}

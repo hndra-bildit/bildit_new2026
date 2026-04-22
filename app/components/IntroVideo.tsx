@@ -6,7 +6,7 @@ interface Props {
 
 const IntroVideo: React.FC<Props> = ({ src }) => {
   return (
-    <Image alt="bildit CMS intro video" src={src} width={1085} height={611} />
+    <Image alt="Visual Experience Engine intro video" src={src} width={1085} height={611} />
     // <video width="1085" controls>
     //     <source src="/videos/sample.mp4" type="video/mp4" />
     //     Your browser does not support the video tag.

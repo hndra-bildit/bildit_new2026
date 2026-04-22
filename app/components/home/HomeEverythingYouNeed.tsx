@@ -2,6 +2,10 @@
 
 import { type ElementRef, useEffect, useRef, useState } from 'react'
 import {
+  InstaStoriesShoulderCapsBottom,
+  InstaStoriesShoulderCapsTop
+} from '@/app/components/home/InstaStoriesSectionShoulderCaps'
+import {
   homeSectionSubtitleOnDarkClassName,
   homeSectionTitleOnDarkClassName
 } from '@/app/components/home/home-section-typography'
@@ -24,9 +28,6 @@ const BONUS_ITEMS = [
 
 /** Full-bleed parallax layer behind the section (`public/images/Insta Stories.gif`). */
 const SECTION_BACKGROUND_SRC = '/images/Insta%20Stories.gif'
-
-/** Extra height for light “shoulders” that mimic adjacent blocks’ rounding. */
-const CAP_HEIGHT_PX = 60
 
 /** Subtle parallax: background shifts with scroll as the section crosses the viewport. */
 const PARALLAX_RATE = 0.1
@@ -89,8 +90,9 @@ function usePrefersReducedMotion(): boolean {
 }
 
 /**
- * “Everything you need”: full-bleed parallax background, dark feature frame, nested checklist card.
- * Parallax image runs behind the full section with no color overlay; shoulder caps match page surface (`bg-white`).
+ * “Everything you need”: parallax GIF, 50px white shoulder connectors (inner 50px radii) above/below
+ * the parallax, dark feature frame, checklist. GIF sits z-0; transparent center of each connector
+ * shows the GIF; flanks are `bg-white` like adjacing sections.
  */
 export function HomeEverythingYouNeed({ className }: { className?: string }) {
   const reducedMotion = usePrefersReducedMotion()
@@ -98,12 +100,10 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
   return (
     <section ref={sectionRef} className={cn('home-scheme-light relative w-full overflow-hidden bg-white', className)}>
-      <div className="absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
         <div
           className="absolute -top-[10%] left-0 right-0 h-[120%] will-change-transform"
-          style={{
-            transform: `translateY(${parallaxY}px)`
-          }}
+          style={{ transform: `translateY(${parallaxY}px)` }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
           <img
@@ -115,80 +115,57 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
         </div>
       </div>
 
+      <InstaStoriesShoulderCapsTop />
+
       <div
-        aria-hidden
-        className="relative z-[1] w-full rounded-b-none bg-white sm:rounded-b-[29px]"
-        style={{ height: CAP_HEIGHT_PX }}
-      />
+        className={cn(
+          'relative z-10 w-full overflow-hidden shadow-[0px_24px_80px_rgba(13,1,24,0.12)]'
+        )}
+      >
+        <div className="relative w-full">
+          <div
+            className="pointer-events-none absolute bottom-0 left-1/2 z-0 size-[min(600px,90vw)] -translate-x-1/2 translate-y-1/4 rounded-full bg-[rgba(200,80,240,0.07)] blur-[140px]"
+            aria-hidden
+          />
 
-      <div className={cn('relative z-[1] -mt-px w-full overflow-hidden shadow-[0px_24px_80px_rgba(13,1,24,0.12)]')}>
-        <div
-          className="pointer-events-none absolute bottom-0 left-1/2 z-0 size-[min(600px,90vw)] -translate-x-1/2 translate-y-1/4 rounded-full bg-[rgba(200,80,240,0.07)] blur-[140px]"
-          aria-hidden
-        />
+          <div className="relative z-[1] px-0 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
+            <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-none px-5 py-10 sm:rounded-[24px] sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
+              <div className="absolute inset-0 overflow-hidden rounded-none sm:rounded-[24px]">
+                <Image
+                  src="/home-everything/dark-card-texture.png"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1280px) 100vw, min(1280px, 100vw)"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0d0118]/25 via-transparent to-[#0d0118]/35" />
+              </div>
 
-        <div className="relative z-[1] px-0 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
-          <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-none px-5 py-10 sm:rounded-[24px] sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
-            <div className="absolute inset-0 overflow-hidden rounded-none sm:rounded-[24px]">
-              <Image
-                src="/home-everything/dark-card-texture.png"
-                alt=""
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1280px) 100vw, min(1280px, 100vw)"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0d0118]/25 via-transparent to-[#0d0118]/35" />
-            </div>
+              <div className="relative z-[1] flex w-full max-w-[768px] flex-col gap-6 text-center">
+                <h2 className={cn('text-center', homeSectionTitleOnDarkClassName, 'text-[#f0e6ff]')}>
+                  Everything you need. Nothing holding you back.
+                </h2>
+                <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-lg leading-[29.25px]')}>
+                  You get:
+                </p>
+              </div>
 
-            <div className="relative z-[1] flex w-full max-w-[768px] flex-col gap-6 text-center">
-              <h2 className={cn('text-center', homeSectionTitleOnDarkClassName, 'text-[#f0e6ff]')}>
-                Everything you need. Nothing holding you back.
-              </h2>
-              <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-lg leading-[29.25px]')}>
-                You get:
-              </p>
-            </div>
-
-            <div
-              className={cn(
-                'relative z-[1] mt-10 w-full max-w-[829px] rounded-2xl border border-black/[0.08]',
-                'bg-white p-8 md:p-10'
-              )}
-            >
-              <div className="flex flex-col gap-10 lg:flex-row lg:gap-10">
-                <ul className="flex flex-1 flex-col gap-4">
-                  {PRIMARY_ITEMS.map((label) => (
-                    <li
-                      key={label}
-                      className="flex items-start gap-3 text-left font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-[#171717]"
-                    >
-                      <span className="relative mt-0.5 size-5 shrink-0">
-                        <Image
-                          src="/home-everything/icon-check-primary.png"
-                          alt=""
-                          width={20}
-                          height={20}
-                          className="size-5"
-                        />
-                      </span>
-                      {label}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-1 flex-col gap-3 border-t border-black/[0.03] pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-                  <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-[#c850f0]">
-                    Bonus:
-                  </p>
-                  <ul className="flex flex-col gap-3">
-                    {BONUS_ITEMS.map((label) => (
+              <div
+                className={cn(
+                  'relative z-[1] mt-10 w-full max-w-[829px] rounded-2xl border border-black/[0.08]',
+                  'bg-white p-8 md:p-10'
+                )}
+              >
+                <div className="flex flex-col gap-10 lg:flex-row lg:gap-10">
+                  <ul className="flex flex-1 flex-col gap-4">
+                    {PRIMARY_ITEMS.map((label) => (
                       <li
                         key={label}
                         className="flex items-start gap-3 text-left font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-[#171717]"
                       >
                         <span className="relative mt-0.5 size-5 shrink-0">
                           <Image
-                            src="/home-everything/icon-check-bonus.png"
+                            src="/home-everything/icon-check-primary.png"
                             alt=""
                             width={20}
                             height={20}
@@ -199,22 +176,43 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                       </li>
                     ))}
                   </ul>
-                </div>
-              </div>
 
-              <p className="font-[family-name:var(--font-uncut-sans)] mt-10 text-center text-lg font-bold leading-7 text-[#0d0118]">
-                Set it up once. Control forever.
-              </p>
+                  <div className="flex flex-1 flex-col gap-3 border-t border-black/[0.03] pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                    <p className="font-[family-name:var(--font-uncut-sans)] text-base font-light text-[#c850f0]">
+                      Bonus:
+                    </p>
+                    <ul className="flex flex-col gap-3">
+                      {BONUS_ITEMS.map((label) => (
+                        <li
+                          key={label}
+                          className="flex items-start gap-3 text-left font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-[#171717]"
+                        >
+                          <span className="relative mt-0.5 size-5 shrink-0">
+                            <Image
+                              src="/home-everything/icon-check-bonus.png"
+                              alt=""
+                              width={20}
+                              height={20}
+                              className="size-5"
+                            />
+                          </span>
+                          {label}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <p className="font-[family-name:var(--font-uncut-sans)] mt-10 text-center text-lg font-bold leading-7 text-[#0d0118]">
+                  Set it up once. Control forever.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        aria-hidden
-        className="relative z-[1] -mt-px w-full rounded-t-none bg-white sm:rounded-t-[29px]"
-        style={{ height: CAP_HEIGHT_PX }}
-      />
+      <InstaStoriesShoulderCapsBottom className="-mt-px" />
     </section>
   )
 }

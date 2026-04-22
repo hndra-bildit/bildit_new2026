@@ -1,16 +1,17 @@
 import { IntegrationPartnersLeadForm } from '@/app/components/integration-partners/IntegrationPartnersLeadForm'
+import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Integration Partners | BILDIT',
   description:
     'Apply to become a BILDIT integration partner. Agencies and consultancies: co-sell, implement, and support teams on the Visual Experience Engine.'
 }
 
 export default function IntegrationPartnersPage() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900">
+    <div className="min-h-screen bg-[#0d0118] text-[#e8d4ff]">
       <section className="relative overflow-hidden bg-[#0d0118]">
+        <SiteHeroTopSpacer />
         <div
           className="pointer-events-none absolute inset-0 opacity-90"
           style={{
@@ -37,9 +38,16 @@ export default function IntegrationPartnersPage() {
         </div>
       </section>
 
-      <section className="border-b border-black/[0.06] bg-[#fafafa] py-12 md:py-16">
-        <div className="mx-auto max-w-[720px] px-4 sm:px-6">
-          <div className="font-[family-name:var(--font-uncut-sans)] space-y-5 text-base leading-[1.75] text-[#333] md:text-[17px] md:leading-[1.7]">
+      <section className="relative overflow-hidden border-t border-white/[0.08] bg-[#0d0118] py-12 md:py-16">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            background: 'radial-gradient(ellipse 90% 70% at 50% 100%, rgba(200, 80, 240, 0.12) 0%, transparent 50%)'
+          }}
+          aria-hidden
+        />
+        <div className="relative z-[1] mx-auto max-w-[720px] px-4 sm:px-6">
+          <div className="font-[family-name:var(--font-uncut-sans)] space-y-5 text-base leading-[1.75] text-[#e0cff5] md:text-[17px] md:leading-[1.7]">
             <p>
               BILDIT partners help retailers and brands ship visual experiences without CMS bottlenecks. If your team
               delivers React web or mobile apps and you want a structured way to implement content tooling, scheduling,
@@ -54,24 +62,28 @@ export default function IntegrationPartnersPage() {
       </section>
 
       <section
-        className="relative overflow-hidden px-4 py-14 md:px-6 md:py-20"
+        className="relative overflow-hidden border-t border-white/[0.08] bg-[#0d0118] px-4 py-14 md:px-6 md:py-20"
         aria-labelledby="integration-partners-apply-heading"
       >
         <div
-          className="pointer-events-none absolute inset-0 opacity-30"
+          className="pointer-events-none absolute inset-0 opacity-40"
           style={{
-            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200, 80, 240, 0.18) 0%, transparent 55%)'
+            background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200, 80, 240, 0.22) 0%, transparent 55%)'
           }}
           aria-hidden
         />
-        <div className="relative mx-auto flex max-w-[560px] flex-col gap-8">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0d0118]/40 via-transparent to-[#0d0118]/90"
+          aria-hidden
+        />
+        <div className="relative z-[1] mx-auto flex max-w-[560px] flex-col gap-8">
           <h2
             id="integration-partners-apply-heading"
-            className="text-center font-[family-name:var(--font-uncut-sans)] text-3xl font-bold tracking-tight text-neutral-900 md:text-4xl"
+            className="text-center font-[family-name:var(--font-uncut-sans)] text-3xl font-bold tracking-tight text-[#f0e6ff] md:text-4xl"
           >
             Apply
           </h2>
-          <div className="rounded-2xl border border-black/[0.08] bg-white p-6 shadow-[0_12px_40px_rgba(0,0,0,0.06)] md:p-8">
+          <div className="rounded-2xl border border-white/[0.1] bg-[#140a1c]/85 p-6 shadow-[0_12px_48px_rgba(0,0,0,0.45)] backdrop-blur-sm md:p-8">
             <IntegrationPartnersLeadForm />
           </div>
         </div>

@@ -4,7 +4,8 @@
  */
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 
-export const HOME_FAQ_SUBTITLE = 'Answers to your common questions about the BILDIT CMS.'
+export const HOME_FAQ_SUBTITLE =
+  'Answers to your common questions about the Visual Experience Engine.'
 
 export type HomeFaqEntry = {
   /** schema.org Question.name — includes "Q: " prefix like production */
@@ -15,11 +16,11 @@ export type HomeFaqEntry = {
 
 export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
   {
-    name: 'Q: What is the BILDIT CMS? ',
+    name: 'Q: What is the Visual Experience Engine? ',
     text: 'A: BILDIT is the AI-powered digital experience platform that frees marketers and developers from slow, painful CMS workflows — delivering instant, elegant, personalized content across web and mobile. Built for Next.js and React Native, it lets marketing teams launch, manage, and update content instantly.'
   },
   {
-    name: 'Q: Who is the BILDIT CMS for? ',
+    name: 'Q: Who is the Visual Experience Engine for? ',
     text: 'A: Teams that need to ship content experiences fast: eCommerce brands and retailers running Next.js sites or React Native mobile apps. If your marketers are bottlenecked by dev cycles, BILDIT removes that dependency.'
   },
   {
@@ -27,7 +28,7 @@ export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
     text: 'A: BILDIT provides an NPM SDK with an API that supports SSR, SSG, and ISR. You can schedule content, live preview scheduled changes, and publish instantly without redeploys. Developers wire it once; marketers ship updates anytime.'
   },
   {
-    name: 'Q: Does the BILDIT CMS support React Native mobile apps?',
+    name: 'Q: Does the Visual Experience Engine support React Native mobile apps?',
     text: 'A: Yes. BILDIT powers components, content, dynamic screens, in-app promotions, and segmentation in React Native—no app store resubmission required. Preview changes on device before pushing live.'
   },
   {
@@ -40,15 +41,15 @@ export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
   },
   {
     name: 'Q: What about performance?',
-    text: 'A: The BILDIT CMS is designed for high-performance Next.js and React Native: edge-cached APIs, CDN-backed media, partial hydration-friendly schemas, and incremental updates so you keep Core Web Vitals and Lighthouse metrics tight.'
+    text: 'A: The Visual Experience Engine is designed for high-performance Next.js and React Native: edge-cached APIs, CDN-backed media, partial hydration-friendly schemas, and incremental updates so you keep Core Web Vitals and Lighthouse metrics tight.'
   },
   {
     name: 'Q: What integrations are available?',
-    text: 'A: Common implementations use Vercel, Salesforce Commerce Cloud, Netlify, commercetools, Google Cloud Platform, and AWS hosted React applications. Any React or React Native application is a candidate to use the BILDIT CMS.'
+    text: 'A: Common implementations use Vercel, Salesforce Commerce Cloud, Netlify, commercetools, Google Cloud Platform, and AWS hosted React applications. Any React or React Native application is a candidate to use the Visual Experience Engine.'
   },
   {
     name: 'Q: How do we migrate from our current CMS?',
-    text: 'A: Often we migrate HTML or React content directly from your scheduled campaigns and import them into the BILDIT CMS scheduler and component library. Then each template is rebuilt in the BILDIT Code Library and any media is migrated from your DAM or hosting solution to BILDIT storage.'
+    text: 'A: Often we migrate HTML or React content directly from your scheduled campaigns and import them into the Visual Experience Engine scheduler and component library. Then each template is rebuilt in the BILDIT Code Library and any media is migrated from your DAM or hosting solution to BILDIT storage.'
   },
   {
     name: 'Q: Is BILDIT secure and compliant?',
@@ -72,7 +73,7 @@ export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
   },
   {
     name: 'Q: Does BILDIT handle localization and multi-brand?',
-    text: 'A: Yes. The BILDIT CMS supports a localization file used with i18n for each locale.'
+    text: 'A: Yes. The Visual Experience Engine supports a localization file used with i18n for each locale.'
   },
   {
     name: 'Q: Can we personalize content?',

@@ -3,26 +3,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const colAbout = [
-  { label: 'About Us', href: '/our-story/' },
-  { label: 'Contact Us', href: '/our-story/' },
-  { label: 'Meet the Team', href: '/meet-the-team/' },
+  { label: 'Contact Us', href: '/contact-us/' },
   { label: 'Careers', href: '/career/' },
   { label: 'Partners', href: '/tech-partners/' },
-  { label: 'ROI Calculator', href: '/pricing/' },
-  { label: 'Pricing', href: '/pricing/' },
-  { label: 'Case Study', href: '/comparison/' }
+  { label: 'Pricing', href: '/pricing/' }
 ]
 
 const colProduct = [
   { label: 'Reference App', href: '/mobile-app-storefront/' },
-  { label: 'Native Checkout', href: '/commerce-suite/' },
-  { label: 'App Clip SDK', href: '/commerce-suite/' },
+  { label: 'Native Checkout', href: '/mobile-app-storefront/' },
+  { label: 'App Clip SDK', href: '/mobile-app-storefront/' },
   { label: 'Visual Experience Engine', href: '/visual-experience-engine/' },
-  { label: 'Mobile Checkout Index', href: '/commerce-suite/' },
+  { label: 'Mobile Checkout', href: '/mobile-app-storefront/' },
   { label: 'Integrations', href: '/integration-partners/' },
-  { label: 'React Native SDKs', href: '/it/' },
-  { label: 'Demo', href: '/mobile-app-storefront/' },
-  { label: 'KPIs and Metrics', href: '/comparison/' }
+  { label: 'React Native Storefront', href: '/mobile-app-storefront/' }
 ]
 
 const colInsights = [
@@ -31,13 +25,10 @@ const colInsights = [
 ]
 
 const colLearn = [
-  { label: 'How It Works', href: '/commerce-suite/' },
-  { label: 'Features', href: '/cms/' },
-  { label: 'Documentation', href: '/it/' },
-  { label: 'Developers', href: '/it/' },
-  { label: 'For IT', href: '/it/' },
-  { label: 'For Agencies', href: '/integration-partners/' },
-  { label: 'For Brands', href: '/brands/' }
+  { label: 'Documentation', href: 'https://docs.bildit.co' },
+  { label: 'Developers', href: '/solutions-for-engineering/' },
+  { label: 'For IT', href: '/solutions-for-engineering/' },
+  { label: 'For Agencies', href: '/integration-partners/' }
 ]
 
 export function SiteFooter() {
@@ -69,12 +60,33 @@ export function SiteFooter() {
                 </li>
                 <li className="text-neutral-600">534 River Crossing Dr #103, Fort Mill, SC 29715</li>
               </ul>
-              <div className="mt-6 flex gap-4">
-                <a href="https://www.linkedin.com" className="opacity-80 hover:opacity-100" aria-label="LinkedIn">
-                  <Image src="/images/footer/akar-icons_linkedin-box-fill.svg" alt="" width={24} height={24} />
+              <div className="mt-6 flex items-center gap-4">
+                <a
+                  href="https://www.instagram.com/bilditon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-80 hover:opacity-100"
+                  aria-label="BILDIT on Instagram"
+                >
+                  <Image src="/images/footer/fe_instagram.svg" alt="" width={24} height={24} />
                 </a>
-                <a href="https://twitter.com" className="opacity-80 hover:opacity-100" aria-label="Twitter">
-                  <Image src="/images/footer/fe_twitter.svg" alt="" width={24} height={24} />
+                <a
+                  href="https://www.facebook.com/BILDITco"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-80 hover:opacity-100"
+                  aria-label="BILDIT on Facebook"
+                >
+                  <Image src="/images/footer/fa-brands_facebook-square.svg" alt="" width={24} height={24} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/bilditon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-80 hover:opacity-100"
+                  aria-label="BILDIT on LinkedIn"
+                >
+                  <Image src="/images/footer/akar-icons_linkedin-box-fill.svg" alt="" width={24} height={24} />
                 </a>
               </div>
             </div>
@@ -131,16 +143,10 @@ export function SiteFooter() {
           <div className="font-[family-name:var(--font-inter)] mt-12 flex flex-col gap-4 border-t border-neutral-200 pt-8 text-xs text-neutral-500 md:flex-row md:items-center md:justify-between">
             <p>Copyright 2026 BILDIT, INC. All Rights Reserved</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
-              <Link href="/pricing/" className="hover:text-neutral-800">
+              <Link href="/enterprise-license/" className="hover:text-neutral-800">
                 Enterprise License
               </Link>
-              <Link href="/our-story/" className="hover:text-neutral-800">
-                For Investors
-              </Link>
-              <Link href="/our-story/" className="hover:text-neutral-800">
-                Terms + Conditions
-              </Link>
-              <Link href="/our-story/" className="hover:text-neutral-800">
+              <Link href="/privacy-policy/" className="hover:text-neutral-800">
                 Privacy Policy
               </Link>
             </div>

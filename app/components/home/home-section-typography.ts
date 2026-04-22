@@ -1,5 +1,5 @@
 /**
- * Shared homepage section title + subtitle styles (reference: Speed without compromise).
+ * Shared homepage section title + subtitle styles (e.g. No Limitations, Designed for eCommerce).
  */
 export const homeSectionTitleClassName =
   'font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl md:leading-[48px]'

@@ -1,10 +1,17 @@
 /**
- * Figma MCP export URLs (BILDIT Website 2025 — Mobile App Storefront).
- * Expire after ~7 days; prefer /public/images/storefront/* for long-lived assets.
+ * Mobile app storefront card imagery (public/mobile-app-storefront).
+ * In “Everything Your Team Needs”, the content-management card uses `storefront` and the
+ * scheduling card uses `sophisticatedScheduling` (Figma 5230:22018 and 5227:20997).
  */
-export const STOREFRONT_REMOTE = {
-  transformingNativeBg: 'https://www.figma.com/api/mcp/asset/73bea8d6-c064-4563-a97e-f6dc50e8cc07',
-  transformingBannerBg: 'https://www.figma.com/api/mcp/asset/da8b0d49-780c-43c0-a0d8-2983777ef236',
-  transformingStorefrontBg: 'https://www.figma.com/api/mcp/asset/80145356-071f-4d1c-b80e-b527f5df3972',
-  transformingAppClipBg: 'https://www.figma.com/api/mcp/asset/2d2d7820-d2d2-4eda-851c-0e94f6855e8e'
+export const MOBILE_APP_STOREFRONT_IMAGES = {
+  sophisticatedScheduling: '/mobile-app-storefront/Sophisticated%20Scheduling.png',
+  integrations: '/mobile-app-storefront/Integrations.png',
+  nativeCheckout: '/mobile-app-storefront/Native%20Checkout%20BG.png',
+  /** “Everything” section — Intuitive Native Checkout (Figma node 5231:24053). */
+  nativeCheckoutFeature5231: '/mobile-app-storefront/Everything-Native-Checkout-5231.png',
+  banners: '/mobile-app-storefront/Banners.png',
+  storefront: '/mobile-app-storefront/Storefront%20BG.png',
+  appClips: '/mobile-app-storefront/App%20Clips%20BG.png',
+  /** iPhone “Everything” section — in-device screen (Figma 5143:16928). */
+  mobileAppEcommerce: '/mobile-app-storefront/Mobile%20App%20eCommerce.png'
 } as const

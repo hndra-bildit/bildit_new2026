@@ -7,6 +7,8 @@
 :root {
   --font-uncut-sans: 'Uncut Sans';
   --font-gt-walsheim: 'GT Walsheim Trial';
+  /* Hero reserve below fixed header pill (`SiteHeroTopSpacer`, full-bleed heroes) */
+  --site-hero-inset-top: calc(70px + 30px + 0.75rem);
   /* Site header: over dark hero — light pill, dark wordmark */
   --header-pill-bg: rgba(255, 255, 255, 0.96);
   --header-pill-shadow: 0px 2px 3.6px rgba(0, 0, 0, 0.1);

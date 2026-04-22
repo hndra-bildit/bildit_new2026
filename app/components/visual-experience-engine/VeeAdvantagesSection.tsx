@@ -3,7 +3,12 @@
 import { useState } from 'react'
 import { BilditPurpleGlowOrb } from '@/app/components/marketing/BilditMarketingGlows'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
-import { veeAdvantagesLaptopScreen } from '@/app/lib/vee-advantages-assets'
+import {
+  veeAdvantagesAdvancedScheduling,
+  veeAdvantagesFastRuntimeLaptop,
+  veeAdvantagesLaptopScreen
+} from '@/app/lib/vee-advantages-assets'
+import { Zap } from 'lucide-react'
 import Image from 'next/image'
 
 const REASONS = [
@@ -40,8 +45,30 @@ const REASONS = [
   }
 ] as const
 
+const PANEL_IMAGES: readonly { src: string; width: number; height: number; alt: string }[] = [
+  {
+    src: veeAdvantagesLaptopScreen,
+    width: 1200,
+    height: 780,
+    alt: 'BILDIT visual editor with live preview on a storefront'
+  },
+  {
+    src: veeAdvantagesAdvancedScheduling,
+    width: 804,
+    height: 520,
+    alt: 'Schedule content with date range and web slots, no deployments'
+  },
+  {
+    src: veeAdvantagesFastRuntimeLaptop,
+    width: 1306,
+    height: 1196,
+    alt: 'Storefront on laptop with fast publish path'
+  }
+] as const
+
 export function VeeAdvantagesSection() {
   const [active, setActive] = useState(0)
+  const panel = PANEL_IMAGES[active]
 
   return (
     <section className="relative overflow-hidden bg-white py-16 md:py-24">
@@ -90,14 +117,31 @@ export function VeeAdvantagesSection() {
 
         <div className="relative flex min-h-[280px] items-center justify-center md:min-h-[420px]">
           <div className="relative w-full max-w-[640px] overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
-            <Image
-              src={veeAdvantagesLaptopScreen}
-              alt="Visual editor preview on a storefront"
-              width={1200}
-              height={780}
-              className="h-auto w-full object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 640px"
-            />
+            <div className="relative w-full">
+              <Image
+                key={panel.src}
+                src={panel.src}
+                alt={panel.alt}
+                width={panel.width}
+                height={panel.height}
+                className={
+                  active === 0 ? 'h-auto w-full object-cover object-top' : 'h-auto w-full object-contain object-center'
+                }
+                sizes="(max-width: 768px) 100vw, 640px"
+                priority={active === 0}
+              />
+              {active === 2 ? (
+                <div
+                  className="pointer-events-none absolute left-1/2 top-[30%] z-10 flex -translate-x-1/2 items-center gap-2.5 rounded-[60px] bg-gradient-to-r from-[#e84590] to-[#c850f0] px-6 py-2.5 text-white shadow-[0_0_40px_rgba(255,255,255,0.55)] md:top-[32%] md:px-8"
+                  aria-hidden
+                >
+                  <span className="font-uncut-sans text-[22px] font-semibold leading-none md:text-[28px]">
+                    Publish...
+                  </span>
+                  <Zap className="size-7 text-white md:size-8" strokeWidth={2.25} aria-hidden />
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>

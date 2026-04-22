@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Home page → BILDIT CMS code library (beta CLI).
+# Home page → Visual Experience Engine code library (beta CLI).
 # Usage:
 #   BILD_ENTRY=/path/to/bild/src/index.js ./scripts/bild-home-templates.sh template-dry-run
 #   BILD_APP_ID=your-app-id ./scripts/bild-home-templates.sh library-add

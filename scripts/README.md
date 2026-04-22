@@ -1,6 +1,6 @@
 # Build Watcher Script
 
-This script automatically watches the BILDIT CMS workspace build directory and copies new `admin.js` files to the public scripts directory.
+This script automatically watches the Visual Experience Engine workspace build directory and copies new `admin.js` files to the public scripts directory.
 
 ## What it does
 

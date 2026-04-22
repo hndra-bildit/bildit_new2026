@@ -158,18 +158,18 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
   }
 
   const inputClassName =
-    'w-full rounded-lg border border-[#e0e0e0] bg-white px-5 py-3 font-[family-name:var(--font-uncut-sans)] text-sm text-black placeholder:text-[#999] focus:border-[#bdbdbd] focus:outline-none'
+    'w-full rounded-lg border border-white/[0.14] bg-[#0d0118]/90 px-5 py-3 font-[family-name:var(--font-uncut-sans)] text-sm text-[#f5f0ff] placeholder:text-[#8f7ca3] focus:border-[#c084fc]/55 focus:outline-none focus:ring-1 focus:ring-[#c084fc]/30'
 
   if (status === 'sent') {
     return (
-      <div className={cn('rounded-xl border border-black/10 bg-[#fafafa] px-5 py-8 text-center', className)}>
-        <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#ed1e79]/15 text-2xl text-[#ed1e79]">
+      <div className={cn('rounded-xl border border-white/[0.1] bg-[#0d0118]/60 px-5 py-8 text-center', className)}>
+        <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#ed1e79]/25 text-2xl text-[#ff6bab]">
           ✓
         </div>
-        <h3 className="mt-4 font-[family-name:var(--font-gt-walsheim)] text-xl font-bold text-[#171717]">
+        <h3 className="mt-4 font-[family-name:var(--font-gt-walsheim)] text-xl font-bold text-[#f0e6ff]">
           Thanks for applying
         </h3>
-        <p className="mt-2 font-[family-name:var(--font-uncut-sans)] text-base text-[#666]">
+        <p className="mt-2 font-[family-name:var(--font-uncut-sans)] text-base text-[#d6c1ea]">
           We&apos;ll review your details and reach out soon.
         </p>
       </div>
@@ -178,13 +178,13 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
 
   return (
     <form className={cn('flex flex-col gap-3', className)} onSubmit={onSubmit} noValidate>
-      <p className="font-[family-name:var(--font-uncut-sans)] text-sm text-[#555]">
+      <p className="font-[family-name:var(--font-uncut-sans)] text-sm text-[#d0bfe8]">
         Tell us about your practice so we can explore a partnership fit.
       </p>
 
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Contact name
           </label>
           <input
@@ -197,7 +197,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
           />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Work email
           </label>
           <input
@@ -210,7 +210,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
           />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Company name
           </label>
           <input
@@ -223,7 +223,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
           />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Website
           </label>
           <input
@@ -236,7 +236,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
           />
         </div>
         <div>
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Number of engineers
           </label>
           <input
@@ -250,7 +250,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
           />
         </div>
         <div>
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Do you build mobile apps?
           </label>
           <select name="buildsMobileApps" required className={cn(inputClassName, 'appearance-auto')}>
@@ -260,7 +260,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
           </select>
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             CMS platforms you work with
           </label>
           <textarea
@@ -275,21 +275,21 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
 
       {captchaEnabled ? (
         <div className="pt-1">
-          <span className="mb-2 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#444]">
+          <span className="mb-2 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
             Verification
           </span>
           <div ref={widgetContainerRef} className="min-h-[65px]" />
         </div>
       ) : (
-        <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 font-[family-name:var(--font-uncut-sans)] text-sm text-amber-900">
+        <p className="rounded-lg border border-amber-500/35 bg-amber-500/10 px-4 py-3 font-[family-name:var(--font-uncut-sans)] text-sm text-amber-100">
           Captcha is not configured. Set{' '}
-          <code className="rounded bg-amber-100 px-1">NEXT_PUBLIC_TURNSTILE_SITE_KEY</code> and{' '}
-          <code className="rounded bg-amber-100 px-1">TURNSTILE_SECRET_KEY</code> for production.
+          <code className="rounded bg-amber-500/20 px-1 text-amber-50">NEXT_PUBLIC_TURNSTILE_SITE_KEY</code> and{' '}
+          <code className="rounded bg-amber-500/20 px-1 text-amber-50">TURNSTILE_SECRET_KEY</code> for production.
         </p>
       )}
 
       {status === 'error' && errorMessage ? (
-        <p className="font-[family-name:var(--font-uncut-sans)] text-sm text-red-600" role="alert">
+        <p className="font-[family-name:var(--font-uncut-sans)] text-sm text-red-400" role="alert">
           {errorMessage}
         </p>
       ) : null}

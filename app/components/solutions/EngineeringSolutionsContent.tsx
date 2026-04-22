@@ -1,5 +1,7 @@
+import { HomeIntegrations } from '@/app/components/home/HomeIntegrations'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
+import { VeeLayerLeadForm } from '@/app/components/visual-experience-layer-landing/VeeLayerLeadForm'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import { Check, Code2, Gauge, GitBranch, Layers, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
@@ -44,25 +46,6 @@ const BONUS_LIST = [
 const ENGINEERING_DEMO_VIDEO_SRC =
   'https://storage.googleapis.com/compilepoc-2d379.appspot.com/bildit-website-staging%2FMensImage1%2FDesignersChoiceVsCode.mp4'
 
-const BENTO = [
-  {
-    title: 'TypeScript-first',
-    body: 'Autocomplete for content models and slot contracts so integrations fail at compile time, not in prod.'
-  },
-  {
-    title: 'CI/CD native',
-    body: 'Promote template versions like any other artifact—no manual CMS exports in the critical path.'
-  },
-  {
-    title: 'Performance budgets',
-    body: 'Enforce image, script, and layout constraints from templates so Core Web Vitals stay green.'
-  },
-  {
-    title: 'Multi-surface parity',
-    body: 'One template system powers web and app surfaces with shared tokens and validation.'
-  }
-] as const
-
 export function EngineeringSolutionsContent() {
   return (
     <main className="bg-[#07020f] pt-24 text-white md:pt-28">
@@ -98,12 +81,12 @@ export function EngineeringSolutionsContent() {
             reviews, or release discipline.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <GradientCtaButton href="/pricing/">Book a technical walkthrough</GradientCtaButton>
+            <GradientCtaButton href="/pricing/">Get a Free Developer Sandbox</GradientCtaButton>
             <Link
               href="/visual-experience-engine/"
               className="rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10"
             >
-              Visual Experience Engine
+              Book a Tech Demo
             </Link>
           </div>
         </div>
@@ -111,7 +94,7 @@ export function EngineeringSolutionsContent() {
 
       <section className="flex justify-center px-4 py-12 md:px-8 md:py-16">
         <div className="w-full max-w-[780px]">
-          <SolutionsDemoVideo src={ENGINEERING_DEMO_VIDEO_SRC} />
+          <SolutionsDemoVideo playWhenVisible src={ENGINEERING_DEMO_VIDEO_SRC} />
         </div>
       </section>
 
@@ -169,7 +152,7 @@ export function EngineeringSolutionsContent() {
           <p className="text-center text-[17px] text-[#a07dc0]">
             What platform teams regain when marketing edits stop requiring hotfixes.
           </p>
-          <div className="mt-8 grid w-full grid-cols-1 gap-8 border-white/10 pt-4 md:grid-cols-3 md:gap-2 md:pt-[52px]">
+          <div className="mt-8 grid w-full grid-cols-1 gap-10 border-white/10 pt-4 sm:gap-12 md:grid-cols-3 md:gap-10 md:pt-[52px] lg:gap-14">
             {[
               {
                 stat: '−70%',
@@ -189,13 +172,15 @@ export function EngineeringSolutionsContent() {
             ].map((col, i) => (
               <div
                 key={col.label}
-                className={`flex flex-col items-center px-6 text-center ${i > 0 ? 'md:border-l md:border-white/10' : ''}`}
+                className={`flex flex-col items-center px-4 text-center sm:px-6 md:px-5 lg:px-8 ${i > 0 ? 'md:border-l md:border-white/10' : ''}`}
               >
-                <p className="font-uncut-sans text-5xl font-bold leading-[64px] text-white md:text-[80px]">
+                <p className="font-uncut-sans text-4xl font-bold tabular-nums leading-none tracking-tight text-white md:text-5xl md:leading-none lg:text-[56px] lg:leading-[1.08]">
                   {col.stat}
                 </p>
-                <p className="mt-4 text-lg font-semibold text-white">{col.label}</p>
-                <p className="mt-2 max-w-[260px] text-sm leading-relaxed text-white/85">{col.desc}</p>
+                <p className="mt-6 text-base font-semibold leading-snug text-white md:mt-7 md:text-lg md:leading-snug">
+                  {col.label}
+                </p>
+                <p className="mt-4 max-w-[280px] text-sm leading-relaxed text-white/85 md:mt-5">{col.desc}</p>
               </div>
             ))}
           </div>
@@ -312,27 +297,7 @@ export function EngineeringSolutionsContent() {
         </div>
       </section>
 
-      <section className="bg-[#07020f] px-4 py-16 md:px-[116px] md:py-[100px]">
-        <div className="mx-auto max-w-[1048px] text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#a07dc0]">Platform primitives</p>
-          <h2 className="mt-3 font-uncut-sans text-4xl font-bold text-[#f0e6ff] md:text-[52px] md:leading-[1.12]">
-            No trade-offs.
-          </h2>
-          <p className="mx-auto mt-6 max-w-[480px] text-lg text-[#c4b5dc]">
-            Opinionated where it helps, flexible where your architecture demands it.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-[1048px] gap-6 md:grid-cols-2">
-          {BENTO.map((c) => (
-            <div key={c.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-left">
-              <h3 className="text-xl font-semibold text-white">{c.title}</h3>
-              <p className="mt-3 text-[#c4b5dc]">{c.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#0d0118] px-4 py-16 md:px-[406px] md:py-[100px]">
+      <section className="relative overflow-hidden bg-[#0d0118] px-4 py-16 md:px-[116px] md:py-[100px]">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div
             className="absolute -left-20 -top-24 size-[520px] rounded-full opacity-20 blur-[40px]"
@@ -343,7 +308,7 @@ export function EngineeringSolutionsContent() {
             style={{ background: 'radial-gradient(circle, rgba(237,30,121,0.4) 0%, transparent 70%)' }}
           />
         </div>
-        <div className="relative mx-auto flex max-w-[700px] flex-col items-center gap-5 px-4">
+        <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-5 md:px-0">
           <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#a07dc0]">Get started</p>
           <h2 className="text-center font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.02em] md:text-[64px] md:leading-[1.08]">
             <span className="block text-[#f0e6ff]">Ready to pair</span>
@@ -354,50 +319,18 @@ export function EngineeringSolutionsContent() {
           <p className="text-center text-lg text-[#c4b5dc]">
             We onboard a focused set of product and platform teams each month.
           </p>
-          <form className="mt-4 w-full max-w-[480px] space-y-5" action="#" method="post">
-            <div className="grid gap-3 sm:grid-cols-2">
-              <label className="sr-only" htmlFor="eng-cta-name">
-                Full name
-              </label>
-              <input
-                id="eng-cta-name"
-                name="name"
-                placeholder="Full name"
-                className="rounded-xl border-[1.5px] border-white/20 bg-[#07020f] px-[18px] py-3.5 text-base text-white placeholder:text-white/45"
-              />
-              <label className="sr-only" htmlFor="eng-cta-email">
-                Work email
-              </label>
-              <input
-                id="eng-cta-email"
-                name="email"
-                type="email"
-                placeholder="Work email"
-                className="rounded-xl border-[1.5px] border-white/20 bg-[#07020f] px-[18px] py-3.5 text-base text-white placeholder:text-white/45"
-              />
-            </div>
-            <button
-              type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-full py-3 text-base font-bold text-white [background-image:var(--bildit-gradient-cta-short)]"
-            >
-              Request access
-              <span aria-hidden>→</span>
-            </button>
-            <p className="text-center text-[13px] text-white/50">We&apos;ll follow up with architecture-fit details.</p>
-          </form>
+          <VeeLayerLeadForm
+            source="engineering-solutions"
+            submitLabel="Request access"
+            variant="dark"
+            className="mt-4 w-full max-w-2xl"
+            submitButtonClassName="normal-case tracking-normal text-base [background-image:var(--bildit-gradient-cta-short)] hover:opacity-95 hover:bg-[#ed1e79] border-0"
+            helperText="We'll follow up with architecture-fit details."
+          />
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#07020f] px-4 py-10 md:px-[116px]">
-        <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-6">
-          <p className="text-center text-sm font-medium uppercase tracking-[0.08em] text-[#a07dc0]">
-            Works with common commerce and cloud stacks
-          </p>
-          <p className="text-center text-sm text-[#c4b5dc]">
-            Shopify, Salesforce, SAP, Adobe Commerce, Vercel, and more—connect the services you already run.
-          </p>
-        </div>
-      </section>
+      <HomeIntegrations variant="dark" />
     </main>
   )
 }

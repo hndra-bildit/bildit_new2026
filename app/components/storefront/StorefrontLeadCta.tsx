@@ -1,12 +1,19 @@
 'use client'
 
-import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import { cn } from '@/utils/cn'
-import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 
-/** Figma Section - CTA (4729:27959). Primary CTA links to self-service signup. */
-export function StorefrontLeadCta({ className }: { className?: string }) {
+type StorefrontLeadCtaProps = {
+  className?: string
+  /** Distinct lead source for analytics (home vs mobile-app-storefront). */
+  leadSource?: 'home' | 'mobile-app-storefront'
+}
+
+/**
+ * Figma Section - CTA (4729:27959). Headline + shared marketing lead form
+ * (same fields and submit behavior as marketers / tech-partners CTAs).
+ */
+export function StorefrontLeadCta({ className, leadSource = 'mobile-app-storefront' }: StorefrontLeadCtaProps) {
   return (
     <section
       id="storefront-cta"
@@ -50,44 +57,11 @@ export function StorefrontLeadCta({ className }: { className?: string }) {
           </p>
         </div>
 
-        <form className="flex w-full max-w-[480px] flex-col gap-5" noValidate onSubmit={(e) => e.preventDefault()}>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <label className="sr-only" htmlFor="storefront-cta-name">
-              Full name
-            </label>
-            <input
-              id="storefront-cta-name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              required
-              placeholder="Full name"
-              className="rounded-xl border-[1.5px] border-[#d3d6db] bg-white px-[18px] py-3.5 font-[family-name:var(--font-uncut-sans)] text-base text-neutral-900 placeholder:text-[#757575]"
-            />
-            <label className="sr-only" htmlFor="storefront-cta-email">
-              Work email
-            </label>
-            <input
-              id="storefront-cta-email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              placeholder="Work email"
-              className="rounded-xl border-[1.5px] border-[#d3d6db] bg-white px-[18px] py-3.5 font-[family-name:var(--font-uncut-sans)] text-base text-neutral-900 placeholder:text-[#757575]"
-            />
-          </div>
-          <Link
-            href={BILDIT_SIGNUP_URL}
-            className="font-[family-name:var(--font-uncut-sans)] flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#c850f0] to-[#e84590] py-3 text-base font-semibold text-white no-underline transition-transform hover:scale-[1.01] active:scale-[0.99]"
-          >
-            Start Free Trial
-            <ArrowRight className="size-4 shrink-0" aria-hidden />
-          </Link>
-          <p className="text-center font-[family-name:var(--font-uncut-sans)] text-[13px] text-[#aaa]">
-            No cost. No risk. We don&apos;t win unless you ship.
-          </p>
-        </form>
+        <MarketersSolutionsCtaForm
+          source={leadSource}
+          submitLabel="Start Free Trial"
+          className="mt-0 w-full max-w-[480px]"
+        />
       </div>
     </section>
   )

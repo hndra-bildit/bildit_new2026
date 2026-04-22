@@ -53,7 +53,7 @@ export function VeeEarlyAccessSection() {
 
           <div className="mt-10 flex justify-center">
             <Link
-              href="/pricing/"
+              href="/early-access-program/"
               className="inline-flex h-10 items-center justify-center rounded-full border-2 border-[#737373] bg-white px-8 font-uncut-sans text-base font-medium text-[#171717] transition-colors hover:bg-neutral-50"
             >
               Apply for Early Access

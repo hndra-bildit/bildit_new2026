@@ -1,34 +1,20 @@
+import {
+  InstaStoriesShoulderCapsBottom,
+  InstaStoriesShoulderCapsTop
+} from '@/app/components/home/InstaStoriesSectionShoulderCaps'
+import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
+import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { MarketersFeaturesBentoSection } from '@/app/components/solutions/MarketersFeaturesBentoSection'
+import { MarketersReactContentBenefitsSection } from '@/app/components/solutions/MarketersReactContentBenefitsSection'
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
+import { MarketersSolutionsTestimonialsSection } from '@/app/components/solutions/MarketersSolutionsTestimonialsSection'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
-import { VeeLiveEditorMockup } from '@/app/components/visual-experience-engine/VeeLiveEditorMockup'
+import { VeeAdvantagesSection } from '@/app/components/visual-experience-engine/VeeAdvantagesSection'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
-
-const BENEFIT_CARDS = [
-  {
-    src: 'https://www.figma.com/api/mcp/asset/05cbc611-c827-4b2f-a000-4648e217737d',
-    title: 'Carousel',
-    body: 'Global CDN delivery. Edge-cached APIs. Always fast, always on.'
-  },
-  {
-    src: 'https://www.figma.com/api/mcp/asset/cab3c2e2-df0a-4e16-b961-d03d0325f6d5',
-    title: 'Count Down Timers',
-    body: 'From draft to live in seconds. No deploy cycles, ever.'
-  },
-  {
-    src: 'https://www.figma.com/api/mcp/asset/92214568-fcc3-4eda-b6f5-f654d2ea0857',
-    title: 'Instagram Style Stories',
-    body: 'Templates lock your design system. Everything stays on-brand.'
-  },
-  {
-    src: 'https://www.figma.com/api/mcp/asset/228f3055-8b20-46d2-97d9-f52c9d77c248',
-    title: 'Animations',
-    body: 'A/B testing, personalization, and analytics — all in one place.'
-  }
-] as const
 
 const PLATFORM_LOGOS = [
   {
@@ -83,79 +69,55 @@ export function MarketersSolutionsContent() {
       <section
         id="marketers-solutions-hero"
         data-header-surface="light"
-        className="relative m-0 flex h-svh max-h-svh w-full flex-col overflow-hidden rounded-none pt-[calc(70px+30px+0.75rem)] sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:max-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
+        className="relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:min-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[#fafafa]" aria-hidden />
-        <Image
-          src={MARKETERS_SOLUTIONS_HERO_BG}
-          alt=""
-          fill
-          priority
-          className="pointer-events-none object-cover object-center"
-          sizes="(max-width: 1536px) 100vw, 1512px"
-        />
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-14 overflow-y-auto px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
-          <div className="flex max-w-[1238px] flex-col items-center gap-8 md:gap-8">
-            <h1 className="font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] text-[#171717] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
-              <span className="block">Never be held back</span>
-              <span className="block">by your headless platform again...</span>
-              <span
-                className="mt-1 block bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
-                }}
-              >
-                Launch campaigns faster
-              </span>
-            </h1>
-            <p className="max-w-[480px] font-uncut-sans text-lg text-black md:text-xl md:leading-[31px]">
-              Ever missed a trend? Fixed it for you!
-            </p>
-            <GradientCtaButton href={BILDIT_SIGNUP_URL}>Start a Free Trial</GradientCtaButton>
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[#fafafa]" aria-hidden />
+          <Image
+            src={MARKETERS_SOLUTIONS_HERO_BG}
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="(max-width: 1536px) 100vw, 1512px"
+          />
+        </div>
+        <SiteHeroTopSpacer />
+        <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
+          <div className="flex w-full flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
+            <div className="flex max-w-[1238px] flex-col items-center gap-8 md:gap-8">
+              <h1 className="font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] text-[#171717] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
+                <span className="block">Never be held back</span>
+                <span className="block">by your headless platform again...</span>
+                <span
+                  className="mt-1 block bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
+                  }}
+                >
+                  Launch campaigns faster
+                </span>
+              </h1>
+              <p className="max-w-[480px] font-uncut-sans text-lg text-black md:text-xl md:leading-[31px]">
+                Ever missed a trend? Fixed it for you!
+              </p>
+              <GradientCtaButton href={BILDIT_SIGNUP_URL}>Start a Free Trial</GradientCtaButton>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="flex justify-center px-4 py-16 md:px-8 md:py-[100px]">
         <div className="w-full max-w-[780px]">
-          <SolutionsDemoVideo src={MARKETERS_DEMO_VIDEO_SRC} frameClassName={MARKETERS_VIDEO_FRAME_CLASS} />
+          <SolutionsDemoVideo
+            playWhenVisible
+            src={MARKETERS_DEMO_VIDEO_SRC}
+            frameClassName={MARKETERS_VIDEO_FRAME_CLASS}
+          />
         </div>
       </section>
 
-      <section className="flex flex-col items-center gap-12 px-4 py-16 md:gap-[50px] md:px-[116px] md:py-[100px]">
-        <div className="flex max-w-[1280px] flex-col items-center gap-5 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#171717]">Omnichannel</p>
-          <h2 className="font-uncut-sans text-3xl font-bold leading-tight tracking-[-0.02em] text-[#171717] md:text-5xl md:leading-[58px]">
-            Publish Advanced Content 7X Faster..
-            <br />
-            without Involving IT
-          </h2>
-          <p className="text-lg text-[#595959]">on Web and Mobile App</p>
-        </div>
-        <div className="grid w-full max-w-[1290px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {BENEFIT_CARDS.map((card) => (
-            <article
-              key={card.title}
-              className="flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white"
-            >
-              <div className="relative aspect-[402/260] w-full overflow-hidden">
-                <Image
-                  src={card.src}
-                  alt=""
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 25vw"
-                />
-              </div>
-              <div className="flex flex-col gap-3.5 px-2.5 pb-2.5 pt-3.5">
-                <h3 className="text-xl font-semibold text-[#171717]">{card.title}</h3>
-                <p className="text-sm leading-relaxed text-[#595959] md:text-base">{card.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <GradientCtaButton href="/pricing/">Get the Templates</GradientCtaButton>
-      </section>
+      <MarketersReactContentBenefitsSection />
 
       <section className="relative overflow-hidden bg-[#0d0118] px-4 py-16 text-white md:px-[232px] md:py-[100px]">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
@@ -222,155 +184,76 @@ export function MarketersSolutionsContent() {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-16 md:px-[116px] md:py-[100px]">
-        <div className="mx-auto flex max-w-[1280px] flex-col gap-10 lg:flex-row lg:gap-16">
-          <div className="flex max-w-[300px] flex-col gap-6 lg:shrink-0">
-            <div className="text-center lg:text-left">
-              <h2 className="font-uncut-sans text-3xl font-bold text-[#171717] md:text-5xl md:leading-[48px]">
-                Your Content is Visual. Build Visually.
-              </h2>
-              <p className="mt-3 text-lg text-[#595959]">Build. Preview. Publish.... Fast</p>
-            </div>
-            {[
-              {
-                n: '1',
-                t: 'Build visually',
-                d: 'Templates with real brand control. Type. Color. Layout. Precision.'
-              },
-              {
-                n: '2',
-                t: 'Preview instantly',
-                d: 'See exactly what users see. Before it goes live. No surprises.'
-              },
-              {
-                n: '3',
-                t: 'Publish immediately',
-                d: 'No deploy cycle. No coordination overhead. No waiting.'
-              }
-            ].map((step) => (
-              <div key={step.n} className="rounded-xl border border-black/10 bg-neutral-50/80 p-4">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <p className="text-lg font-semibold text-[#171717]">{step.t}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-[#595959]">{step.d}</p>
-                  </div>
-                  <span className="font-uncut-sans text-3xl font-bold tabular-nums text-neutral-300">{step.n}</span>
-                </div>
-              </div>
-            ))}
-            <div className="rounded-xl border border-black/10 bg-white p-4 shadow-sm">
-              <p className="text-sm font-semibold text-amber-600">★★★★★ 4.8 out of 5</p>
-              <p className="mt-3 text-sm leading-relaxed text-[#595959]">
-                With BILDIT, our CMS has transformed workflows for users by eliminating deployment hurdles and enhancing
-                coordination, saving time. What a game changer!
-              </p>
-            </div>
-          </div>
-          <div className="relative flex-1 min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-gradient-to-br from-[#f8f4ff] to-white shadow-inner">
-            <div className="min-w-0 overflow-x-auto overflow-y-visible pb-4 pt-2 pl-2">
-              <VeeLiveEditorMockup />
-            </div>
-          </div>
-        </div>
-        <div className="mx-auto mt-12 flex max-w-[1280px] flex-col items-center gap-3">
-          <p className="text-center text-[22px] font-semibold text-[#595959]">
-            Idea → Live experience. Hours. Not weeks.
-          </p>
-          <GradientCtaButton href="/pricing/" variant="figma-long" className="py-2 text-base font-bold">
-            Try Visual Editor
-          </GradientCtaButton>
-        </div>
-      </section>
+      <HomeWorkflowShowcase showSocialStrip={false} />
 
-      <section className="relative flex flex-col items-center overflow-hidden px-4 py-16 md:px-[116px] md:py-20">
-        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+      <VeeAdvantagesSection />
+
+      <section className="relative w-full overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
           {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
-          <img src="/images/Insta%20Stories.gif" alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img
+            src="/images/Insta%20Stories.gif"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
-        <div
-          className="pointer-events-none absolute left-1/2 top-[20%] z-[1] size-[600px] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.06)] blur-[140px]"
-          aria-hidden
-        />
-        <div className="relative z-[2] w-full max-w-[1280px] rounded-3xl bg-white px-6 py-12 shadow-[0px_0px_150px_0px_rgba(232,69,144,0.08),0px_0px_80px_0px_rgba(200,80,240,0.15)] md:px-12 md:py-16">
-          <div className="mx-auto max-w-[768px] text-center">
-            <h2 className="font-uncut-sans text-3xl font-bold leading-tight text-[#171717] md:text-5xl md:leading-[58px]">
-              Everything you need. Nothing holding you back.
-            </h2>
-            <p className="mt-6 text-lg text-[#595959]">You get:</p>
-          </div>
-          <div className="mx-auto mt-10 max-w-[970px] rounded-2xl border border-black/10 bg-[#0d0118] p-8 md:p-10">
-            <div className="grid gap-10 md:grid-cols-2">
-              <ul className="flex flex-col gap-4">
-                {MAIN_LIST.map((item) => (
-                  <li key={item} className="flex gap-3 text-[#f0e6ff]">
-                    <Check className="mt-0.5 size-5 shrink-0 text-[#c850f0]" aria-hidden />
-                    <span className="text-base leading-6">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#c850f0]">Bonus:</p>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {BONUS_LIST.map((item) => (
-                    <li key={item} className="flex gap-3 text-[#f0e6ff]">
-                      <Check className="mt-0.5 size-5 shrink-0 text-[#e84590]" aria-hidden />
-                      <span className="text-base leading-6">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+        <InstaStoriesShoulderCapsTop />
+        <div className="relative z-10 w-full overflow-hidden">
+          <div
+            className="pointer-events-none absolute left-1/2 top-[20%] z-0 size-[min(600px,90vw)] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.06)] blur-[140px]"
+            aria-hidden
+          />
+          <div className="relative z-[1] flex flex-col items-center px-4 pb-16 pt-10 md:px-[116px] md:pb-20 md:pt-12">
+            <div className="w-full max-w-[1280px] rounded-3xl bg-white px-6 py-12 shadow-[0px_0px_150px_0px_rgba(232,69,144,0.08),0px_0px_80px_0px_rgba(200,80,240,0.15)] md:px-12 md:py-16">
+              <div className="mx-auto max-w-[768px] text-center">
+                <h2 className="font-uncut-sans text-3xl font-bold leading-tight text-[#171717] md:text-5xl md:leading-[58px]">
+                  Everything you need. Nothing holding you back.
+                </h2>
+                <p className="mt-6 text-lg text-[#595959]">You get:</p>
+              </div>
+              <div className="mx-auto mt-10 max-w-[970px] rounded-2xl border border-black/10 bg-[#0d0118] p-8 md:p-10">
+                <div className="grid gap-10 md:grid-cols-2">
+                  <ul className="flex flex-col gap-4">
+                    {MAIN_LIST.map((item) => (
+                      <li key={item} className="flex gap-3 text-[#f0e6ff]">
+                        <Check className="mt-0.5 size-5 shrink-0 text-[#c850f0]" aria-hidden />
+                        <span className="text-base leading-6">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#c850f0]">Bonus:</p>
+                    <ul className="mt-4 flex flex-col gap-3">
+                      {BONUS_LIST.map((item) => (
+                        <li key={item} className="flex gap-3 text-[#f0e6ff]">
+                          <Check className="mt-0.5 size-5 shrink-0 text-[#e84590]" aria-hidden />
+                          <span className="text-base leading-6">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <p className="mt-10 text-center text-lg font-semibold leading-relaxed text-white">
+                  Build beautiful content at the speed of marketing.
+                  <br />
+                  <br />
+                  Download our Figma templates to see the kind of content that you can build.
+                </p>
+              </div>
+              <div className="mt-10 flex justify-center">
+                <GradientCtaButton href="/pricing/">Get the Templates</GradientCtaButton>
               </div>
             </div>
-            <p className="mt-10 text-center text-lg font-semibold leading-relaxed text-white">
-              Build beautiful content at the speed of marketing.
-              <br />
-              <br />
-              Download our Figma templates to see the kind of content that you can build.
-            </p>
-          </div>
-          <div className="mt-10 flex justify-center">
-            <GradientCtaButton href="/pricing/">Get the Templates</GradientCtaButton>
           </div>
         </div>
+        <InstaStoriesShoulderCapsBottom className="-mt-px" />
       </section>
 
-      <section className="px-4 py-16 md:px-[116px] md:py-[100px]">
-        <div className="mx-auto max-w-[1048px] text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#171717]">Visual Experience Engine</p>
-          <h2 className="mt-3 font-uncut-sans text-4xl font-bold text-[#171717] md:text-[59px] md:leading-[1.1]">
-            No Limitations.
-          </h2>
-          <p className="mx-auto mt-6 max-w-[440px] text-lg text-[#595959]">
-            Never compromise: get every tool your storefront needs; designed to move as fast as your ideas.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-[1048px] gap-6 md:grid-cols-2">
-          {[
-            {
-              title: 'Omnichannel sync',
-              body: 'Keep web and app experiences aligned with real-time content updates across surfaces.'
-            },
-            {
-              title: 'SEO-friendly content',
-              body: 'Content that Google, ChatGPT and others can read, so you get picked up in search.'
-            },
-            {
-              title: 'Enterprise integrations',
-              body: 'Connect commerce, payments, and analytics stacks without custom glue code for every launch.'
-            },
-            {
-              title: 'Governance at scale',
-              body: 'Templates, roles, and approvals so marketing moves fast without breaking brand or performance.'
-            }
-          ].map((c) => (
-            <div key={c.title} className="rounded-2xl border border-black/10 bg-neutral-50 p-8 text-left">
-              <h3 className="text-xl font-semibold text-[#171717]">{c.title}</h3>
-              <p className="mt-3 text-[#595959]">{c.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <MarketersFeaturesBentoSection />
 
-      <section className="relative overflow-hidden bg-white px-4 py-16 md:px-[406px] md:py-[100px]">
+      <MarketersSolutionsTestimonialsSection />
+
+      <section className="relative overflow-hidden bg-white px-4 py-16 md:px-[116px] md:py-[100px]">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div
             className="absolute -left-20 -top-24 size-[580px] rounded-full opacity-20 blur-[36px]"
@@ -381,7 +264,7 @@ export function MarketersSolutionsContent() {
             style={{ background: 'radial-gradient(circle, rgba(237,30,121,0.4) 0%, transparent 70%)' }}
           />
         </div>
-        <div className="relative mx-auto flex max-w-[700px] flex-col items-center gap-5 px-4">
+        <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-5 md:px-0">
           <p className="text-xs font-bold uppercase tracking-[0.08em]">Get started</p>
           <h2 className="text-center font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.02em] md:text-[72px] md:leading-[72px]">
             <span className="block text-[#171717]">Ready to build</span>
@@ -392,7 +275,7 @@ export function MarketersSolutionsContent() {
           <p className="text-center text-lg text-[#595959]">
             We work with a limited number of teams each month. Secure your spot today.
           </p>
-          <MarketersSolutionsCtaForm />
+          <MarketersSolutionsCtaForm source="marketers-solutions" />
         </div>
       </section>
 
