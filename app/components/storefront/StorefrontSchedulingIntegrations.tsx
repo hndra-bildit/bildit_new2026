@@ -10,9 +10,10 @@ export function StorefrontSchedulingIntegrations({ className }: { className?: st
       <div className="mx-auto flex max-w-[1512px] flex-col gap-10 px-3 sm:px-4 min-[1000px]:flex-row min-[1000px]:gap-10 min-[1000px]:px-[116px]">
         <article
           id="storefront-feature-scheduling"
-          className="scroll-mt-24 flex flex-1 flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-white shadow-sm"
+          className="scroll-mt-24 flex w-full min-w-0 flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-white shadow-sm min-[1000px]:flex-1"
         >
-          <div className="relative min-h-[260px] flex-1 overflow-hidden bg-[#f5f7fa] md:min-h-[320px]">
+          {/* Explicit height + shrink-0: flex-1 + min-h + fill images can collapse to 0 in WebKit column flex */}
+          <div className="relative h-[260px] shrink-0 overflow-hidden bg-[#f5f7fa] md:h-[320px]">
             <Image
               src={MOBILE_APP_STOREFRONT_IMAGES.sophisticatedScheduling}
               alt=""
@@ -29,8 +30,8 @@ export function StorefrontSchedulingIntegrations({ className }: { className?: st
           </div>
         </article>
 
-        <article className="flex flex-1 flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-white shadow-sm">
-          <div className="relative min-h-[260px] flex-1 overflow-hidden bg-[#f5f7fa] md:min-h-[320px]">
+        <article className="flex w-full min-w-0 flex-col overflow-hidden rounded-3xl border border-black/[0.08] bg-white shadow-sm min-[1000px]:flex-1">
+          <div className="relative h-[260px] shrink-0 overflow-hidden bg-[#f5f7fa] md:h-[320px]">
             <Image
               src={MOBILE_APP_STOREFRONT_IMAGES.integrations}
               alt=""

@@ -42,8 +42,8 @@ export function NoLimitationsFeatureCarousel({
             <article
               key={card.id}
               className={cn(
-                'flex w-[min(397px,calc(100vw-3rem))] shrink-0 snap-start flex-col gap-3.5 overflow-hidden rounded-2xl border border-black/10 bg-white',
-                'sm:w-[min(397px,calc(100vw-4rem))] md:w-[397px]'
+                'flex w-[min(397px,calc(100vw_-_3rem))] shrink-0 snap-start flex-col gap-3.5 overflow-hidden rounded-2xl border border-black/10 bg-white',
+                'sm:w-[min(397px,calc(100vw_-_4rem))] md:w-[397px]'
               )}
             >
               <div className="relative w-full overflow-hidden rounded-t-2xl bg-neutral-100">

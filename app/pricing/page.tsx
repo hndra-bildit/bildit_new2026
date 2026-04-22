@@ -15,14 +15,16 @@ export default function PricingPage() {
       <section
         data-header-surface="light"
         className={cn(
-          'relative m-0 flex h-svh max-h-svh w-full flex-col overflow-hidden rounded-none',
-          'sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:max-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]'
+          // Min-height fills the viewport; no max-height so the hero can grow (mobile: room for Enterprise tier;
+          // avoids trapping scroll inside the hero).
+          'relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none',
+          'sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:min-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]'
         )}
       >
         <div className="pointer-events-none absolute inset-0 z-0 bg-white sm:rounded-[29px]" aria-hidden />
         <SiteHeroTopSpacer />
         <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
-          <div className="flex min-h-0 flex-1 flex-col items-stretch gap-8 overflow-y-auto px-4 pb-12 pt-2 text-center sm:px-10 sm:pb-16 sm:pt-4 md:gap-10">
+          <div className="flex min-h-0 flex-1 flex-col items-stretch gap-8 overflow-x-hidden px-4 pb-12 pt-2 text-center sm:px-10 sm:pb-16 sm:pt-4 md:gap-10">
             <SlotPlaceholder slotId="pricing-title" />
             <div className="flex min-h-0 min-w-0 flex-1 flex-col">
               <SlotPlaceholder slotId="pricing-content">

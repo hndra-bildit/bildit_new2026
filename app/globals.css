@@ -457,6 +457,13 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
   max-width: 100%;
 }
 
+/* Narrow phones: scale down so four columns (incl. Enterprise) stay on one row within the hero width. */
+@media (max-width: 639px) {
+  .pricing-stripe-embed-frame .stripe-pricing-table-host {
+    zoom: 0.58;
+  }
+}
+
 @media (min-width: 1800px) {
   .pricing-stripe-embed-frame .stripe-pricing-table-host {
     zoom: 0.86;

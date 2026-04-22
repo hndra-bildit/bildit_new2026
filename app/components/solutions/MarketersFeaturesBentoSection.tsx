@@ -51,7 +51,8 @@ export function MarketersFeaturesBentoSection({ className }: { className?: strin
         <div className={cn('mx-auto w-full max-w-[1048px]', sectionPaddingX)}>
           <div className="overflow-hidden rounded-[20px] border border-black/[0.08] bg-white">
             <div className="flex flex-col lg:flex-row">
-              <div className="flex flex-1 items-center justify-center bg-[#f5f7fa] px-4 py-8 sm:px-6 sm:py-10">
+              {/* flex-1 only in row layout; on mobile flex-1 can squeeze this panel’s height in WebKit */}
+              <div className="flex w-full min-w-0 flex-none items-center justify-center bg-[#f5f7fa] px-4 py-8 sm:px-6 sm:py-10 lg:flex-1">
                 <div className="grid w-full max-w-[599px] grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
                   {MARKETERS_BENTO_INTEGRATION_CELLS.map((cell) => (
                     <div

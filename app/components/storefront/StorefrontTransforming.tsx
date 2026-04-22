@@ -63,19 +63,22 @@ export function StorefrontTransforming({ className }: { className?: string }) {
               key={card.id}
               id={card.id}
               className={cn(
-                'flex w-[min(300px,calc(100vw-3rem))] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-black/10 bg-white',
-                'sm:w-[min(320px,calc(100vw-4rem))] md:w-[min(360px,calc(100vw-5rem))] lg:w-[360px]'
+                // Underscores in arbitrary calc → spaces; `calc(100vw-3rem)` is invalid CSS and can drop the whole width.
+                'flex w-[min(300px,calc(100vw_-_3rem))] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-black/10 bg-white',
+                'sm:w-[min(320px,calc(100vw_-_4rem))] md:w-[min(360px,calc(100vw_-_5rem))] lg:w-[360px]'
               )}
             >
-              <div className="relative w-full overflow-hidden rounded-t-2xl bg-[#f5f7fa] sm:rounded-t-3xl">
-                <div className="relative aspect-[402/220] w-full">
+              <div className="relative w-full min-w-0 overflow-hidden rounded-t-2xl bg-[#f5f7fa] sm:rounded-t-3xl">
+                {/* min-h: WebKit + horizontal scroll can collapse aspect-ratio boxes for fill images */}
+                <div className="relative aspect-[402/220] w-full min-h-[148px] sm:min-h-[158px] md:min-h-[178px]">
                   <Image
                     src={card.bg}
                     alt=""
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 640px) min(100vw - 3rem, 300px), (max-width: 1024px) 360px, 360px"
-                    fetchPriority={index === 0 ? 'high' : 'low'}
+                    loading="eager"
+                    {...(index === 0 ? { fetchPriority: 'high' as const } : {})}
                   />
                 </div>
               </div>
