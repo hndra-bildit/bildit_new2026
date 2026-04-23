@@ -88,19 +88,22 @@ const PROMO_IMAGE_ASPECT = '430 / 415' as const
 function MegaEarlyAccessPromo({ onNavigate, className }: { onNavigate?: () => void; className?: string }) {
   return (
     <div
-      className={cn('rounded-xl border px-4 py-3.5', className)}
+      className={cn(
+        'flex flex-col gap-3 rounded-xl border px-4 py-3.5 sm:flex-row sm:items-center sm:gap-4',
+        className
+      )}
       style={{
         borderColor: 'var(--header-mega-divider)',
         backgroundColor: 'var(--header-mega-row-hover)'
       }}
     >
-      <p className="text-sm leading-snug text-[var(--header-mega-text)]">
+      <p className="min-w-0 flex-1 text-sm leading-snug text-[var(--header-mega-text)]">
         We&apos;re opening up 10 early access spots for teams who are tired of fighting their CMS and want to help shape
         what comes next.
       </p>
       <Link
         href="/early-access-program/"
-        className="font-[family-name:var(--font-inter)] mt-3 inline-flex w-full items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline sm:w-auto"
+        className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center self-start rounded-full px-4 py-2.5 text-sm font-semibold no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline sm:self-auto"
         style={{
           backgroundColor: 'var(--header-cta-bg)',
           color: 'var(--header-cta-fg)'
