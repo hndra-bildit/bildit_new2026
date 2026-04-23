@@ -31,7 +31,12 @@ export function StripePricingTableEmbed() {
   }
 
   return (
-    <div className={cn('stripe-pricing-table stripe-pricing-table-host w-full', PRICING_PAGE_SURFACE_CLASS)}>
+    <div
+      className={cn(
+        'stripe-pricing-table stripe-pricing-table-host w-full max-sm:w-max max-sm:min-w-min',
+        PRICING_PAGE_SURFACE_CLASS
+      )}
+    >
       <Script src={SCRIPT_SRC} strategy="lazyOnload" />
       <stripe-pricing-table pricing-table-id={pricingTableId} publishable-key={publishableKey} />
     </div>

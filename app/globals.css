@@ -435,18 +435,43 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
 
 /**
  * Stripe <stripe-pricing-table> — shadow DOM; scale the host so four columns fit one row
- * on typical viewports (zoom affects layout size in Chromium/WebKit). Host is full width
- * of the pricing content column (max 1260px); zoom tuned to fill that width.
+ * on larger viewports (zoom affects layout size in Chromium/WebKit). Host is full width
+ * of the pricing content column (max 1536px); zoom tuned to fill that width.
+ *
+ * On narrow phones, `zoom` shrinks the layout box and commonly breaks the iframe height
+ * Stripe’s script sets for mobile — the last plan column is cut off. Use `zoom: 1` and
+ * horizontal pan on the frame instead.
  */
 .pricing-stripe-embed-frame .stripe-pricing-table-host {
-  zoom: 0.72;
   max-width: 100%;
+  zoom: 1;
 }
 
-/* Narrow phones: scale down so four columns (incl. Enterprise) stay on one row within the hero width. */
 @media (max-width: 639px) {
+  .pricing-stripe-embed-frame {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  .pricing-stripe-embed-frame .stripe-pricing-table-host {
+    max-width: none;
+    width: max-content;
+  }
+}
+
+/* Tablet (sm–md): scale a bit more than desktop so four plans stay one row without wrapping. */
+@media (min-width: 640px) and (max-width: 1023px) {
   .pricing-stripe-embed-frame .stripe-pricing-table-host {
     zoom: 0.58;
+  }
+}
+
+/* Default “desktop / laptop” until xxl: a touch more shrink than 0.72 so four
+   columns stay one row in the 1024–1799px range; pair with wider page max. */
+@media (min-width: 1024px) and (max-width: 1799px) {
+  .pricing-stripe-embed-frame .stripe-pricing-table-host {
+    zoom: 0.65;
   }
 }
 

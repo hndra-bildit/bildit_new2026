@@ -4,7 +4,7 @@ import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
 import { VeeLayerLeadForm } from '@/app/components/visual-experience-layer-landing/VeeLayerLeadForm'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
-import { Check, Code2, Gauge, GitBranch, Layers, ShieldCheck } from 'lucide-react'
+import { Code2, Gauge, GitBranch, Layers, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
 const DEV_CARDS = [
@@ -49,7 +49,7 @@ const ENGINEERING_DEMO_VIDEO_SRC =
 
 export function EngineeringSolutionsContent() {
   return (
-    <main className="bg-[#07020f] pt-24 text-white md:pt-28">
+    <main className="min-w-0 max-w-full overflow-x-hidden bg-[#07020f] pt-24 text-white md:pt-28">
       <section className="relative px-[calc(1rem-10px)] pb-10 pt-[calc(1rem-10px)] md:px-[calc(2rem-10px)] md:pb-16">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
           <div
@@ -189,7 +189,7 @@ export function EngineeringSolutionsContent() {
       </section>
 
       <section className="bg-[#07020f] px-4 py-16 md:px-[116px] md:py-[100px]">
-        <div className="mx-auto flex max-w-[1280px] flex-col gap-12 lg:flex-row lg:gap-16">
+        <div className="mx-auto flex min-w-0 max-w-[1280px] flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="flex max-w-[340px] flex-col gap-6 lg:shrink-0">
             <div>
               <h2 className="font-uncut-sans text-3xl font-bold text-[#f0e6ff] md:text-4xl md:leading-[48px]">
@@ -235,7 +235,7 @@ export function EngineeringSolutionsContent() {
               </p>
             </div>
           </div>
-          <div className="relative min-h-[340px] flex-1 lg:min-h-[520px]">
+          <div className="relative min-h-[340px] min-w-0 flex-1 lg:min-h-[520px]">
             <EngineeringSdkCodePanel />
           </div>
         </div>
@@ -247,9 +247,9 @@ export function EngineeringSolutionsContent() {
         </div>
       </section>
 
-      <section className="relative px-4 py-16 md:px-[116px] md:py-20">
+      <section className="relative overflow-x-hidden px-4 py-16 md:px-[116px] md:py-20">
         <div
-          className="pointer-events-none absolute left-1/2 top-[15%] size-[560px] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.07)] blur-[120px]"
+          className="pointer-events-none absolute left-1/2 top-[15%] aspect-square w-[min(100%,560px)] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.07)] blur-[120px]"
           aria-hidden
         />
         <div className="relative mx-auto w-full max-w-[1280px] rounded-3xl border border-white/10 bg-[#0d0118] px-6 py-12 shadow-[0px_0px_120px_0px_rgba(200,80,240,0.12)] md:px-12 md:py-16">
@@ -263,8 +263,13 @@ export function EngineeringSolutionsContent() {
             <div className="grid gap-10 md:grid-cols-2">
               <ul className="flex flex-col gap-4">
                 {MAIN_LIST.map((item) => (
-                  <li key={item} className="flex gap-3 text-[#f0e6ff]">
-                    <Check className="mt-0.5 size-5 shrink-0 text-[#c850f0]" aria-hidden />
+                  <li key={item} className="flex items-start gap-3 text-[#f0e6ff]">
+                    <span
+                      className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white [background-image:var(--bildit-gradient-check-chip)]"
+                      aria-hidden
+                    >
+                      ✓
+                    </span>
                     <span className="text-base leading-6">{item}</span>
                   </li>
                 ))}
@@ -273,8 +278,13 @@ export function EngineeringSolutionsContent() {
                 <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#e84590]">Also included:</p>
                 <ul className="mt-4 flex flex-col gap-3">
                   {BONUS_LIST.map((item) => (
-                    <li key={item} className="flex gap-3 text-[#f0e6ff]">
-                      <Check className="mt-0.5 size-5 shrink-0 text-[#e84590]" aria-hidden />
+                    <li key={item} className="flex items-start gap-3 text-[#f0e6ff]">
+                      <span
+                        className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white [background-image:var(--bildit-gradient-check-chip)]"
+                        aria-hidden
+                      >
+                        ✓
+                      </span>
                       <span className="text-base leading-6">{item}</span>
                     </li>
                   ))}

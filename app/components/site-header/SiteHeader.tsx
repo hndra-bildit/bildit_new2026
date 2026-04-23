@@ -282,14 +282,14 @@ export function SiteHeader() {
       className={cn(
         'pointer-events-none fixed inset-x-0 top-0 z-50 flex w-full min-w-0 max-w-full justify-center overflow-x-clip',
         isHomeLayout
-          ? 'pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))] pt-[20px] sm:pl-[max(calc((1rem+20px)*0.42+30px),env(safe-area-inset-left,0px))] sm:pr-[max(calc((1rem+20px)*0.42+30px),env(safe-area-inset-right,0px))] sm:pt-[calc((1rem+20px)*0.42+10px)]'
-          : 'pl-[max(0.5rem,env(safe-area-inset-left,0px))] pr-[max(0.5rem,env(safe-area-inset-right,0px))] pt-[calc(0.5rem+20px)] sm:pl-[max(calc(1rem+20px),env(safe-area-inset-left,0px))] sm:pr-[max(calc(1rem+20px),env(safe-area-inset-right,0px))] sm:pt-[calc(1rem+20px)]'
+          ? 'pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))] pt-[20px] max-[430px]:pl-[max(1.5rem,env(safe-area-inset-left,0px))] max-[430px]:pr-[max(1.5rem,env(safe-area-inset-right,0px))] sm:pl-[max(calc((1rem+20px)*0.42+30px),env(safe-area-inset-left,0px))] sm:pr-[max(calc((1rem+20px)*0.42+30px),env(safe-area-inset-right,0px))] sm:pt-[calc((1rem+20px)*0.42+10px)]'
+          : 'pl-[max(0.5rem,env(safe-area-inset-left,0px))] pr-[max(0.5rem,env(safe-area-inset-right,0px))] pt-[calc(0.5rem+20px)] max-[430px]:pl-[max(1.25rem,env(safe-area-inset-left,0px))] max-[430px]:pr-[max(1.25rem,env(safe-area-inset-right,0px))] sm:pl-[max(calc(1rem+20px),env(safe-area-inset-left,0px))] sm:pr-[max(calc(1rem+20px),env(safe-area-inset-right,0px))] sm:pt-[calc(1rem+20px)]'
       )}
     >
       <div className="pointer-events-auto relative w-full min-w-0 max-w-[1260px]" onMouseLeave={scheduleClose}>
         <div
           data-header-pill
-          className="flex h-[70px] min-w-0 max-w-full items-center gap-1 rounded-[45px] pl-1.5 pr-2 max-[999px]:justify-between min-[400px]:pr-3 sm:gap-2 sm:pl-6 sm:pr-4 lg:pl-10"
+          className="flex h-[70px] min-w-0 max-w-full items-center gap-1 rounded-[45px] px-3 max-[999px]:justify-between min-[400px]:px-3.5 sm:gap-2 sm:px-6 lg:px-10"
           style={{
             backgroundColor: 'var(--header-pill-bg)',
             boxShadow: 'var(--header-pill-shadow)'
@@ -411,7 +411,7 @@ export function SiteHeader() {
             </button>
             <Link
               href={BILDIT_SIGNUP_URL}
-              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center rounded-full px-2.5 py-2.5 text-[10px] font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[400px]:px-4 min-[400px]:py-3 min-[400px]:text-xs min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base lg:px-4 lg:text-sm xl:px-6 xl:text-base"
+              className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center rounded-full px-[15px] py-2.5 text-[10px] font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[400px]:px-4 min-[400px]:py-3 min-[400px]:text-xs min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base lg:px-4 lg:text-sm xl:px-6 xl:text-base"
               style={{
                 backgroundColor: 'var(--header-cta-bg)',
                 color: 'var(--header-cta-fg)'
@@ -503,13 +503,14 @@ export function SiteHeader() {
           data-mega-nav-panel
           className={cn(
             'relative flex w-full min-w-0 max-w-full flex-col rounded-t-[24px] transition-transform duration-300 ease-out',
+            'max-[430px]:mx-auto max-[430px]:w-[calc(100%-2.5rem)]',
             isHomeLayout
               ? 'mt-[calc(70px+20px+12px)] min-h-[calc(100dvh-70px-20px-12px)] sm:mt-[calc(70px+(1rem+20px)*0.42+10px+12px)] sm:min-h-[calc(100dvh-70px-(1rem+20px)*0.42-10px-12px)]'
               : 'mt-[calc(70px+0.5rem+20px+12px)] min-h-[calc(100dvh-70px-0.5rem-20px-12px)] sm:mt-[calc(70px+1rem+20px+12px)] sm:min-h-[calc(100dvh-70px-1rem-20px-12px)]',
             mobileNavOpen ? 'translate-y-0' : 'translate-y-4'
           )}
         >
-          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-5 sm:px-6">
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-5 max-[430px]:px-5 sm:px-6">
             <div className="font-[family-name:var(--font-inter)] space-y-1">
               <div className="border-b" style={{ borderColor: 'var(--header-mega-divider)' }}>
                 <button

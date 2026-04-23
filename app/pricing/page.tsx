@@ -19,14 +19,28 @@ export default function PricingPage() {
       <section
         data-header-surface="light"
         className={cn(
-          'relative m-0 flex min-h-0 w-full flex-col overflow-hidden',
+          'relative m-0 flex w-full min-h-0 flex-col',
+          // Desktop: keep overflow clip. Mobile: no section overflow + no flex-1 on children
+          // so the Stripe table isn’t in a nested scroll (overflow-x-hidden forces
+          // overflow-y: auto on a flex min-h-0 child).
+          'sm:overflow-hidden',
           PRICING_PAGE_SURFACE_CLASS,
           PRICING_HOME_HEADER_INSET_CLASS
         )}
       >
-        <div className="relative z-10 mx-auto flex w-full min-h-0 max-w-[1260px] flex-1 flex-col overflow-hidden">
-          <div className="flex min-h-0 flex-1 flex-col items-stretch overflow-x-hidden pb-8 pt-0 text-center sm:pb-12">
-            <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+        <div
+          className={cn(
+            'relative z-10 mx-auto flex w-full min-h-0 max-w-[min(100%,1536px)] flex-col',
+            'sm:flex-1 sm:overflow-hidden'
+          )}
+        >
+          <div
+            className={cn(
+              'flex flex-col items-stretch pb-8 pt-0 text-center sm:min-h-0 sm:flex-1 sm:pb-12',
+              'sm:overflow-x-hidden'
+            )}
+          >
+            <div className="flex min-h-0 min-w-0 flex-col sm:flex-1">
               <SlotPlaceholder slotId="pricing-content">
                 <PricingPageContent />
               </SlotPlaceholder>

@@ -27,22 +27,26 @@ export function StorefrontHero({ className }: { className?: string }) {
           alt=""
           fill
           priority
-          className="object-cover object-[78%_center] sm:object-center"
+          className="object-cover object-center"
           sizes="100vw"
         />
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40 sm:rounded-[29px]"
           aria-hidden
         />
+        <div
+          className="pointer-events-none absolute inset-0 hidden bg-black/40 max-md:block sm:rounded-[29px]"
+          aria-hidden
+        />
       </div>
       <SiteHeroTopSpacer />
       <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="mx-auto flex w-full max-w-[1280px] min-h-full flex-1 flex-col justify-center px-4 py-10 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
-          <div className="grid w-full min-w-0 grid-cols-1 items-center gap-10 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
+        <div className="mx-auto flex w-full max-w-[1280px] min-h-0 max-md:min-h-min flex-1 flex-col justify-center px-4 sm:px-10 max-md:justify-start max-md:pb-10 max-md:pt-[min(22svh,6.25rem)] md:justify-center md:py-16 lg:px-8 lg:py-20">
+          <div className="grid w-full min-w-0 grid-cols-1 items-center gap-14 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
             <div className="order-1 flex min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
               <p className={cn(homeSectionEyebrowClassName, 'w-full text-[#f0e6ff] md:text-left')}>Storefront</p>
               <h1 className="mx-auto w-fit max-w-full pb-[3px] text-center font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:mx-0 md:text-left md:text-6xl lg:text-[72px] lg:leading-[72px]">
-                Your mobile store
+                Your mobile app storefront
               </h1>
               <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-relaxed text-[#f0e6ff] [text-shadow:0_1px_2px_rgba(0,0,0,0.3),0_2px_12px_rgba(0,0,0,0.18)] sm:text-xl md:text-[20px] md:leading-[31px]">
                 Stop waiting on developers. Launch campaigns, update banners, and ship experiences — instantly.
@@ -63,13 +67,13 @@ export function StorefrontHero({ className }: { className?: string }) {
                 </Link>
               </div>
             </div>
-            <div className="order-2 flex w-full min-w-0 justify-center md:justify-end pointer-events-none" aria-hidden>
-              <div className="relative h-[min(52vh,420px)] w-full max-w-[280px] sm:max-w-[320px] md:h-[min(70vh,686px)] md:max-w-[min(40vw,384px)]">
+            <div className="order-2 flex w-full min-w-0 justify-end pointer-events-none" aria-hidden>
+              <div className="relative h-[min(38vh,360px)] w-full max-w-[260px] sm:h-[min(45vh,400px)] sm:max-w-[300px] md:h-[min(70vh,686px)] md:max-w-[min(40vw,384px)]">
                 <Image
                   src="/mobile-app-storefront/hero-overlay.svg"
                   alt=""
                   fill
-                  className="object-contain object-center md:object-right md:object-top"
+                  className="object-contain object-right object-top"
                 />
               </div>
             </div>

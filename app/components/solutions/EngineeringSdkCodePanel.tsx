@@ -95,7 +95,7 @@ export function EngineeringSdkCodePanel() {
   const cursorLine = lines.length - 1
 
   return (
-    <div className="relative h-full min-h-[340px] overflow-hidden rounded-[26px] border border-white/12 bg-[#090312] shadow-[0_28px_100px_rgba(5,0,15,0.65)] lg:min-h-[520px]">
+    <div className="relative h-full min-h-[340px] min-w-0 w-full max-w-full overflow-hidden rounded-[26px] border border-white/12 bg-[#090312] shadow-[0_28px_100px_rgba(5,0,15,0.65)] lg:min-h-[520px]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(237,30,121,0.20),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(59,30,237,0.18),transparent_35%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/45 to-transparent" />
 
@@ -107,8 +107,8 @@ export function EngineeringSdkCodePanel() {
         </div>
       </div>
 
-      <div className="relative grid gap-4 px-5 pb-5 pt-4 lg:grid-cols-[minmax(0,1fr)_200px] lg:px-6 lg:pb-6">
-        <div className="overflow-hidden rounded-2xl border border-white/8 bg-black/35">
+      <div className="relative grid min-w-0 gap-4 px-5 pb-5 pt-4 lg:grid-cols-[minmax(0,1fr)_200px] lg:px-6 lg:pb-6">
+        <div className="min-w-0 overflow-hidden rounded-2xl border border-white/8 bg-black/35">
           <div className="flex items-center justify-between border-b border-white/8 px-4 py-3">
             <div>
               <p className="text-sm font-semibold text-white">
@@ -118,7 +118,7 @@ export function EngineeringSdkCodePanel() {
             </div>
           </div>
 
-          <div className="overflow-x-auto px-0 py-3">
+          <div className="w-full min-w-0 overflow-x-auto overscroll-x-contain px-0 py-3">
             <div className="min-w-[620px] px-4 font-mono text-[12px] leading-6 text-white/88 md:text-[13px]">
               {lines.map((line, index) => (
                 <div key={`${index}-${line}`} className="group flex">
