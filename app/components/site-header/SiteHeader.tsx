@@ -3,6 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+import {
+  SITE_MEGA_CAPABILITIES_ITEMS,
+  SITE_MEGA_INSIGHTS_ITEMS,
+  SITE_MEGA_PARTNER_ITEMS,
+  SITE_MEGA_SOLUTION_ITEMS,
+  type SiteMegaLinkItem
+} from '@/app/lib/site-mega-nav-data'
 import { VISUAL_EDITING_PROMO_IMAGE } from '@/app/lib/visual-editing-promo-image'
 import { cn } from '@/utils/cn'
 import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react'
@@ -11,65 +18,6 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 
 type MegaKey = 'capabilities' | 'solutions' | 'partners' | 'insights'
-
-type MegaLinkItem = {
-  href: string
-  title: string
-  description: string
-}
-
-const CAPABILITIES_ITEMS: MegaLinkItem[] = [
-  {
-    href: '/visual-experience-engine/',
-    title: 'Visual Experience Engine',
-    description: 'Build Templates in React and let the marketing team edit them visually.'
-  },
-  {
-    href: '/mobile-app-storefront/',
-    title: 'Mobile App Storefront',
-    description:
-      'Optimized React Native Mobile App Storefront: fast and modern UI/UX built-in, high conversion with one click checkout'
-  }
-]
-
-const SOLUTION_ITEMS: MegaLinkItem[] = [
-  {
-    href: '/solutions-for-marketers/',
-    title: 'Marketing Team',
-    description: 'Update your site without engineering tickets. Schedule and Preview Content in Realtime.'
-  },
-  {
-    href: '/solutions-for-engineering/',
-    title: 'Engineering Team',
-    description: 'Build advanced templates in React and React Native. Push out template updates without a deployment.'
-  }
-]
-
-const PARTNER_ITEMS: MegaLinkItem[] = [
-  {
-    href: '/tech-partners/',
-    title: 'Tech Partners',
-    description: 'Explore integrations and technology partners that extend the BILDIT platform.'
-  },
-  {
-    href: '/integration-partners/',
-    title: 'Become a Partner',
-    description: 'Join our partner program and build solutions on top of BILDIT.'
-  }
-]
-
-const INSIGHTS_ITEMS: MegaLinkItem[] = [
-  {
-    href: '/blog/',
-    title: 'Blog',
-    description: 'Articles on commerce, content strategy, and platform updates.'
-  },
-  {
-    href: '/webinars/',
-    title: 'Webinars',
-    description: 'Watch sessions on commerce, content, and getting the most from the platform.'
-  }
-]
 
 const MEGA_CLOSE_MS = 220
 
@@ -188,7 +136,7 @@ function MegaFeaturedCard({ onNavigate }: MegaFeaturedCardProps) {
   )
 }
 
-function MegaLinkList({ items, onNavigate }: { items: MegaLinkItem[]; onNavigate?: () => void }) {
+function MegaLinkList({ items, onNavigate }: { items: SiteMegaLinkItem[]; onNavigate?: () => void }) {
   return (
     <ul className="space-y-2">
       {items.map((item) => (
@@ -495,12 +443,12 @@ export function SiteHeader() {
               <MegaLinkList
                 items={
                   megaFocus === 'capabilities'
-                    ? CAPABILITIES_ITEMS
+                    ? SITE_MEGA_CAPABILITIES_ITEMS
                     : megaFocus === 'solutions'
-                      ? SOLUTION_ITEMS
+                      ? SITE_MEGA_SOLUTION_ITEMS
                       : megaFocus === 'partners'
-                        ? PARTNER_ITEMS
-                        : INSIGHTS_ITEMS
+                        ? SITE_MEGA_PARTNER_ITEMS
+                        : SITE_MEGA_INSIGHTS_ITEMS
                 }
                 onNavigate={() => {
                   clearClose()
@@ -585,7 +533,7 @@ export function SiteHeader() {
                 {mobileAccordion === 'capabilities' && (
                   <>
                     <ul className="space-y-1">
-                      {CAPABILITIES_ITEMS.map((item) => (
+                      {SITE_MEGA_CAPABILITIES_ITEMS.map((item) => (
                         <li key={item.href}>
                           <Link
                             href={item.href}
@@ -638,7 +586,7 @@ export function SiteHeader() {
                 {mobileAccordion === 'solutions' && (
                   <>
                     <ul className="space-y-1">
-                      {SOLUTION_ITEMS.map((item) => (
+                      {SITE_MEGA_SOLUTION_ITEMS.map((item) => (
                         <li key={item.href}>
                           <Link
                             href={item.href}
@@ -690,7 +638,7 @@ export function SiteHeader() {
                 </button>
                 {mobileAccordion === 'partners' && (
                   <ul className="space-y-1 pb-4">
-                    {PARTNER_ITEMS.map((item) => (
+                    {SITE_MEGA_PARTNER_ITEMS.map((item) => (
                       <li key={item.href}>
                         <Link
                           href={item.href}
@@ -740,7 +688,7 @@ export function SiteHeader() {
                 </button>
                 {mobileAccordion === 'insights' && (
                   <ul className="space-y-1 pb-4">
-                    {INSIGHTS_ITEMS.map((item) => (
+                    {SITE_MEGA_INSIGHTS_ITEMS.map((item) => (
                       <li key={item.href}>
                         <Link
                           href={item.href}

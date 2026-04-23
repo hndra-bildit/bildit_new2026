@@ -1,15 +1,21 @@
+import type { ReactNode } from 'react'
 import { BuildPeopleProductsHeading } from '@/app/components/BuildPeopleProductsHeading'
+import { SITE_MEGA_FOOTER_SECTIONS } from '@/app/lib/site-mega-nav-data'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const colAbout = [
+type FooterHrefItem = { label: string; href: string; external?: boolean }
+
+const colCompany: FooterHrefItem[] = [
   { label: 'Contact Us', href: '/contact-us/' },
   { label: 'Careers', href: '/career/' },
   { label: 'Partners', href: '/tech-partners/' },
-  { label: 'Pricing', href: '/pricing/' }
+  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Documentation', href: 'https://docs.bildit.co', external: true }
 ]
 
-const colProduct = [
+/** Deeper product links (plus mega Platform coverage). */
+const colProduct: FooterHrefItem[] = [
   { label: 'Reference App', href: '/mobile-app-storefront/' },
   { label: 'Native Checkout', href: '/mobile-app-storefront/' },
   { label: 'App Clip SDK', href: '/mobile-app-storefront/' },
@@ -19,17 +25,65 @@ const colProduct = [
   { label: 'React Native Storefront', href: '/mobile-app-storefront/' }
 ]
 
-const colInsights = [
-  { label: 'Blog', href: '/blog/' },
-  { label: 'Webinars', href: '/our-story/' }
-]
-
-const colLearn = [
-  { label: 'Documentation', href: 'https://docs.bildit.co' },
+const colResources: FooterHrefItem[] = [
   { label: 'Developers', href: '/solutions-for-engineering/' },
   { label: 'For IT', href: '/solutions-for-engineering/' },
   { label: 'For Agencies', href: '/integration-partners/' }
 ]
+
+function FooterLinkList({ items }: { items: FooterHrefItem[] }) {
+  return (
+    <ul className="font-[family-name:var(--font-inter)] mt-3 space-y-2 text-sm">
+      {items.map((item) => (
+        <li key={item.label}>
+          {item.external ? (
+            <a
+              href={item.href}
+              className="text-neutral-700 hover:text-neutral-900"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.label}
+            </a>
+          ) : (
+            <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
+              {item.label}
+            </Link>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div>
+      <p className="font-[family-name:var(--font-inter)] text-xs font-semibold uppercase tracking-wide text-neutral-900">
+        {title}
+      </p>
+      {children}
+    </div>
+  )
+}
+
+type MegaFooterSection = (typeof SITE_MEGA_FOOTER_SECTIONS)[number]
+
+function MegaFooterLinkColumn({ section }: { section: MegaFooterSection }) {
+  return (
+    <FooterColumn title={section.label}>
+      <ul className="font-[family-name:var(--font-inter)] mt-3 space-y-2 text-sm">
+        {section.items.map((item) => (
+          <li key={item.title + item.href}>
+            <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </FooterColumn>
+  )
+}
 
 export function SiteFooter() {
   return (
@@ -91,52 +145,26 @@ export function SiteFooter() {
               </div>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-3">
-              <div>
-                <ul className="font-[family-name:var(--font-inter)] space-y-2 text-sm">
-                  {colAbout.map((item) => (
-                    <li key={item.href + item.label}>
-                      <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            <div className="flex min-w-0 flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
+              <div className="min-w-0 flex-1 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {SITE_MEGA_FOOTER_SECTIONS.map((section) => (
+                  <MegaFooterLinkColumn key={section.label} section={section} />
+                ))}
+                <FooterColumn title="Product">
+                  <FooterLinkList items={colProduct} />
+                </FooterColumn>
+                <FooterColumn title="Resources">
+                  <FooterLinkList items={colResources} />
+                </FooterColumn>
               </div>
-              <div>
-                <ul className="font-[family-name:var(--font-inter)] space-y-2 text-sm">
-                  {colProduct.map((item) => (
-                    <li key={item.href + item.label}>
-                      <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p className="font-[family-name:var(--font-inter)] text-xs font-semibold uppercase tracking-wide text-neutral-900">
-                  Insights
-                </p>
-                <ul className="font-[family-name:var(--font-inter)] mt-3 space-y-2 text-sm">
-                  {colInsights.map((item) => (
-                    <li key={item.href + item.label}>
-                      <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <ul className="font-[family-name:var(--font-inter)] mt-6 space-y-2 text-sm">
-                  {colLearn.map((item) => (
-                    <li key={item.href + item.label}>
-                      <Link href={item.href} className="text-neutral-700 hover:text-neutral-900">
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <aside
+                className="w-full shrink-0 border-t border-neutral-200 pt-8 lg:max-w-[200px] lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0"
+                aria-label="Company"
+              >
+                <FooterColumn title="Company">
+                  <FooterLinkList items={colCompany} />
+                </FooterColumn>
+              </aside>
             </div>
           </div>
         </div>

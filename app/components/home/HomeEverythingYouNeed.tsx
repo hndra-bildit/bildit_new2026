@@ -5,9 +5,8 @@ import {
   InstaStoriesShoulderCapsBottom,
   InstaStoriesShoulderCapsTop
 } from '@/app/components/home/InstaStoriesSectionShoulderCaps'
-import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
+import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
-import Image from 'next/image'
 
 const PRIMARY_ITEMS = [
   'Visual Experience Engine',
@@ -89,8 +88,8 @@ function usePrefersReducedMotion(): boolean {
 
 /**
  * “Everything you need”: parallax video background, 50px white shoulder connectors (inner 50px radii) above/below
- * the parallax, dark feature frame, checklist. Video sits z-0; transparent center of each connector
- * shows the media; flanks are `bg-white` like adjacing sections.
+ * the parallax, white checklist card. Video sits z-0; transparent center of each connector shows the media;
+ * flanks are `bg-white` like adjacent sections.
  */
 export function HomeEverythingYouNeed({ className }: { className?: string }) {
   const reducedMotion = usePrefersReducedMotion()
@@ -139,17 +138,6 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
 
           <div className="relative z-[1] px-0 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
             <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-none px-5 py-10 sm:rounded-3xl sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
-              <div className="absolute inset-0 overflow-hidden rounded-none sm:rounded-3xl">
-                <Image
-                  src="/home-everything/dark-card-texture.png"
-                  alt=""
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1280px) 100vw, min(1280px, 100vw)"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0d0118]/25 via-transparent to-[#0d0118]/35" />
-              </div>
-
               <div
                 className={cn(
                   'relative z-[1] w-full max-w-[829px] rounded-2xl border border-black/[0.08]',
@@ -160,9 +148,6 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                   <h2 className={cn('text-balance', homeSectionTitleClassName)}>
                     Everything you need. Nothing holding you back.
                   </h2>
-                  <p className={cn(homeSectionSubtitleClassName, 'mt-4 max-w-none text-center text-[#595959]')}>
-                    You get:
-                  </p>
                 </div>
 
                 <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-10">
@@ -172,14 +157,11 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                         key={label}
                         className="flex items-start gap-3 text-left font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-[#171717]"
                       >
-                        <span className="relative mt-0.5 size-5 shrink-0">
-                          <Image
-                            src="/home-everything/icon-check-primary.png"
-                            alt=""
-                            width={20}
-                            height={20}
-                            className="size-5"
-                          />
+                        <span
+                          className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white [background-image:var(--bildit-gradient-check-chip)]"
+                          aria-hidden
+                        >
+                          ✓
                         </span>
                         {label}
                       </li>
@@ -196,14 +178,11 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                           key={label}
                           className="flex items-start gap-3 text-left font-[family-name:var(--font-uncut-sans)] text-base leading-6 text-[#171717]"
                         >
-                          <span className="relative mt-0.5 size-5 shrink-0">
-                            <Image
-                              src="/home-everything/icon-check-bonus.png"
-                              alt=""
-                              width={20}
-                              height={20}
-                              className="size-5"
-                            />
+                          <span
+                            className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white [background-image:var(--bildit-gradient-check-chip)]"
+                            aria-hidden
+                          >
+                            ✓
                           </span>
                           {label}
                         </li>
@@ -212,7 +191,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                   </div>
                 </div>
 
-                <p className="font-[family-name:var(--font-uncut-sans)] mt-10 text-center text-lg font-bold leading-7 text-[#0d0118]">
+                <p className="font-[family-name:var(--font-uncut-sans)] mt-10 text-center text-lg font-normal leading-7 text-[#0d0118]">
                   Set it up once. Control forever.
                 </p>
               </div>

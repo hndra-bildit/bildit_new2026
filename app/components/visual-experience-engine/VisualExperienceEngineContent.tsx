@@ -1,7 +1,7 @@
+import { HomeFaq } from '@/app/components/home/HomeFaq'
 import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
 import { VeeAdvantagesSection } from '@/app/components/visual-experience-engine/VeeAdvantagesSection'
 import { VeeEarlyAccessSection } from '@/app/components/visual-experience-engine/VeeEarlyAccessSection'
-import { VeeFaqSection } from '@/app/components/visual-experience-engine/VeeFaqSection'
 import { VeeHero } from '@/app/components/visual-experience-engine/VeeHero'
 import { VeeIntegrationsStrip } from '@/app/components/visual-experience-engine/VeeIntegrationsStrip'
 import { VeePlatformsStrip } from '@/app/components/visual-experience-engine/VeePlatformsStrip'
@@ -15,7 +15,7 @@ export function VisualExperienceEngineContent() {
         <VeeIntegrationsStrip />
         <VeeAdvantagesSection />
         <VeeEarlyAccessSection />
-        <VeeFaqSection />
+        <HomeFaq />
         <VeePlatformsStrip />
       </main>
     </div>

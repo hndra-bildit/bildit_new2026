@@ -1,14 +1,10 @@
 import type { CSSProperties } from 'react'
+import { HomeEverythingYouNeed } from '@/app/components/home/HomeEverythingYouNeed'
 import { HomeWorkflowShowcase } from '@/app/components/home/HomeWorkflowShowcase'
-import {
-  InstaStoriesShoulderCapsBottom,
-  InstaStoriesShoulderCapsTop
-} from '@/app/components/home/InstaStoriesSectionShoulderCaps'
 import {
   homeSectionEyebrowClassName,
   homeSectionSubtitleClassName,
   homeSectionSubtitleOnDarkClassName,
-  homeSectionTitleClassName,
   homeSectionTitleOnDarkClassName
 } from '@/app/components/home/home-section-typography'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
@@ -26,7 +22,6 @@ import {
   marketingHeroHeadlineGradientStyle
 } from '@/app/lib/marketing-hero-headline-gradient'
 import { cn } from '@/utils/cn'
-import { Check } from 'lucide-react'
 import Image from 'next/image'
 
 /** Marketers hero accent line — original pink → indigo clip (first two lines use shared marketing gradient). */
@@ -72,20 +67,6 @@ const MARKETERS_DEMO_VIDEO_SRC =
 
 const MARKETERS_VIDEO_FRAME_CLASS =
   'relative h-[280px] w-full overflow-hidden rounded-2xl border border-black/10 bg-[#171717] shadow-[0px_-4px_40px_0px_rgba(0,0,0,0.08)] md:h-[438px]'
-
-const MAIN_LIST = [
-  'Visual Experience Engine',
-  'Instant publishing infrastructure',
-  'Performance guardrails built-in',
-  'Sophisticated template system',
-  'Live preview that actually works'
-] as const
-
-const BONUS_LIST = [
-  'Elevated template starter pack',
-  'White-glove onboarding',
-  'Direct access to our engineering team'
-] as const
 
 export function MarketersSolutionsContent() {
   return (
@@ -223,62 +204,7 @@ export function MarketersSolutionsContent() {
 
       <VeeAdvantagesSection />
 
-      <section className="relative w-full overflow-hidden bg-white">
-        <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
-          {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
-          <img src="/images/insta-stories.gif" alt="" className="absolute inset-0 h-full w-full object-cover" />
-        </div>
-        <InstaStoriesShoulderCapsTop />
-        <div className="relative z-10 w-full overflow-hidden">
-          <div
-            className="pointer-events-none absolute left-1/2 top-[20%] z-0 size-[min(600px,90vw)] -translate-x-1/2 rounded-full bg-[rgba(200,80,240,0.06)] blur-[140px]"
-            aria-hidden
-          />
-          <div className="relative z-[1] flex flex-col items-center px-4 pb-16 pt-10 md:px-[116px] md:pb-20 md:pt-12">
-            <div className="w-full max-w-[1280px] rounded-3xl bg-white px-6 py-12 shadow-[0px_0px_150px_0px_rgba(232,69,144,0.08),0px_0px_80px_0px_rgba(200,80,240,0.15)] md:px-12 md:py-16">
-              <div className="mx-auto max-w-[768px] text-center">
-                <h2 className={cn(homeSectionTitleClassName, 'text-center')}>
-                  Everything you need. Nothing holding you back.
-                </h2>
-                <p className={cn(homeSectionSubtitleClassName, 'mt-6 text-center')}>You get:</p>
-              </div>
-              <div className="mx-auto mt-10 max-w-[970px] rounded-2xl border border-black/10 bg-[#0d0118] p-8 md:p-10">
-                <div className="grid gap-10 md:grid-cols-2">
-                  <ul className="flex flex-col gap-4">
-                    {MAIN_LIST.map((item) => (
-                      <li key={item} className="flex gap-3 text-[#f0e6ff]">
-                        <Check className="mt-0.5 size-5 shrink-0 text-[#c850f0]" aria-hidden />
-                        <span className="text-base leading-6">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.07em] text-[#171717]">Bonus:</p>
-                    <ul className="mt-4 flex flex-col gap-3">
-                      {BONUS_LIST.map((item) => (
-                        <li key={item} className="flex gap-3 text-[#f0e6ff]">
-                          <Check className="mt-0.5 size-5 shrink-0 text-[#e84590]" aria-hidden />
-                          <span className="text-base leading-6">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <p className="mt-10 text-center text-lg font-normal leading-relaxed text-white">
-                  Build beautiful content at the speed of marketing.
-                  <br />
-                  <br />
-                  Download our Figma templates to see the kind of content that you can build.
-                </p>
-              </div>
-              <div className="mt-10 flex justify-center">
-                <GradientCtaButton href="/pricing/">Get the Templates</GradientCtaButton>
-              </div>
-            </div>
-          </div>
-        </div>
-        <InstaStoriesShoulderCapsBottom className="-mt-px" />
-      </section>
+      <HomeEverythingYouNeed />
 
       <MarketersFeaturesBentoSection />
 

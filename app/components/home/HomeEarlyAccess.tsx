@@ -81,9 +81,19 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
                   <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-bold leading-7">
                     What do you get?
                   </p>
-                  <ul className="list-disc space-y-0 pl-7 font-[family-name:var(--font-uncut-sans)] text-lg leading-9 marker:text-[#f0e6ff]">
+                  <ul className="flex flex-col gap-2.5">
                     {GET_ITEMS.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item} className="flex items-center gap-2.5">
+                        <span
+                          className="flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white [background-image:var(--bildit-gradient-check-chip)]"
+                          aria-hidden
+                        >
+                          ✓
+                        </span>
+                        <span className="font-[family-name:var(--font-uncut-sans)] text-lg leading-7 text-[#f0e6ff]">
+                          {item}
+                        </span>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -94,13 +104,12 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
                   <ul className="flex flex-col gap-2.5">
                     {BONUS_ITEMS.map((item) => (
                       <li key={item} className="flex items-center gap-2.5">
-                        <Image
-                          src="/home-everything/icon-check-primary.png"
-                          alt=""
-                          width={24}
-                          height={24}
-                          className="size-6 shrink-0"
-                        />
+                        <span
+                          className="flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white [background-image:var(--bildit-gradient-check-chip)]"
+                          aria-hidden
+                        >
+                          ✓
+                        </span>
                         <span className="font-[family-name:var(--font-uncut-sans)] text-lg leading-7 text-[#f0e6ff]">
                           {item}
                         </span>
@@ -119,9 +128,6 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
                   Request Access
                   <ArrowRight className="size-4 shrink-0" aria-hidden />
                 </Link>
-                <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-center text-base leading-7')}>
-                  You&apos;ll open the early access program page with full details.
-                </p>
               </div>
             </div>
           </div>

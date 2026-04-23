@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { PRICING_FAQ_ENTRIES, PRICING_FAQ_SALES_URL } from '@/app/components/pricing/pricing-faq-data'
 import { cn } from '@/utils/cn'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
 export function PricingPageFaqSection() {
@@ -34,35 +34,28 @@ export function PricingPageFaqSection() {
           </Link>
         </div>
 
-        <div className="min-w-0 flex-1">
+        <ul className="min-w-0 flex-1 space-y-3">
           {PRICING_FAQ_ENTRIES.map((item, index) => {
             const isOpen = openIndex === index
             return (
-              <div key={item.question} className="border-b border-black/8">
+              <li
+                key={item.question}
+                className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm"
+              >
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="font-[family-name:var(--font-inter)] flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-bold text-neutral-900 md:px-6 md:text-lg"
                   aria-expanded={isOpen}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
-                  <span className="font-[family-name:var(--font-inter)] text-base font-semibold text-neutral-900">
-                    {item.question}
-                  </span>
-                  <span
+                  {item.question}
+                  <ChevronDown
                     className={cn(
-                      'flex size-9 shrink-0 items-center justify-center rounded-xl',
-                      isOpen
-                        ? 'bg-gradient-to-br from-[rgba(200,80,240,0.2)] to-[rgba(232,69,144,0.2)]'
-                        : 'bg-[#f5f7fa]'
+                      'size-5 shrink-0 text-neutral-500 transition-transform duration-300',
+                      isOpen && 'rotate-180'
                     )}
                     aria-hidden
-                  >
-                    {isOpen ? (
-                      <ChevronUp className="size-3.5 text-[#c850f0]" strokeWidth={2.5} />
-                    ) : (
-                      <ChevronDown className="size-3.5 text-[#595959]" strokeWidth={2.5} />
-                    )}
-                  </span>
+                  />
                 </button>
                 <div
                   className={cn(
@@ -71,15 +64,15 @@ export function PricingPageFaqSection() {
                   )}
                 >
                   <div className="min-h-0 overflow-hidden">
-                    <p className="font-[family-name:var(--font-inter)] pb-5 pr-2 text-[15px] leading-[1.65] text-[#595959]">
+                    <p className="font-[family-name:var(--font-inter)] px-5 pb-4 text-sm leading-relaxed text-neutral-600 md:px-6 md:text-base">
                       {item.answer}
                     </p>
                   </div>
                 </div>
-              </div>
+              </li>
             )
           })}
-        </div>
+        </ul>
       </div>
     </section>
   )

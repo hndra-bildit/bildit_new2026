@@ -31,7 +31,10 @@ export function HomeHero({ className }: { className?: string }) {
               <span className="block">Ship high performance</span>
               <span className="mt-1 flex flex-wrap items-center justify-center gap-2.5 py-1 md:gap-2.5">
                 <span className="text-white">experiences.</span>
-                <span className={homeHeroHeadlineGradientClassName} style={homeHeroHeadlineGradientStyle}>
+                <span
+                  className={cn(homeHeroHeadlineGradientClassName, '[text-shadow:none]')}
+                  style={homeHeroHeadlineGradientStyle}
+                >
                   Faster
                 </span>
               </span>
