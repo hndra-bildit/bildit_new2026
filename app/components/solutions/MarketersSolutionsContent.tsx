@@ -30,9 +30,7 @@ const MARKETERS_HERO_ACCENT_LINE_STYLE: CSSProperties = {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
-  backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)',
-  /** Drop parent `h1` translucent shadow so the gradient stays vivid. */
-  textShadow: 'none'
+  backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
 }
 
 const PLATFORM_LOGOS = [
@@ -91,7 +89,7 @@ export function MarketersSolutionsContent() {
         <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
           <div className="flex w-full flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
             <div className="flex max-w-[1238px] flex-col items-center gap-8 md:gap-8">
-              <h1 className="mx-auto w-fit max-w-full pb-[3px] text-center font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
+              <h1 className="mx-auto w-fit max-w-full pb-[3px] text-center font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.04em] md:text-6xl md:leading-[1.08] lg:text-[72px] lg:leading-[78px]">
                 <span
                   className={cn('block', marketingHeroHeadlineGradientClassName)}
                   style={marketingHeroHeadlineGradientStyle}

@@ -1,5 +1,5 @@
-import { PricingPageFaqSection, PricingPlanComparisonSection } from '@/app/components/pricing'
-import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
+import { PricingPageFaqSection, PricingPageHero, PricingPlanComparisonSection } from '@/app/components/pricing'
+import { PRICING_HOME_HEADER_INSET_CLASS, PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { PricingPageContent } from '@/app/pricing/PricingPageContent'
 import { cn } from '@/utils/cn'
 import { SlotPlaceholder } from '@bildit-platform/nextjs'
@@ -11,21 +11,21 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-[#f5f7fa] text-neutral-900">
+    <div className={cn('min-h-screen text-neutral-900', PRICING_PAGE_SURFACE_CLASS)}>
+      <SlotPlaceholder slotId="pricing-title">
+        <PricingPageHero />
+      </SlotPlaceholder>
+
       <section
         data-header-surface="light"
         className={cn(
-          // Min-height fills the viewport; no max-height so the hero can grow (mobile: room for Enterprise tier;
-          // avoids trapping scroll inside the hero).
-          'relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none',
-          'sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:min-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]'
+          'relative m-0 flex min-h-0 w-full flex-col overflow-hidden',
+          PRICING_PAGE_SURFACE_CLASS,
+          PRICING_HOME_HEADER_INSET_CLASS
         )}
       >
-        <div className="pointer-events-none absolute inset-0 z-0 bg-white sm:rounded-[29px]" aria-hidden />
-        <SiteHeroTopSpacer />
-        <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
-          <div className="flex min-h-0 flex-1 flex-col items-stretch gap-8 overflow-x-hidden px-4 pb-12 pt-2 text-center sm:px-10 sm:pb-16 sm:pt-4 md:gap-10">
-            <SlotPlaceholder slotId="pricing-title" />
+        <div className="relative z-10 mx-auto flex w-full min-h-0 max-w-[1260px] flex-1 flex-col overflow-hidden">
+          <div className="flex min-h-0 flex-1 flex-col items-stretch overflow-x-hidden pb-8 pt-0 text-center sm:pb-12">
             <div className="flex min-h-0 min-w-0 flex-1 flex-col">
               <SlotPlaceholder slotId="pricing-content">
                 <PricingPageContent />

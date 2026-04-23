@@ -1,5 +1,7 @@
 'use client'
 
+import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
+import { cn } from '@/utils/cn'
 import Script from 'next/script'
 
 const SCRIPT_SRC = 'https://js.stripe.com/v3/pricing-table.js'
@@ -13,7 +15,9 @@ export function StripePricingTableEmbed() {
 
   if (!publishableKey) {
     return (
-      <div className="rounded-2xl border border-dashed border-black/10 bg-neutral-50 px-6 py-16 text-center">
+      <div
+        className={cn('rounded-2xl border border-dashed border-black/10 px-6 py-16 text-center', PRICING_PAGE_SURFACE_CLASS)}
+      >
         <p className="font-[family-name:var(--font-inter)] text-sm leading-relaxed text-neutral-600 md:text-base">
           Set{' '}
           <code className="rounded bg-neutral-200/80 px-1.5 py-0.5 text-xs">NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY</code> to
@@ -24,7 +28,7 @@ export function StripePricingTableEmbed() {
   }
 
   return (
-    <div className="stripe-pricing-table stripe-pricing-table-host w-full">
+    <div className={cn('stripe-pricing-table stripe-pricing-table-host w-full', PRICING_PAGE_SURFACE_CLASS)}>
       <Script src={SCRIPT_SRC} strategy="lazyOnload" />
       <stripe-pricing-table pricing-table-id={pricingTableId} publishable-key={publishableKey} />
     </div>

@@ -435,8 +435,8 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
 
 /**
  * Stripe <stripe-pricing-table> — shadow DOM; scale the host so four columns fit one row
- * on typical viewports (zoom affects layout size in Chromium/WebKit). Frame is 80% of the
- * pricing hero; zoom tuned to fill that frame.
+ * on typical viewports (zoom affects layout size in Chromium/WebKit). Host is full width
+ * of the pricing content column (max 1260px); zoom tuned to fill that width.
  */
 .pricing-stripe-embed-frame .stripe-pricing-table-host {
   zoom: 0.72;

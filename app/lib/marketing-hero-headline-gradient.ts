@@ -21,10 +21,9 @@ export const marketingHeroBackdropBgClassName = 'bg-white'
 
 /**
  * Layout + type scale for gradient titles (`w-fit` so the sweep reads on short words).
- * `text-shadow` matches `StorefrontHero` h1.
  */
 export const marketingHeroTitleLayoutClassName =
-  'mx-auto w-fit max-w-full pb-[3px] text-center font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.1] tracking-[-0.03em] [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:text-6xl lg:text-[72px] lg:leading-[1.12]'
+  'mx-auto w-fit max-w-full pb-[3px] text-center font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.1] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-[72px] lg:leading-[1.12]'
 
 /** Section headings on marketing pages (e.g. tech partners bands) — same gradient + shadow, smaller type. */
 export const marketingHeroSectionTitleLayoutClassName =

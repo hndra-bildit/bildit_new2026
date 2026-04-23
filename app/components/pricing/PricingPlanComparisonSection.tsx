@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import type { CellValue, PlanKey } from '@/app/components/pricing/pricing-plan-comparison-data'
 import { PRICING_PLAN_COMPARISON_GROUPS } from '@/app/components/pricing/pricing-plan-comparison-data'
+import { PRICING_HOME_HEADER_INSET_CLASS, PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { cn } from '@/utils/cn'
 import { FaCheckCircle } from 'react-icons/fa'
 
@@ -32,7 +33,10 @@ function ComparisonCell({ value }: { value: CellValue }) {
 
 export function PricingPlanComparisonSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f5f7fa] px-4 py-16 md:px-8 md:py-24" data-node-id="4486:18262">
+    <section
+      className={cn('relative overflow-hidden pb-12 pt-2 md:pb-16 md:pt-4', PRICING_PAGE_SURFACE_CLASS, PRICING_HOME_HEADER_INSET_CLASS)}
+      data-node-id="4486:18262"
+    >
       <div
         className="pointer-events-none absolute -left-20 top-1/4 size-[500px] rounded-full bg-[rgba(200,80,240,0.06)] blur-[120px]"
         aria-hidden
@@ -42,7 +46,7 @@ export function PricingPlanComparisonSection() {
         aria-hidden
       />
 
-      <div className="relative mx-auto flex max-w-[1600px] flex-col gap-10 md:gap-12">
+      <div className="relative mx-auto flex w-full max-w-[1260px] flex-col gap-8 md:gap-10">
         <header className="flex flex-col items-center gap-3 text-center">
           <p className="font-[family-name:var(--font-inter)] text-xs font-semibold uppercase tracking-[0.08em] text-neutral-900">
             Compare
@@ -55,8 +59,15 @@ export function PricingPlanComparisonSection() {
           </p>
         </header>
 
-        <div className="overflow-x-auto rounded-[20px] border border-black/8 bg-white shadow-[0px_20px_40px_0px_rgba(0,0,0,0.08)]">
-          <table className="w-full min-w-[900px] border-collapse text-left">
+        <div className="w-full min-w-0 overflow-x-auto border border-black/8 bg-white shadow-[0px_12px_24px_0px_rgba(0,0,0,0.06)]">
+          <table className="w-full min-w-[900px] table-fixed border-collapse text-left md:min-w-0">
+            <colgroup>
+              <col className="w-[30%]" />
+              <col className="w-[17.5%]" />
+              <col className="w-[17.5%]" />
+              <col className="w-[17.5%]" />
+              <col className="w-[17.5%]" />
+            </colgroup>
             <thead>
               <tr className="border-b border-black/8 bg-[#f5f7fa]">
                 <th className="font-[family-name:var(--font-inter)] px-4 py-4 text-sm font-bold text-neutral-900 md:px-5 md:py-5">
@@ -65,7 +76,7 @@ export function PricingPlanComparisonSection() {
                 {PLANS.map(({ key, label }) => (
                   <th
                     key={key}
-                    className="font-[family-name:var(--font-inter)] w-[min(22vw,220px)] px-3 py-4 text-center text-xs font-bold leading-tight text-neutral-900 md:w-auto md:px-4 md:py-5 md:text-sm"
+                    className="font-[family-name:var(--font-inter)] px-3 py-4 text-center text-xs font-bold leading-tight text-neutral-900 md:px-4 md:py-5 md:text-sm"
                   >
                     {label}
                   </th>
@@ -85,7 +96,7 @@ export function PricingPlanComparisonSection() {
                   </tr>
                   {group.rows.map((row) => (
                     <tr key={row.feature} className="border-b border-black/8">
-                      <td className="max-w-[240px] px-4 py-4 align-top md:max-w-[280px] md:px-5">
+                      <td className="px-4 py-4 align-top md:px-5">
                         <div className="flex flex-wrap items-center gap-2.5">
                           <span className="font-gt-walsheim text-sm font-medium text-neutral-900">{row.feature}</span>
                           {row.newBadge ? (

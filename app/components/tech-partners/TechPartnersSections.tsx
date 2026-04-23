@@ -14,6 +14,7 @@ import {
   TECH_PARTNERS_GRINTEQ_LOGO,
   TECH_PARTNERS_INSIGHT_GLOBAL_LOGO
 } from '@/app/lib/tech-partners-assets'
+import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { TECH_PARTNERS_INTEGRATIONS } from '@/app/lib/tech-partners-integrations'
 import { cn } from '@/utils/cn'
 
@@ -85,7 +86,10 @@ export function TechPartnersSections() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24"
+        className={cn(
+          'relative overflow-hidden px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24',
+          PRICING_PAGE_SURFACE_CLASS
+        )}
         aria-labelledby="tech-partners-integrators-heading"
       >
         <div className="relative mx-auto flex max-w-[1280px] flex-col gap-12 md:gap-16">
@@ -117,7 +121,10 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24"
+        className={cn(
+          'relative overflow-hidden px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24',
+          PRICING_PAGE_SURFACE_CLASS
+        )}
         aria-labelledby="tech-partners-network-heading"
       >
         <div className="relative mx-auto flex max-w-[1280px] flex-col gap-12 md:gap-16">
@@ -177,7 +184,10 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className="bg-white px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24"
+        className={cn(
+          'px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24',
+          PRICING_PAGE_SURFACE_CLASS
+        )}
         aria-labelledby="tech-partners-integrations-heading"
       >
         <div className="mx-auto max-w-[1280px]">
@@ -200,7 +210,7 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className="relative overflow-hidden px-3 py-16 sm:px-4 md:py-24"
+        className={cn('relative overflow-hidden px-3 py-16 sm:px-4 md:py-24', PRICING_PAGE_SURFACE_CLASS)}
         aria-labelledby="tech-partners-cta-heading"
       >
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>

@@ -1,5 +1,7 @@
 import { BlogPostArticle } from '@/app/components/blog/BlogPostArticle'
+import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { getPostById } from '@/lib/getPost'
+import { cn } from '@/utils/cn'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -23,8 +25,8 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound()
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-white text-neutral-900">
-      <main className="w-full bg-white">
+    <div className={cn('min-h-screen overflow-x-clip text-neutral-900', PRICING_PAGE_SURFACE_CLASS)}>
+      <main className={cn('w-full', PRICING_PAGE_SURFACE_CLASS)}>
         <BlogPostArticle post={post} />
       </main>
     </div>

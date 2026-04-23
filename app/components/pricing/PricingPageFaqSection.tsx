@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { PRICING_FAQ_ENTRIES, PRICING_FAQ_SALES_URL } from '@/app/components/pricing/pricing-faq-data'
+import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { cn } from '@/utils/cn'
 import { ChevronDown } from 'lucide-react'
 import Link from 'next/link'
@@ -10,7 +11,7 @@ export function PricingPageFaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="bg-white px-4 py-16 md:px-8 md:py-24" data-node-id="4486:18530">
+    <section className={cn('px-4 py-16 md:px-8 md:py-24', PRICING_PAGE_SURFACE_CLASS)} data-node-id="4486:18530">
       <div className="mx-auto flex max-w-[1100px] flex-col gap-12 lg:flex-row lg:gap-20 lg:items-start">
         <div className="flex max-w-[360px] flex-col gap-4">
           <p className="font-[family-name:var(--font-inter)] text-xs font-semibold uppercase tracking-[0.08em] text-neutral-900">
