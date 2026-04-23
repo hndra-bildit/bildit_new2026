@@ -107,7 +107,7 @@ export default function EarlyAccessProgramPage() {
             id="early-access-apply-heading"
             className="font-[family-name:var(--font-uncut-sans)] text-3xl font-bold tracking-tight text-[#f0e6ff] md:text-4xl"
           >
-            Apply
+            Apply for Early Access
           </h2>
           <EarlyAccessProgramApply />
         </div>

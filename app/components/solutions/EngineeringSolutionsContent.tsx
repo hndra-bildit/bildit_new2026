@@ -242,7 +242,7 @@ export function EngineeringSolutionsContent() {
         <div className="mx-auto mt-14 flex max-w-[1280px] flex-col items-center gap-3">
           <p className="text-center text-lg font-semibold text-[#c4b5dc]">Fewer interrupts. More deep work.</p>
           <GradientCtaButton href="/pricing/" variant="figma-long">
-            Talk to solutions engineering
+            Talk to Solutions Engineering
           </GradientCtaButton>
         </div>
       </section>

@@ -1,6 +1,6 @@
 /**
  * Mobile app storefront card imagery (public/mobile-app-storefront).
- * In “Everything Your Team Needs”, the content-management card uses `storefront` and the
+ * In the “Everything your team Needs.” section, the content-management card uses `storefront` and the
  * scheduling card uses `sophisticatedScheduling` (Figma 5230:22018 and 5227:20997).
  */
 export const MOBILE_APP_STOREFRONT_IMAGES = {

@@ -29,7 +29,7 @@ export default function IntegrationPartnersPage() {
             Partner with BILDIT
           </p>
           <h1 className="mt-4 font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight tracking-tight text-[#f0e6ff] md:text-5xl md:leading-[1.1]">
-            Become an integration partner
+            Become an Integration Partner
           </h1>
           <p className="mx-auto mt-6 max-w-[640px] font-[family-name:var(--font-uncut-sans)] text-lg font-medium text-[#e8d4ff] md:text-xl">
             We work with agencies and engineering partners who implement modern stacks for brands. Share a few details

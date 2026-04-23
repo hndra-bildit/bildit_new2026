@@ -20,7 +20,7 @@ export function HomeWorkflowShowcase({ className, showSocialStrip = true }: Home
       <div className="relative mx-auto flex max-w-[1286px] flex-col gap-10 px-6 py-16 md:gap-[50px] md:px-10 md:py-[100px] lg:px-[116px]">
         <div className="flex flex-col items-center gap-2.5 text-center">
           <h2 className="font-[family-name:var(--font-uncut-sans)] text-3xl font-bold tracking-[-0.025em] text-[#171717] md:text-[48px] md:leading-[48px] md:tracking-[-1.2px]">
-            Your Content is Visual. Build Visually.
+            Your content is visual. Build visually.
           </h2>
           <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[#595959] md:text-xl md:leading-7">
             Build. Preview. Publish.... Fast

@@ -30,7 +30,7 @@ export function PricingPageFaqSection() {
             className="inline-flex w-fit items-center rounded-full bg-neutral-900 px-7 py-3 text-[15px] font-medium text-white transition-opacity hover:opacity-90"
             rel="noopener noreferrer"
           >
-            Talk to sales
+            Talk to Sales
           </Link>
         </div>
 

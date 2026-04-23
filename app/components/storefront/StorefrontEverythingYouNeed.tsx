@@ -72,7 +72,7 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
             'min-[1000px]:whitespace-nowrap'
           )}
         >
-          Everything Your Team Needs.
+          Everything your team Needs.
         </h2>
 
         <div className="mt-12 flex flex-col items-stretch gap-12 min-[1000px]:mt-16 min-[1000px]:flex-row min-[1000px]:items-center min-[1000px]:justify-between min-[1000px]:gap-6 min-[1000px]:px-6 xl:gap-8 xl:px-12">
