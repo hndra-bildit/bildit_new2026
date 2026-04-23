@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
+import { homeSectionEyebrowClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
@@ -37,15 +37,13 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="relative mx-auto grid max-w-[1512px] grid-cols-1 gap-12 px-6 py-16 sm:px-10 md:gap-14 md:py-20 min-[1000px]:grid-cols-2 min-[1000px]:gap-x-8 min-[1000px]:gap-y-12 min-[1000px]:px-8 lg:gap-10 lg:px-12 lg:py-[100px] xl:px-[216px]">
+      <div className="relative mx-auto grid max-w-[1512px] grid-cols-1 gap-12 px-6 py-16 sm:px-10 md:gap-14 md:py-20 min-[1000px]:grid-cols-2 min-[1000px]:gap-x-8 min-[1000px]:gap-y-12 min-[1000px]:px-8 lg:gap-10 lg:px-[116px] lg:py-24">
         {/* Problem — Figma 5119:16646: pink top rule, label → headline → body → numbered list */}
         <div className="flex min-w-0 flex-col border-t-[5px] border-solid border-[#ed1e79] pt-5">
           <div className="flex flex-col gap-8 md:gap-[30px]">
             <div className="flex items-center gap-2.5">
               <span className="size-3 shrink-0 rounded-full bg-[#ff4466]" aria-hidden />
-              <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-semibold uppercase leading-[32.5px] text-[#ff4466]">
-                This is broken.
-              </p>
+              <p className={cn(homeSectionEyebrowClassName, 'text-[#ff4466]')}>This is broken.</p>
             </div>
             <h2 className={cn(homeSectionTitleClassName, 'max-w-full text-[#171717]')}>
               It&apos;s 2026. Why are marketers still waiting for developers?
@@ -74,16 +72,14 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         </div>
 
         {/* Solution — Figma 5119:16665: purple top rule */}
-        <div className="flex min-w-0 flex-col border-t-4 border-solid border-[#bc95ff] pt-5 lg:justify-center">
+        <div className="flex min-w-0 flex-col border-t-4 border-solid border-[rgba(200,80,240,0.35)] pt-5 lg:justify-center">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <p className="font-[family-name:var(--font-uncut-sans)] text-xl font-semibold uppercase leading-[32.5px] text-[#171717]">
-              The Solution
-            </p>
+            <p className={cn(homeSectionEyebrowClassName, 'text-[#171717]')}>The Solution</p>
             <div className="[--header-logo-bild:#0d0118] [--header-logo-it:#ed1e79]">
               <span className="sr-only">BILDIT</span>
               <BilditLogo className="h-10 w-auto sm:h-11 md:h-[48px] md:w-auto" />
             </div>
-            <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-[32.5px] text-[#171717] md:text-xl">
+            <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-7 text-[#171717] md:text-xl md:leading-[28px]">
               Break free from deployments. Your site into a Visual Experience Engine.
             </p>
 
@@ -95,7 +91,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
                 {PUSH_OUT_ITEMS.map((item) => (
                   <li
                     key={item}
-                    className="inline-flex rounded-[40px] border border-solid border-[rgb(200,80,240)]/45 bg-[rgba(237,30,121,0.06)] px-[15px] py-1.5 text-[#8a2166]"
+                    className="inline-flex rounded-[40px] border border-solid border-[rgb(200,80,240)]/45 bg-[rgba(237,30,121,0.06)] px-[15px] py-1.5 text-[var(--bildit-purple-text)]"
                   >
                     {item}
                   </li>

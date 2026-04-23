@@ -12,7 +12,7 @@ import Image from 'next/image'
 
 export type BlogMarketingHeroProps = {
   id: string
-  /** Optional label above the title (e.g. `Blog` → uppercase “BLOG”), matching `TechPartnersHero` eyebrow. */
+  /** Optional label above the title (e.g. `Blog` → uppercase “BLOG”). */
   eyebrow?: string
   title: string
   subtitle: string

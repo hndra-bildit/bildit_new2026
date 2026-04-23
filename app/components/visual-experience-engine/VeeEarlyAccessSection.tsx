@@ -1,5 +1,4 @@
 import { BilditDualMarketingGlows } from '@/app/components/marketing/BilditMarketingGlows'
-import { veeEarlyAccessRocket } from '@/app/lib/vee-early-access-assets'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -12,14 +11,20 @@ const BENEFITS = [
 
 export function VeeEarlyAccessSection() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-[100px]">
+    <section className="relative overflow-hidden py-16 md:py-20 lg:py-24">
       <BilditDualMarketingGlows />
 
       <div className="relative z-[1] mx-auto max-w-[938px] px-4 md:px-6">
         <div className="rounded-3xl border border-black/10 bg-white/70 px-6 py-10 shadow-[0px_0px_40px_0px_rgba(200,80,240,0.15),0px_0px_80px_0px_rgba(232,69,144,0.08)] backdrop-blur-sm md:px-10 md:py-14">
           <div className="flex justify-center">
-            <div className="flex size-16 items-center justify-center rounded-2xl [background-image:var(--bildit-gradient-soft-icon-tile)]">
-              <Image src={veeEarlyAccessRocket} alt="" width={32} height={32} className="size-8" />
+            <div className="flex size-16 items-center justify-center rounded-2xl bg-[#171717]">
+              <Image
+                src="/images/visual-experience-engine/early-access-rocket.svg"
+                alt=""
+                width={32}
+                height={32}
+                className="size-8"
+              />
             </div>
           </div>
 

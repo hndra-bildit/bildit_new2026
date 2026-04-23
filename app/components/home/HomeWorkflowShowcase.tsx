@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { HomeWorkflowSocialStrip } from '@/app/components/home/HomeWorkflowSocialStrip'
+import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { WorkflowStepPanel, WorkflowStepTabList } from '@/app/components/workflow/WorkflowBuildPreviewPublish'
 import { cn } from '@/utils/cn'
@@ -17,12 +18,10 @@ export function HomeWorkflowShowcase({ className, showSocialStrip = true }: Home
 
   return (
     <section className={cn('home-scheme-light relative overflow-hidden bg-white', className)}>
-      <div className="relative mx-auto flex max-w-[1286px] flex-col gap-10 px-6 py-16 md:gap-[50px] md:px-10 md:py-[100px] lg:px-[116px]">
+      <div className="relative mx-auto flex max-w-[1286px] flex-col gap-10 px-6 py-16 md:gap-[50px] md:px-10 md:py-20 lg:px-[116px] lg:py-24">
         <div className="flex flex-col items-center gap-2.5 text-center">
-          <h2 className="font-[family-name:var(--font-uncut-sans)] text-3xl font-bold tracking-[-0.025em] text-[#171717] md:text-[48px] md:leading-[48px] md:tracking-[-1.2px]">
-            Your content is visual. Build visually.
-          </h2>
-          <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[#595959] md:text-xl md:leading-7">
+          <h2 className={cn('text-balance', homeSectionTitleClassName)}>Your content is visual. Build visually.</h2>
+          <p className={cn(homeSectionSubtitleClassName, 'text-center')}>
             Build. Preview. Publish.... Fast
           </p>
         </div>
@@ -46,7 +45,7 @@ export function HomeWorkflowShowcase({ className, showSocialStrip = true }: Home
             )}
           >
             <p
-              className="max-w-[250px] font-[family-name:var(--font-uncut-sans)] text-lg font-semibold leading-7 text-[#595959] md:text-[22px] md:leading-7"
+              className={cn(homeSectionSubtitleClassName, 'max-w-[250px]')}
               id="home-workflow-cta-heading"
             >
               Idea → Live experience. Hours. Not weeks.

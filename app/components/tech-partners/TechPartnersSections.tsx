@@ -1,11 +1,10 @@
+import {
+  homeSectionEyebrowClassName,
+  homeSectionSubtitleClassName,
+  homeSectionTitleClassName
+} from '@/app/components/home/home-section-typography'
 import { LogoImage } from '@/app/components/LogoImage'
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
-import {
-  marketingHeroHeadlineGradientClassName,
-  marketingHeroHeadlineGradientStyle,
-  marketingHeroSectionTitleLayoutClassName,
-  marketingHeroTitleLayoutClassName
-} from '@/app/lib/marketing-hero-headline-gradient'
 import {
   TECH_PARTNERS_AIRSHIP_LOGO,
   TECH_PARTNERS_ASTOUND_LOGO,
@@ -86,21 +85,23 @@ export function TechPartnersSections() {
   return (
     <>
       <section
-        className="relative overflow-hidden bg-[#fafafa] px-4 py-16 sm:px-6 md:py-24 lg:px-[116px] lg:py-[100px]"
+        className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24"
         aria-labelledby="tech-partners-integrators-heading"
       >
-        <div
-          className="pointer-events-none absolute left-1/2 top-[-6rem] size-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(200,80,240,0.35)_0%,transparent_68%)] opacity-40 blur-[72px]"
-          aria-hidden
-        />
         <div className="relative mx-auto flex max-w-[1280px] flex-col gap-12 md:gap-16">
-          <h2
-            id="tech-partners-integrators-heading"
-            className={cn(marketingHeroSectionTitleLayoutClassName, marketingHeroHeadlineGradientClassName)}
-            style={marketingHeroHeadlineGradientStyle}
-          >
-            Solutions Integrators
-          </h2>
+          <header className="flex flex-col items-center gap-4 text-center md:gap-5">
+            <p className={cn(homeSectionEyebrowClassName, 'text-neutral-600')}>Tech Partners</p>
+            <h2
+              id="tech-partners-integrators-heading"
+              className={cn('text-balance', homeSectionTitleClassName)}
+            >
+              Solutions Integrators
+            </h2>
+            <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-balance text-center')}>
+              We work with the best in the eCommerce industry. Partners of all sizes can implement the BILDIT Visual
+              Experience Engine.
+            </p>
+          </header>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             <ShowcaseCard
               title="Astound Commerce"
@@ -119,21 +120,21 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-[116px] lg:py-[100px]"
+        className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24"
         aria-labelledby="tech-partners-network-heading"
       >
-        <div
-          className="pointer-events-none absolute bottom-0 left-1/2 size-[695px] -translate-x-1/2 translate-y-1/4 rounded-full bg-[radial-gradient(circle,rgba(200,80,240,0.28)_0%,transparent_70%)] opacity-35 blur-[72px]"
-          aria-hidden
-        />
         <div className="relative mx-auto flex max-w-[1280px] flex-col gap-12 md:gap-16">
-          <h2
-            id="tech-partners-network-heading"
-            className={cn(marketingHeroSectionTitleLayoutClassName, marketingHeroHeadlineGradientClassName)}
-            style={marketingHeroHeadlineGradientStyle}
-          >
-            Partner Network
-          </h2>
+          <header className="flex flex-col items-center gap-4 text-center md:gap-5">
+            <h2
+              id="tech-partners-network-heading"
+              className="text-balance font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl md:leading-[1.1]"
+            >
+              Partner Network
+            </h2>
+            <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-balance text-center')}>
+              We partner and integrate with the best platforms in the industry.
+            </p>
+          </header>
           <div className="flex flex-col gap-8 lg:gap-10">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
               <ShowcaseCard
@@ -179,21 +180,18 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className="bg-[#fafafa] px-4 py-16 sm:px-6 md:py-24 lg:px-[116px] lg:py-[100px]"
+        className="bg-white px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24"
         aria-labelledby="tech-partners-integrations-heading"
       >
         <div className="mx-auto max-w-[1280px]">
-          <h2
-            id="tech-partners-integrations-heading"
-            className={cn(
-              'mb-12 md:mb-16',
-              marketingHeroSectionTitleLayoutClassName,
-              marketingHeroHeadlineGradientClassName
-            )}
-            style={marketingHeroHeadlineGradientStyle}
-          >
-            Integrations
-          </h2>
+          <header className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16 md:gap-5">
+            <h2
+              id="tech-partners-integrations-heading"
+              className="text-balance font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl md:leading-[1.1]"
+            >
+              Integrations
+            </h2>
+          </header>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
             {TECH_PARTNERS_INTEGRATIONS.map((item) => (
               <div key={item.name} className="min-w-0">
@@ -205,39 +203,44 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className="relative overflow-hidden bg-[#fafafa] px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-[100px]"
+        className="relative overflow-hidden px-3 py-16 sm:px-4 md:py-24"
         aria-labelledby="tech-partners-cta-heading"
       >
-        <div
-          className="pointer-events-none absolute -left-16 top-24 size-[600px] rounded-full bg-[radial-gradient(circle,rgba(200,80,240,0.45)_0%,transparent_68%)] opacity-25 blur-[72px]"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -right-20 top-0 size-[500px] rounded-full bg-[radial-gradient(circle,rgba(200,80,240,0.4)_0%,transparent_68%)] opacity-25 blur-[72px]"
-          aria-hidden
-        />
-        <div className="relative mx-auto flex max-w-[760px] flex-col items-center gap-10 text-center md:gap-12">
-          <div className="flex flex-col gap-4 md:gap-5">
-            <p className="font-[family-name:var(--font-uncut-sans)] text-[13px] font-medium uppercase tracking-[0.08em] text-[#595959]">
-              Get started
-            </p>
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <div
+            className="absolute -left-20 -top-24 size-[580px] rounded-full opacity-20 blur-[36px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(200,80,240,0.45) 0%, rgba(200,80,240,0) 70%)'
+            }}
+          />
+          <div
+            className="absolute -bottom-20 -right-16 size-[480px] rounded-full opacity-15 blur-[36px]"
+            style={{
+              background: 'radial-gradient(circle, rgba(237,30,121,0.4) 0%, rgba(237,30,121,0) 70%)'
+            }}
+          />
+        </div>
+
+        <div className="relative mx-auto flex max-w-[700px] flex-col items-center gap-10 px-2 text-center md:gap-12">
+          <div className="flex flex-col gap-5">
+            <p className={cn(homeSectionEyebrowClassName, 'text-neutral-900')}>Get started</p>
             <h2
               id="tech-partners-cta-heading"
-              className={cn(
-                'flex flex-col items-center tracking-tight',
-                marketingHeroTitleLayoutClassName,
-                marketingHeroHeadlineGradientClassName
-              )}
-              style={marketingHeroHeadlineGradientStyle}
+              className="font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] tracking-tight text-neutral-900 md:text-6xl md:leading-[72px]"
             >
               <span className="block">Ready to make</span>
-              <span className="block">the move?</span>
+              <span
+                className="block bg-gradient-to-r from-[#e84590] to-[#c850f0] bg-clip-text text-transparent"
+                style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+              >
+                the move?
+              </span>
             </h2>
-            <p className="mx-auto max-w-[560px] text-base text-[#595959] md:text-lg">
+            <p className="font-[family-name:var(--font-uncut-sans)] text-lg text-[#595959]">
               We onboard a limited number of teams each month. Secure your spot.
             </p>
           </div>
-          <MarketersSolutionsCtaForm source="tech-partners" />
+          <MarketersSolutionsCtaForm source="tech-partners" className="mt-0 w-full max-w-[480px]" />
         </div>
       </section>
     </>

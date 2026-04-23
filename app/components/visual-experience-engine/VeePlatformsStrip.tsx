@@ -1,9 +1,11 @@
+import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
 import {
   veePlatformMagento,
   veePlatformSalesforce,
   veePlatformSap,
   veePlatformShopify
 } from '@/app/lib/vee-platforms-strip-assets'
+import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 const ROW = [
@@ -17,7 +19,7 @@ export function VeePlatformsStrip() {
   return (
     <section className="border-y border-black/5 bg-white/80 py-10 md:py-11">
       <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-6 px-4 md:px-8">
-        <p className="text-center font-uncut-sans text-sm font-semibold uppercase tracking-[0.7px] text-[#595959]">
+        <p className={cn(homeSectionEyebrowClassName, 'text-center text-[#595959]')}>
           Integrated with the top eCommerce Platforms
         </p>
         <div className="flex flex-wrap items-center justify-center gap-10 opacity-70 md:gap-14">

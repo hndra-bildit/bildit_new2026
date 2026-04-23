@@ -8,7 +8,11 @@ import {
   veeAdvantagesFastRuntimeLaptop,
   veeAdvantagesLaptopScreen
 } from '@/app/lib/vee-advantages-assets'
+import { cn } from '@/utils/cn'
 import Image from 'next/image'
+
+/** Matches outer rounded frame on `adv-scheduling.png` (794px wide, ~47px corner radius). */
+const advSchedulingFrameRadiusStyle = { borderRadius: 'calc(100% * 47 / 794)' } as const
 
 const REASONS = [
   {
@@ -16,7 +20,6 @@ const REASONS = [
     subtitle: 'Build it. See it. Ship it.',
     bullets: [
       'True visual editing',
-      'Manage updates as content, not code',
       'See changes exactly as they’ll render',
       'No lengthy rebuild cycles for minor content revisions',
       'Works with your existing architecture and CMS'
@@ -28,17 +31,16 @@ const REASONS = [
     bullets: [
       'Set start/end dates without deployments',
       'Plan and schedule drops, promos, and content',
-      'Manage promotions as content, not code',
-      'Empower marketing partners'
+      'Marketing is empowered'
     ]
   },
   {
-    title: 'Fast Runtime Rendering (SSR)',
-    subtitle: 'Speed Isn’t an Option',
+    title: 'Fast (SSR.. ask IT) Runtime Rendering',
+    subtitle: 'Speed isn’t Optional',
     intro: 'Milliseconds matter. BILDIT speeds up your existing site.',
     bullets: [
       'Render experiences fast across channels',
-      'No bloated payloads',
+      'Speed is Conversion',
       'Built for modern e-commerce frameworks'
     ]
   }
@@ -115,7 +117,13 @@ export function VeeAdvantagesSection() {
         </div>
 
         <div className="relative flex min-h-[280px] items-center justify-center md:min-h-[420px]">
-          <div className="relative w-full max-w-[640px] overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
+          <div
+            className={cn(
+              'relative w-full max-w-[640px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/5',
+              active === 1 ? 'bg-[#1a1a1a]' : 'rounded-xl'
+            )}
+            style={active === 1 ? advSchedulingFrameRadiusStyle : undefined}
+          >
             <div className="relative w-full">
               <Image
                 key={panel.src}
@@ -123,9 +131,11 @@ export function VeeAdvantagesSection() {
                 alt={panel.alt}
                 width={panel.width}
                 height={panel.height}
-                className={
-                  active === 0 ? 'h-auto w-full object-cover object-top' : 'h-auto w-full object-contain object-center'
-                }
+                className={cn(
+                  'block h-auto w-full',
+                  active === 0 ? 'object-cover object-top' : 'object-contain object-center'
+                )}
+                style={active === 1 ? advSchedulingFrameRadiusStyle : undefined}
                 sizes="(max-width: 768px) 100vw, 640px"
                 priority={active === 0}
               />

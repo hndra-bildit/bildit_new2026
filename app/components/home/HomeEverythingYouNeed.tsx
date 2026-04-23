@@ -138,8 +138,8 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
           />
 
           <div className="relative z-[1] px-0 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
-            <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-none px-5 py-10 sm:rounded-[24px] sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
-              <div className="absolute inset-0 overflow-hidden rounded-none sm:rounded-[24px]">
+            <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col items-center overflow-hidden rounded-none px-5 py-10 sm:rounded-3xl sm:p-8 md:p-12 lg:min-h-[720px] lg:px-[116px] lg:py-16">
+              <div className="absolute inset-0 overflow-hidden rounded-none sm:rounded-3xl">
                 <Image
                   src="/home-everything/dark-card-texture.png"
                   alt=""
@@ -160,12 +160,7 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
                   <h2 className={cn('text-balance', homeSectionTitleClassName)}>
                     Everything you need. Nothing holding you back.
                   </h2>
-                  <p
-                    className={cn(
-                      homeSectionSubtitleClassName,
-                      'mt-4 max-w-none text-center text-lg leading-[29.25px] text-[#595959]'
-                    )}
-                  >
+                  <p className={cn(homeSectionSubtitleClassName, 'mt-4 max-w-none text-center text-[#595959]')}>
                     You get:
                   </p>
                 </div>

@@ -1,4 +1,9 @@
 import { HomeWorkflowSocialStrip } from '@/app/components/home/HomeWorkflowSocialStrip'
+import {
+  homeSectionEyebrowClassName,
+  homeSectionTitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
+import { cn } from '@/utils/cn'
 
 /**
  * Marketers “Section - TESTIMONIALS” (Figma 4978:16269).
@@ -17,10 +22,8 @@ export function MarketersSolutionsTestimonialsSection() {
       </div>
       <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-10 md:gap-14">
         <header className="flex flex-col items-center gap-3.5 text-center">
-          <p className="font-uncut-sans text-xs font-semibold uppercase tracking-[0.08em] text-[#a07dc0]">
-            What teams say
-          </p>
-          <h2 className="font-uncut-sans text-3xl font-bold leading-tight tracking-[-0.028em] text-[#f0e6ff] md:text-5xl md:leading-[48px]">
+          <p className={cn(homeSectionEyebrowClassName, 'text-[#a07dc0]')}>What teams say</p>
+          <h2 className={homeSectionTitleOnDarkClassName}>
             <span className="block">Built for speed.</span>
             <span className="block">Loved by marketers.</span>
           </h2>

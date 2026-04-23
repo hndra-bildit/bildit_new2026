@@ -37,7 +37,7 @@ export function HomeFaq({ className }: { className?: string }) {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className={cn('home-scheme-light bg-white py-20 md:py-28', className)}>
+    <section className={cn('home-scheme-light bg-white py-16 md:py-20 lg:py-24', className)}>
       <div className="mx-auto max-w-[1260px] px-6">
         <h2 className={cn('text-center', homeSectionTitleClassName)}>Frequently asked questions.</h2>
         <p className={cn(homeSectionSubtitleClassName, 'mx-auto mt-4 text-center')}>{HOME_FAQ_SUBTITLE}</p>

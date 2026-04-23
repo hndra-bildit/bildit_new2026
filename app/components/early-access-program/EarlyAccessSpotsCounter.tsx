@@ -5,16 +5,21 @@ import { useEffect, useState } from 'react'
 const SPOTS_MAX = 10
 
 /**
- * Same behavior as `bildit-web/modules/firebase-user-counter.module/module.html`:
- * GET {NEXT_PUBLIC_FIREBASE_DATABASE_URL}{path}.json — number or { value: number }.
- * Configure path to match the HubSpot module’s Firebase path (e.g. /users/count).
+ * Same behavior as HubSpot `modules/firebase-user-counter.module/module.html` (REST, not the JS SDK):
+ * GET `firebaseUrl = firebaseDatabaseUrl + firebasePath + '.json'` and parse the body.
+ *
+ * HubSpot module fields → Next.js public env (set in Vercel / `.env` for local):
+ * - `firebase_database_url` → `NEXT_PUBLIC_FIREBASE_DATABASE_URL`
+ * - `firebase_path` → `NEXT_PUBLIC_FIREBASE_EARLY_ACCESS_PATH` (RTDB node for this counter, e.g. `/earlyAccess/count`; exact value lives in CMS config)
+ *
+ * Response: a JSON number, or an object with `value` (see `parseUserCount`).
  */
 function buildCountUrl(): string | null {
-  const base = process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL
-  const path = process.env.NEXT_PUBLIC_FIREBASE_EARLY_ACCESS_PATH
-  if (!base || !path) return null
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  return `${base.replace(/\/$/, '')}${normalizedPath}.json`
+  const firebaseDatabaseUrl = process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL
+  const firebasePath = process.env.NEXT_PUBLIC_FIREBASE_EARLY_ACCESS_PATH
+  if (!firebaseDatabaseUrl || !firebasePath) return null
+  const normalizedPath = firebasePath.startsWith('/') ? firebasePath : `/${firebasePath}`
+  return `${firebaseDatabaseUrl.replace(/\/$/, '')}${normalizedPath}.json`
 }
 
 function parseUserCount(data: unknown): number {
@@ -42,10 +47,13 @@ export function EarlyAccessSpotsCounter({ className }: EarlyAccessSpotsCounterPr
     const ac = new AbortController()
     fetch(url, { signal: ac.signal })
       .then((res) => {
-        if (!res.ok) throw new Error('Count request failed')
+        if (!res.ok) throw new Error('Network response was not ok')
         return res.json() as Promise<unknown>
       })
-      .then((data) => setTaken(Math.min(parseUserCount(data), SPOTS_MAX)))
+      .then((data) => {
+        const userCount = Math.min(parseUserCount(data), SPOTS_MAX)
+        setTaken(userCount)
+      })
       .catch(() => setTaken(0))
     return () => ac.abort()
   }, [])

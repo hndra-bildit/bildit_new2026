@@ -1,3 +1,7 @@
+import {
+  homeSectionEyebrowClassName,
+  homeSectionTitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 
 /** Figma intro band (4729:27436). */
@@ -23,12 +27,10 @@ export function StorefrontIntroBand({ className }: { className?: string }) {
       </div>
 
       <div className="relative mx-auto flex max-w-[1280px] flex-col items-center gap-5 px-4 text-center sm:px-6">
-        <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.08em] text-[#a07dc0]">
-          mobile app storefront
-        </p>
+        <p className={cn(homeSectionEyebrowClassName, 'text-[#a07dc0]')}>mobile app storefront</p>
         <h2
           id="storefront-intro-heading"
-          className="font-[family-name:var(--font-uncut-sans)] max-w-[630px] text-3xl font-bold leading-tight tracking-tight text-[#f0e6ff] sm:text-4xl md:text-[48px] md:leading-[58px]"
+          className={cn(homeSectionTitleOnDarkClassName, 'max-w-[630px] sm:text-4xl text-center text-[#f0e6ff]')}
         >
           Managing Your Mobile Store Just Got Easier
         </h2>

@@ -210,7 +210,7 @@ export function EngineeringSolutionsContent() {
               },
               {
                 n: '3',
-                t: 'Hand off the editor',
+                t: 'Hand off to Marketing',
                 d: 'Marketing works visually inside your components; you keep merge and review control.'
               }
             ].map((step) => (
@@ -281,7 +281,7 @@ export function EngineeringSolutionsContent() {
                 </ul>
               </div>
             </div>
-            <p className="mt-10 text-center text-lg font-semibold leading-relaxed text-white">
+            <p className="mt-10 text-center text-lg font-normal leading-relaxed text-white">
               Keep your stack. Add a visual layer your colleagues actually enjoy.
             </p>
           </div>

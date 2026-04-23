@@ -51,19 +51,10 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
 
   return (
     <section
-      className={cn('relative overflow-hidden bg-white py-16 md:py-24', className)}
+      className={cn('home-scheme-light relative overflow-hidden bg-white', className)}
       aria-labelledby="storefront-everything-heading"
     >
-      <div
-        className="pointer-events-none absolute left-[20%] top-[28%] size-[400px] rounded-full bg-[rgba(124,58,237,0.15)] blur-[100px]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute right-[15%] top-[8%] size-[400px] rounded-full bg-[rgba(232,69,144,0.08)] blur-[100px]"
-        aria-hidden
-      />
-
-      <div className="relative mx-auto max-w-[1512px] px-3 sm:px-4">
+      <div className="relative mx-auto max-w-[1512px] px-6 py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
         <h2
           id="storefront-everything-heading"
           className={cn(
@@ -90,25 +81,19 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
                     }
                   }}
                   className={cn(
-                    'flex w-full flex-col gap-1.5 rounded-2xl border p-2.5 text-left transition-colors md:p-2.5',
-                    'hover:border-[#7c3aed]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c3aed]',
-                    isActive ? 'border-transparent bg-[#f7ebf2] backdrop-blur-[10px]' : 'border-black/10 bg-white'
+                    'flex w-full flex-col gap-2.5 rounded-2xl border border-[rgba(200,80,240,0.15)] p-2.5 text-left backdrop-blur-[10px] transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-[#c850f0] focus-visible:ring-offset-2',
+                    isActive ? 'bg-[#f3f0ff] shadow-[0px_0px_20px_rgba(200,80,240,0.12)]' : 'bg-white/70 hover:bg-white'
                   )}
                 >
-                  <div className="flex items-center gap-0">
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg text-[#7c3aed]">
-                      <Icon className="size-6 stroke-[1.5]" aria-hidden />
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex shrink-0 rounded-xl p-2.5 text-[#431782]">
+                      <Icon className="size-6 stroke-[1.75]" aria-hidden />
                     </span>
-                    <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold leading-6 text-neutral-900">
+                    <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold leading-7 text-[#171717]">
                       {title}
                     </p>
                   </div>
-                  <p
-                    className={cn(
-                      'pl-2.5 font-[family-name:var(--font-uncut-sans)] text-base leading-6',
-                      isActive ? 'text-neutral-900' : 'text-neutral-500'
-                    )}
-                  >
+                  <p className="pl-2.5 font-[family-name:var(--font-uncut-sans)] text-base font-normal leading-6 text-[#737373]">
                     {body}
                   </p>
                 </button>

@@ -30,6 +30,8 @@
   --header-mega-row-active: rgba(0, 0, 0, 0.08);
   --header-mega-divider: rgba(0, 0, 0, 0.08);
   --header-accent-line: #c850f0;
+  /* Brand purple for text labels and eyebrows */
+  --bildit-purple-text: #633b9c;
 
   /* Marketing / VEE shared gradients (avoid duplicating long linear-gradient() in TSX) */
   --bildit-gradient-cta-figma-long: linear-gradient(
@@ -428,38 +430,6 @@ body:not(.header-scheme-light) [data-mega-nav-panel] {
     background-image: none !important;
     background-clip: unset !important;
     -webkit-background-clip: unset !important;
-  }
-}
-
-/* /solutions-for-marketers — “Build the React Content…” heading */
-@keyframes marketers-react-content-gradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.marketers-react-content-heading-gradient {
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  /* Wide tile: light lavender → vivid purple and back, shifted slowly for a soft pulse */
-  background-image: linear-gradient(95deg, #f0e6ff 0%, #eedbff 18%, #a78bfa 50%, #eedbff 82%, #f0e6ff 100%);
-  background-size: 220% 100%;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: marketers-react-content-gradient 12s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marketers-react-content-heading-gradient {
-    animation: none;
-    color: #f0e6ff;
-    -webkit-text-fill-color: #f0e6ff;
-    background-image: none;
   }
 }
 

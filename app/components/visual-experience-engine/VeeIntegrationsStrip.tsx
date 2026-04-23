@@ -1,3 +1,4 @@
+import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
 import {
   veeLogoAci,
   veeLogoAfterpay,
@@ -11,6 +12,7 @@ import {
   veeLogoSyte,
   veeLogoVercel
 } from '@/app/lib/vee-integrations-strip-assets'
+import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 const LOGOS = [
@@ -29,25 +31,27 @@ const LOGOS = [
 
 export function VeeIntegrationsStrip() {
   return (
-    <section className="border-y border-white/10 bg-[#0d0118] px-4 py-16 md:px-[232px] md:py-[81px]">
+    <section className="border-y border-white/10 bg-[#0d0118] px-6 py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
       <div className="mx-auto flex max-w-[1048px] flex-col items-center gap-8">
         <div className="flex flex-col gap-2.5 text-center">
           <h2 className="font-uncut-sans text-xl font-bold text-[#f0e6ff] md:text-2xl">
             The Visual Experience Engine provides SDK &amp; API integrations
           </h2>
-          <p className="font-uncut-sans text-xs font-semibold uppercase tracking-[0.48px] text-[#d6c1ea]">
-            with top eCommerce platforms
-          </p>
+          <p className={cn(homeSectionEyebrowClassName, 'text-[#d6c1ea]')}>with top eCommerce platforms</p>
         </div>
-        <div className="w-full overflow-x-auto overflow-y-hidden opacity-95">
-          <div className="mx-auto flex w-max max-w-none flex-nowrap items-center justify-center gap-x-6 sm:gap-x-8">
-            {LOGOS.map(({ src, alt, w, h }) => (
-              <span key={alt} className="inline-flex shrink-0">
-                <Image src={src} alt={alt} width={w} height={h} className="h-8 w-auto max-w-none object-contain" />
-              </span>
-            ))}
-          </div>
-        </div>
+        <ul className="flex w-full list-none flex-wrap items-center justify-center gap-x-6 gap-y-6 opacity-95 sm:gap-x-8 sm:gap-y-6 md:gap-x-10 md:gap-y-6">
+          {LOGOS.map(({ src, alt, w, h }) => (
+            <li key={alt} className="flex h-8 shrink-0 items-center justify-center">
+              <Image
+                src={src}
+                alt={alt}
+                width={w}
+                height={h}
+                className="h-8 w-auto object-contain object-center"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

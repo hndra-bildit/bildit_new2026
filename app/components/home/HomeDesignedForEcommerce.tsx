@@ -174,7 +174,7 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
         <div className="absolute right-[5%] top-[35%] size-[420px] rounded-full bg-[rgba(200,80,240,0.055)] blur-[110px] md:right-[8%]" />
         <div className="absolute bottom-[12%] left-1/2 size-[400px] -translate-x-1/2 rounded-full bg-[rgba(255,68,102,0.045)] blur-[100px]" />
       </div>
-      <div className="relative mx-auto w-full max-w-[1286px] px-6 py-20 md:px-10 md:py-[100px] lg:px-[116px]">
+      <div className="relative mx-auto w-full max-w-[1286px] px-6 py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
         <div className="flex flex-col items-center gap-5 text-center">
           <h2 className={cn('max-w-[855px] text-center', homeSectionTitleClassName)}>Designed for modern eCommerce.</h2>
           <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-center')}>

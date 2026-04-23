@@ -18,6 +18,13 @@ import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle
 } from '@/app/lib/marketing-hero-headline-gradient'
+import {
+  homeSectionEyebrowClassName,
+  homeSectionSubtitleClassName,
+  homeSectionSubtitleOnDarkClassName,
+  homeSectionTitleClassName,
+  homeSectionTitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
@@ -163,7 +170,7 @@ export function MarketersSolutionsContent() {
           />
         </div>
         <div className="relative mx-auto flex max-w-[1048px] flex-col items-center gap-5">
-          <h2 className="text-center font-uncut-sans text-3xl font-bold leading-tight tracking-[-0.02em] text-[#f0e6ff] md:text-5xl md:leading-[58px]">
+          <h2 className={cn(homeSectionTitleOnDarkClassName, 'text-center')}>
             <span className="text-[#f0e6ff]">Fast: Builds, Loads, Launches.</span>
             <br />
             <span
@@ -176,7 +183,7 @@ export function MarketersSolutionsContent() {
             </span>
             <span className="text-[#f0e6ff]">.</span>
           </h2>
-          <p className="text-center text-[17px] text-[#a07dc0]">
+          <p className={cn(homeSectionSubtitleOnDarkClassName, 'text-center text-[#a07dc0]')}>
             What teams see after switching to BILDIT Visual Experience Engine.
           </p>
           <div className="mt-8 grid w-full grid-cols-1 gap-8 border-white/10 pt-4 md:grid-cols-3 md:gap-2 md:pt-[52px]">
@@ -230,10 +237,10 @@ export function MarketersSolutionsContent() {
           <div className="relative z-[1] flex flex-col items-center px-4 pb-16 pt-10 md:px-[116px] md:pb-20 md:pt-12">
             <div className="w-full max-w-[1280px] rounded-3xl bg-white px-6 py-12 shadow-[0px_0px_150px_0px_rgba(232,69,144,0.08),0px_0px_80px_0px_rgba(200,80,240,0.15)] md:px-12 md:py-16">
               <div className="mx-auto max-w-[768px] text-center">
-                <h2 className="font-uncut-sans text-3xl font-bold leading-tight text-[#171717] md:text-5xl md:leading-[58px]">
+                <h2 className={cn(homeSectionTitleClassName, 'text-center')}>
                   Everything you need. Nothing holding you back.
                 </h2>
-                <p className="mt-6 text-lg text-[#595959]">You get:</p>
+                <p className={cn(homeSectionSubtitleClassName, 'mt-6 text-center')}>You get:</p>
               </div>
               <div className="mx-auto mt-10 max-w-[970px] rounded-2xl border border-black/10 bg-[#0d0118] p-8 md:p-10">
                 <div className="grid gap-10 md:grid-cols-2">
@@ -257,7 +264,7 @@ export function MarketersSolutionsContent() {
                     </ul>
                   </div>
                 </div>
-                <p className="mt-10 text-center text-lg font-semibold leading-relaxed text-white">
+                <p className="mt-10 text-center text-lg font-normal leading-relaxed text-white">
                   Build beautiful content at the speed of marketing.
                   <br />
                   <br />
@@ -289,14 +296,14 @@ export function MarketersSolutionsContent() {
           />
         </div>
         <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-5 md:px-0">
-          <p className="text-xs font-bold uppercase tracking-[0.08em]">Get started</p>
+          <p className={cn(homeSectionEyebrowClassName, 'text-neutral-900')}>Get started</p>
           <h2 className="text-center font-uncut-sans text-4xl font-bold leading-[1.05] tracking-[-0.02em] md:text-[72px] md:leading-[72px]">
             <span className="block text-[#171717]">Ready to build</span>
             <span className="bg-gradient-to-r from-[#e84590] to-[#c850f0] bg-clip-text text-transparent">
               content fast?
             </span>
           </h2>
-          <p className="text-center text-lg text-[#595959]">
+          <p className={cn(homeSectionSubtitleClassName, 'text-center')}>
             We work with a limited number of teams each month. Secure your spot today.
           </p>
           <MarketersSolutionsCtaForm source="marketers-solutions" />
@@ -305,7 +312,7 @@ export function MarketersSolutionsContent() {
 
       <section className="border-y border-black/5 bg-white px-4 py-10 md:px-[116px]">
         <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-6">
-          <p className="text-center text-sm font-medium uppercase tracking-[0.07em] text-[#595959]">
+          <p className={cn(homeSectionEyebrowClassName, 'text-center text-[#595959]')}>
             Integrated with the top eCommerce Platforms
           </p>
           <div className="flex flex-wrap items-center justify-center gap-10 opacity-70">

@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
+import { cn } from '@/utils/cn'
 import { ChevronDown } from 'lucide-react'
 
 type FaqItem = { q: string; a: string }
@@ -90,7 +92,7 @@ export function VeeFaqSection() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-[992px] px-4 md:px-8">
-        <h2 className="text-center font-uncut-sans text-2xl font-bold text-[#171717] md:text-3xl">
+        <h2 className={cn('text-center', homeSectionTitleClassName)}>
           Frequently Asked Questions
         </h2>
         <div className="mt-10 flex flex-col gap-4">
@@ -99,7 +101,7 @@ export function VeeFaqSection() {
             return (
               <div
                 key={item.q}
-                className="overflow-hidden rounded-lg border border-[#ccc4d6] bg-white transition-shadow"
+                className="overflow-hidden rounded-2xl border border-neutral-200 bg-white transition-shadow"
               >
                 <button
                   type="button"

@@ -1,3 +1,4 @@
+import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { MOBILE_APP_STOREFRONT_IMAGES } from '@/app/lib/storefront-remote-assets'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
@@ -43,7 +44,7 @@ export function StorefrontTransforming({ className }: { className?: string }) {
     >
       <h2
         id="storefront-transforming-heading"
-        className="mx-auto max-w-[1100px] px-6 text-center font-[family-name:var(--font-uncut-sans)] text-3xl font-bold leading-tight text-neutral-900 sm:px-8 md:px-10 md:text-[48px] lg:px-[116px]"
+        className={cn(homeSectionTitleClassName, 'mx-auto max-w-[1100px] px-6 text-center sm:px-8 md:px-10 lg:px-[116px]')}
       >
         Offer Better Native Mobile Experiences
       </h2>

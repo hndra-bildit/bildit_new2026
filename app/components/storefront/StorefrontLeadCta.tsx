@@ -1,6 +1,7 @@
 'use client'
 
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
+import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 
 type StorefrontLeadCtaProps = {
@@ -37,9 +38,7 @@ export function StorefrontLeadCta({ className, leadSource = 'mobile-app-storefro
 
       <div className="relative mx-auto flex max-w-[700px] flex-col items-center gap-10 px-2 text-center md:gap-12">
         <div className="flex flex-col gap-5">
-          <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.08em] text-neutral-900">
-            Get started
-          </p>
+          <p className={cn(homeSectionEyebrowClassName, 'text-neutral-900')}>Get started</p>
           <h2
             id="storefront-cta-heading"
             className="font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] tracking-tight text-neutral-900 md:text-6xl md:leading-[72px]"

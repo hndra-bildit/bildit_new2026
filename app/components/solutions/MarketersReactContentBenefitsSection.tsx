@@ -1,4 +1,9 @@
+import {
+  homeSectionEyebrowClassName,
+  homeSectionSubtitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { cn } from '@/utils/cn'
 import { ArrowRight, Calendar, Cloud, Zap } from 'lucide-react'
 
 /** Figma BILDIT-Website-2025 `5028:18302` — Section “4 BENEFITS” (REACT CONTENT). */
@@ -43,15 +48,16 @@ export function MarketersReactContentBenefitsSection() {
     >
       <div className="mx-auto flex max-w-[1290px] flex-col items-center gap-12 md:gap-[50px]">
         <div className="flex w-full max-w-[1076px] flex-col items-center gap-5 text-center md:gap-[30px]">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#f5f7fa]">React content</p>
+          <p className={cn(homeSectionEyebrowClassName, 'text-[#f5f7fa]')}>React content</p>
           <h2
             id="marketers-react-content-heading"
-            className="marketers-react-content-heading-gradient font-uncut-sans text-2xl font-bold leading-tight tracking-[-0.02em] md:text-5xl md:leading-[58px]"
+            className="text-center font-uncut-sans text-3xl font-bold leading-tight tracking-[-0.02em] text-[#f0e6ff] md:text-5xl md:leading-[58px]"
           >
-            <span className="block">Build the React Content your</span>
-            <span className="block">Customer Demands..</span>
+            <span className="text-[#f0e6ff]">Build the React Content your</span>
+            <br />
+            <span className="text-[#f0e6ff]">Customer Demands..</span>
           </h2>
-          <p className="text-lg text-white">on Web and Mobile App</p>
+          <p className={cn(homeSectionSubtitleOnDarkClassName, 'text-center text-[#a07dc0]')}>on Web and Mobile App</p>
         </div>
 
         <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">

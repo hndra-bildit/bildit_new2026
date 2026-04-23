@@ -79,6 +79,7 @@ import {
   StorefrontPlatformStrip,
   StorefrontSchedulingIntegrations,
   StorefrontTestimonials,
+  StorefrontTestimonialsQuotes,
   StorefrontTransforming
 } from '@/app/components/storefront'
 import * as homeFaqData from '@/app/lib/home-faq-data'
@@ -199,6 +200,7 @@ const cmsDependencies: Record<string, Dependency> = {
       StorefrontPlatformStrip,
       StorefrontSchedulingIntegrations,
       StorefrontTestimonials,
+      StorefrontTestimonialsQuotes,
       StorefrontTransforming
     }
   },

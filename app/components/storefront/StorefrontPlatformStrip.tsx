@@ -1,4 +1,4 @@
-import { homeSectionSubtitleClassName } from '@/app/components/home/home-section-typography'
+import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
@@ -17,7 +17,7 @@ export function StorefrontPlatformStrip({ className }: { className?: string }) {
       aria-label="eCommerce platform integrations"
     >
       <div className="mx-auto flex max-w-[1260px] flex-col items-center gap-6 px-6 py-10 md:gap-6 md:py-11">
-        <p className={cn(homeSectionSubtitleClassName, 'max-w-none text-center uppercase tracking-[0.7px]')}>
+        <p className={cn(homeSectionEyebrowClassName, 'text-center text-neutral-600')}>
           Integrated with the top eCommerce Platforms
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-14">

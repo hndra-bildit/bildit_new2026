@@ -1,6 +1,7 @@
 'use client'
 
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
+import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -8,6 +9,7 @@ import Link from 'next/link'
 
 /**
  * Figma: Section - HERO inner Hero (4729:28527). Global site header is LayoutChrome — no duplicate nav.
+ * Layout matches `VeeHero`: centered copy on small screens, left-aligned from md; phone art in grid column (not over text).
  */
 export function StorefrontHero({ className }: { className?: string }) {
   return (
@@ -25,22 +27,9 @@ export function StorefrontHero({ className }: { className?: string }) {
           alt=""
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-[78%_center] sm:object-center"
           sizes="100vw"
         />
-        <div
-          className="pointer-events-none absolute right-0 top-[8%] hidden h-[min(70vh,686px)] w-[min(40vw,384px)] sm:block"
-          aria-hidden
-        >
-          <div className="relative h-full w-full">
-            <Image
-              src="/mobile-app-storefront/hero-overlay.svg"
-              alt=""
-              fill
-              className="object-contain object-right-top"
-            />
-          </div>
-        </div>
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40 sm:rounded-[29px]"
           aria-hidden
@@ -48,33 +37,48 @@ export function StorefrontHero({ className }: { className?: string }) {
       </div>
       <SiteHeroTopSpacer />
       <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="flex min-h-0 flex-1 flex-col items-start justify-center px-4 py-16 sm:px-10 sm:py-20">
-          <div className="flex w-full max-w-[896px] flex-col gap-14 text-left md:gap-[60px]">
-            <div className="flex w-full min-w-0 max-w-[450px] flex-col items-start gap-5 md:gap-5">
-              <p className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-[0.08em] text-[#f0e6ff]">
+        <div className="mx-auto flex w-full max-w-[1280px] min-h-full flex-1 flex-col justify-center px-4 py-10 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
+          <div className="grid w-full min-w-0 grid-cols-1 items-center gap-10 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
+            <div className="order-1 flex min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
+              <p
+                className={cn(
+                  homeSectionEyebrowClassName,
+                  'w-full text-[#f0e6ff] md:text-left'
+                )}
+              >
                 Storefront
               </p>
-              <h1 className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:text-6xl lg:text-[72px] lg:leading-[72px]">
+              <h1 className="mx-auto w-fit max-w-full pb-[3px] text-center font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:mx-0 md:text-left md:text-6xl lg:text-[72px] lg:leading-[72px]">
                 Your mobile store
               </h1>
-              <p className="w-full text-left font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-relaxed text-[#f0e6ff] [text-shadow:0_1px_2px_rgba(0,0,0,0.3),0_2px_12px_rgba(0,0,0,0.18)] sm:text-xl md:text-[20px] md:leading-[31px]">
+              <p className="font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-relaxed text-[#f0e6ff] [text-shadow:0_1px_2px_rgba(0,0,0,0.3),0_2px_12px_rgba(0,0,0,0.18)] sm:text-xl md:text-[20px] md:leading-[31px]">
                 Stop waiting on developers. Launch campaigns, update banners, and ship experiences — instantly.
               </p>
+              <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center md:justify-start sm:gap-5">
+                <Link
+                  href="/pricing/"
+                  className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[22px] py-2.5 text-base font-semibold text-white shadow-[0px_10px_24px_0px_rgba(232,69,139,0.18)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Get Started
+                  <ArrowRight className="size-4 shrink-0" aria-hidden />
+                </Link>
+                <Link
+                  href="/mobile-app-storefront/#storefront-cta"
+                  className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center rounded-full border-[1.5px] border-[#595959] bg-white px-[22px] text-base font-semibold text-[#595959] transition-colors hover:border-neutral-700 hover:text-neutral-800"
+                >
+                  Book a Demo
+                </Link>
+              </div>
             </div>
-            <div className="flex w-full flex-wrap items-center justify-start gap-5">
-              <Link
-                href="/pricing/"
-                className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[22px] py-2.5 text-base font-semibold text-white shadow-[0px_10px_24px_0px_rgba(232,69,139,0.18)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Get Started
-                <ArrowRight className="size-4 shrink-0" aria-hidden />
-              </Link>
-              <Link
-                href="/mobile-app-storefront/#storefront-cta"
-                className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center rounded-full border-[1.5px] border-[#595959] bg-white px-[22px] text-base font-semibold text-[#595959] transition-colors hover:border-neutral-700 hover:text-neutral-800"
-              >
-                Book a Demo
-              </Link>
+            <div className="order-2 flex w-full min-w-0 justify-center md:justify-end pointer-events-none" aria-hidden>
+              <div className="relative h-[min(52vh,420px)] w-full max-w-[280px] sm:max-w-[320px] md:h-[min(70vh,686px)] md:max-w-[min(40vw,384px)]">
+                <Image
+                  src="/mobile-app-storefront/hero-overlay.svg"
+                  alt=""
+                  fill
+                  className="object-contain object-center md:object-right md:object-top"
+                />
+              </div>
             </div>
           </div>
         </div>
