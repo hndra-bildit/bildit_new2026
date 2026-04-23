@@ -16,7 +16,10 @@ export function StripePricingTableEmbed() {
   if (!publishableKey) {
     return (
       <div
-        className={cn('rounded-2xl border border-dashed border-black/10 px-6 py-16 text-center', PRICING_PAGE_SURFACE_CLASS)}
+        className={cn(
+          'rounded-2xl border border-dashed border-black/10 px-6 py-16 text-center',
+          PRICING_PAGE_SURFACE_CLASS
+        )}
       >
         <p className="font-[family-name:var(--font-inter)] text-sm leading-relaxed text-neutral-600 md:text-base">
           Set{' '}

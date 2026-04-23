@@ -1,7 +1,7 @@
 'use client'
 
-import { PRICING_PAGE_SURFACE } from '@/app/lib/pricing-home-insets'
 import { useLayoutEffect } from 'react'
+import { PRICING_PAGE_SURFACE } from '@/app/lib/pricing-home-insets'
 
 export function PricingHtmlBodySurface({ children }: { children: React.ReactNode }) {
   useLayoutEffect(() => {

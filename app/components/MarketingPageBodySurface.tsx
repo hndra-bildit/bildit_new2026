@@ -1,7 +1,7 @@
 'use client'
 
-import { PRICING_PAGE_SURFACE } from '@/app/lib/pricing-home-insets'
 import { useLayoutEffect } from 'react'
+import { PRICING_PAGE_SURFACE } from '@/app/lib/pricing-home-insets'
 
 /**
  * Sets html/body to the same light gray as `/pricing` (`PRICING_PAGE_SURFACE`) for blog, webinars, and tech-partners

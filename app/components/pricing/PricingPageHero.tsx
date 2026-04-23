@@ -3,8 +3,8 @@ import {
   homeSectionSubtitleClassName,
   homeSectionTitleClassName
 } from '@/app/components/home/home-section-typography'
-import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
+import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { cn } from '@/utils/cn'
 
 const HERO_ID = 'pricing-page-hero'

@@ -5,6 +5,7 @@ import {
   homeSectionTitleClassName
 } from '@/app/components/home/home-section-typography'
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
+import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import {
   TECH_PARTNERS_AIRSHIP_LOGO,
   TECH_PARTNERS_ASTOUND_LOGO,
@@ -14,7 +15,6 @@ import {
   TECH_PARTNERS_GRINTEQ_LOGO,
   TECH_PARTNERS_INSIGHT_GLOBAL_LOGO
 } from '@/app/lib/tech-partners-assets'
-import { PRICING_PAGE_SURFACE_CLASS } from '@/app/lib/pricing-home-insets'
 import { TECH_PARTNERS_INTEGRATIONS } from '@/app/lib/tech-partners-integrations'
 import { cn } from '@/utils/cn'
 
@@ -184,10 +184,7 @@ export function TechPartnersSections() {
       </section>
 
       <section
-        className={cn(
-          'px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24',
-          PRICING_PAGE_SURFACE_CLASS
-        )}
+        className={cn('px-4 py-16 sm:px-6 md:px-10 md:py-20 lg:px-[116px] lg:py-24', PRICING_PAGE_SURFACE_CLASS)}
         aria-labelledby="tech-partners-integrations-heading"
       >
         <div className="mx-auto max-w-[1280px]">

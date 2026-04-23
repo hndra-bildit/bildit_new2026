@@ -34,7 +34,11 @@ function ComparisonCell({ value }: { value: CellValue }) {
 export function PricingPlanComparisonSection() {
   return (
     <section
-      className={cn('relative overflow-hidden pb-12 pt-2 md:pb-16 md:pt-4', PRICING_PAGE_SURFACE_CLASS, PRICING_HOME_HEADER_INSET_CLASS)}
+      className={cn(
+        'relative overflow-hidden pb-12 pt-2 md:pb-16 md:pt-4',
+        PRICING_PAGE_SURFACE_CLASS,
+        PRICING_HOME_HEADER_INSET_CLASS
+      )}
       data-node-id="4486:18262"
     >
       <div
