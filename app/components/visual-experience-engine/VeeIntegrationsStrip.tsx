@@ -42,13 +42,7 @@ export function VeeIntegrationsStrip() {
         <ul className="flex w-full list-none flex-wrap items-center justify-center gap-x-6 gap-y-6 opacity-95 sm:gap-x-8 sm:gap-y-6 md:gap-x-10 md:gap-y-6">
           {LOGOS.map(({ src, alt, w, h }) => (
             <li key={alt} className="flex h-8 shrink-0 items-center justify-center">
-              <Image
-                src={src}
-                alt={alt}
-                width={w}
-                height={h}
-                className="h-8 w-auto object-contain object-center"
-              />
+              <Image src={src} alt={alt} width={w} height={h} className="h-8 w-auto object-contain object-center" />
             </li>
           ))}
         </ul>

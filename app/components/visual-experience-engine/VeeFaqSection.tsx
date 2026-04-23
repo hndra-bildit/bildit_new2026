@@ -92,9 +92,7 @@ export function VeeFaqSection() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-[992px] px-4 md:px-8">
-        <h2 className={cn('text-center', homeSectionTitleClassName)}>
-          Frequently Asked Questions
-        </h2>
+        <h2 className={cn('text-center', homeSectionTitleClassName)}>Frequently Asked Questions</h2>
         <div className="mt-10 flex flex-col gap-4">
           {FAQ.map((item, i) => {
             const isOpen = open === i

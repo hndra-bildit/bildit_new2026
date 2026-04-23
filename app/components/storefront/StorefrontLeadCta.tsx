@@ -1,7 +1,7 @@
 'use client'
 
-import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
+import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import { cn } from '@/utils/cn'
 
 type StorefrontLeadCtaProps = {

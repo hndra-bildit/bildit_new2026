@@ -1,7 +1,7 @@
 'use client'
 
-import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { homeSectionEyebrowClassName } from '@/app/components/home/home-section-typography'
+import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { cn } from '@/utils/cn'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
@@ -40,14 +40,7 @@ export function StorefrontHero({ className }: { className?: string }) {
         <div className="mx-auto flex w-full max-w-[1280px] min-h-full flex-1 flex-col justify-center px-4 py-10 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
           <div className="grid w-full min-w-0 grid-cols-1 items-center gap-10 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
             <div className="order-1 flex min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
-              <p
-                className={cn(
-                  homeSectionEyebrowClassName,
-                  'w-full text-[#f0e6ff] md:text-left'
-                )}
-              >
-                Storefront
-              </p>
+              <p className={cn(homeSectionEyebrowClassName, 'w-full text-[#f0e6ff] md:text-left')}>Storefront</p>
               <h1 className="mx-auto w-fit max-w-full pb-[3px] text-center font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:mx-0 md:text-left md:text-6xl lg:text-[72px] lg:leading-[72px]">
                 Your mobile store
               </h1>

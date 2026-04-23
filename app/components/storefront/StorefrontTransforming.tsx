@@ -44,7 +44,10 @@ export function StorefrontTransforming({ className }: { className?: string }) {
     >
       <h2
         id="storefront-transforming-heading"
-        className={cn(homeSectionTitleClassName, 'mx-auto max-w-[1100px] px-6 text-center sm:px-8 md:px-10 lg:px-[116px]')}
+        className={cn(
+          homeSectionTitleClassName,
+          'mx-auto max-w-[1100px] px-6 text-center sm:px-8 md:px-10 lg:px-[116px]'
+        )}
       >
         Offer Better Native Mobile Experiences
       </h2>

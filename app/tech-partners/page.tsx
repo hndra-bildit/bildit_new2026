@@ -1,6 +1,6 @@
 import { HomeIntegrations } from '@/app/components/home/HomeIntegrations'
-import { TechPartnersSections } from '@/app/components/tech-partners/TechPartnersSections'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
+import { TechPartnersSections } from '@/app/components/tech-partners/TechPartnersSections'
 import { SlotPlaceholder } from '@bildit-platform/nextjs'
 import type { Metadata } from 'next'
 

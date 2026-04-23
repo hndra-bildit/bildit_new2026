@@ -21,9 +21,7 @@ export function HomeWorkflowShowcase({ className, showSocialStrip = true }: Home
       <div className="relative mx-auto flex max-w-[1286px] flex-col gap-10 px-6 py-16 md:gap-[50px] md:px-10 md:py-20 lg:px-[116px] lg:py-24">
         <div className="flex flex-col items-center gap-2.5 text-center">
           <h2 className={cn('text-balance', homeSectionTitleClassName)}>Your content is visual. Build visually.</h2>
-          <p className={cn(homeSectionSubtitleClassName, 'text-center')}>
-            Build. Preview. Publish.... Fast
-          </p>
+          <p className={cn(homeSectionSubtitleClassName, 'text-center')}>Build. Preview. Publish.... Fast</p>
         </div>
 
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-8 lg:gap-[60px]">
@@ -44,10 +42,7 @@ export function HomeWorkflowShowcase({ className, showSocialStrip = true }: Home
               showSocialStrip ? 'items-start md:w-[300px]' : 'items-center text-center'
             )}
           >
-            <p
-              className={cn(homeSectionSubtitleClassName, 'max-w-[250px]')}
-              id="home-workflow-cta-heading"
-            >
+            <p className={cn(homeSectionSubtitleClassName, 'max-w-[250px]')} id="home-workflow-cta-heading">
               Idea → Live experience. Hours. Not weeks.
             </p>
             <div aria-describedby="home-workflow-cta-heading">

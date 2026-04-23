@@ -1,9 +1,9 @@
+import { LogoImage } from '@/app/components/LogoImage'
 import {
   homeSectionEyebrowClassName,
   homeSectionSubtitleClassName,
   homeSectionTitleClassName
 } from '@/app/components/home/home-section-typography'
-import { LogoImage } from '@/app/components/LogoImage'
 import { MarketersSolutionsCtaForm } from '@/app/components/solutions/MarketersSolutionsCtaForm'
 import {
   TECH_PARTNERS_AIRSHIP_LOGO,
@@ -91,10 +91,7 @@ export function TechPartnersSections() {
         <div className="relative mx-auto flex max-w-[1280px] flex-col gap-12 md:gap-16">
           <header className="flex flex-col items-center gap-4 text-center md:gap-5">
             <p className={cn(homeSectionEyebrowClassName, 'text-neutral-600')}>Tech Partners</p>
-            <h2
-              id="tech-partners-integrators-heading"
-              className={cn('text-balance', homeSectionTitleClassName)}
-            >
+            <h2 id="tech-partners-integrators-heading" className={cn('text-balance', homeSectionTitleClassName)}>
               Solutions Integrators
             </h2>
             <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-balance text-center')}>

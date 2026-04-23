@@ -4,6 +4,13 @@ import {
   InstaStoriesShoulderCapsBottom,
   InstaStoriesShoulderCapsTop
 } from '@/app/components/home/InstaStoriesSectionShoulderCaps'
+import {
+  homeSectionEyebrowClassName,
+  homeSectionSubtitleClassName,
+  homeSectionSubtitleOnDarkClassName,
+  homeSectionTitleClassName,
+  homeSectionTitleOnDarkClassName
+} from '@/app/components/home/home-section-typography'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { MarketersFeaturesBentoSection } from '@/app/components/solutions/MarketersFeaturesBentoSection'
@@ -18,13 +25,6 @@ import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle
 } from '@/app/lib/marketing-hero-headline-gradient'
-import {
-  homeSectionEyebrowClassName,
-  homeSectionSubtitleClassName,
-  homeSectionSubtitleOnDarkClassName,
-  homeSectionTitleClassName,
-  homeSectionTitleOnDarkClassName
-} from '@/app/components/home/home-section-typography'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
