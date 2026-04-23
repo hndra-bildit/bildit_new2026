@@ -23,8 +23,9 @@ const BONUS_ITEMS = [
   'Direct access to our engineering team'
 ] as const
 
-/** Full-bleed parallax layer behind the section (`public/images/insta-stories.gif`). */
-const SECTION_BACKGROUND_SRC = '/images/insta-stories.gif'
+/** Full-bleed parallax layer behind the section (hosted MP4). */
+const SECTION_BACKGROUND_VIDEO_SRC =
+  'https://storage.googleapis.com/compilepoc-2d379.appspot.com/bildit-website-staging%2FInsta_Stories.mp4'
 
 /** Subtle parallax: background shifts with scroll as the section crosses the viewport. */
 const PARALLAX_RATE = 0.1
@@ -87,13 +88,24 @@ function usePrefersReducedMotion(): boolean {
 }
 
 /**
- * “Everything you need”: parallax GIF, 50px white shoulder connectors (inner 50px radii) above/below
- * the parallax, dark feature frame, checklist. GIF sits z-0; transparent center of each connector
- * shows the GIF; flanks are `bg-white` like adjacing sections.
+ * “Everything you need”: parallax video background, 50px white shoulder connectors (inner 50px radii) above/below
+ * the parallax, dark feature frame, checklist. Video sits z-0; transparent center of each connector
+ * shows the media; flanks are `bg-white` like adjacing sections.
  */
 export function HomeEverythingYouNeed({ className }: { className?: string }) {
   const reducedMotion = usePrefersReducedMotion()
   const { sectionRef, parallaxY } = useParallaxY(!reducedMotion)
+  const backgroundVideoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = backgroundVideoRef.current
+    if (!video) return
+    if (reducedMotion) {
+      video.pause()
+    } else {
+      void video.play().catch(() => {})
+    }
+  }, [reducedMotion])
 
   return (
     <section ref={sectionRef} className={cn('home-scheme-light relative w-full overflow-hidden bg-white', className)}>
@@ -102,11 +114,15 @@ export function HomeEverythingYouNeed({ className }: { className?: string }) {
           className="absolute -top-[10%] left-0 right-0 h-[120%] will-change-transform"
           style={{ transform: `translateY(${parallaxY}px)` }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element -- animated GIF background */}
-          <img
-            src={SECTION_BACKGROUND_SRC}
-            alt=""
+          <video
+            ref={backgroundVideoRef}
             className="absolute inset-0 h-full w-full object-cover object-center"
+            src={SECTION_BACKGROUND_VIDEO_SRC}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
             aria-hidden
           />
         </div>
