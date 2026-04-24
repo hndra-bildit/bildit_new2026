@@ -3,10 +3,10 @@ import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 const LOGOS = [
-  { src: '/home-integrations/salesforce.png', alt: 'Salesforce', width: 40, height: 32 },
-  { src: '/home-integrations/shopify-plus.png', alt: 'Shopify Plus', width: 126, height: 32 },
-  { src: '/home-integrations/sap.png', alt: 'SAP', width: 71, height: 32 },
-  { src: '/home-integrations/adobe-commerce.png', alt: 'Adobe Commerce', width: 114, height: 32 }
+  { src: '/images/home-integrations/salesforce.png', alt: 'Salesforce', width: 40, height: 32 },
+  { src: '/images/home-integrations/shopify-plus.png', alt: 'Shopify Plus', width: 126, height: 32 },
+  { src: '/images/home-integrations/sap.png', alt: 'SAP', width: 71, height: 32 },
+  { src: '/images/home-integrations/adobe-commerce.png', alt: 'Adobe Commerce', width: 114, height: 32 }
 ] as const
 
 /** Figma platform strip (4729:28023); logos match HomeIntegrations assets. */

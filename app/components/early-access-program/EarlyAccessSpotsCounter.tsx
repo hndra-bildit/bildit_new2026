@@ -62,7 +62,7 @@ export function EarlyAccessSpotsCounter({ className }: EarlyAccessSpotsCounterPr
 
   return (
     <p className={className} suppressHydrationWarning>
-      <span className="tabular-nums">{display}</span> out of {SPOTS_MAX} Taken
+      <span className="tabular-nums">{display}</span> out of {SPOTS_MAX} chosen
     </p>
   )
 }

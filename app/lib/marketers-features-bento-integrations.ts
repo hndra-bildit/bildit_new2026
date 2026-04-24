@@ -49,7 +49,7 @@ export const MARKETERS_BENTO_INTEGRATION_CELLS = [
   },
   {
     src: 'https://www.figma.com/api/mcp/asset/4c96b895-9637-4de7-a67e-c187afe81ed7',
-    label: 'Commercetools',
+    label: 'commercetools',
     logoClassName: 'h-[25px] w-[21px]'
   }
 ] as const

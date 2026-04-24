@@ -11,7 +11,7 @@ const trackPaddingClassName = 'pl-6 pr-6 sm:pl-8 sm:pr-8 md:pl-10 md:pr-10 lg:pl
 type NoLimitationsFeatureCarouselProps = {
   className?: string
   /** Defaults to `home` page carousel art. Pass e.g. `marketersSolutionsNoLimitationsCardImages` for /solutions-for-marketers. */
-  cardImages?: readonly { src: string }[]
+  cardImages?: readonly { src: string; unoptimized?: boolean }[]
   /** Per-card title overrides (e.g. solutions-for-marketers copy tweaks). */
   cardTitleOverrides?: Partial<Record<NoLimitationsFeatureCard['id'], string>>
 }
@@ -55,6 +55,7 @@ export function NoLimitationsFeatureCarousel({
                     sizes="(max-width: 640px) min(100vw - 3rem, 397px), 397px"
                     className="object-cover object-center"
                     fetchPriority={index === 0 ? 'high' : 'low'}
+                    unoptimized={art.unoptimized}
                   />
                 </div>
               </div>

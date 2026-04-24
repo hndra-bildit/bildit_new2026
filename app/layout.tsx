@@ -192,7 +192,7 @@ export default async function RootLayout({
           }}
         />
         {/* <BILDITAIPixel /> */}
-        <Providers banners={banners}>
+        <Providers {...{ banners }}>
           <>
             <LayoutChrome>{children}</LayoutChrome>
             <Footer />

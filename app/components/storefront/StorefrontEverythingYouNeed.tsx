@@ -1,7 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
+import {
+  homeSectionEyebrowClassName,
+  homeSectionSubtitleClassName,
+  homeSectionTitleClassName
+} from '@/app/components/home/home-section-typography'
 import { MOBILE_APP_STOREFRONT_IMAGES } from '@/app/lib/storefront-remote-assets'
 import { cn } from '@/utils/cn'
 import { CalendarHeart, CreditCard, LayoutTemplate, Paintbrush } from 'lucide-react'
@@ -13,7 +17,8 @@ const FEATURES = [
     body: 'Simplify your content management for greater efficiency.',
     icon: LayoutTemplate,
     updatesPreview: true,
-    previewSrc: MOBILE_APP_STOREFRONT_IMAGES.storefront,
+    centerPreviewVertically: false,
+    previewSrc: MOBILE_APP_STOREFRONT_IMAGES.simplifiedContentManagement,
     previewAlt: 'BILDIT live editor — simplified content management for your storefront'
   },
   {
@@ -22,6 +27,7 @@ const FEATURES = [
     icon: Paintbrush,
     /** Selecting this card does not switch the laptop preview image. */
     updatesPreview: false,
+    centerPreviewVertically: false,
     previewSrc: MOBILE_APP_STOREFRONT_IMAGES.banners,
     previewAlt: 'Elegant templates and banners in the BILDIT storefront'
   },
@@ -30,7 +36,8 @@ const FEATURES = [
     body: 'Effortlessly manage and schedule promotions with the Visual Experience Engine.',
     icon: CalendarHeart,
     updatesPreview: true,
-    previewSrc: MOBILE_APP_STOREFRONT_IMAGES.sophisticatedScheduling,
+    centerPreviewVertically: false,
+    previewSrc: MOBILE_APP_STOREFRONT_IMAGES.promotionalScheduling,
     previewAlt: 'Banner scheduling and promotion controls in BILDIT'
   },
   {
@@ -38,10 +45,19 @@ const FEATURES = [
     body: 'A seamless and user-friendly payment process designed for mobile apps.',
     icon: CreditCard,
     updatesPreview: true,
+    centerPreviewVertically: true,
     previewSrc: MOBILE_APP_STOREFRONT_IMAGES.nativeCheckoutFeature5231,
     previewAlt: 'BILDIT native checkout — one-tap and review flows on mobile'
   }
 ] as const
+
+/** Mobile card stack order: “Easy to Use for Everyone” last; desktop uses source order. */
+const MOBILE_CARD_ORDER_CLASS: readonly string[] = [
+  'order-1 min-[1000px]:order-none',
+  'order-4 min-[1000px]:order-none',
+  'order-2 min-[1000px]:order-none',
+  'order-3 min-[1000px]:order-none'
+]
 
 /** Figma Section_2_1 (5143:16928). */
 export function StorefrontEverythingYouNeed({ className }: { className?: string }) {
@@ -53,18 +69,28 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
     <section
       className={cn('home-scheme-light relative overflow-hidden bg-white', className)}
       aria-labelledby="storefront-everything-heading"
+      aria-describedby="storefront-everything-subtitle"
     >
       <div className="relative mx-auto max-w-[1512px] px-6 py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
-        <h2
-          id="storefront-everything-heading"
-          className={cn(
-            homeSectionTitleClassName,
-            'px-4 text-center text-[40px] leading-tight md:text-[48px] md:leading-[48px]',
-            'min-[1000px]:whitespace-nowrap'
-          )}
-        >
-          Everything your team Needs.
-        </h2>
+        <div className="text-center">
+          <p className={cn(homeSectionEyebrowClassName, 'mb-2 text-[#a07dc0] md:mb-3')}>MOBILE APP</p>
+          <h2
+            id="storefront-everything-heading"
+            className={cn(
+              homeSectionTitleClassName,
+              'px-4 text-[40px] leading-tight md:text-[48px] md:leading-[48px]',
+              'min-[1000px]:whitespace-nowrap'
+            )}
+          >
+            Everything your team needs
+          </h2>
+          <p
+            id="storefront-everything-subtitle"
+            className={cn(homeSectionSubtitleClassName, 'mx-auto mt-3 px-4 md:mt-4')}
+          >
+            For a super fast, highly converting Mobile App
+          </p>
+        </div>
 
         <div className="mt-12 flex flex-col items-stretch gap-12 min-[1000px]:mt-16 min-[1000px]:flex-row min-[1000px]:items-center min-[1000px]:justify-between min-[1000px]:gap-6 min-[1000px]:px-6 xl:gap-8 xl:px-12">
           <div className="relative z-10 mx-auto flex w-full max-w-[356px] shrink-0 flex-col gap-4">
@@ -82,6 +108,7 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
                   }}
                   className={cn(
                     'flex w-full flex-col gap-2.5 rounded-2xl border border-[rgba(200,80,240,0.15)] p-2.5 text-left backdrop-blur-[10px] transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-[#c850f0] focus-visible:ring-offset-2',
+                    MOBILE_CARD_ORDER_CLASS[index],
                     isActive ? 'bg-[#f3f0ff] shadow-[0px_0px_20px_rgba(200,80,240,0.12)]' : 'bg-white/70 hover:bg-white'
                   )}
                 >
@@ -103,7 +130,12 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
 
           <div className="relative mx-auto w-full max-w-[726px] flex-1">
             <div className="relative aspect-[726/440] w-full">
-              <div className="absolute inset-x-[4%] top-[8%] overflow-hidden rounded-lg shadow-[0px_19px_39px_rgba(0,0,0,0.1)]">
+              <div
+                className={cn(
+                  'absolute inset-x-[4%] overflow-hidden rounded-lg',
+                  preview.centerPreviewVertically ? 'top-1/2 -translate-y-1/2' : 'top-[8%]'
+                )}
+              >
                 <Image
                   key={preview.previewSrc}
                   src={preview.previewSrc}
@@ -113,37 +145,6 @@ export function StorefrontEverythingYouNeed({ className }: { className?: string 
                   className="h-auto w-full object-cover object-top"
                   sizes="(max-width: 999px) 100vw, 720px"
                 />
-              </div>
-              <div className="absolute -bottom-1 right-0 w-[min(22%,168px)] drop-shadow-[0_4px_14px_rgba(88,89,92,0.35)] sm:right-[2%] sm:w-[min(22%,152px)]">
-                <div className="relative">
-                  <Image
-                    src="/mobile-app-storefront/everything-phone.svg"
-                    alt="Mobile storefront preview on phone"
-                    width={152}
-                    height={309}
-                    className="h-auto w-full"
-                  />
-                  {/* Screen insets from `everything-phone.svg` Vector_4, viewBox 0 0 152.103 309.615 */}
-                  <div
-                    className="pointer-events-none absolute z-[1] overflow-hidden rounded-[0.2rem] sm:rounded-sm md:rounded-md"
-                    style={{
-                      top: '2.08%',
-                      left: '5.06%',
-                      width: '89.9%',
-                      height: '95.7%'
-                    }}
-                    aria-hidden
-                  >
-                    <Image
-                      src={MOBILE_APP_STOREFRONT_IMAGES.mobileAppEcommerce}
-                      alt=""
-                      width={274}
-                      height={593}
-                      className="h-full w-full object-cover object-top"
-                      sizes="(max-width: 999px) 20vw, 160px"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           </div>

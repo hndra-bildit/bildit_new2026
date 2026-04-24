@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 /**
  * Build → Preview → Publish workflow steps (shared by home and solutions pages).
- * Panel art lives in `public/home-workflow/`.
+ * Panel art lives in `public/images/home-workflow/`.
  */
 export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
   {
@@ -14,7 +14,7 @@ export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
     title: 'Build visually',
     description: 'Templates with real brand control. Type. Color. Layout. Precision.',
     Icon: PenLine,
-    panelSrc: '/home-workflow/panel-build.png',
+    panelSrc: '/images/home-workflow/panel-build.png',
     panelAlt: 'BILDIT live editor: build storefront content visually',
     panelWidth: 1004,
     panelHeight: 644
@@ -24,7 +24,7 @@ export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
     title: 'Preview instantly',
     description: 'See exactly what users see. Before it goes live. No surprises.',
     Icon: Eye,
-    panelSrc: '/home-workflow/panel-preview.png',
+    panelSrc: '/images/home-workflow/panel-preview.png',
     panelAlt: 'Storefront preview across desktop, tablet, and mobile',
     panelWidth: 920,
     panelHeight: 562
@@ -34,7 +34,7 @@ export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
     title: 'Publish immediately',
     description: 'No deploy cycle. No coordination overhead. No waiting.',
     Icon: Rocket,
-    panelSrc: '/home-workflow/panel-publish.png',
+    panelSrc: '/images/home-workflow/panel-publish.png',
     panelAlt: 'Publish changes to the live site without a dev ticket',
     panelWidth: 920,
     panelHeight: 562

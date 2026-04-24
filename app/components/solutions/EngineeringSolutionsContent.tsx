@@ -45,7 +45,7 @@ const BONUS_LIST = [
 ] as const
 
 const ENGINEERING_DEMO_VIDEO_SRC =
-  'https://storage.googleapis.com/compilepoc-2d379.appspot.com/bildit-website-staging%2FMensImage1%2FDesignersChoiceVsCode.mp4'
+  'https://storage.googleapis.com/compilepoc-2d379.appspot.com/bildit-website-staging%2FPromotionalCountdownTimer.mp4'
 
 export function EngineeringSolutionsContent() {
   return (

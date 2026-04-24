@@ -35,18 +35,18 @@ export function MarketersFeaturesBentoSection({ className }: { className?: strin
         />
 
         <div
-          className={cn('mx-auto flex w-full max-w-[1048px] flex-col items-center gap-4 text-center', sectionPaddingX)}
+          className={cn('mx-auto flex w-full max-w-[1260px] flex-col items-center gap-4 text-center', sectionPaddingX)}
         >
           <p className={cn(homeSectionEyebrowClassName, 'text-neutral-900')}>For Ecommerce</p>
           <h2 className={cn('text-balance', homeSectionTitleClassName)}>Built to Sell.</h2>
         </div>
 
-        <div className={cn('mx-auto w-full max-w-[1048px]', sectionPaddingX)}>
+        <div className={cn('mx-auto w-full max-w-[1260px]', sectionPaddingX)}>
           <div className="overflow-hidden rounded-[20px] border border-black/[0.08] bg-white">
             <div className="flex flex-col lg:flex-row">
               {/* flex-1 only in row layout; on mobile flex-1 can squeeze this panel’s height in WebKit */}
               <div className="flex w-full min-w-0 flex-none items-center justify-center bg-[#f5f7fa] px-4 py-8 sm:px-6 sm:py-10 lg:flex-1">
-                <div className="grid w-full max-w-[599px] grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+                <div className="grid w-full min-w-0 grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
                   {MARKETERS_BENTO_INTEGRATION_CELLS.map((cell) => (
                     <div
                       key={cell.label}

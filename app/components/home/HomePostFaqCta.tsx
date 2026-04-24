@@ -26,7 +26,7 @@ export function HomePostFaqCta({ className }: { className?: string }) {
           <div className="absolute inset-0 rounded-none sm:rounded-3xl">
             <div className="relative size-full rounded-none sm:rounded-3xl">
               <Image
-                src="/home-post-faq-cta/container-bg.png"
+                src="/images/home-post-faq-cta/container-bg.png"
                 alt=""
                 fill
                 sizes="100vw"

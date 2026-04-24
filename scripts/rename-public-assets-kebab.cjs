@@ -19,19 +19,8 @@ function renamePathSafe(fromAbs, toAbs) {
 const ROOT = path.join(__dirname, '..')
 const PUBLIC = path.join(ROOT, 'public')
 
-/** Only these trees contain marketing images (exclude fonts, videos, etc.). */
-const IMAGE_ROOTS = [
-  'images',
-  'mobile-app-storefront',
-  'visual-experience-engine',
-  'home-early-access',
-  'home-everything',
-  'home-integrations',
-  'home-no-limitations',
-  'home-post-faq-cta',
-  'home-speed',
-  'home-workflow'
-].map((p) => path.join(PUBLIC, p))
+/** Marketing images live under `public/images/` (see `public/images/archive/` for retired assets). */
+const IMAGE_ROOTS = [path.join(PUBLIC, 'images')]
 
 function toKebabBase(base) {
   let s = base

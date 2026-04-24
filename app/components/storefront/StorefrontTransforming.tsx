@@ -1,4 +1,4 @@
-import { homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
+import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
 import { MOBILE_APP_STOREFRONT_IMAGES } from '@/app/lib/storefront-remote-assets'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
@@ -13,7 +13,7 @@ const CARDS = [
     id: 'storefront-feature-native-checkout',
     title: 'Native Checkout',
     body: 'Frictionless checkout across Apple Pay, Google Pay, and more. All from within your app.',
-    bg: MOBILE_APP_STOREFRONT_IMAGES.nativeCheckout
+    bg: MOBILE_APP_STOREFRONT_IMAGES.nativeCheckoutBg
   },
   {
     id: 'storefront-feature-banners',
@@ -31,7 +31,7 @@ const CARDS = [
     id: 'storefront-feature-app-clips',
     title: 'App Clips',
     body: 'Let shoppers experience your app instantly — no install needed. Powered by BILDIT.',
-    bg: MOBILE_APP_STOREFRONT_IMAGES.appClips
+    bg: MOBILE_APP_STOREFRONT_IMAGES.appClipsBg
   }
 ] as const
 
@@ -41,16 +41,19 @@ export function StorefrontTransforming({ className }: { className?: string }) {
     <section
       className={cn('rounded-t-[48px] rounded-b-none bg-white py-14 md:py-[50px]', className)}
       aria-labelledby="storefront-transforming-heading"
+      aria-describedby="storefront-transforming-subtitle"
     >
-      <h2
-        id="storefront-transforming-heading"
-        className={cn(
-          homeSectionTitleClassName,
-          'mx-auto max-w-[1100px] px-6 text-center sm:px-8 md:px-10 lg:px-[116px]'
-        )}
-      >
-        Offer Better Native Mobile Experiences
-      </h2>
+      <div className="mx-auto max-w-[1100px] px-6 text-center sm:px-8 md:px-10 lg:px-[116px]">
+        <h2 id="storefront-transforming-heading" className={cn(homeSectionTitleClassName, 'text-balance')}>
+          Build great native mobile app experiences
+        </h2>
+        <p
+          id="storefront-transforming-subtitle"
+          className={cn(homeSectionSubtitleClassName, 'mx-auto mt-3 text-balance md:mt-4')}
+        >
+          Give your best customers the best experience
+        </p>
+      </div>
 
       <div
         className={cn(
@@ -76,6 +79,7 @@ export function StorefrontTransforming({ className }: { className?: string }) {
                 {/* min-h: WebKit + horizontal scroll can collapse aspect-ratio boxes for fill images */}
                 <div className="relative aspect-[402/220] w-full min-h-[148px] sm:min-h-[158px] md:min-h-[178px]">
                   <Image
+                    key={card.id}
                     src={card.bg}
                     alt=""
                     fill

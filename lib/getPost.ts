@@ -6,7 +6,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: '1',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-1.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_1.png',
     alt: 'blog_1.png',
     category: 'news',
     updatedAt: '4 min read',
@@ -46,7 +46,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: '2',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-2.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_2.png',
     alt: 'blog_2.png',
     category: 'news',
     updatedAt: '4 min read',
@@ -86,7 +86,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: '3',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-4.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_4.png',
     alt: 'blog_4.png',
     category: 'news',
     updatedAt: '4 min read',
@@ -126,7 +126,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: '4',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-3.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_3.png',
     alt: 'blog_3.png',
     category: 'news',
     updatedAt: '4 min read',
@@ -166,7 +166,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: '5',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-5.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_5.png',
     alt: 'blog_5.png',
     category: 'news',
     updatedAt: '4 min read',
@@ -206,7 +206,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: 'w1',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-1.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_1.png',
     alt: 'Webinar recording',
     category: 'webinar',
     updatedAt: '45 min',
@@ -231,7 +231,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: 'w2',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-2.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_2.png',
     alt: 'Webinar recording',
     category: 'webinar',
     updatedAt: '38 min',
@@ -253,7 +253,7 @@ const allPosts: Array<CardNineItemType> = [
   {
     id: 'w3',
     author: 'Matt Hudson',
-    src: '/images/blog-main/blog-3.png',
+    src: '/images/archive/public-originals-2026-04-22/images/blog_main/blog_3.png',
     alt: 'Webinar recording',
     category: 'webinar',
     updatedAt: '52 min',

@@ -24,18 +24,19 @@
   are used in the CMS to render components, pages, or banners using local modules. */
 
 /* node_modules — React & Next only. */
-import React from 'react'
-import ReactDOM from 'react-dom'
-import ReactDOMClient from 'react-dom/client'
-import jsxRuntime from 'react/jsx-runtime'
-import { getRemoteProps } from '@bildit-platform/nextjs'
-import * as Next from 'next/client'
-import * as NextForm from 'next/form'
-import * as NextImage from 'next/image'
-import * as NextLink from 'next/link'
-import * as NextNavigation from 'next/navigation'
-import * as NextScript from 'next/script'
-import * as NextWebVitals from 'next/web-vitals'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDOMClient from 'react-dom/client';
+import jsxRuntime from 'react/jsx-runtime';
+import { getRemoteProps } from '@bildit-platform/nextjs';
+import * as Next from 'next/client';
+import * as NextForm from 'next/form';
+import * as NextImage from 'next/image';
+import * as NextLink from 'next/link';
+import * as NextNavigation from 'next/navigation';
+import * as NextScript from 'next/script';
+import * as NextWebVitals from 'next/web-vitals';
+import * as LucideReact from 'lucide-react';
 
 /* Local modules — import as a namespace, then add a matching cmsDependencies entry.
  *
@@ -46,47 +47,82 @@ import * as NextWebVitals from 'next/web-vitals'
  *   // In cmsDependencies:
  *   '@/components/Example': { module: Example },
  */
+import * as Components from '@/app/components/Components';
 
 interface Dependency {
-  module: unknown
-  globalName?: string
+  module: unknown;
+  globalName?: string;
 }
-
-const isProduction = process.env.ENVIRONMENT === 'production'
-
+const isProduction = process.env.ENVIRONMENT === 'production';
 const cmsDependencies: Record<string, Dependency> = {
-  'next/client': { module: Next },
-  'next/form': { module: NextForm },
-  'next/image': { module: NextImage },
-  'next/link': { module: NextLink },
-  'next/navigation': { module: NextNavigation },
-  'next/script': { module: NextScript },
-  'next/web-vitals': { module: NextWebVitals },
-  'react/jsx-runtime': { module: jsxRuntime },
-  react: { module: React },
-}
+  'next/client': {
+    module: Next
+  },
+  'next/form': {
+    module: NextForm
+  },
+  'next/image': {
+    module: NextImage
+  },
+  'next/link': {
+    module: NextLink
+  },
+  'next/navigation': {
+    module: NextNavigation
+  },
+  'next/script': {
+    module: NextScript
+  },
+  'next/web-vitals': {
+    module: NextWebVitals
+  },
+  'react/jsx-runtime': {
+    module: jsxRuntime
+  },
+  react: {
+    module: React
+  },
+  '@components': {
+    module: Components
+  },
+  '@/app/components/Components': {
+    module: Components
+  },
+  'lucide-react': {
+    module: LucideReact,
+    globalName: 'LucideReact',
+  },
+};
 
 if (!isProduction) {
-  cmsDependencies['react-dom'] = { module: ReactDOM }
-  cmsDependencies['react-dom/client'] = { module: ReactDOMClient }
+  cmsDependencies['react-dom'] = {
+    module: ReactDOM
+  };
+  cmsDependencies['react-dom/client'] = {
+    module: ReactDOMClient
+  };
 }
-
-export default cmsDependencies
-
+export default cmsDependencies;
 declare global {
   interface Window {
-    cmsDependencies: Record<string, unknown>
-    React: typeof React
-    ReactDOM: typeof ReactDOM & typeof ReactDOMClient
-    remoteProps: typeof getRemoteProps
+    cmsDependencies: Record<string, unknown>;
+    React: typeof React;
+    ReactDOM: typeof ReactDOM & typeof ReactDOMClient;
+    remoteProps: typeof getRemoteProps;
+    LucideReact?: typeof LucideReact;
   }
 }
 
-/* For dev environments, expose React libs + cmsDependencies */
-if (!isProduction && typeof window !== 'undefined') {
-  window.cmsDependencies = {}
-  window.remoteProps = getRemoteProps
-  Object.keys(cmsDependencies).forEach((key) => {
-    window.cmsDependencies[key] = cmsDependencies[key]
-  })
+/*
+ * BILDIT admin (`bildit-web-script`) resolves interpreted banners using `window.cmsDependencies`
+ * when present. That must match `extraDependenciesConfig` passed to `BilditProvider`, in every
+ * environment — not only local dev — or compiled templates that rely on `globalName` (e.g.
+ * `LucideReact` for `lucide-react`) throw at runtime despite correct source imports.
+ */
+if (typeof window !== 'undefined') {
+  window.cmsDependencies = {};
+  window.remoteProps = getRemoteProps;
+  for (const key of Object.keys(cmsDependencies)) {
+    window.cmsDependencies[key] = cmsDependencies[key];
+  }
 }

@@ -23,7 +23,7 @@ export function StorefrontHero({ className }: { className?: string }) {
     >
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden sm:rounded-[29px]">
         <Image
-          src="/mobile-app-storefront/hero-bg.jpg"
+          src="/images/mobile-app-storefront/hero-bg.jpg"
           alt=""
           fill
           priority
@@ -70,7 +70,7 @@ export function StorefrontHero({ className }: { className?: string }) {
             <div className="order-2 flex w-full min-w-0 justify-end pointer-events-none" aria-hidden>
               <div className="relative h-[min(38vh,360px)] w-full max-w-[260px] sm:h-[min(45vh,400px)] sm:max-w-[300px] md:h-[min(70vh,686px)] md:max-w-[min(40vw,384px)]">
                 <Image
-                  src="/mobile-app-storefront/hero-overlay.svg"
+                  src="/images/mobile-app-storefront/hero-overlay.svg"
                   alt=""
                   fill
                   className="object-contain object-right object-top"

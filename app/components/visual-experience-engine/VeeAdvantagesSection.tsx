@@ -5,23 +5,20 @@ import { BilditPurpleGlowOrb } from '@/app/components/marketing/BilditMarketingG
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import {
   veeAdvantagesAdvancedScheduling,
-  veeAdvantagesFastRuntimeLaptop,
-  veeAdvantagesLaptopScreen
+  veeAdvantagesEditableBanner,
+  veeAdvantagesFastRuntimeLaptop
 } from '@/app/lib/vee-advantages-assets'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
-
-/** Matches outer rounded frame on `adv-scheduling.png` (794px wide, ~47px corner radius). */
-const advSchedulingFrameRadiusStyle = { borderRadius: 'calc(100% * 47 / 794)' } as const
 
 const REASONS = [
   {
     title: 'Visual Editor with Live Preview',
     subtitle: 'Build it. See it. Ship it.',
     bullets: [
-      'True visual editing',
+      'True visual inline editing of React content',
       'See changes exactly as they’ll render',
-      'No lengthy rebuild cycles for minor content revisions',
+      'No lengthy rebuild cycles for content revisions',
       'Works with your existing architecture and CMS'
     ]
   },
@@ -35,8 +32,9 @@ const REASONS = [
     ]
   },
   {
-    title: 'Fast (SSR.. ask IT) Runtime Rendering',
+    title: 'Fast Runtime Rendering',
     subtitle: 'Speed isn’t Optional',
+    preambleBullets: ['(SSR.. ask the nerds)'],
     intro: 'Milliseconds matter. BILDIT speeds up your existing site.',
     bullets: [
       'Render experiences fast across channels',
@@ -48,15 +46,15 @@ const REASONS = [
 
 const PANEL_IMAGES: readonly { src: string; width: number; height: number; alt: string }[] = [
   {
-    src: veeAdvantagesLaptopScreen,
-    width: 1200,
-    height: 780,
+    src: veeAdvantagesEditableBanner,
+    width: 1068,
+    height: 490,
     alt: 'BILDIT visual editor with live preview on a storefront'
   },
   {
     src: veeAdvantagesAdvancedScheduling,
-    width: 794,
-    height: 794,
+    width: 760,
+    height: 460,
     alt: 'Schedule content with date range and web slots, no deployments'
   },
   {
@@ -93,6 +91,13 @@ export function VeeAdvantagesSection() {
                 <p className="mt-1 font-uncut-sans text-lg text-[#171717]">{reason.subtitle}</p>
                 {isActive && (
                   <div className="mt-5 space-y-3">
+                    {'preambleBullets' in reason && reason.preambleBullets?.length ? (
+                      <ul className="list-disc space-y-2 pl-5 font-uncut-sans text-base text-[#595959]">
+                        {reason.preambleBullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    ) : null}
                     {'intro' in reason && reason.intro ? (
                       <p className="font-uncut-sans text-lg text-[#171717]">{reason.intro}</p>
                     ) : null}
@@ -119,10 +124,9 @@ export function VeeAdvantagesSection() {
         <div className="relative flex min-h-[280px] items-center justify-center md:min-h-[420px]">
           <div
             className={cn(
-              'relative w-full max-w-[640px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/5',
-              active === 1 ? 'bg-[#1a1a1a]' : 'rounded-xl'
+              'relative w-full max-w-[640px] overflow-hidden rounded-xl',
+              active === 2 && 'shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/5'
             )}
-            style={active === 1 ? advSchedulingFrameRadiusStyle : undefined}
           >
             <div className="relative w-full">
               <Image
@@ -135,7 +139,6 @@ export function VeeAdvantagesSection() {
                   'block h-auto w-full',
                   active === 0 ? 'object-cover object-top' : 'object-contain object-center'
                 )}
-                style={active === 1 ? advSchedulingFrameRadiusStyle : undefined}
                 sizes="(max-width: 768px) 100vw, 640px"
                 priority={active === 0}
               />

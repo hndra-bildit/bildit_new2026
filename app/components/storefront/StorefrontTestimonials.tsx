@@ -16,7 +16,7 @@ export function StorefrontTestimonials({ className }: { className?: string }) {
       <div className="relative mx-auto w-full overflow-hidden rounded-3xl px-4 py-14 sm:px-10 sm:py-16 md:px-16 md:py-20">
         <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl" aria-hidden>
           <Image
-            src="/mobile-app-storefront/testimonials-bg.png"
+            src="/images/mobile-app-storefront/testimonials-bg.png"
             alt=""
             fill
             className="object-cover object-center opacity-90"

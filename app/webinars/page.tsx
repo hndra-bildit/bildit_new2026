@@ -17,7 +17,7 @@ export default function WebinarsPage() {
       </SlotPlaceholder>
       <main className={cn('w-full', PRICING_PAGE_SURFACE_CLASS)}>
         <SlotPlaceholder slotId="webinars-main-content">
-          <BlogClient fixedCategory="webinar" />
+          <BlogClient />
         </SlotPlaceholder>
       </main>
     </div>

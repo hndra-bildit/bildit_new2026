@@ -19,7 +19,7 @@ export default function EarlyAccessProgramPage() {
       <section className="relative overflow-hidden bg-[#0d0118]" data-header-surface="dark">
         <div className="pointer-events-none absolute inset-0 opacity-90" aria-hidden>
           <Image
-            src="/home-early-access/line-waves.png"
+            src="/images/home-early-access/line-waves.png"
             alt=""
             fill
             className="object-cover object-top"
