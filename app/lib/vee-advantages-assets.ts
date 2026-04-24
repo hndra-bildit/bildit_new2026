@@ -3,8 +3,6 @@ export const veeAdvantagesLaptopScreen = 'https://www.figma.com/api/mcp/asset/e7
 /** Visual Editor with Live Preview — `public/images/visual-experience-engine/editable-banner.png`. */
 export const veeAdvantagesEditableBanner = '/images/visual-experience-engine/editable-banner.png'
 /** Advanced Scheduling — `public/images/visual-experience-engine/promotional-scheduling.png`. */
-export const veeAdvantagesAdvancedScheduling =
-  '/images/visual-experience-engine/promotional-scheduling.png'
+export const veeAdvantagesAdvancedScheduling = '/images/visual-experience-engine/promotional-scheduling.png'
 /** Fast Runtime Rendering — `public/images/visual-experience-engine/fast-runtime-rendering.png`. */
-export const veeAdvantagesFastRuntimeLaptop =
-  '/images/visual-experience-engine/fast-runtime-rendering.png'
+export const veeAdvantagesFastRuntimeLaptop = '/images/visual-experience-engine/fast-runtime-rendering.png'

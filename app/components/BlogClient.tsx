@@ -24,7 +24,7 @@ export default function BlogClient() {
   const pathCategory = param.category as string | undefined
   const normalizedPath = (pathname ?? '').replace(/\/$/, '') || '/'
   const isWebinarsPage = normalizedPath === '/webinars'
-  const currentCategory = isWebinarsPage ? 'webinar' : pathCategory ?? DEFAULT_CATEGORY
+  const currentCategory = isWebinarsPage ? 'webinar' : (pathCategory ?? DEFAULT_CATEGORY)
 
   const [posts, setPosts] = useState<CardNineItemType[]>([])
   const [loading, setLoading] = useState(false)
@@ -53,7 +53,10 @@ export default function BlogClient() {
       router.replace('/blog/category/webinar')
       return
     }
-    if (cat === currentCategory && (pathCategory === cat || (cat === DEFAULT_CATEGORY && !pathCategory && !isWebinarsPage))) {
+    if (
+      cat === currentCategory &&
+      (pathCategory === cat || (cat === DEFAULT_CATEGORY && !pathCategory && !isWebinarsPage))
+    ) {
       return
     }
     router.replace(`/blog/category/${cat}`)
