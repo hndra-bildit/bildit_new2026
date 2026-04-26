@@ -9,7 +9,10 @@ export { homeHeroHeadlineGradientClassName, homeHeroHeadlineGradientStyle } from
 export { HeroFloatingLines } from './home/HeroFloatingLines'
 export { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 export { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/components/home/home-section-typography'
-export { InstaStoriesShoulderCapsBottom, InstaStoriesShoulderCapsTop } from '@/app/components/home/InstaStoriesSectionShoulderCaps'
+export {
+  InstaStoriesShoulderCapsBottom,
+  InstaStoriesShoulderCapsTop
+} from '@/app/components/home/InstaStoriesSectionShoulderCaps'
 export { PRICING_FAQ_SALES_URL } from '@/app/components/pricing/pricing-faq-data'
 export { HOME_FAQ_ENTRIES, homeFaqGetStartedAnswerParts } from '@/app/lib/home-faq-data'
 export { BilditLogo } from '@/app/components/site-header/BilditLogo'
