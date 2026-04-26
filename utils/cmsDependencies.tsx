@@ -17,27 +17,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 /* README:
 
   This file is used to define the dependencies for the CMS. These dependencies
   are used in the CMS to render components, pages, or banners using local modules. */
-
 /* node_modules — React & Next only. */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactDOMClient from 'react-dom/client';
-import jsxRuntime from 'react/jsx-runtime';
-import { getRemoteProps } from '@bildit-platform/nextjs';
-import * as Next from 'next/client';
-import * as NextForm from 'next/form';
-import * as NextImage from 'next/image';
-import * as NextLink from 'next/link';
-import * as NextNavigation from 'next/navigation';
-import * as NextScript from 'next/script';
-import * as NextWebVitals from 'next/web-vitals';
-import * as LucideReact from 'lucide-react';
-
+import React from 'react'
 /* Local modules — import as a namespace, then add a matching cmsDependencies entry.
  *
  * Example:
@@ -47,13 +32,25 @@ import * as LucideReact from 'lucide-react';
  *   // In cmsDependencies:
  *   '@/components/Example': { module: Example },
  */
-import * as Components from '@/app/components/Components';
+import * as Components from '@/app/components/Components'
+import { getRemoteProps } from '@bildit-platform/nextjs'
+import * as LucideReact from 'lucide-react'
+import * as Next from 'next/client'
+import * as NextForm from 'next/form'
+import * as NextImage from 'next/image'
+import * as NextLink from 'next/link'
+import * as NextNavigation from 'next/navigation'
+import * as NextScript from 'next/script'
+import * as NextWebVitals from 'next/web-vitals'
+import ReactDOM from 'react-dom'
+import ReactDOMClient from 'react-dom/client'
+import jsxRuntime from 'react/jsx-runtime'
 
 interface Dependency {
-  module: unknown;
-  globalName?: string;
+  module: unknown
+  globalName?: string
 }
-const isProduction = process.env.ENVIRONMENT === 'production';
+const isProduction = process.env.ENVIRONMENT === 'production'
 const cmsDependencies: Record<string, Dependency> = {
   'next/client': {
     module: Next
@@ -90,39 +87,37 @@ const cmsDependencies: Record<string, Dependency> = {
   },
   'lucide-react': {
     module: LucideReact,
-    globalName: 'LucideReact',
-  },
-};
+    globalName: 'LucideReact'
+  }
+}
 
 if (!isProduction) {
   cmsDependencies['react-dom'] = {
     module: ReactDOM
-  };
+  }
   cmsDependencies['react-dom/client'] = {
     module: ReactDOMClient
-  };
+  }
 }
-export default cmsDependencies;
+export default cmsDependencies
 declare global {
   interface Window {
-    cmsDependencies: Record<string, unknown>;
-    React: typeof React;
-    ReactDOM: typeof ReactDOM & typeof ReactDOMClient;
-    remoteProps: typeof getRemoteProps;
-    LucideReact?: typeof LucideReact;
+    cmsDependencies: Record<string, unknown>
+    React: typeof React
+    ReactDOM: typeof ReactDOM & typeof ReactDOMClient
+    remoteProps: typeof getRemoteProps
+    LucideReact?: typeof LucideReact
   }
 }
 
-/*
- * BILDIT admin (`bildit-web-script`) resolves interpreted banners using `window.cmsDependencies`
- * when present. That must match `extraDependenciesConfig` passed to `BilditProvider`, in every
- * environment — not only local dev — or compiled templates that rely on `globalName` (e.g.
- * `LucideReact` for `lucide-react`) throw at runtime despite correct source imports.
- */
 if (typeof window !== 'undefined') {
-  window.cmsDependencies = {};
-  window.remoteProps = getRemoteProps;
+  window.cmsDependencies = {}
+  window.remoteProps = getRemoteProps
   for (const key of Object.keys(cmsDependencies)) {
-    window.cmsDependencies[key] = cmsDependencies[key];
+    const dep = cmsDependencies[key]
+    window.cmsDependencies[key] = dep
+    if (dep.globalName) {
+      ;(window as unknown as Record<string, unknown>)[dep.globalName] = dep.module
+    }
   }
 }

@@ -1,9 +1,0 @@
-{
-  "name": "#0 Clearance Gif",
-  "description": "",
-  "type": "Static Banner",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-03-02%20at%2011.43.36%E2%80%AFAM.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "#0 Clearance Gif"
-}

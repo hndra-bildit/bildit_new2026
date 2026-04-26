@@ -1,9 +1,0 @@
-{
-  "name": "Slider",
-  "description": "",
-  "type": "Slider",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-03-11%20at%2010.11.56%E2%80%AFAM.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "Slider"
-}

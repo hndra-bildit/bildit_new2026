@@ -1,9 +1,0 @@
-{
-  "name": "Animation Ref (Single Hero)",
-  "description": "",
-  "type": "Holidays",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2F1%20Up%20Hero%20LG%20Desktop%20-%20Inner%20Copy.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "Animation Ref (Single Hero)"
-}

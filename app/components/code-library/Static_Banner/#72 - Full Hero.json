@@ -1,9 +1,0 @@
-{
-  "name": "#72 - Full Hero",
-  "description": "",
-  "type": "Static Banner",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-07-17%20at%2002.35.52.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "#72 - Full Hero"
-}

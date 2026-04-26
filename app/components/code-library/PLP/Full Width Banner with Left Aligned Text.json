@@ -1,9 +1,0 @@
-{
-  "name": "Full Width Banner with Left Aligned Text",
-  "description": "",
-  "type": "PLP",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2Fimage-20250807-190244.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "Full Width Banner with Left Aligned Text"
-}

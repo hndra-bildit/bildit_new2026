@@ -1,9 +1,0 @@
-{
-  "name": "Headline Full Hero",
-  "description": "",
-  "type": "Headline",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-10-08%20at%208.28.31%E2%80%AFAM%20(1).png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "Headline Full Hero"
-}

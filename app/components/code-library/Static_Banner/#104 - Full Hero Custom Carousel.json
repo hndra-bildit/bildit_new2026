@@ -1,9 +1,0 @@
-{
-  "name": "#104 - Full Hero Custom Carousel",
-  "description": "",
-  "type": "Static Banner",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-08-03%20at%2003.43.50%20(1).png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "#104 - Full Hero Custom Carousel"
-}

@@ -1,9 +1,0 @@
-{
-  "name": "3 Column With Content Below",
-  "description": "",
-  "type": "Universal",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FGroup%2080214.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "3ColumnWithContentBelow"
-}

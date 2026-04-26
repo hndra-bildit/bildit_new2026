@@ -1,9 +1,0 @@
-{
-  "name": "Product Story w/ Peak of Before & After Photos",
-  "description": "",
-  "type": "Holidays",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202025-09-03%20at%2011.15.54%E2%80%AFAM%20(1)%20(1).png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "Product Story w/ Peak of Before & After Photos"
-}

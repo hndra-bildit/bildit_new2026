@@ -1,9 +1,0 @@
-{
-  "name": "HP - 3 Column - #95 - 3 Column Stacked",
-  "description": "",
-  "type": "Homepage",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FGroup%203591.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "HP-3-Column-#95-3-Column-Stacked"
-}

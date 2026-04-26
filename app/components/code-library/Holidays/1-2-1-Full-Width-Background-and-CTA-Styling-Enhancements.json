@@ -1,9 +1,0 @@
-{
-  "name": "1-2-1 Full-Width Background and CTA Styling Enhancements",
-  "description": "",
-  "type": "Holidays",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-03-10%20at%2010.05.16%E2%80%AFAM.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "1-2-1-Full-Width-Background-and-CTA-Styling-Enhancements"
-}

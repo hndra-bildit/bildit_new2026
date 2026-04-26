@@ -1,9 +1,0 @@
-{
-  "name": "3 Up Layout",
-  "description": "",
-  "type": "PLP",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-03-10%20at%2012.12.17%E2%80%AFPM.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "3 Up Layout"
-}

@@ -1,9 +1,0 @@
-{
-  "name": "Product and/or Story Carousel (Dual Background with Categories)",
-  "description": "",
-  "type": "Holidays",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FProduct%20and%20or%20Story%20Carousel%20LG%20Desktop.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "Product and/or Story Carousel (Dual Background with Categories)"
-}

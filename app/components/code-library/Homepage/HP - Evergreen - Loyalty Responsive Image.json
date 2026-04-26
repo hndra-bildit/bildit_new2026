@@ -1,9 +1,0 @@
-{
-  "name": "HP - Evergreen - Loyalty Responsive Image",
-  "description": "",
-  "type": "Homepage",
-  "image": "https://us-east1-compilepoc-2d379.cloudfunctions.net/api/media/proxy?bucket=compilepoc-2d379.appspot.com&path=bildit-website-staging%2FScreenshot%202026-02-27%20at%205.20.37%E2%80%AFAM.png",
-  "codeType": "jsx",
-  "appType": "web",
-  "templateId": "HP - Evergreen - Loyalty Responsive Image"
-}
