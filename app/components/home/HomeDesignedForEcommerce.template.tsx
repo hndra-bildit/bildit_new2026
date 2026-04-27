@@ -1,4 +1,4 @@
-// HomeDesignedForEcommerce:v1.0 legacy=true
+// HomeDesignedForEcommerce:v4 legacy=true
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -83,24 +83,30 @@ function StatSevenGradient({
   active,
   className
 }) {
-  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="7× faster publishing" data-bildit-var-name="pText" data-bildit-var-type="RichText">
-      {pText}
+  // group { 1. StatSevenGradient }
+  const statSevenGradientP = $(statSevenGradientP:RichText='7xD7'); // endgroup
+  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="7× faster publishing" data-bildit-var-name="statSevenGradientP" data-bildit-var-type="RichText">
+      {statSevenGradientP}
     </p>;
 }
 function StatPlusThirtyThree({
   active,
   className
 }) {
-  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-semibold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="+33% faster page loads" data-bildit-var-name="pText" data-bildit-var-type="RichText">
-      {pText}
+  // group { 1. StatPlusThirtyThree }
+  const statPlusThirtyThreeP = $(statPlusThirtyThreeP:RichText='+33%'); // endgroup
+  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-semibold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="+33% faster page loads" data-bildit-var-name="statPlusThirtyThreeP" data-bildit-var-type="RichText">
+      {statPlusThirtyThreeP}
     </p>;
 }
 function StatZero({
   active,
   className
 }) {
-  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} data-bildit-var-name="pText" data-bildit-var-type="RichText">
-      {pText}
+  // group { 1. StatZero }
+  const statZeroP = $(statZeroP:RichText='0'); // endgroup
+  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} data-bildit-var-name="statZeroP" data-bildit-var-type="RichText">
+      {statZeroP}
     </p>;
 }
 
@@ -108,11 +114,9 @@ function StatZero({
 export function HomeDesignedForEcommerce({
   className
 }) {
-  // group { 1. General }
-  const pText = $(pText:RichText='7xD7'); // endgroup
-  // group { 2. div }
+  // group { 1. div }
   const sectionDivRoundedCornersToggle = $(sectionDivRoundedCornersToggle:Boolean=true); // endgroup
-  // group { 3. div }
+  // group { 2. div }
   const divH2Text = $(divH2Text:RichText='Designed for modern eCommerce.');
   const divPText = $(divPText:RichText='What teams see after switching to BILDIT Visual Experience Engine.'); // endgroup
   const statsRef = useRef<HTMLDivElement>(null);

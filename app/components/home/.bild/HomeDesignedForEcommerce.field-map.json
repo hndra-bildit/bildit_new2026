@@ -12,7 +12,10 @@
     "STATS[1].title|RichText": "secondTitle",
     "STATS[2].value|String": "thirdValue",
     "STATS[2].valueClassName|String": "thirdValueClassName",
-    "STATS[2].title|RichText": "thirdTitle"
+    "STATS[2].title|RichText": "thirdTitle",
+    "StatSevenGradient::p|RichText": "statSevenGradientP",
+    "StatPlusThirtyThree::p|RichText": "statPlusThirtyThreeP",
+    "StatZero::p|RichText": "statZeroP"
   },
   "nextIndex": {}
 }
