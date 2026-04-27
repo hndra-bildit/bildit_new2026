@@ -3,7 +3,16 @@
     "p|RichText": "pText",
     "div.h2|RichText": "divH2Text",
     "div.p|RichText": "divPText",
-    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle"
+    "section.div.roundedCorners|Boolean": "sectionDivRoundedCornersToggle",
+    "STATS[0].value|String": "firstValue",
+    "STATS[0].valueClassName|String": "firstValueClassName",
+    "STATS[0].title|RichText": "firstTitle",
+    "STATS[1].value|String": "secondValue",
+    "STATS[1].valueClassName|String": "secondValueClassName",
+    "STATS[1].title|RichText": "secondTitle",
+    "STATS[2].value|String": "thirdValue",
+    "STATS[2].valueClassName|String": "thirdValueClassName",
+    "STATS[2].title|RichText": "thirdTitle"
   },
   "nextIndex": {}
 }

@@ -1,7 +1,10 @@
 {
   "fields": {
     "div.h2|RichText": "divH2Text",
-    "ul.li.roundedCorners|Boolean": "ulLiRoundedCornersToggle"
+    "ul.li.roundedCorners|Boolean": "ulLiRoundedCornersToggle",
+    "div.p|RichText": "divP",
+    "div.Link.roundedCorners|Boolean": "roundedCorners",
+    "div.Link|RichText": "link"
   },
   "nextIndex": {}
 }

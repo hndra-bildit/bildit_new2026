@@ -1,6 +1,22 @@
 {
   "fields": {
-    "div.p|RichText": "divPText"
+    "div.p|RichText": "divPText",
+    "LOGOS[0].src|String": "firstSource",
+    "LOGOS[0].alt|RichText": "firstAlt",
+    "LOGOS[0].width|Number": "firstWidth",
+    "LOGOS[0].height|Number": "firstHeight",
+    "LOGOS[1].src|String": "secondSource",
+    "LOGOS[1].alt|RichText": "secondAlt",
+    "LOGOS[1].width|Number": "secondWidth",
+    "LOGOS[1].height|Number": "secondHeight",
+    "LOGOS[2].src|String": "thirdSource",
+    "LOGOS[2].alt|RichText": "thirdAlt",
+    "LOGOS[2].width|Number": "thirdWidth",
+    "LOGOS[2].height|Number": "thirdHeight",
+    "LOGOS[3].src|String": "fourthSource",
+    "LOGOS[3].alt|RichText": "fourthAlt",
+    "LOGOS[3].width|Number": "fourthWidth",
+    "LOGOS[3].height|Number": "fourthHeight"
   },
   "nextIndex": {}
 }

@@ -4,7 +4,9 @@
     "div.Image.src|String": "divImageSrcValue",
     "div.h2|RichText": "divH2Text",
     "div.p|RichText": "divPText",
-    "span.Image.src|String": "spanImageSrcValue"
+    "span.Image.src|String": "spanImageSrcValue",
+    "li.span.roundedCorners|Boolean": "roundedCorners",
+    "li.span|RichText": "span"
   },
   "nextIndex": {}
 }

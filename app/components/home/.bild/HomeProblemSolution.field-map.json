@@ -4,7 +4,11 @@
     "div.h2|RichText": "divH2Text",
     "div.p|RichText": "divPText",
     "h2.span|RichText": "h2SpanText",
-    "li.span|RichText": "liSpanText"
+    "li.span|RichText": "liSpanText",
+    "div.span.roundedCorners|Boolean": "roundedCorners",
+    "li.span.roundedCorners|Boolean": "spanRoundedCorners",
+    "div.span|RichText": "span",
+    "ul.li.roundedCorners|Boolean": "liRoundedCorners"
   },
   "nextIndex": {}
 }

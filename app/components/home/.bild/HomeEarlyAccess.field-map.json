@@ -7,7 +7,9 @@
     "li.Image.src|String": "liImageSrcValue",
     "div.Link.href|String": "divLinkHrefValue",
     "div.Link.roundedCorners|Boolean": "divLinkRoundedCornersToggle",
-    "div.Link|RichText": "divLinkText"
+    "div.Link|RichText": "divLinkText",
+    "li.span.roundedCorners|Boolean": "roundedCorners",
+    "li.span|RichText": "span"
   },
   "nextIndex": {}
 }

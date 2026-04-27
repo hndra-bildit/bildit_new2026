@@ -1,0 +1,8 @@
+{
+  "fields": {
+    "article.div.roundedCorners|Boolean": "roundedCorners",
+    "article.div.aspectRatioWidth|Number": "aspectRatioWidth",
+    "article.div.aspectRatioHeight|Number": "aspectRatioHeight"
+  },
+  "nextIndex": {}
+}

@@ -49,7 +49,9 @@
     "STEPS[2].panelSrc|String": "thirdPanelSource",
     "STEPS[2].panelAlt|String": "thirdPanelAlt",
     "STEPS[2].panelWidth|Number": "thirdPanelWidth",
-    "STEPS[2].panelHeight|Number": "thirdPanelHeight"
+    "STEPS[2].panelHeight|Number": "thirdPanelHeight",
+    "div.h2|RichText": "h2",
+    "div.p|RichText": "divP"
   },
   "nextIndex": {}
 }
