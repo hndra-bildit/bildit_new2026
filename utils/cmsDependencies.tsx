@@ -95,7 +95,7 @@ const cmsDependencies: Record<string, Dependency> = {
   },
   "swiper/react": {
     module: SwiperReact
-  }
+  },
 };
 if (!isProduction) {
   cmsDependencies['react-dom'] = {
