@@ -1,3 +1,4 @@
+'use client'
 /**
  * Barrel registered as `@bildit-platform` dependency `@components` in
  * `utils/cmsDependencies.tsx`. BILD `from-tsx` / CMS templates may import from

@@ -22,7 +22,8 @@
   This file is used to define the dependencies for the CMS. These dependencies
   are used in the CMS to render components, pages, or banners using local modules. */
 /* node_modules — React & Next only. */
-import React from 'react';
+'use client'
+import * as React from 'react'
 /* Local modules — import as a namespace, then add a matching cmsDependencies entry.
  *
  * Example:
@@ -32,26 +33,28 @@ import React from 'react';
  *   // In cmsDependencies:
  *   '@/components/Example': { module: Example },
  */
-import * as Components from '@/app/components/Components';
-import { getRemoteProps } from '@bildit-platform/nextjs';
-import * as LucideReact from 'lucide-react';
-import * as Next from 'next/client';
-import * as NextForm from 'next/form';
-import * as NextImage from 'next/image';
-import * as NextLink from 'next/link';
-import * as NextNavigation from 'next/navigation';
-import * as NextScript from 'next/script';
-import * as NextWebVitals from 'next/web-vitals';
-import ReactDOM from 'react-dom';
-import ReactDOMClient from 'react-dom/client';
-import jsxRuntime from 'react/jsx-runtime';
-import * as SwiperModules from "swiper/modules";
-import * as SwiperReact from "swiper/react";
+import * as Components from '@/app/components/Components'
+import { getRemoteProps } from '@bildit-platform/nextjs'
+import * as LucideReact from 'lucide-react'
+import * as Next from 'next/client'
+import * as NextForm from 'next/form'
+import * as NextImage from 'next/image'
+import * as NextLink from 'next/link'
+import * as NextNavigation from 'next/navigation'
+import * as NextScript from 'next/script'
+import * as NextWebVitals from 'next/web-vitals'
+import * as ReactDOM from 'react-dom'
+import * as ReactDOMClient from 'react-dom/client'
+import * as JsxDevRuntime from 'react/jsx-dev-runtime'
+import * as JsxRuntime from 'react/jsx-runtime'
+import * as SwiperModules from 'swiper/modules'
+import * as SwiperReact from 'swiper/react'
+
 interface Dependency {
-  module: unknown;
-  globalName?: string;
+  module: unknown
+  globalName?: string
 }
-const isProduction = process.env.ENVIRONMENT === 'production';
+
 const cmsDependencies: Record<string, Dependency> = {
   'next/client': {
     module: Next
@@ -74,11 +77,24 @@ const cmsDependencies: Record<string, Dependency> = {
   'next/web-vitals': {
     module: NextWebVitals
   },
-  'react/jsx-runtime': {
-    module: jsxRuntime
-  },
-  react: {
+  'react': {
     module: React
+  },
+  'react/jsx-runtime': {
+    module: JsxRuntime
+  },
+  'react/jsx-dev-runtime': {
+    module: JsxDevRuntime
+  },
+  'react-dom': {
+    module: ReactDOM
+  },
+  'react-dom/client': {
+    module: ReactDOMClient
+  },
+  'lucide-react': {
+    module: LucideReact,
+    globalName: 'lucideReact'
   },
   '@components': {
     module: Components
@@ -86,44 +102,27 @@ const cmsDependencies: Record<string, Dependency> = {
   '@/app/components/Components': {
     module: Components
   },
-  'lucide-react': {
-    module: LucideReact,
-    globalName: 'LucideReact'
-  },
-  "swiper/modules": {
+  'swiper/modules': {
     module: SwiperModules
   },
-  "swiper/react": {
+  'swiper/react': {
     module: SwiperReact
-  },
-};
-if (!isProduction) {
-  cmsDependencies['react-dom'] = {
-    module: ReactDOM
-  };
-  cmsDependencies['react-dom/client'] = {
-    module: ReactDOMClient
-  };
+  }
 }
-export default cmsDependencies;
+export default cmsDependencies
 declare global {
   interface Window {
-    cmsDependencies: Record<string, unknown>;
-    React: typeof React;
-    ReactDOM: typeof ReactDOM & typeof ReactDOMClient;
-    remoteProps: typeof getRemoteProps;
-    LucideReact?: typeof LucideReact;
+    cmsDependencies: Record<string, unknown>
+    React: typeof React
+    ReactDOM: typeof ReactDOM & typeof ReactDOMClient
+    remoteProps: typeof getRemoteProps
+    LucideReact?: typeof LucideReact
   }
 }
+
 if (typeof window !== 'undefined') {
-  window.cmsDependencies = {};
-  window.remoteProps = getRemoteProps;
-  for (const key of Object.keys(cmsDependencies)) {
-    const dep = cmsDependencies[key];
-    window.cmsDependencies[key] = dep;
-    if (dep.globalName) {
-      ;
-      (window as unknown as Record<string, unknown>)[dep.globalName] = dep.module;
-    }
-  }
+  window.React = React
+  window.ReactDOM = { ...ReactDOM, ...ReactDOMClient } as typeof window.ReactDOM
+  window.cmsDependencies = cmsDependencies as unknown as Record<string, unknown>
+  window.remoteProps = getRemoteProps
 }
