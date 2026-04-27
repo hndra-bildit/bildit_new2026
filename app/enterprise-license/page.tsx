@@ -29,7 +29,7 @@ export default function EnterpriseLicensePage() {
             production, if you (and any entity that you represent) have agreed to, and are in compliance with, the
             BILDIT Subscription Terms of Service, available at{' '}
             <Link
-              href="https://bilditon.com/terms-of-use"
+              href="https://bildit.co/terms-of-use"
               className="text-[#5b21b6] underline decoration-[#5b21b6]/30 underline-offset-2 hover:text-[#4c1d95]"
             >
               https://bilditon.com/terms-of-use
