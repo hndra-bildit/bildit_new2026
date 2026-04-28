@@ -17,9 +17,9 @@ const TYPING_MS = 100
 const HERO_CHECKS = ['Carousels', 'Animated Heroes', 'Instagram Style Stories', 'Countdown Timers'] as const
 
 const TEMPLATE_PREVIEW_IMAGES = [
-  { src: '/images/home-workflow/panel-build.png', alt: 'Deals and promotional carousel template preview' },
-  { src: '/images/home-workflow/panel-preview.png', alt: 'Fashion carousel template preview' },
-  { src: '/images/home-workflow/panel-publish.png', alt: 'Instagram-style stories template preview' }
+  { src: '/images/home-workflow/panel-build.png', alt: 'Deals and promotional carousel template preview', width: 2007, height: 1288 },
+  { src: '/images/home-workflow/panel-preview.png', alt: 'Fashion carousel template preview', width: 2000, height: 1284 },
+  { src: '/images/home-workflow/panel-publish.png', alt: 'Instagram-style stories template preview', width: 1840, height: 1145 }
 ] as const
 
 function TemplatesModalIcon({ className }: { className?: string }) {
@@ -91,7 +91,9 @@ function CmsTileSection({
         width={image.width ?? 1200}
         height={image.height ?? 780}
         className={cn('h-full w-full object-cover object-top', imageClassName)}
-        sizes="(max-width: 768px) 100vw, 50vw"
+        // This section is inside a max-width two-column grid, so `50vw` overstates on large monitors
+        // and can cause Next/Image to request oversized variants.
+        sizes="(max-width: 768px) 100vw, 640px"
       />
     </div>
   )
