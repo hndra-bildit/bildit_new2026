@@ -1,7 +1,7 @@
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
-import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
+import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle,
@@ -71,11 +71,7 @@ export function VeeHero() {
                 without waiting on deployments.
               </p>
               <div className="flex w-full flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center md:justify-start sm:gap-5">
-                <GradientCtaButton
-                  href={BILDIT_SIGNUP_URL}
-                  variant="figma-long"
-                  className="md:h-12 md:px-6"
-                >
+                <GradientCtaButton href={BILDIT_SIGNUP_URL} variant="figma-long" className="md:h-12 md:px-6">
                   Try the Visual Editor now
                 </GradientCtaButton>
               </div>

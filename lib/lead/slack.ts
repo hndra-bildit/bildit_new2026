@@ -123,10 +123,10 @@ export async function uploadSlackFile(args: UploadSlackFileArgs): Promise<{ perm
     file: args.buffer
   })
 
-  const file = Array.isArray(result.files) ? result.files[0] : undefined
-  const permalink =
-    (file as { permalink?: string } | undefined)?.permalink ||
-    (file as { permalink_public?: string } | undefined)?.permalink_public
+  const file = Array.isArray((result as { files?: unknown[] }).files)
+    ? (result as { files?: { permalink?: string; permalink_public?: string }[] }).files?.[0]
+    : undefined
+  const permalink = file?.permalink || file?.permalink_public
 
   if (!result.ok || !permalink) {
     throw new Error(`Slack files.uploadV2 failed: ${(result as { error?: string }).error ?? 'unknown error'}`)
