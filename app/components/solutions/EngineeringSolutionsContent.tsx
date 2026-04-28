@@ -255,7 +255,7 @@ export function EngineeringSolutionsContent() {
         <div className="relative mx-auto w-full max-w-[1280px] rounded-3xl border border-white/10 bg-[#0d0118] px-6 py-12 shadow-[0px_0px_120px_0px_rgba(200,80,240,0.12)] md:px-12 md:py-16">
           <div className="mx-auto max-w-[768px] text-center">
             <h2 className="font-uncut-sans text-3xl font-bold leading-tight text-[#f0e6ff] md:text-5xl md:leading-[58px]">
-              Everything your platform team expects.
+              Everything your engineering team expects.
             </h2>
             <p className="mt-6 text-lg text-[#c4b5dc]">You get:</p>
           </div>
