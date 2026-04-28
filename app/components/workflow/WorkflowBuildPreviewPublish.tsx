@@ -16,8 +16,8 @@ export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
     Icon: PenLine,
     panelSrc: '/images/home-workflow/panel-build.png',
     panelAlt: 'BILDIT live editor: build storefront content visually',
-    panelWidth: 1004,
-    panelHeight: 644
+    panelWidth: 2007,
+    panelHeight: 1288
   },
   {
     id: 'preview',
@@ -26,8 +26,8 @@ export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
     Icon: Eye,
     panelSrc: '/images/home-workflow/panel-preview.png',
     panelAlt: 'Storefront preview across desktop, tablet, and mobile',
-    panelWidth: 920,
-    panelHeight: 562
+    panelWidth: 2000,
+    panelHeight: 1284
   },
   {
     id: 'publish',
@@ -36,8 +36,8 @@ export const WORKFLOW_BUILD_PREVIEW_PUBLISH_STEPS = [
     Icon: Rocket,
     panelSrc: '/images/home-workflow/panel-publish.png',
     panelAlt: 'Publish changes to the live site without a dev ticket',
-    panelWidth: 920,
-    panelHeight: 562
+    panelWidth: 1840,
+    panelHeight: 1145
   }
 ] as const
 
