@@ -163,7 +163,7 @@ export function MarketersSolutionsContent() {
             <span className="text-[#f0e6ff]">.</span>
           </h2>
           <p className={cn(homeSectionSubtitleOnDarkClassName, 'text-center text-[#a07dc0]')}>
-            What teams see after switching to BILDIT Visual Experience Engine.
+            What teams see after switching to BILDIT Visual Experience Engine:
           </p>
           <div className="mt-8 grid w-full grid-cols-1 gap-8 border-white/10 pt-4 md:grid-cols-3 md:gap-2 md:pt-[52px]">
             {[

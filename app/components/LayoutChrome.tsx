@@ -10,6 +10,8 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname() || '/'
   const normalizedPath = pathname.replace(/\/$/, '') || '/'
   const isLandingPage = isLandingPagePath(normalizedPath)
+  const showSiteModeToggle =
+    normalizedPath === '/solutions-for-marketers' || normalizedPath === '/solutions-for-engineering'
   /** Fixed header clears via page content padding (home/marketers heroes, engineering `main`). */
   const usesHomeHeroLayout =
     normalizedPath === '/' ||
@@ -31,7 +33,7 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
       <div className={usesHomeHeroLayout || isLandingPage ? undefined : 'pt-[calc(5.5rem+10px)] sm:pt-[5.5rem]'}>
         {children}
       </div>
-      {isLandingPage ? null : <FloatingSiteModeToggle />}
+      {isLandingPage || !showSiteModeToggle ? null : <FloatingSiteModeToggle />}
     </>
   )
 }

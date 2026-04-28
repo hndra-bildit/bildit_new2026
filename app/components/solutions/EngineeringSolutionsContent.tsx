@@ -1,4 +1,5 @@
 import { HomeIntegrations } from '@/app/components/home/HomeIntegrations'
+import { PRICING_FAQ_SALES_URL } from '@/app/components/pricing/pricing-faq-data'
 import { EngineeringSdkCodePanel } from '@/app/components/solutions/EngineeringSdkCodePanel'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
@@ -61,9 +62,8 @@ export function EngineeringSolutionsContent() {
             style={{ background: 'radial-gradient(circle, rgba(59,30,237,0.45) 0%, transparent 70%)' }}
           />
         </div>
-        <div className="relative mx-auto flex max-w-[1470px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[18px] border border-white/10 bg-[#0d0118] px-6 py-12 text-center sm:gap-6 sm:py-16 md:gap-7 md:rounded-[27px] md:px-[116px] md:py-16 lg:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#a07dc0]">For engineering teams</p>
-          <h1 className="max-w-[1100px] font-uncut-sans text-3xl font-bold leading-[1.08] tracking-[-0.03em] md:text-5xl md:leading-[1.06] lg:text-[56px] lg:leading-[62px]">
+        <div className="relative mx-auto flex max-w-[1470px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[18px] border border-white/10 bg-[#0d0118] px-6 pb-12 pt-24 text-center sm:gap-6 sm:pb-16 sm:pt-28 md:gap-7 md:rounded-[27px] md:px-[116px] md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
+          <h1 className="mt-[150px] max-w-[1100px] font-uncut-sans text-3xl font-bold leading-[1.08] tracking-[-0.03em] md:text-5xl md:leading-[1.06] lg:text-[56px] lg:leading-[62px]">
             <span className="text-[#f0e6ff]">Stop being the bottleneck for every</span>
             <br />
             <span className="text-[#f0e6ff]">merchandising experiment.</span>
@@ -74,7 +74,7 @@ export function EngineeringSolutionsContent() {
                 backgroundImage: 'linear-gradient(170deg, rgb(237, 30, 121) 54.93%, rgb(59, 30, 237) 94.96%)'
               }}
             >
-              Ship templates. Keep governance. Move faster.
+              Ship code templates with AI fast.
             </span>
           </h1>
           <p className="max-w-[560px] text-lg leading-relaxed text-[#c4b5dc]">
@@ -82,9 +82,9 @@ export function EngineeringSolutionsContent() {
             reviews, or release discipline.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <GradientCtaButton href="/pricing/">Get a Free Developer Sandbox</GradientCtaButton>
+            <GradientCtaButton href={BILDIT_SIGNUP_URL}>Get a Free Developer Sandbox</GradientCtaButton>
             <Link
-              href="/visual-experience-engine/"
+              href={PRICING_FAQ_SALES_URL}
               className="rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10"
             >
               Book a Tech Demo
@@ -103,7 +103,7 @@ export function EngineeringSolutionsContent() {
         <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-4 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#a07dc0]">Developer experience</p>
           <h2 className="max-w-[900px] font-uncut-sans text-3xl font-bold leading-tight text-[#f0e6ff] md:text-5xl md:leading-[58px]">
-            Everything you need to integrate once—then get out of the way.
+            Everything you need to integrate, migrate, and iterate.
           </h2>
           <p className="max-w-[520px] text-lg text-[#c4b5dc]">
             Built for teams shipping on Next.js, custom React web, and React Native.
@@ -241,7 +241,7 @@ export function EngineeringSolutionsContent() {
         </div>
         <div className="mx-auto mt-14 flex max-w-[1280px] flex-col items-center gap-3">
           <p className="text-center text-lg font-semibold text-[#c4b5dc]">Fewer interrupts. More deep work.</p>
-          <GradientCtaButton href="/pricing/" variant="figma-long">
+          <GradientCtaButton href={PRICING_FAQ_SALES_URL} variant="figma-long">
             Talk to Solutions Engineering
           </GradientCtaButton>
         </div>
@@ -296,7 +296,7 @@ export function EngineeringSolutionsContent() {
             </p>
           </div>
           <div className="mt-10 flex justify-center">
-            <GradientCtaButton href={BILDIT_SIGNUP_URL}>Start a trial</GradientCtaButton>
+            <GradientCtaButton href={BILDIT_SIGNUP_URL}>Start a Free Trial</GradientCtaButton>
           </div>
         </div>
       </section>

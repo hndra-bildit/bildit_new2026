@@ -29,7 +29,7 @@ export function HomeHero({ className }: { className?: string }) {
         <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">
           <div className="flex max-w-[896px] flex-col gap-5 md:gap-5">
             <h1 className="font-[family-name:var(--font-uncut-sans)] text-4xl font-bold leading-[1.05] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.35),0_2px_14px_rgba(0,0,0,0.22)] sm:text-5xl md:text-6xl lg:text-[72px] lg:leading-[72px]">
-              <span className="block">Ship high performance</span>
+              <span className="block tracking-[0.01em]">Ship high performance</span>
               <span className="mt-1 flex flex-wrap items-center justify-center gap-2.5 py-1 md:gap-2.5">
                 <span className="text-white">experiences.</span>
                 <span

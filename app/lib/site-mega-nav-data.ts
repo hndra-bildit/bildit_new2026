@@ -25,12 +25,12 @@ export const SITE_MEGA_CAPABILITIES_ITEMS: SiteMegaLinkItem[] = [
 export const SITE_MEGA_SOLUTION_ITEMS: SiteMegaLinkItem[] = [
   {
     href: '/solutions-for-marketers/',
-    title: 'Marketing Team',
+    title: 'For Marketing Teams',
     description: 'Update your site without engineering tickets. Schedule and Preview Content in Realtime.'
   },
   {
     href: '/solutions-for-engineering/',
-    title: 'Engineering Team',
+    title: 'For Engineering Teams',
     description: 'Build advanced templates in React and React Native. Push out template updates without a deployment.'
   }
 ]

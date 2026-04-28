@@ -16,10 +16,10 @@ const colCompany: FooterHrefItem[] = [
 
 /** Deeper product links (plus mega Platform coverage). */
 const colProduct: FooterHrefItem[] = [
+  { label: 'Visual Experience Engine', href: '/visual-experience-engine/' },
   { label: 'Reference App', href: '/mobile-app-storefront/' },
   { label: 'Native Checkout', href: '/mobile-app-storefront/' },
   { label: 'App Clip SDK', href: '/mobile-app-storefront/' },
-  { label: 'Visual Experience Engine', href: '/visual-experience-engine/' },
   { label: 'Mobile Checkout', href: '/mobile-app-storefront/' },
   { label: 'Integrations', href: '/integration-partners/' },
   { label: 'React Native Storefront', href: '/mobile-app-storefront/' }

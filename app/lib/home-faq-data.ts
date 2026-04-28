@@ -70,7 +70,7 @@ export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
   },
   {
     name: 'Q: Does BILDIT handle localization and multi-brand?',
-    text: 'A: Yes. The Visual Experience Engine supports a localization file used with i18n for each locale.'
+    text: 'A: Yes. The Visual Experience Engine supports a localization file used with i18n for each locale. For multi-brand, you can run many brands as separate sites inside the VEE—each with its own domains, content, templates, and publishing workflow.'
   },
   {
     name: 'Q: Can we personalize content?',

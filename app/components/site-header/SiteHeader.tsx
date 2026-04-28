@@ -188,6 +188,8 @@ export function SiteHeader() {
     normalizedPath === '/blog' ||
     normalizedPath === '/webinars'
   const isEngineering = normalizedPath === '/it' || normalizedPath === '/solutions-for-engineering'
+  const showSiteModeToggle =
+    normalizedPath === '/solutions-for-marketers' || normalizedPath === '/solutions-for-engineering'
   const [megaOpen, setMegaOpen] = useState(false)
   const [megaFocus, setMegaFocus] = useState<MegaKey>('capabilities')
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -387,28 +389,30 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-[3px] sm:gap-2">
-            <button
-              type="button"
-              role="switch"
-              aria-checked={isEngineering}
-              aria-label={isEngineering ? 'Switch to solutions for marketers' : 'Switch to solutions for engineering'}
-              onClick={toggleEngineering}
-              className="site-header--engineering relative hidden h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300 lg:inline-flex"
-              style={{ backgroundColor: 'var(--header-toggle-track)' }}
-            >
-              <span
-                className={cn(
-                  'absolute top-px flex size-5 items-center justify-center rounded-full bg-white shadow transition-[left,transform] duration-300 ease-out',
-                  isEngineering ? 'left-[19px]' : 'left-px'
-                )}
+            {showSiteModeToggle ? (
+              <button
+                type="button"
+                role="switch"
+                aria-checked={isEngineering}
+                aria-label={isEngineering ? 'Switch to solutions for marketers' : 'Switch to solutions for engineering'}
+                onClick={toggleEngineering}
+                className="site-header--engineering relative hidden h-[22px] w-10 shrink-0 rounded-[11px] transition-colors duration-300 lg:inline-flex"
+                style={{ backgroundColor: 'var(--header-toggle-track)' }}
               >
-                {isEngineering ? (
-                  <Moon className="size-3 text-violet-700" aria-hidden />
-                ) : (
-                  <Sun className="size-3 text-amber-500" aria-hidden />
-                )}
-              </span>
-            </button>
+                <span
+                  className={cn(
+                    'absolute top-px flex size-5 items-center justify-center rounded-full bg-white shadow transition-[left,transform] duration-300 ease-out',
+                    isEngineering ? 'left-[19px]' : 'left-px'
+                  )}
+                >
+                  {isEngineering ? (
+                    <Moon className="size-3 text-violet-700" aria-hidden />
+                  ) : (
+                    <Sun className="size-3 text-amber-500" aria-hidden />
+                  )}
+                </span>
+              </button>
+            ) : null}
             <Link
               href={BILDIT_SIGNUP_URL}
               className="font-[family-name:var(--font-inter)] inline-flex shrink-0 items-center justify-center rounded-full px-[15px] py-2.5 text-[10px] font-semibold leading-tight no-underline decoration-transparent transition-opacity hover:opacity-90 hover:no-underline focus-visible:no-underline min-[400px]:px-4 min-[400px]:py-3 min-[400px]:text-xs min-[420px]:text-sm sm:px-6 sm:py-2.5 sm:text-base lg:px-4 lg:text-sm xl:px-6 xl:text-base"

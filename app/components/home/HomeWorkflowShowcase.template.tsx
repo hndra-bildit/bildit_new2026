@@ -9,6 +9,7 @@ import { homeSectionSubtitleClassName, homeSectionTitleClassName } from '@/app/c
 import { GradientCtaButton } from '@/app/components/Components'
 import { WorkflowStepPanel, WorkflowStepTabList } from '@/app/components/Components'
 import { cn } from '@/app/components/Components'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 
 type HomeWorkflowShowcaseProps = {
   className?: string
@@ -74,7 +75,7 @@ export function HomeWorkflowShowcase({ className, showSocialStrip = true }) {
               {divP}
             </p>
             <div aria-describedby="home-workflow-cta-heading">
-              <GradientCtaButton href="/pricing/" variant="figma-long">
+              <GradientCtaButton href={BILDIT_SIGNUP_URL} variant="figma-long">
                 Try Visual Editor
               </GradientCtaButton>
             </div>

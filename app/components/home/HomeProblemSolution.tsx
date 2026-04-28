@@ -74,13 +74,13 @@ export function HomeProblemSolution({ className }: { className?: string }) {
         {/* Solution — Figma 5119:16665: purple top rule */}
         <div className="flex min-w-0 flex-col border-t-4 border-solid border-[#171717] pt-5 lg:justify-center">
           <div className="flex flex-col gap-8 md:gap-[30px]">
-            <p className={cn(homeSectionEyebrowClassName, 'text-[#171717]')}>The Solution</p>
+            <p className={cn(homeSectionEyebrowClassName, 'text-[#171717]')}>The Solution:</p>
             <div className="[--header-logo-bild:#0d0118] [--header-logo-it:#ed1e79]">
               <span className="sr-only">BILDIT</span>
               <BilditLogo className="h-10 w-auto sm:h-11 md:h-[48px] md:w-auto" />
             </div>
             <p className="font-[family-name:var(--font-uncut-sans)] text-[17px] font-normal leading-7 text-[#171717] md:text-xl md:leading-[28px]">
-              Break free from deployments. Your site into a Visual Experience Engine.
+              Break free from deployments. Use the Visual Experience Engine to customize and build your templates.
             </p>
 
             <div className="flex flex-col gap-2.5 rounded-3xl">

@@ -120,7 +120,7 @@ export function HomeDesignedForEcommerce({
   const roundedCorners = $(roundedCorners:Boolean=true); // endgroup
   // group { 2. div }
   const designedForModernECommerceText = $(designedForModernECommerceText:RichText={ text: "Designed for modern eCommerce." });
-  const whatTeamsSeeAfterSwitchingText = $(whatTeamsSeeAfterSwitchingText:RichText={ text: "What teams see after switching to BILDIT Visual Experience Engine." }); // endgroup
+  const whatTeamsSeeAfterSwitchingText = $(whatTeamsSeeAfterSwitchingText:RichText={ text: "What teams see after switching to BILDIT Visual Experience Engine:" }); // endgroup
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsFullyVisible, setStatsFullyVisible] = useState(false);
   const [zeroActive, setZeroActive] = useState(false);

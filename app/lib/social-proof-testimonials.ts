@@ -7,8 +7,8 @@ export type SocialProofTestimonial = {
 
 export const SOCIAL_PROOF_TESTIMONIALS: SocialProofTestimonial[] = [
   {
-    name: 'Toni Montgomery',
-    company: 'Belk',
+    name: 'Production Manager',
+    company: 'Enterprise Retailer',
     content:
       "I don't necessarily have all developers on my team. And so we need tools that I can teach anyone on my team to use. … We actually just had someone start and they pretty much had her up to speed in I would say about two weeks. She's pretty much doing the building on her own now."
   },
