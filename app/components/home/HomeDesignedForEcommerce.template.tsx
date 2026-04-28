@@ -1,4 +1,4 @@
-// HomeDesignedForEcommerce:v4 legacy=true
+// HomeDesignedForEcommerce:v7 legacy=true
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
@@ -11,17 +11,17 @@ type HomeDesignedStat = {
   lines: readonly [string, string];
 };
 // group { 1. STATS (item0) }
-const firstValue = $(firstValue:String='7xD7');
+const firstValue = $(firstValue:String='7×');
 const firstValueClassName = $(firstValueClassName:String='font-bold');
-const firstTitle = $(firstTitle:RichText='Faster publishing'); // endgroup
+const firstTitle = $(firstTitle:RichText={ text: "Faster publishing" }); // endgroup
 // group { 2. STATS (item1) }
 const secondValue = $(secondValue:String='0');
 const secondValueClassName = $(secondValueClassName:String='font-bold');
-const secondTitle = $(secondTitle:RichText='Dev tickets per campaign'); // endgroup
+const secondTitle = $(secondTitle:RichText={ text: "Dev tickets per campaign" }); // endgroup
 // group { 3. STATS (item2) }
 const thirdValue = $(thirdValue:String='+33%');
 const thirdValueClassName = $(thirdValueClassName:String='font-semibold');
-const thirdTitle = $(thirdTitle:RichText='Faster page loads'); // endgroup
+const thirdTitle = $(thirdTitle:RichText={ text: "Faster page loads" }); // endgroup
 const STATS = [{
   value: firstValue,
   valueClassName: firstValueClassName,
@@ -84,9 +84,9 @@ function StatSevenGradient({
   className
 }) {
   // group { 1. StatSevenGradient }
-  const statSevenGradientP = $(statSevenGradientP:RichText='7xD7'); // endgroup
-  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="7× faster publishing" data-bildit-var-name="statSevenGradientP" data-bildit-var-type="RichText">
-      {statSevenGradientP}
+  const text7Text = $(text7Text:RichText={ text: "7×" }); // endgroup
+  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="7× faster publishing" data-bildit-var-name="text7Text" data-bildit-var-type="RichText">
+      {text7Text}
     </p>;
 }
 function StatPlusThirtyThree({
@@ -94,9 +94,9 @@ function StatPlusThirtyThree({
   className
 }) {
   // group { 1. StatPlusThirtyThree }
-  const statPlusThirtyThreeP = $(statPlusThirtyThreeP:RichText='+33%'); // endgroup
-  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-semibold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="+33% faster page loads" data-bildit-var-name="statPlusThirtyThreeP" data-bildit-var-type="RichText">
-      {statPlusThirtyThreeP}
+  const text33Text = $(text33Text:RichText={ text: "+33%" }); // endgroup
+  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-semibold tabular-nums', active && 'home-stat-metric-fill', className)} aria-label="+33% faster page loads" data-bildit-var-name="text33Text" data-bildit-var-type="RichText">
+      {text33Text}
     </p>;
 }
 function StatZero({
@@ -104,9 +104,9 @@ function StatZero({
   className
 }) {
   // group { 1. StatZero }
-  const statZeroP = $(statZeroP:RichText='0'); // endgroup
-  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} data-bildit-var-name="statZeroP" data-bildit-var-type="RichText">
-      {statZeroP}
+  const text0Text = $(text0Text:RichText={ text: "0" }); // endgroup
+  return <p className={cn(VALUE_CLASS_METRIC, 'home-stat-metric-wrap font-bold tabular-nums', active && 'home-stat-metric-fill', className)} data-bildit-var-name="text0Text" data-bildit-var-type="RichText">
+      {text0Text}
     </p>;
 }
 
@@ -115,10 +115,12 @@ export function HomeDesignedForEcommerce({
   className
 }) {
   // group { 1. div }
-  const sectionDivRoundedCornersToggle = $(sectionDivRoundedCornersToggle:Boolean=true); // endgroup
+  const div1RoundedCorners = $(div1RoundedCorners:Boolean=true);
+  const div2RoundedCorners = $(div2RoundedCorners:Boolean=true);
+  const roundedCorners = $(roundedCorners:Boolean=true); // endgroup
   // group { 2. div }
-  const divH2Text = $(divH2Text:RichText='Designed for modern eCommerce.');
-  const divPText = $(divPText:RichText='What teams see after switching to BILDIT Visual Experience Engine.'); // endgroup
+  const designedForModernECommerceText = $(designedForModernECommerceText:RichText={ text: "Designed for modern eCommerce." });
+  const whatTeamsSeeAfterSwitchingText = $(whatTeamsSeeAfterSwitchingText:RichText={ text: "What teams see after switching to BILDIT Visual Experience Engine." }); // endgroup
   const statsRef = useRef<HTMLDivElement>(null);
   const [statsFullyVisible, setStatsFullyVisible] = useState(false);
   const [zeroActive, setZeroActive] = useState(false);
@@ -154,15 +156,15 @@ export function HomeDesignedForEcommerce({
   }, [statsFullyVisible, reducedMotion]);
   return <section className={cn('home-scheme-light relative w-full overflow-hidden bg-white text-neutral-900', className)}>
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <div className={`absolute left-[8%] top-[18%] size-[380px] bg-[rgba(232,69,144,0.06)] blur-[100px] md:left-[12%] ${sectionDivRoundedCornersToggle ? "rounded-full" : ""}`} data-bildit-var-name="sectionDivRoundedCornersToggle" data-bildit-var-type="Boolean" />
-        <div className={`absolute right-[5%] top-[35%] size-[420px] bg-[rgba(200,80,240,0.055)] blur-[110px] md:right-[8%] ${sectionDivRoundedCornersToggle ? "rounded-full" : ""}`} data-bildit-var-name="sectionDivRoundedCornersToggle" data-bildit-var-type="Boolean" />
-        <div className={`absolute bottom-[12%] left-1/2 size-[400px] -translate-x-1/2 bg-[rgba(255,68,102,0.045)] blur-[100px] ${sectionDivRoundedCornersToggle ? "rounded-full" : ""}`} data-bildit-var-name="sectionDivRoundedCornersToggle" data-bildit-var-type="Boolean" />
+        <div className={`absolute left-[8%] top-[18%] size-[380px] bg-[rgba(232,69,144,0.06)] blur-[100px] md:left-[12%] ${roundedCorners ? "rounded-full" : ""}`} data-bildit-var-name="roundedCorners" data-bildit-var-type="Boolean" />
+        <div className={`absolute right-[5%] top-[35%] size-[420px] bg-[rgba(200,80,240,0.055)] blur-[110px] md:right-[8%] ${div1RoundedCorners ? "rounded-full" : ""}`} data-bildit-var-name="div1RoundedCorners" data-bildit-var-type="Boolean" />
+        <div className={`absolute bottom-[12%] left-1/2 size-[400px] -translate-x-1/2 bg-[rgba(255,68,102,0.045)] blur-[100px] ${div2RoundedCorners ? "rounded-full" : ""}`} data-bildit-var-name="div2RoundedCorners" data-bildit-var-type="Boolean" />
       </div>
       <div className="relative mx-auto w-full max-w-[1286px] px-6 py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
         <div className="flex flex-col items-center gap-5 text-center">
-          <h2 className={cn('max-w-[855px] text-center', homeSectionTitleClassName)} data-bildit-var-name="divH2Text" data-bildit-var-type="RichText">{divH2Text}</h2>
-          <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-center')} data-bildit-var-name="divPText" data-bildit-var-type="RichText">
-            {divPText}
+          <h2 className={cn('max-w-[855px] text-center', homeSectionTitleClassName)} data-bildit-var-name="designedForModernECommerceText" data-bildit-var-type="RichText">{designedForModernECommerceText}</h2>
+          <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-center')} data-bildit-var-name="whatTeamsSeeAfterSwitchingText" data-bildit-var-type="RichText">
+            {whatTeamsSeeAfterSwitchingText}
           </p>
         </div>
 

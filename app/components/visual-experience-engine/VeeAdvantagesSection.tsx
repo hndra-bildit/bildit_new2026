@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { BilditPurpleGlowOrb } from '@/app/components/marketing/BilditMarketingGlows'
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import {
   veeAdvantagesAdvancedScheduling,
   veeAdvantagesEditableBanner,
@@ -107,7 +108,7 @@ export function VeeAdvantagesSection() {
                       ))}
                     </ul>
                     <GradientCtaButton
-                      href="/pricing/"
+                      href={BILDIT_SIGNUP_URL}
                       variant="figma-long"
                       className="mt-4 h-10 px-5 text-sm md:h-10 md:text-base"
                       onClick={(e) => e.stopPropagation()}

@@ -15,7 +15,15 @@
     "STATS[2].title|RichText": "thirdTitle",
     "StatSevenGradient::p|RichText": "statSevenGradientP",
     "StatPlusThirtyThree::p|RichText": "statPlusThirtyThreeP",
-    "StatZero::p|RichText": "statZeroP"
+    "StatZero::p|RichText": "statZeroP",
+    "StatSevenGradient::p_0|RichText": "text7Text",
+    "StatPlusThirtyThree::p_0|RichText": "text33Text",
+    "StatZero::p_0|RichText": "text0Text",
+    "section_0.div_0.div_0.roundedCorners|Boolean": "roundedCorners",
+    "section_0.div_0.div_1.roundedCorners|Boolean": "div1RoundedCorners",
+    "section_0.div_0.div_2.roundedCorners|Boolean": "div2RoundedCorners",
+    "section_0.div_1.div_0.h2_0|RichText": "designedForModernECommerceText",
+    "section_0.div_1.div_0.p_1|RichText": "whatTeamsSeeAfterSwitchingText"
   },
   "nextIndex": {}
 }

@@ -40,7 +40,7 @@ export function HomePostFaqCta({ className }) {
    * @group div
    * @type String
    */
-  const divLinkHrefValue = '/pricing/'
+  const divLinkHrefValue = 'https://signup.bildit.co/signup'
   /**
    * @group div
    * @type Boolean

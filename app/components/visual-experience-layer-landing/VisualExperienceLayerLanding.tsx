@@ -1,18 +1,17 @@
 'use client'
 
 import { useEffect, useState, type CSSProperties } from 'react'
+import EditableBanner from '@/app/components/Demo/EditableBanner'
 import { BilditLogo } from '@/app/components/site-header/BilditLogo'
 import { VeeIntegrationsStrip } from '@/app/components/visual-experience-engine/VeeIntegrationsStrip'
 import { BilditMarketingModal } from '@/app/components/visual-experience-layer-landing/BilditMarketingModal'
 import { VeeLayerLeadForm } from '@/app/components/visual-experience-layer-landing/VeeLayerLeadForm'
-import { veeAdvantagesLaptopScreen } from '@/app/lib/vee-advantages-assets'
-import { veeHeroPrimaryArt } from '@/app/lib/vee-hero-assets'
 import { cn } from '@/utils/cn'
 import { Check } from 'lucide-react'
 import Image from 'next/image'
 
-const HERO_BG = '#2d004d'
-const GRADIENT_TYPING_PHRASE = 'TO BOTH WEB AND APP'
+const HERO_BG = '#120818'
+const GRADIENT_TYPING_PHRASE = 'FASTER'
 const TYPING_MS = 100
 
 const HERO_CHECKS = ['Carousels', 'Animated Heroes', 'Instagram Style Stories', 'Countdown Timers'] as const
@@ -29,21 +28,6 @@ function TemplatesModalIcon({ className }: { className?: string }) {
       <polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" fill="#5b2ab3" />
       <path d="M24 12L31 32H26.5L25.2 28H22.8L21.5 32H17L24 12ZM24 18.5L22.3 24H25.7L24 18.5Z" fill="white" />
     </svg>
-  )
-}
-
-function EarlyAccessMark({ className }: { className?: string }) {
-  return (
-    <div
-      className={cn('flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#ed1e79] shadow-sm', className)}
-      aria-hidden
-    >
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="4" y="4" width="20" height="5" rx="1" fill="white" />
-        <rect x="4" y="11.5" width="20" height="5" rx="1" fill="white" />
-        <rect x="4" y="19" width="20" height="5" rx="1" fill="white" />
-      </svg>
-    </div>
   )
 }
 
@@ -78,22 +62,35 @@ function CmsTileSection({
   title,
   body,
   bullets,
+  image,
+  visual,
+  framed = true,
+  imageClassName,
   imageOnRight = true
 }: {
   kicker: string
   title: string
   body: string
   bullets: readonly string[]
+  image: { src: string; alt: string; width?: number; height?: number }
+  visual?: React.ReactNode
+  framed?: boolean
+  imageClassName?: string
   imageOnRight?: boolean
 }) {
-  const visual = (
-    <div className="relative min-h-[220px] overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5 md:min-h-[320px]">
+  const fallbackVisual = (
+    <div
+      className={cn(
+        'relative min-h-[220px] md:min-h-[320px]',
+        framed && 'overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] ring-1 ring-black/5'
+      )}
+    >
       <Image
-        src={veeAdvantagesLaptopScreen}
-        alt=""
-        width={1200}
-        height={780}
-        className="h-full w-full object-cover object-top"
+        src={image.src}
+        alt={image.alt}
+        width={image.width ?? 1200}
+        height={image.height ?? 780}
+        className={cn('h-full w-full object-cover object-top', imageClassName)}
         sizes="(max-width: 768px) 100vw, 50vw"
       />
     </div>
@@ -107,7 +104,9 @@ function CmsTileSection({
       <h2 className="font-[family-name:var(--font-gt-walsheim)] text-3xl font-extrabold leading-tight text-[#171717] md:text-4xl md:leading-[1.1]">
         {title}
       </h2>
-      <p className="font-[family-name:var(--font-uncut-sans)] text-lg leading-relaxed text-[#595959]">{body}</p>
+      <p className="font-[family-name:var(--font-uncut-sans)] text-lg leading-relaxed text-[#595959] md:text-xl">
+        {body}
+      </p>
       <ul className="mt-2 space-y-3">
         {bullets.map((b) => (
           <li key={b} className="flex gap-3 font-[family-name:var(--font-uncut-sans)] text-base text-[#171717]">
@@ -122,16 +121,16 @@ function CmsTileSection({
   )
 
   return (
-    <section className="border-t border-black/5 bg-white px-4 py-14 md:px-8 md:py-20 lg:px-[116px]">
-      <div className="mx-auto grid max-w-[1260px] items-center gap-10 md:grid-cols-2 md:gap-14">
+    <section className="border-t border-black/5 bg-white">
+      <div className="mx-auto grid max-w-[1286px] items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-14 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
         {imageOnRight ? (
           <>
             {copy}
-            {visual}
+            {visual ?? fallbackVisual}
           </>
         ) : (
           <>
-            {visual}
+            {visual ?? fallbackVisual}
             {copy}
           </>
         )}
@@ -156,7 +155,7 @@ export function VisualExperienceLayerLanding() {
           aria-hidden
         />
 
-        <div className="relative z-[1] px-5 pb-16 pt-28 md:px-10 md:pb-24 md:pt-32 lg:px-[60px]">
+        <div className="relative z-[1] px-5 pb-16 pt-16 md:px-10 md:pb-24 md:pt-20 lg:px-[60px]">
           <div
             className="mb-10 md:absolute md:left-[60px] md:top-8 md:mb-0 lg:left-[60px]"
             style={
@@ -172,7 +171,7 @@ export function VisualExperienceLayerLanding() {
           <div className="mx-auto flex max-w-[1600px] flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <div className="flex max-w-[720px] flex-col gap-8 lg:max-w-[50%]">
               <h1 className="pt-4 font-[family-name:var(--font-gt-walsheim)] text-[1.6rem] font-extrabold uppercase leading-tight tracking-[-0.02em] text-white md:text-[2.35rem] md:leading-[1.05] lg:text-[3.2rem] lg:leading-[1] xl:text-[3.7rem]">
-                PUBLISH ADVANCED CONTENT WITHOUT INVOLVING IT
+                SHIP HIGH-PERFORMANCE EXPERIENCES.
                 <span className="bg-gradient-to-br from-[#ff6bb3] to-[#6b4fff] bg-clip-text text-transparent">
                   {' '}
                   {typedGradient}
@@ -180,9 +179,9 @@ export function VisualExperienceLayerLanding() {
                 <span className="ml-1 inline-block animate-pulse font-normal text-[#ed1e79]">|</span>
               </h1>
 
-              <p className="max-w-[640px] font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-snug text-white md:text-[1.35rem] md:leading-relaxed lg:text-[1.7rem] [text-shadow:0_2px_15px_rgba(0,0,0,0.8)]">
-                Build beautiful content at the speed of marketing. Independence from IT! Download our Figma templates to
-                see the kind of content that you can build.
+              <p className="max-w-[680px] font-[family-name:var(--font-uncut-sans)] text-lg font-light leading-relaxed text-white/85 md:text-2xl">
+                Publish advanced content across web and app—no bottlenecks holding you back. Build, launch, and iterate
+                at the speed of marketing. Explore our Figma templates to see what you can create.
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
@@ -195,10 +194,10 @@ export function VisualExperienceLayerLanding() {
                 </button>
                 <button
                   type="button"
-                  className="text-left font-[family-name:var(--font-uncut-sans)] text-base font-semibold text-white/90 underline decoration-[#ed1e79] decoration-2 underline-offset-4 transition hover:text-white sm:px-2"
+                  className="inline-flex items-center justify-center rounded-full border border-black bg-white px-5 py-2.5 text-left font-[family-name:var(--font-uncut-sans)] text-base font-semibold text-black shadow-sm transition hover:bg-white/90 sm:px-6"
                   onClick={() => setEarlyOpen(true)}
                 >
-                  Interested in our Early Access Program?
+                  GET A FREE SANDBOX
                 </button>
               </div>
 
@@ -215,16 +214,8 @@ export function VisualExperienceLayerLanding() {
             </div>
 
             <div className="flex flex-1 justify-center lg:max-w-[50%] lg:justify-end lg:pt-12">
-              <div className="relative w-full max-w-[520px]">
-                <Image
-                  src={veeHeroPrimaryArt}
-                  alt="Visual editor and scheduling preview"
-                  width={800}
-                  height={600}
-                  className="h-auto w-full rounded-lg object-contain shadow-[0_6px_30px_rgba(0,0,0,0.3)]"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 520px"
-                />
+              <div className="w-full max-w-[560px]">
+                <EditableBanner />
               </div>
             </div>
           </div>
@@ -232,45 +223,53 @@ export function VisualExperienceLayerLanding() {
       </section>
 
       <main className="w-full bg-white">
-        <section className="border-b border-black/5 px-4 py-14 text-center md:px-8 md:py-20 lg:px-[116px]">
-          <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-bold uppercase tracking-[0.2em] text-[#737373]">
-            Visual Experience Engine overview
-          </p>
-          <h2 className="mx-auto mt-4 max-w-[920px] font-[family-name:var(--font-gt-walsheim)] text-3xl font-extrabold leading-tight text-[#171717] md:text-[44px] md:leading-[1.1]">
-            Create unified cross-channel content experiences that drive revenue
-          </h2>
-          <p className="mx-auto mt-5 max-w-[720px] font-[family-name:var(--font-uncut-sans)] text-lg text-[#595959] md:text-xl">
-            Launch more, launch faster. With the Visual Experience Engine, you can line up your next campaign in hours,
-            not weeks.
-          </p>
-          <ul className="mx-auto mt-10 flex max-w-[900px] flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-8 md:gap-12">
-            {(
-              [
-                'Complete control over campaigns',
-                'Advanced mobile app capabilities',
-                'Easy cross-channel content management'
-              ] as const
-            ).map((label) => (
-              <li
-                key={label}
-                className="flex items-center justify-center gap-2 font-[family-name:var(--font-uncut-sans)] text-sm font-semibold text-[#171717] md:text-base"
-              >
-                <span className="text-[#ed1e79]">✓</span>
-                {label}
-              </li>
-            ))}
-          </ul>
+        <section className="text-center">
+          <div className="relative mx-auto w-full max-w-[1286px] px-6 py-16 md:px-10 md:py-20 lg:px-[116px] lg:py-24">
+            <p className="font-[family-name:var(--font-uncut-sans)] text-xs font-bold uppercase tracking-[0.12em] text-[#ed1e79]">
+              Visual Experience Engine overview
+            </p>
+            <h2 className="mx-auto mt-4 max-w-[920px] font-[family-name:var(--font-gt-walsheim)] text-3xl font-extrabold leading-tight text-[#171717] md:text-4xl md:leading-[1.1]">
+              Create unified cross-channel content experiences that drive revenue
+            </h2>
+            <p className="mx-auto mt-4 max-w-[720px] font-[family-name:var(--font-uncut-sans)] text-lg leading-relaxed text-[#595959] md:text-xl">
+              Launch more, launch faster. With the Visual Experience Engine, you can line up your next campaign in
+              hours, not weeks.
+            </p>
+            <ul className="mx-auto mt-8 flex max-w-[900px] flex-col flex-wrap justify-center gap-4 sm:flex-row sm:gap-8 md:gap-12">
+              {(
+                [
+                  'Complete control over campaigns',
+                  'Advanced mobile app capabilities',
+                  'Easy cross-channel content management'
+                ] as const
+              ).map((label) => (
+                <li
+                  key={label}
+                  className="flex items-center justify-center gap-2 font-[family-name:var(--font-uncut-sans)] text-sm font-semibold text-[#171717] md:text-base"
+                >
+                  <span className="text-[#ed1e79]">✓</span>
+                  {label}
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <CmsTileSection
           kicker="Easy cross-channel content management"
-          title="Build and manage content for web and mobile app. In a single CMS."
+          title="Edit Visually. Try It Now."
           body="Create sophisticated and beautiful content with real-time preview across all channels. Preview actual content embedded in your website or mobile app for any schedule and any page."
           bullets={[
             'Streamlined template editing for advanced content without code',
             'Rapidly update your published content with multi-user access and modular editing',
             'Create advanced content like carousels, Instagram-style stories, video players, grid layouts, animations and more'
           ]}
+          visual={<EditableBanner />}
+          image={{
+            src: '/images/visual-experience-engine/editable-banner.png',
+            alt: 'BILDIT visual editor with live preview on a storefront'
+          }}
+          framed={false}
           imageOnRight
         />
 
@@ -283,6 +282,13 @@ export function VisualExperienceLayerLanding() {
             'Manage multiple campaigns and schedule them in advance for seamless rollout',
             'Build sophisticated cross-channel campaigns and optimize them with AI-driven snippets'
           ]}
+          image={{
+            src: '/images/for-marketers/adv-scheduling.png',
+            alt: 'Schedule content with date range and web slots, no deployments',
+            width: 794,
+            height: 795
+          }}
+          framed={false}
           imageOnRight={false}
         />
 
@@ -295,6 +301,13 @@ export function VisualExperienceLayerLanding() {
             'Add custom links to display banners on specific product or search result pages',
             'Set up conditional product display with e-commerce platform integrations'
           ]}
+          image={{
+            src: '/images/home-no-limitations/cross-channel.webp',
+            alt: 'Cross-channel experiences across web and other surfaces',
+            width: 804,
+            height: 520
+          }}
+          imageClassName="object-center"
           imageOnRight
         />
 
@@ -318,7 +331,7 @@ export function VisualExperienceLayerLanding() {
         </div>
         <p
           id="vee-modal-templates-desc"
-          className="mt-5 font-[family-name:var(--font-uncut-sans)] text-base leading-relaxed text-[#666]"
+          className="mt-5 font-[family-name:var(--font-uncut-sans)] text-base leading-relaxed text-[#595959]"
         >
           Fill out the form below to get access to our Figma Templates. Carousels, Product Recommendations, Instagram
           Style Stories, Video Players, and more. Use these to build a design system for use with the BILDIT Visual
@@ -343,8 +356,7 @@ export function VisualExperienceLayerLanding() {
         labelledBy="vee-modal-early-title"
         describedBy="vee-modal-early-desc"
       >
-        <div className="flex items-start gap-3 pr-8">
-          <EarlyAccessMark />
+        <div className="flex items-start pr-8">
           <h2
             id="vee-modal-early-title"
             className="font-[family-name:var(--font-gt-walsheim)] text-xl font-bold text-black md:text-2xl"
@@ -354,7 +366,7 @@ export function VisualExperienceLayerLanding() {
         </div>
         <p
           id="vee-modal-early-desc"
-          className="mt-5 font-[family-name:var(--font-uncut-sans)] text-base leading-relaxed text-[#666]"
+          className="mt-5 font-[family-name:var(--font-uncut-sans)] text-base leading-relaxed text-[#595959]"
         >
           If you&apos;re excited about creating and personalizing amazing content with a visual editor and live
           previews, <span className="font-semibold text-[#171717]">WE WANT YOU</span>. We are looking for 10 eCommerce
@@ -376,12 +388,7 @@ export function VisualExperienceLayerLanding() {
             </li>
           ))}
         </ul>
-        <VeeLayerLeadForm
-          source="early-access"
-          submitLabel="About our Early Access Program"
-          className="mt-6"
-          submitButtonClassName="border-2 border-[#1a0a2e]"
-        />
+        <VeeLayerLeadForm source="early-access" submitLabel="About our Early Access Program" className="mt-6" />
       </BilditMarketingModal>
     </div>
   )

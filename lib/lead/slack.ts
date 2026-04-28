@@ -96,6 +96,45 @@ function resolveSlackChannel(explicitChannel: string): string {
   return ch
 }
 
+type UploadSlackFileArgs = {
+  filename: string
+  buffer: Buffer
+  title?: string
+  initialComment?: string
+  contentType?: string
+  channel?: string
+}
+
+/**
+ * Upload a file to Slack (requires the app to have `files:write` scope).
+ * Returns a permalink for easy sharing in lead messages.
+ */
+export async function uploadSlackFile(args: UploadSlackFileArgs): Promise<{ permalink: string }> {
+  const client = outboundWebClient()
+  const ch = resolveSlackChannel(args.channel ?? '')
+  await slackAuthPing(client)
+
+  // `files.uploadV2` supports Buffer uploads.
+  const result = await client.files.uploadV2({
+    channel_id: ch,
+    filename: args.filename,
+    title: args.title,
+    initial_comment: args.initialComment,
+    file: args.buffer
+  })
+
+  const file = Array.isArray(result.files) ? result.files[0] : undefined
+  const permalink =
+    (file as { permalink?: string } | undefined)?.permalink ||
+    (file as { permalink_public?: string } | undefined)?.permalink_public
+
+  if (!result.ok || !permalink) {
+    throw new Error(`Slack files.uploadV2 failed: ${(result as { error?: string }).error ?? 'unknown error'}`)
+  }
+
+  return { permalink }
+}
+
 /**
  * Simple notification (no interactive buttons). Used when the lead is not routed through HITL approval.
  */

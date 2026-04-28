@@ -2,6 +2,7 @@ import {
   homeSectionSubtitleOnDarkClassName,
   homeSectionTitleOnDarkClassName
 } from '@/app/components/home/home-section-typography'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import { cn } from '@/utils/cn'
 import { ArrowRight, X } from 'lucide-react'
 import Image from 'next/image'
@@ -110,7 +111,7 @@ export function HomePostFaqCta({ className }: { className?: string }) {
           </p>
 
           <Link
-            href="/pricing/"
+            href={BILDIT_SIGNUP_URL}
             className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[19px] py-2.5 text-base font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
             Start Building

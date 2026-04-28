@@ -9,6 +9,7 @@ import { usePathname, useRouter } from 'next/navigation'
  * Desktop uses the pill control in `SiteHeader` instead.
  */
 const engineeringPaths = new Set(['/it', '/solutions-for-engineering'])
+const returnToKey = 'siteMode:returnTo'
 
 export function FloatingSiteModeToggle() {
   const pathname = usePathname() || '/'
@@ -18,8 +19,27 @@ export function FloatingSiteModeToggle() {
 
   const toggle = () => {
     if (isEngineering) {
+      const returnTo = typeof window !== 'undefined' ? window.sessionStorage.getItem(returnToKey) : null
+
+      if (returnTo) {
+        if (typeof window !== 'undefined') {
+          window.sessionStorage.removeItem(returnToKey)
+        }
+        router.push(returnTo)
+        return
+      }
+
+      if (typeof window !== 'undefined' && window.history.length > 1) {
+        router.back()
+        return
+      }
+
       router.push('/')
     } else {
+      if (typeof window !== 'undefined') {
+        const currentUrl = window.location.pathname + window.location.search + window.location.hash
+        window.sessionStorage.setItem(returnToKey, currentUrl)
+      }
       router.push('/solutions-for-engineering/')
     }
   }

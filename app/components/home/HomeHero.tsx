@@ -2,6 +2,7 @@
 
 import { HeroFloatingLines } from './HeroFloatingLines'
 import { SiteHeroTopSpacer } from '@/app/components/site-header/SiteHeroTopSpacer'
+import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
 import { homeHeroHeadlineGradientClassName, homeHeroHeadlineGradientStyle } from '@/app/lib/home-hero-headline-gradient'
 import { cn } from '@/utils/cn'
 import { ArrowRight } from 'lucide-react'
@@ -44,7 +45,7 @@ export function HomeHero({ className }: { className?: string }) {
             </p>
           </div>
           <Link
-            href="/pricing/"
+            href={BILDIT_SIGNUP_URL}
             className="font-[family-name:var(--font-uncut-sans)] inline-flex h-11 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#c850f0] to-[#e84590] px-[19px] py-2.5 text-base font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
             Start Building

@@ -25,3 +25,4 @@ export { SocialProofQuoteCard } from '@/app/components/social-proof/SocialProofQ
 export { SOCIAL_PROOF_TESTIMONIALS } from '@/app/lib/social-proof-testimonials'
 export { homeNoLimitationsCardImages } from '@/app/lib/home-no-limitations-assets'
 export { NO_LIMITATIONS_FEATURE_CARDS } from '@/app/lib/no-limitations-feature-cards'
+export { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
