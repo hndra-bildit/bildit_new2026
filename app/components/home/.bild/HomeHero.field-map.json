@@ -4,7 +4,14 @@
     "div.p|RichText": "divPText",
     "div.Link.href|String": "divLinkHrefValue",
     "div.Link.roundedCorners|Boolean": "divLinkRoundedCornersToggle",
-    "div.Link|RichText": "divLinkText"
+    "div.Link|RichText": "divLinkText",
+    "section_0.div_2.div_0.div_0.h1_0.span_0|RichText": "span",
+    "section_0.div_2.div_0.div_0.h1_0.span_1.span_0|RichText": "span1Span",
+    "section_0.div_2.div_0.div_0.h1_0.span_1.span_1|RichText": "span1",
+    "section_0.div_2.div_0.div_0.p_1|RichText": "p1",
+    "section_0.div_2.div_0.Link_1.href|String": "href",
+    "section_0.div_2.div_0.Link_1.roundedCorners|Boolean": "roundedCorners",
+    "section_0.div_2.div_0.Link_1|RichText": "link1"
   },
   "nextIndex": {}
 }
