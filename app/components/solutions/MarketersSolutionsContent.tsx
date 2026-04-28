@@ -35,25 +35,25 @@ const MARKETERS_HERO_ACCENT_LINE_STYLE: CSSProperties = {
 
 const PLATFORM_LOGOS = [
   {
-    src: 'https://www.figma.com/api/mcp/asset/c294dfae-be53-45a9-8cd5-c844a910fc69',
+    src: '/images/home-integrations/salesforce.png',
     alt: 'Salesforce',
     width: 40,
     height: 32
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/93db64c6-025a-4078-8232-6c349c5cb0ce',
+    src: '/images/home-integrations/shopify-plus.png',
     alt: 'Shopify Plus',
     width: 126,
     height: 32
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/08909bc1-4666-4f57-84b1-d064be0316d3',
+    src: '/images/tech-partners/sap-hybris.svg',
     alt: 'SAP',
     width: 71,
     height: 32
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/d84997b8-6d72-48a2-9b5d-ce3f415258a5',
+    src: '/images/home-integrations/adobe-commerce.png',
     alt: 'Adobe Commerce',
     width: 114,
     height: 32

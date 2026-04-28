@@ -3,52 +3,52 @@
  */
 export const MARKETERS_BENTO_INTEGRATION_CELLS = [
   {
-    src: 'https://www.figma.com/api/mcp/asset/753c9521-32b4-45e4-8105-33c04c817251',
+    src: '/images/tech-partners/shopify-plus.svg',
     label: 'Shopify',
     logoClassName: 'h-[15px] w-[60px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/734b0317-bdef-4967-8fb1-c4717eb0d8cc',
+    src: '/images/home-integrations/salesforce.png',
     label: 'Salesforce',
     logoClassName: 'h-[27px] w-[34px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/5c333616-fd64-4c9f-b8bd-503a97d0f992',
+    src: '/images/tech-partners/sap-hybris.svg',
     label: 'SAP',
     logoClassName: 'h-5 w-11'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/21604c82-978d-427e-ad1c-d3cd8fc5f7ef',
+    src: '/images/tech-partners/apple-pay.svg',
     label: 'Apple Pay',
     logoClassName: 'h-5 w-[49px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/7458791c-1fe9-444b-b535-8834f3632e61',
+    src: '/images/tech-partners/google-pay.svg',
     label: 'Google Pay',
     logoClassName: 'h-[18px] w-11'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/a98732d1-534b-4906-a6cc-8cf183ac9e0b',
+    src: '/images/tech-partners/paypal.svg',
     label: 'PayPal',
     logoClassName: 'h-[26px] w-[25px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/72a41113-7ad6-4598-b2bc-5bcb1b898511',
+    src: '/images/home-integrations/adobe-commerce.png',
     label: 'Adobe',
     logoClassName: 'size-[23px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/be67ed31-a16e-4c8e-b9fd-adb8c66230e1',
+    src: '/images/archive/vercel.svg',
     label: 'Vercel',
     logoClassName: 'h-[21px] w-[25px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/cc249a43-4e3b-4d6f-b19f-198265a5600c',
+    src: '/images/tech-partners/aws.svg',
     label: 'AWS',
     logoClassName: 'h-5 w-[33px]'
   },
   {
-    src: 'https://www.figma.com/api/mcp/asset/4c96b895-9637-4de7-a67e-c187afe81ed7',
+    src: '/images/tech-partners/commercetools.svg',
     label: 'commercetools',
     logoClassName: 'h-[25px] w-[21px]'
   }
