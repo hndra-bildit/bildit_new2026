@@ -17,9 +17,24 @@ const TYPING_MS = 100
 const HERO_CHECKS = ['Carousels', 'Animated Heroes', 'Instagram Style Stories', 'Countdown Timers'] as const
 
 const TEMPLATE_PREVIEW_IMAGES = [
-  { src: '/images/home-workflow/panel-build.png', alt: 'Deals and promotional carousel template preview', width: 2007, height: 1288 },
-  { src: '/images/home-workflow/panel-preview.png', alt: 'Fashion carousel template preview', width: 2000, height: 1284 },
-  { src: '/images/home-workflow/panel-publish.png', alt: 'Instagram-style stories template preview', width: 1840, height: 1145 }
+  {
+    src: '/images/home-workflow/panel-build.png',
+    alt: 'Deals and promotional carousel template preview',
+    width: 2007,
+    height: 1288
+  },
+  {
+    src: '/images/home-workflow/panel-preview.png',
+    alt: 'Fashion carousel template preview',
+    width: 2000,
+    height: 1284
+  },
+  {
+    src: '/images/home-workflow/panel-publish.png',
+    alt: 'Instagram-style stories template preview',
+    width: 1840,
+    height: 1145
+  }
 ] as const
 
 function TemplatesModalIcon({ className }: { className?: string }) {
