@@ -3,13 +3,13 @@ import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 const LOGOS = [
-  { src: '/images/home-integrations/salesforce.png', alt: 'Salesforce', width: 40, height: 32 },
-  { src: '/images/home-integrations/shopify-plus.png', alt: 'Shopify Plus', width: 126, height: 32 },
-  { src: '/images/home-integrations/sap.png', alt: 'SAP', width: 71, height: 32 },
-  { src: '/images/home-integrations/adobe-commerce.png', alt: 'Adobe Commerce', width: 114, height: 32 }
+  { src: '/images/logo-exports/gray/salesforce.svg', alt: 'Salesforce', width: 34, height: 27 },
+  { src: '/images/logo-exports/gray/shopify-plus.svg', alt: 'Shopify Plus', width: 258, height: 53 },
+  { src: '/images/logo-exports/gray/sap-hybris.svg', alt: 'SAP', width: 199, height: 98 },
+  { src: '/images/logo-exports/gray/adobe.svg', alt: 'Adobe Commerce', width: 22, height: 19 }
 ] as const
 
-/** Figma platform strip (4729:28023); logos match HomeIntegrations assets. */
+/** Platform strip; gray SVGs match HomeIntegrations (`logo-exports/gray`). */
 export function StorefrontPlatformStrip({ className }: { className?: string }) {
   return (
     <section

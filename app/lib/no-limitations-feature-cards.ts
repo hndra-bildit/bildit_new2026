@@ -31,7 +31,7 @@ export const NO_LIMITATIONS_FEATURE_CARDS: readonly NoLimitationsFeatureCard[] =
   {
     id: 'cross-channel',
     imageAlt: 'Consistent product story across web and other surfaces',
-    title: 'Cross Channel Content',
+    title: 'Cross-Channel Content',
     description: 'One source of truth for experiences that stay consistent wherever customers find you.'
   }
 ] as const

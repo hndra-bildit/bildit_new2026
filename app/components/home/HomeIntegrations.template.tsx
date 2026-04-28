@@ -9,7 +9,7 @@ import Image from 'next/image'
  * @group LOGOS (item0)
  * @type String
  */
-const firstSource = '/images/home-integrations/salesforce.png'
+const firstSource = '/images/logo-exports/gray/salesforce.svg'
 /**
  * @group LOGOS (item0)
  * @type RichText
@@ -19,17 +19,17 @@ const firstAlt = 'Salesforce'
  * @group LOGOS (item0)
  * @type Number
  */
-const firstWidth = 40
+const firstWidth = 34
 /**
  * @group LOGOS (item0)
  * @type Number
  */
-const firstHeight = 32
+const firstHeight = 27
 /**
  * @group LOGOS (item1)
  * @type String
  */
-const secondSource = '/images/home-integrations/shopify-plus.png'
+const secondSource = '/images/logo-exports/gray/shopify-plus.svg'
 /**
  * @group LOGOS (item1)
  * @type RichText
@@ -39,17 +39,17 @@ const secondAlt = 'Shopify Plus'
  * @group LOGOS (item1)
  * @type Number
  */
-const secondWidth = 126
+const secondWidth = 258
 /**
  * @group LOGOS (item1)
  * @type Number
  */
-const secondHeight = 32
+const secondHeight = 53
 /**
  * @group LOGOS (item2)
  * @type String
  */
-const thirdSource = '/images/home-integrations/sap.png'
+const thirdSource = '/images/logo-exports/gray/sap-hybris.svg'
 /**
  * @group LOGOS (item2)
  * @type RichText
@@ -59,17 +59,17 @@ const thirdAlt = 'SAP'
  * @group LOGOS (item2)
  * @type Number
  */
-const thirdWidth = 71
+const thirdWidth = 199
 /**
  * @group LOGOS (item2)
  * @type Number
  */
-const thirdHeight = 32
+const thirdHeight = 98
 /**
  * @group LOGOS (item3)
  * @type String
  */
-const fourthSource = '/images/home-integrations/adobe-commerce.png'
+const fourthSource = '/images/logo-exports/gray/adobe.svg'
 /**
  * @group LOGOS (item3)
  * @type RichText
@@ -79,12 +79,12 @@ const fourthAlt = 'Adobe Commerce'
  * @group LOGOS (item3)
  * @type Number
  */
-const fourthWidth = 114
+const fourthWidth = 22
 /**
  * @group LOGOS (item3)
  * @type Number
  */
-const fourthHeight = 32
+const fourthHeight = 19
 const LOGOS = [
   {
     src: firstSource,
@@ -111,13 +111,13 @@ const LOGOS = [
     height: fourthHeight
   }
 ]
-const DEFAULT_LIGHT_COPY = 'Integrated with the top eCommerce platforms.'
+const DEFAULT_LIGHT_COPY = 'Integrates with leading eCommerce platforms.'
 const DEFAULT_DARK_TITLE = 'Works with common commerce and cloud stacks'
 const DEFAULT_DARK_DESCRIPTION =
   'Shopify, Salesforce, SAP, Adobe Commerce, Vercel, and more—connect the services you already run.'
 /**
  * Logo strip matching BILDIT Website 2025 — “Integrated with the top eCommerce Platforms”.
- * Logos in `public/images/home-integrations/`; dark variant uses a black field so it sits with other night sections.
+ * Logos in `public/images/logo-exports/gray/`; dark variant uses a black field so it sits with other night sections.
  */
 export function HomeIntegrations({ variant = 'light', title, description, className }) {
   const isDark = variant === 'dark'

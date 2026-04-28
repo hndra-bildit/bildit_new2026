@@ -1,18 +1,17 @@
 import { GradientCtaButton } from '@/app/components/solutions/GradientCtaButton'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
-import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle,
   marketingHeroMutedTextClassName,
   marketingHeroTitleLayoutClassName
 } from '@/app/lib/marketing-hero-headline-gradient'
-import { VEE_HERO_LIVE_EDITOR_IMAGE } from '@/app/lib/vee-hero-image'
+import { VEE_HERO_BG, VEE_HERO_LIVE_EDITOR_IMAGE } from '@/app/lib/vee-hero-image'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 /**
- * Same pink line-art field + `#fafafa` base as `MarketersSolutionsContent` hero (`full` cover image + rounded shell).
+ * Pink line-art field from `bg-pink.svg` + `#fafafa` base (`full` cover image + rounded shell).
  * Right visual: Figma 4995:19614 (Live Editor mockup with text-editing popover).
  */
 export function VeeHero() {
@@ -22,23 +21,17 @@ export function VeeHero() {
       data-header-surface="light"
       className="relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:max-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
     >
-      {/* Full-section bleed so the header inset strip matches `#fafafa` + line art (not page white) */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#fafafa]" aria-hidden />
-        <Image
-          src={MARKETERS_SOLUTIONS_HERO_BG}
-          alt=""
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="(max-width: 1536px) 100vw, 1512px"
-        />
-      </div>
+      {/* Full-section bleed — CSS background so the SVG reliably covers the whole hero (Next/Image + SVG can letterbox). */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-[#fafafa] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('${VEE_HERO_BG}')` }}
+      />
 
       {/* Half-height header inset spacer for this hero only. */}
       <div className="shrink-0 [height:calc(var(--site-hero-inset-top)*0.5)]" aria-hidden />
       <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="mx-auto flex w-full max-w-[1280px] min-h-full flex-1 flex-col justify-center px-4 pb-[calc(2.5rem+env(safe-area-inset-bottom))] pt-7 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
+        <div className="flex min-h-full w-full flex-1 flex-col justify-center px-4 pb-[calc(2.5rem+env(safe-area-inset-bottom))] pt-7 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
           <div className="grid w-full min-w-0 grid-cols-1 items-center gap-10 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
             <div className="order-2 flex min-w-0 flex-col items-center gap-6 text-center md:order-1 md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
               <div className="flex w-full max-w-full flex-col items-center gap-3 md:items-start md:gap-4">

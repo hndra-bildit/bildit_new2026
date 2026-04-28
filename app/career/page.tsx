@@ -9,7 +9,7 @@ export default function BilditCareer() {
       <section className="bg-white text-neutral-900">
         <div className="mx-auto max-w-[720px] px-4 py-12 sm:px-6 md:py-16">
           <h2 className="font-[family-name:var(--font-uncut-sans)] text-2xl font-bold tracking-tight text-neutral-950 md:text-[1.75rem]">
-            Contact us
+            Careers
           </h2>
           <p className="font-[family-name:var(--font-uncut-sans)] mt-3 text-[15px] leading-relaxed text-neutral-600 md:text-base">
             Send us your resume and we&apos;ll follow up.

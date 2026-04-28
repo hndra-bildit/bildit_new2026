@@ -28,7 +28,7 @@ const DEFAULT_TEXTS: EditableTextItem[] = [
   },
   {
     id: 'body',
-    text: 'Shop the latest product from the top luxury designers.',
+    text: 'Shop the latest products...',
     format: {},
     color: '#272727',
     className: 'text-base font-normal leading-normal'

@@ -48,9 +48,9 @@ const REASONS = [
 const PANEL_IMAGES: readonly { src: string; width: number; height: number; alt: string }[] = [
   {
     src: veeAdvantagesEditableBanner,
-    width: 1068,
-    height: 490,
-    alt: 'BILDIT visual editor with live preview on a storefront'
+    width: 736,
+    height: 440,
+    alt: 'Simplified content management in the BILDIT visual editor with live preview'
   },
   {
     src: veeAdvantagesAdvancedScheduling,

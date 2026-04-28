@@ -82,11 +82,11 @@ export const HOME_FAQ_ENTRIES: readonly HomeFaqEntry[] = [
   },
   {
     name: "Q: What's your roadmap focus?",
-    text: "A: We're doubling down on personalization—with a ton of targeting options and AI to generate content that is approved by people."
+    text: "A: We're doubling down on personalization—with advanced targeting options and AI-generated content with human approval."
   },
   {
     name: 'Q: How do we get started? ',
-    text: 'A: Create your workspace and deploy the Free Trial at https://signup.bildit.co/signup. Developers create Code Library templates, integrate the Next.js SDK into your Next.js web site, and marketers publish content to slots provided.'
+    text: 'A: Create your workspace and deploy the Free Trial at https://signup.bildit.co/signup. Developers create Code Library templates, integrate the Next.js SDK into your Next.js website, and marketers publish content to slots provided.'
   }
 ] as const
 
@@ -112,6 +112,6 @@ export function homeFaqGetStartedAnswerParts() {
   const entry = HOME_FAQ_ENTRIES[HOME_FAQ_ENTRIES.length - 1]
   const prefix = 'A: Create your workspace and deploy the Free Trial at '
   const suffix =
-    '. Developers create Code Library templates, integrate the Next.js SDK into your Next.js web site, and marketers publish content to slots provided.'
+    '. Developers create Code Library templates, integrate the Next.js SDK into your Next.js website, and marketers publish content to slots provided.'
   return { prefix, signupUrl: SIGNUP_URL, suffix, fullText: entry.text }
 }

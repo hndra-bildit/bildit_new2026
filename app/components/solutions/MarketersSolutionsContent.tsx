@@ -35,28 +35,28 @@ const MARKETERS_HERO_ACCENT_LINE_STYLE: CSSProperties = {
 
 const PLATFORM_LOGOS = [
   {
-    src: '/images/home-integrations/salesforce.png',
+    src: '/images/logo-exports/gray/salesforce.svg',
     alt: 'Salesforce',
-    width: 40,
-    height: 32
+    width: 34,
+    height: 27
   },
   {
-    src: '/images/home-integrations/shopify-plus.png',
+    src: '/images/logo-exports/gray/shopify-plus.svg',
     alt: 'Shopify Plus',
-    width: 126,
-    height: 32
+    width: 258,
+    height: 53
   },
   {
-    src: '/images/tech-partners/sap-hybris.svg',
+    src: '/images/logo-exports/gray/sap-hybris.svg',
     alt: 'SAP',
-    width: 71,
-    height: 32
+    width: 199,
+    height: 98
   },
   {
-    src: '/images/home-integrations/adobe-commerce.png',
+    src: '/images/logo-exports/gray/adobe.svg',
     alt: 'Adobe Commerce',
-    width: 114,
-    height: 32
+    width: 22,
+    height: 19
   }
 ] as const
 
@@ -163,7 +163,7 @@ export function MarketersSolutionsContent() {
             <span className="text-[#f0e6ff]">.</span>
           </h2>
           <p className={cn(homeSectionSubtitleOnDarkClassName, 'text-center text-[#a07dc0]')}>
-            What teams see after switching to BILDIT Visual Experience Engine:
+            What teams see after switching to the BILDIT Visual Experience Engine:
           </p>
           <div className="mt-8 grid w-full grid-cols-1 gap-8 border-white/10 pt-4 md:grid-cols-3 md:gap-2 md:pt-[52px]">
             {[

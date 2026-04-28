@@ -59,7 +59,7 @@ export function HomePostFaqCta({ className }: { className?: string }) {
                 'max-w-[640px] text-balance text-center text-base leading-[1.65] text-[#d6c1ea] md:max-w-[700px] md:text-[17px] md:leading-7'
               )}
             >
-              Preview everything. Push out instantly. Never wait again.
+              Preview everything. Publish instantly. Never wait again.
             </p>
           </div>
 
@@ -107,7 +107,7 @@ export function HomePostFaqCta({ className }: { className?: string }) {
               'max-w-[520px] text-balance text-center text-lg leading-7 text-[#f0e6ff] md:text-[18px] md:leading-[29.25px]'
             )}
           >
-            This is how you build the elegant web.
+            This is how you build elegant web experiences.
           </p>
 
           <Link

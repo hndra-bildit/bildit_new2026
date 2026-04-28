@@ -85,7 +85,7 @@ export function HomeProblemSolution({ className }: { className?: string }) {
 
             <div className="flex flex-col gap-2.5 rounded-3xl">
               <p className="font-[family-name:var(--font-uncut-sans)] text-base font-bold text-[#171717]">
-                Push out instantly
+                Publish instantly
               </p>
               <ul className="flex flex-wrap gap-2 font-[family-name:var(--font-uncut-sans)] text-base font-medium leading-7">
                 {PUSH_OUT_ITEMS.map((item) => (

@@ -178,7 +178,7 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
         <div className="flex flex-col items-center gap-5 text-center">
           <h2 className={cn('max-w-[855px] text-center', homeSectionTitleClassName)}>Designed for modern eCommerce.</h2>
           <p className={cn(homeSectionSubtitleClassName, 'mx-auto text-center')}>
-            What teams see after switching to BILDIT Visual Experience Engine:
+            What teams see after switching to the BILDIT Visual Experience Engine:
           </p>
         </div>
 

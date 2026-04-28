@@ -18,7 +18,7 @@ export const SITE_MEGA_CAPABILITIES_ITEMS: SiteMegaLinkItem[] = [
     href: '/mobile-app-storefront/',
     title: 'Mobile App Storefront',
     description:
-      'Optimized React Native Mobile App Storefront: fast and modern UI/UX built-in, high conversion with one click checkout'
+      'Optimized React Native Mobile App Storefront: fast and modern UI/UX built-in, high conversion with one-click checkout'
   }
 ]
 

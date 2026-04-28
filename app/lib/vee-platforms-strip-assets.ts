@@ -1,4 +1,4 @@
-export const veePlatformSalesforce = '/images/home-integrations/salesforce.png'
-export const veePlatformShopify = '/images/tech-partners/shopify-plus.svg'
-export const veePlatformSap = '/images/tech-partners/sap-hybris.svg'
-export const veePlatformMagento = '/images/tech-partners/magento.svg'
+export const veePlatformSalesforce = '/images/logo-exports/gray/salesforce.svg'
+export const veePlatformShopify = '/images/logo-exports/gray/shopify-plus.svg'
+export const veePlatformSap = '/images/logo-exports/gray/sap-hybris.svg'
+export const veePlatformMagento = '/images/logo-exports/gray/magento.svg'

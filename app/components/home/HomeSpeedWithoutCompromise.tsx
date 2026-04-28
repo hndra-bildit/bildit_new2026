@@ -23,7 +23,7 @@ export function HomeSpeedWithoutCompromise({ className }: { className?: string }
           <p className={cn(homeSectionEyebrowClassName, 'text-neutral-900')}>Visual Experience Engine</p>
           <h2 className={cn('text-balance', homeSectionTitleClassName)}>No Limitations.</h2>
           <p className={cn(homeSectionSubtitleClassName, 'text-balance text-center')}>
-            Never compromise: get every tool your storefront needs; designed to move as fast as your ideas.
+            Never compromise. Get every tool your storefront needs, designed to move as fast as your ideas.
           </p>
         </header>
 

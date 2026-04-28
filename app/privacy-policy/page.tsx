@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   description:
-    'BILDIT privacy notice: what information we collect, how we use it, and your rights. Last updated November 1, 2021.'
+    'BILDIT privacy notice: what information we collect, how we use it, and your rights. Last updated April 28, 2026.'
 }
 
 const linkClass = 'text-[#5b21b6] underline decoration-[#5b21b6]/30 underline-offset-2 hover:text-[#4c1d95]'
@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             <li>
               Visit our website at{' '}
               <a href="https://www.bildit.co" className={linkClass}>
-                http://www.bildit.co
+                https://www.bildit.co
               </a>
             </li>
             <li>Engage with us in other related ways — including any sales, marketing, or events</li>

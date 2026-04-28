@@ -25,13 +25,13 @@ export function MarketersFeaturesBentoSection({ className }: { className?: strin
           <p className={cn(homeSectionEyebrowClassName, 'text-neutral-900')}>Visual Experience Engine</p>
           <h2 className={cn('text-balance', homeSectionTitleClassName)}>No Limitations.</h2>
           <p className={cn(homeSectionSubtitleClassName, 'text-balance text-center')}>
-            Never compromise: get every tool your storefront needs; designed to move as fast as your ideas.
+            Never compromise. Get every tool your storefront needs, designed to move as fast as your ideas.
           </p>
         </header>
 
         <NoLimitationsFeatureCarousel
           cardImages={marketersSolutionsNoLimitationsCardImages}
-          cardTitleOverrides={{ 'cross-channel': 'Cross Channel Content' }}
+          cardTitleOverrides={{ 'cross-channel': 'Cross-Channel Content' }}
         />
 
         <div

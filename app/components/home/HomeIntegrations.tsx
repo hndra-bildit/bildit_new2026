@@ -3,13 +3,13 @@ import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
 const LOGOS = [
-  { src: '/images/home-integrations/salesforce.png', alt: 'Salesforce', width: 40, height: 32 },
-  { src: '/images/home-integrations/shopify-plus.png', alt: 'Shopify Plus', width: 126, height: 32 },
-  { src: '/images/home-integrations/sap.png', alt: 'SAP', width: 71, height: 32 },
-  { src: '/images/home-integrations/adobe-commerce.png', alt: 'Adobe Commerce', width: 114, height: 32 }
+  { src: '/images/logo-exports/gray/salesforce.svg', alt: 'Salesforce', width: 34, height: 27 },
+  { src: '/images/logo-exports/gray/shopify-plus.svg', alt: 'Shopify Plus', width: 258, height: 53 },
+  { src: '/images/logo-exports/gray/sap-hybris.svg', alt: 'SAP', width: 199, height: 98 },
+  { src: '/images/logo-exports/gray/adobe.svg', alt: 'Adobe Commerce', width: 22, height: 19 }
 ] as const
 
-const DEFAULT_LIGHT_COPY = 'Integrated with the top eCommerce platforms.'
+const DEFAULT_LIGHT_COPY = 'Integrates with leading eCommerce platforms.'
 
 const DEFAULT_DARK_TITLE = 'Works with common commerce and cloud stacks'
 const DEFAULT_DARK_DESCRIPTION =
@@ -30,7 +30,7 @@ export type HomeIntegrationsProps = {
 
 /**
  * Logo strip matching BILDIT Website 2025 — “Integrated with the top eCommerce Platforms”.
- * Logos in `public/images/home-integrations/`; dark variant uses a black field so it sits with other night sections.
+ * Logos in `public/images/logo-exports/gray/` (monochrome #A6A6A6); dark variant uses a black field so it sits with other night sections.
  */
 export function HomeIntegrations({ variant = 'light', title, description, className }: HomeIntegrationsProps) {
   const isDark = variant === 'dark'

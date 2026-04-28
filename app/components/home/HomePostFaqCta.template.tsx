@@ -1,8 +1,11 @@
 // HomePostFaqCta:v1.0 legacy=false
 // @template v2
 import React from 'react'
-import { homeSectionSubtitleOnDarkClassName, homeSectionTitleOnDarkClassName } from '@/app/components/Components'
-import { cn } from '@/app/components/Components'
+import {
+  homeSectionSubtitleOnDarkClassName,
+  homeSectionTitleOnDarkClassName
+} from './home-section-typography'
+import { cn } from '../../../utils/cn'
 import { ArrowRight, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -55,7 +58,7 @@ export function HomePostFaqCta({ className }) {
    * @group div
    * @type RichText
    */
-  const divPText = 'Preview everything. Push out instantly. Never wait again.'
+  const divPText = 'Preview everything. Publish instantly. Never wait again.'
   /**
    * @group div
    * @type RichText

@@ -251,7 +251,7 @@ export function IntegrationPartnersLeadForm({ className }: { className?: string 
         </div>
         <div>
           <label className="mb-1 block font-[family-name:var(--font-uncut-sans)] text-xs font-semibold uppercase tracking-wide text-[#d6c1ea]">
-            Do you build mobile apps?
+            Do you build mobile apps?{' '}
           </label>
           <select name="buildsMobileApps" required className={cn(inputClassName, 'appearance-auto')}>
             <option value="">Select…</option>

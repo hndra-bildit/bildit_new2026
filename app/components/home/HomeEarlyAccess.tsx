@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const GET_ITEMS = ['FREE Implementation', 'FREE Training', 'FREE 180 Day Trial'] as const
+const GET_ITEMS = ['FREE Implementation', 'FREE Training', 'FREE 180-Day Trial'] as const
 
 const BONUS_ITEMS = [
   'White-glove onboarding',
@@ -76,7 +76,7 @@ export function HomeEarlyAccess({ className }: { className?: string }) {
               </h2>
               <p className={cn(homeSectionSubtitleOnDarkClassName, 'max-w-none text-lg leading-[29.25px]')}>
                 If you&apos;re excited about creating and personalizing amazing content with a visual editor and live
-                previews, we want you. We are looking for 10 eCommerce brands who want to use our product for free for
+                previews, we want you. We are looking for 10 eCommerce brands that want to use our product for free for
                 six months with our training and implementation.
               </p>
             </div>

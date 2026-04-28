@@ -1,13 +1,16 @@
 // HomeEarlyAccess:v2 legacy=false
 // @template v2
 import React from 'react'
-import { homeSectionSubtitleOnDarkClassName, homeSectionTitleOnDarkClassName } from '@/app/components/Components'
-import { cn } from '@/app/components/Components'
+import {
+  homeSectionSubtitleOnDarkClassName,
+  homeSectionTitleOnDarkClassName
+} from './home-section-typography'
+import { cn } from '../../../utils/cn'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const GET_ITEMS = ['FREE Implementation', 'FREE Training', 'FREE 180 Day Trial']
+const GET_ITEMS = ['FREE Implementation', 'FREE Training', 'FREE 180-Day Trial']
 const BONUS_ITEMS = [
   'White-glove onboarding',
   'Direct access to our engineering team',
@@ -64,7 +67,7 @@ export function HomeEarlyAccess({ className }) {
    * @type RichText
    */
   const divPText =
-    "If you're excited about creating and personalizing amazing content with a visual editor and live\n                previews, we want you. We are looking for 10 eCommerce brands who want to use our product for free for\n                six months with our training and implementation."
+    "If you're excited about creating and personalizing amazing content with a visual editor and live\n                previews, we want you. We are looking for 10 eCommerce brands that want to use our product for free for\n                six months with our training and implementation."
   return (
     <section
       className={cn('home-scheme-light relative w-full overflow-hidden bg-white py-16 md:py-24', className)}

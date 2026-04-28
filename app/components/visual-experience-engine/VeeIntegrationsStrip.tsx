@@ -8,25 +8,33 @@ import {
   veeLogoNetlify,
   veeLogoSalesforce,
   veeLogoSap,
-  veeLogoShopify,
+  veeLogoShopifyPlus,
   veeLogoSyte,
   veeLogoVercel
 } from '@/app/lib/vee-integrations-strip-assets'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
+/** Width/height match each SVG viewBox so Next/Image aspect ratio matches the asset (avoids stretch with wide/wrong ratios). */
 const LOGOS = [
-  { src: veeLogoSalesforce, alt: 'Salesforce', w: 43, h: 34 },
-  { src: veeLogoShopify, alt: 'Shopify', w: 86, h: 22 },
-  { src: veeLogoSap, alt: 'SAP', w: 43, h: 19 },
-  { src: veeLogoMagento, alt: 'Magento', w: 82, h: 22 },
-  { src: veeLogoApplePay, alt: 'Apple Pay', w: 45, h: 18 },
-  { src: veeLogoAfterpay, alt: 'Afterpay', w: 76, h: 15 },
-  { src: veeLogoNetlify, alt: 'Netlify', w: 61, h: 25 },
-  { src: veeLogoVercel, alt: 'Vercel', w: 72, h: 15 },
-  { src: veeLogoAci, alt: 'ACI Worldwide', w: 89, h: 14 },
-  { src: veeLogoSyte, alt: 'Syte', w: 58, h: 16 },
-  { src: veeLogoBazaarvoice, alt: 'Bazaarvoice', w: 35, h: 28 }
+  { src: veeLogoVercel, alt: 'Vercel', w: 25, h: 21 },
+  { src: veeLogoShopifyPlus, alt: 'Shopify Plus', w: 258, h: 53 },
+  { src: veeLogoSalesforce, alt: 'Salesforce', w: 34, h: 27 },
+  { src: veeLogoNetlify, alt: 'Netlify', w: 512, h: 209 },
+  { src: veeLogoSap, alt: 'SAP', w: 44, h: 20 },
+  { src: veeLogoMagento, alt: 'Magento', w: 245, h: 82 },
+  { src: veeLogoApplePay, alt: 'Apple Pay', w: 49, h: 20 },
+  { src: veeLogoAfterpay, alt: 'Afterpay', w: 242, h: 45 },
+  /** Tighter viewBox ink — slightly shorter image height to match visual cap-height of neighbors at h-8. */
+  {
+    src: veeLogoAci,
+    alt: 'ACI Worldwide',
+    w: 244,
+    h: 28,
+    imageClassName: 'h-[22px] w-auto object-contain object-center'
+  },
+  { src: veeLogoSyte, alt: 'Syte', w: 229, h: 63, imageClassName: 'h-[22px] w-auto object-contain object-center' },
+  { src: veeLogoBazaarvoice, alt: 'Bazaarvoice', w: 153, h: 124 }
 ] as const
 
 export function VeeIntegrationsStrip() {
@@ -40,9 +48,15 @@ export function VeeIntegrationsStrip() {
           <p className={cn(homeSectionEyebrowClassName, 'text-[#d6c1ea]')}>with top eCommerce platforms</p>
         </div>
         <ul className="flex w-full list-none flex-wrap items-center justify-center gap-x-6 gap-y-6 opacity-95 sm:gap-x-8 sm:gap-y-6 md:gap-x-10 md:gap-y-6">
-          {LOGOS.map(({ src, alt, w, h }) => (
+          {LOGOS.map(({ src, alt, w, h, imageClassName }) => (
             <li key={alt} className="flex h-8 shrink-0 items-center justify-center">
-              <Image src={src} alt={alt} width={w} height={h} className="h-8 w-auto object-contain object-center" />
+              <Image
+                src={src}
+                alt={alt}
+                width={w}
+                height={h}
+                className={imageClassName ?? 'h-8 w-auto object-contain object-center'}
+              />
             </li>
           ))}
         </ul>

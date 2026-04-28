@@ -8,11 +8,12 @@ import {
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
+/** Width/height match each SVG viewBox for correct aspect ratio in Next/Image. */
 const ROW = [
-  { src: veePlatformSalesforce, alt: 'Salesforce', w: 40, h: 32 },
-  { src: veePlatformShopify, alt: 'Shopify Plus', w: 126, h: 32 },
-  { src: veePlatformSap, alt: 'SAP', w: 71, h: 32 },
-  { src: veePlatformMagento, alt: 'Magento', w: 114, h: 32 }
+  { src: veePlatformSalesforce, alt: 'Salesforce', w: 34, h: 27 },
+  { src: veePlatformShopify, alt: 'Shopify Plus', w: 258, h: 53 },
+  { src: veePlatformSap, alt: 'SAP', w: 199, h: 98 },
+  { src: veePlatformMagento, alt: 'Magento', w: 245, h: 82 }
 ] as const
 
 export function VeePlatformsStrip() {
@@ -24,7 +25,14 @@ export function VeePlatformsStrip() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-10 opacity-70 md:gap-14">
           {ROW.map(({ src, alt, w, h }) => (
-            <Image key={alt} src={src} alt={alt} width={w} height={h} className="object-contain" />
+            <Image
+              key={alt}
+              src={src}
+              alt={alt}
+              width={w}
+              height={h}
+              className="h-8 w-auto max-w-[200px] object-contain object-center md:max-w-none"
+            />
           ))}
         </div>
       </div>
