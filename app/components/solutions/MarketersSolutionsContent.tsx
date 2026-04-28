@@ -16,11 +16,11 @@ import { MarketersSolutionsTestimonialsSection } from '@/app/components/solution
 import { SolutionsDemoVideo } from '@/app/components/solutions/SolutionsDemoVideo'
 import { VeeAdvantagesSection } from '@/app/components/visual-experience-engine/VeeAdvantagesSection'
 import { BILDIT_SIGNUP_URL } from '@/app/lib/bildit-signup-url'
-import { MARKETERS_SOLUTIONS_HERO_BG } from '@/app/lib/marketers-solutions-hero-bg'
 import {
   marketingHeroHeadlineGradientClassName,
   marketingHeroHeadlineGradientStyle
 } from '@/app/lib/marketing-hero-headline-gradient'
+import { VEE_HERO_BG } from '@/app/lib/vee-hero-image'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 
@@ -74,17 +74,12 @@ export function MarketersSolutionsContent() {
         data-header-surface="light"
         className="relative m-0 flex min-h-svh w-full flex-col overflow-hidden rounded-none sm:mt-[calc((1rem+20px)*0.42-10px)] sm:mb-[calc((1rem+20px)*0.315)] sm:ml-[calc((1rem+20px)*0.42-10px)] sm:mr-[calc((1rem+20px)*0.42-10px)] sm:min-h-[calc(100svh-(1rem+20px)*0.735+10px)] sm:w-auto sm:rounded-[29px] sm:shadow-[0_0_5px_rgba(0,0,0,0.3)]"
       >
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[#fafafa]" aria-hidden />
-          <Image
-            src={MARKETERS_SOLUTIONS_HERO_BG}
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="(max-width: 1536px) 100vw, 1512px"
-          />
-        </div>
+        {/* Same pink field as Vee hero: CSS background covers reliably (Next/Image + SVG can letterbox). */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 bg-[#fafafa] bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${VEE_HERO_BG}')` }}
+        />
         <SiteHeroTopSpacer />
         <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
           <div className="flex w-full flex-1 flex-col items-center justify-center gap-14 px-4 py-16 text-center sm:px-10 sm:py-20 md:gap-[60px]">

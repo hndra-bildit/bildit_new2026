@@ -63,7 +63,7 @@ export function EngineeringSolutionsContent() {
           />
         </div>
         <div className="relative mx-auto flex max-w-[1470px] flex-col items-center justify-center gap-5 px-6 pb-12 pt-14 text-center sm:gap-6 sm:pb-16 sm:pt-16 md:gap-7 md:overflow-hidden md:rounded-[27px] md:border md:border-white/10 md:bg-[#0d0118] md:px-[116px] md:pb-16 md:pt-28 lg:pb-20 lg:pt-32">
-          <h1 className="mt-10 max-w-[1100px] font-uncut-sans text-3xl font-bold leading-[1.08] tracking-[-0.03em] sm:mt-12 md:mt-[150px] md:text-5xl md:leading-[1.06] lg:text-[56px] lg:leading-[62px]">
+          <h1 className="max-w-[1100px] font-uncut-sans text-3xl font-bold leading-[1.08] tracking-[-0.03em] max-md:mt-[150px] md:mt-0 md:text-5xl md:leading-[1.06] lg:text-[56px] lg:leading-[62px]">
             <span className="text-[#f0e6ff]">Stop being the bottleneck for every</span>
             <br />
             <span className="text-[#f0e6ff]">merchandising experiment.</span>
