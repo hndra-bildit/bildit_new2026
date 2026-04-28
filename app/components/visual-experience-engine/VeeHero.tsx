@@ -40,7 +40,7 @@ export function VeeHero() {
       <div className="relative z-10 flex min-h-0 flex-1 flex-col overflow-hidden">
         <div className="mx-auto flex w-full max-w-[1280px] min-h-full flex-1 flex-col justify-center px-4 pb-10 pt-14 sm:px-10 sm:py-12 md:py-16 lg:px-8 lg:py-20">
           <div className="grid w-full min-w-0 grid-cols-1 items-center gap-10 md:grid-cols-2 md:items-center md:gap-8 lg:gap-10 xl:gap-14">
-            <div className="order-1 flex min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
+            <div className="order-2 flex min-w-0 flex-col items-center gap-6 text-center md:order-1 md:items-start md:gap-8 md:pr-4 md:text-left lg:pr-6">
               <div className="flex w-full max-w-full flex-col items-center gap-3 md:items-start md:gap-4">
                 <p
                   className={cn(
@@ -58,7 +58,7 @@ export function VeeHero() {
                   )}
                   style={marketingHeroHeadlineGradientStyle}
                 >
-                  Build elevated content Visually
+                  Build elevated content visually
                 </h1>
               </div>
               <p
@@ -76,7 +76,7 @@ export function VeeHero() {
                 </GradientCtaButton>
               </div>
             </div>
-            <div className="order-2 flex w-full min-w-0 justify-center md:justify-end">
+            <div className="order-1 flex w-full min-w-0 justify-center md:order-2 md:justify-end">
               <div className="relative w-full max-w-[min(100%,600px)] md:max-w-none">
                 <div className="relative aspect-[1000/766] w-full">
                   <Image

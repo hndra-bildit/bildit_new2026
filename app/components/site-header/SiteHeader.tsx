@@ -724,14 +724,10 @@ export function SiteHeader() {
 
               <Link
                 href="/pricing/"
-                className={cn(mobileSimpleLinkClass, 'border-b')}
+                className="flex w-full items-center justify-between gap-3 border-b py-4 text-left no-underline"
                 style={{ borderColor: 'var(--header-mega-divider)' }}
                 onClick={() => setMobileNavOpen(false)}
               >
-                <span
-                  className="mt-2 h-5 w-0.5 shrink-0 self-start rounded-[10px]"
-                  style={{ backgroundColor: 'var(--header-accent-line)' }}
-                />
                 <span className="font-[family-name:var(--font-uncut-sans)] text-lg font-semibold text-[var(--header-mega-text)] transition-colors duration-200 group-hover:text-[var(--header-mega-text-hover)]">
                   Pricing
                 </span>
