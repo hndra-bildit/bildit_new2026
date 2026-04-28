@@ -406,9 +406,9 @@ export function SiteHeader() {
                   )}
                 >
                   {isEngineering ? (
-                    <Moon className="size-3 text-violet-700" aria-hidden />
-                  ) : (
                     <Sun className="size-3 text-amber-500" aria-hidden />
+                  ) : (
+                    <Moon className="size-3 text-violet-700" aria-hidden />
                   )}
                 </span>
               </button>

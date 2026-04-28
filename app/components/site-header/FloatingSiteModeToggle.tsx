@@ -5,8 +5,9 @@ import { Moon, Sun } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 
 /**
- * Marketing vs engineering site toggle (Sun / Moon), fixed for thumb reach.
- * Desktop uses the pill control in `SiteHeader` instead.
+ * Marketing vs engineering site toggle: Moon on marketing (go to engineering),
+ * Sun on engineering (back to marketing). Fixed for thumb reach; desktop uses
+ * the pill in `SiteHeader`.
  */
 const engineeringPaths = new Set(['/it', '/solutions-for-engineering'])
 const returnToKey = 'siteMode:returnTo'
@@ -57,9 +58,9 @@ export function FloatingSiteModeToggle() {
       )}
     >
       {isEngineering ? (
-        <Moon className="size-5 text-violet-700" aria-hidden />
-      ) : (
         <Sun className="size-5 text-amber-500" aria-hidden />
+      ) : (
+        <Moon className="size-5 text-violet-700" aria-hidden />
       )}
     </button>
   )
