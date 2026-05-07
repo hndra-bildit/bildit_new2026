@@ -34,7 +34,7 @@ export default function Home() {
         </SlotPlaceholder>
         <div className="mx-auto max-w-[1512px] px-3 pt-10 sm:px-4">
           <SlotPlaceholder slotId="home-slot-2">
-            <HomeWorkflowShowcase showImportedHowItWorks />
+            <HomeWorkflowShowcase />
           </SlotPlaceholder>
         </div>
         <SlotPlaceholder slotId="home-slot-3">

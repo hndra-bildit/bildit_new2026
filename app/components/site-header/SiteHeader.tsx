@@ -196,10 +196,8 @@ export function SiteHeader() {
 
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [mobileAccordion, setMobileAccordion] = useState<MobileAccordionKey | null>(null)
-  const [headerScrolled, setHeaderScrolled] = useState(false)
 
   const headerRef = useRef<HTMLElement>(null)
-  const lastScrollY = useRef(0)
 
   const clearClose = () => {
     if (closeTimer.current) {
@@ -265,37 +263,6 @@ export function SiteHeader() {
     }
   }, [pathname])
 
-  useEffect(() => {
-    lastScrollY.current = window.scrollY
-    setHeaderScrolled(false)
-
-    let raf = 0
-    const applyScrollState = () => {
-      raf = 0
-      const currentY = window.scrollY
-      const delta = currentY - lastScrollY.current
-
-      if (currentY <= 12) {
-        setHeaderScrolled(false)
-      } else if (Math.abs(delta) > 4) {
-        setHeaderScrolled(delta > 0)
-      }
-
-      lastScrollY.current = currentY
-    }
-
-    const schedule = () => {
-      if (raf) return
-      raf = requestAnimationFrame(applyScrollState)
-    }
-
-    window.addEventListener('scroll', schedule, { passive: true })
-    return () => {
-      if (raf) cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', schedule)
-    }
-  }, [pathname])
-
   const toggleEngineering = () => {
     if (isEngineering) {
       router.push('/solutions-for-marketers/')
@@ -321,13 +288,7 @@ export function SiteHeader() {
           : 'pl-[max(0.5rem,env(safe-area-inset-left,0px))] pr-[max(0.5rem,env(safe-area-inset-right,0px))] pt-[calc(0.5rem+20px)] max-[430px]:pl-[max(1.25rem,env(safe-area-inset-left,0px))] max-[430px]:pr-[max(1.25rem,env(safe-area-inset-right,0px))] sm:pl-[max(calc(1rem+20px),env(safe-area-inset-left,0px))] sm:pr-[max(calc(1rem+20px),env(safe-area-inset-right,0px))] sm:pt-[calc(1rem+20px)]'
       )}
     >
-      <div
-        className={cn(
-          'site-header--inner pointer-events-auto relative w-full min-w-0 max-w-[1260px]',
-          headerScrolled && !mobileNavOpen && 'site-header--inner-scrolled'
-        )}
-        onMouseLeave={scheduleClose}
-      >
+      <div className="pointer-events-auto relative w-full min-w-0 max-w-[1260px]" onMouseLeave={scheduleClose}>
         <div
           data-header-pill
           className="flex h-[70px] min-w-0 max-w-full items-center gap-1 rounded-[45px] px-3 max-[999px]:justify-between min-[400px]:px-3.5 sm:gap-2 sm:px-6 lg:px-10"

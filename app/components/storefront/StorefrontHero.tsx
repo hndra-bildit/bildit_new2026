@@ -7,8 +7,6 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const STOREFRONT_HERO_VIDEO = '/images/video/Mobile_Exp.mp4'
-
 /**
  * Figma: Section - HERO inner Hero (4729:28527). Global site header is LayoutChrome — no duplicate nav.
  * Layout matches `VeeHero`: centered copy on small screens, left-aligned from md; phone art in grid column (not over text).
@@ -24,23 +22,16 @@ export function StorefrontHero({ className }: { className?: string }) {
       )}
     >
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden sm:rounded-[29px]">
-        <video
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          src={STOREFRONT_HERO_VIDEO}
-          poster="/images/mobile-app-storefront/hero-bg.jpg"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          aria-hidden
+        <Image
+          src="/images/mobile-app-storefront/hero-bg.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/5 sm:rounded-[29px]"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/45 sm:rounded-[29px]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40 sm:rounded-[29px]"
           aria-hidden
         />
         <div

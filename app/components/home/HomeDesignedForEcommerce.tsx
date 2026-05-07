@@ -79,66 +79,7 @@ function usePrefersReducedMotion(): boolean {
   return reduced
 }
 
-function easeOutQuint(progress: number): number {
-  return 1 - Math.pow(1 - progress, 5)
-}
-
-function useAnimatedCounter({
-  active,
-  durationMs,
-  from,
-  reducedMotion,
-  target
-}: {
-  active: boolean
-  durationMs: number
-  from: number
-  reducedMotion: boolean
-  target: number
-}): number {
-  const [value, setValue] = useState(target)
-
-  useEffect(() => {
-    if (!active || reducedMotion) {
-      setValue(target)
-      return
-    }
-
-    let frameId = 0
-    const startTime = window.performance.now()
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - startTime) / durationMs, 1)
-      const nextValue = from + (target - from) * easeOutQuint(progress)
-
-      setValue(progress === 1 ? target : nextValue)
-
-      if (progress < 1) {
-        frameId = window.requestAnimationFrame(tick)
-      }
-    }
-
-    setValue(from)
-    frameId = window.requestAnimationFrame(tick)
-
-    return () => window.cancelAnimationFrame(frameId)
-  }, [active, durationMs, from, reducedMotion, target])
-
-  return value
-}
-
-function StatSevenGradient({
-  active,
-  className,
-  reducedMotion
-}: {
-  active: boolean
-  className?: string
-  reducedMotion: boolean
-}) {
-  const value = useAnimatedCounter({ active, durationMs: 720, from: 0, reducedMotion, target: 7 })
-  const displayValue = value === 7 ? '7' : value.toFixed(1).replace(/\.0$/, '')
-
+function StatSevenGradient({ active, className }: { active: boolean; className?: string }) {
   return (
     <p
       className={cn(
@@ -149,22 +90,12 @@ function StatSevenGradient({
       )}
       aria-label="7× faster publishing"
     >
-      {displayValue}×
+      7×
     </p>
   )
 }
 
-function StatPlusThirtyThree({
-  active,
-  className,
-  reducedMotion
-}: {
-  active: boolean
-  className?: string
-  reducedMotion: boolean
-}) {
-  const value = useAnimatedCounter({ active, durationMs: 820, from: 0, reducedMotion, target: 33 })
-
+function StatPlusThirtyThree({ active, className }: { active: boolean; className?: string }) {
   return (
     <p
       className={cn(
@@ -175,22 +106,12 @@ function StatPlusThirtyThree({
       )}
       aria-label="+33% faster page loads"
     >
-      +{Math.round(value)}%
+      +33%
     </p>
   )
 }
 
-function StatZero({
-  active,
-  className,
-  reducedMotion
-}: {
-  active: boolean
-  className?: string
-  reducedMotion: boolean
-}) {
-  const value = useAnimatedCounter({ active, durationMs: 680, from: 5, reducedMotion, target: 0 })
-
+function StatZero({ active, className }: { active: boolean; className?: string }) {
   return (
     <p
       className={cn(
@@ -199,9 +120,8 @@ function StatZero({
         active && 'home-stat-metric-fill',
         className
       )}
-      aria-label="0 dev tickets per campaign"
     >
-      {Math.round(value)}
+      0
     </p>
   )
 }
@@ -273,11 +193,11 @@ export function HomeDesignedForEcommerce({ className }: { className?: string }) 
                 )}
               >
                 {stat.title === 'Faster publishing' ? (
-                  <StatSevenGradient active={statsFullyVisible} reducedMotion={reducedMotion} />
+                  <StatSevenGradient active={statsFullyVisible} />
                 ) : stat.value === '0' ? (
-                  <StatZero active={zeroActive} reducedMotion={reducedMotion} />
+                  <StatZero active={zeroActive} />
                 ) : stat.title === 'Faster page loads' ? (
-                  <StatPlusThirtyThree active={plusThirtyThreeActive} reducedMotion={reducedMotion} />
+                  <StatPlusThirtyThree active={plusThirtyThreeActive} />
                 ) : (
                   <p className={cn(VALUE_CLASS, stat.valueClassName)}>{stat.value}</p>
                 )}

@@ -2,7 +2,6 @@
 
 import type { ReactNode } from 'react'
 import Header from '@/app/components/Header'
-import { PageSectionReveal } from '@/app/components/PageSectionReveal'
 import { FloatingSiteModeToggle } from '@/app/components/site-header/FloatingSiteModeToggle'
 import { isLandingPagePath } from '@/app/lib/landing-pages'
 import { usePathname } from 'next/navigation'
@@ -32,7 +31,7 @@ export function LayoutChrome({ children }: { children: ReactNode }) {
     <>
       {isLandingPage ? null : <Header />}
       <div className={usesHomeHeroLayout || isLandingPage ? undefined : 'pt-[calc(5.5rem+10px)] sm:pt-[5.5rem]'}>
-        <PageSectionReveal key={normalizedPath}>{children}</PageSectionReveal>
+        {children}
       </div>
       {isLandingPage || !showSiteModeToggle ? null : <FloatingSiteModeToggle />}
     </>
