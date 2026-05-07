@@ -8,3 +8,8 @@ export const VEE_HERO_BG = '/images/bg-pink.svg'
  * Live Editor browser mockup with in-context text editing; transparent PNG.
  */
 export const VEE_HERO_LIVE_EDITOR_IMAGE = '/images/visual-experience-engine/hero-main.png'
+
+/**
+ * Full-frame hero motion background.
+ */
+export const VEE_HERO_VIDEO = '/images/video/Hero_Visual_engine.mp4'
